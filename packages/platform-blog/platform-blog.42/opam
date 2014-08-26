@@ -1,0 +1,8 @@
+opam-version: "1.2"
+build: [
+  ["mkdir" "-p" "%{share}%/platform-blog"]
+  ["sh" "-c" "cp -R . %{share}%/platform-blog/"]
+]
+remove: [
+  "rm" "-rf" "%{share}%/platform-blog"
+]

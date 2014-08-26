@@ -1,0 +1,9 @@
+opam-version: "1.1"
+maintainer: "The OPAM team"
+build: [
+  ["mkdir" "-p" "%{share}%/opam.wiki"]
+  ["sh" "-c" "cp * %{share}%/opam.wiki/"]
+]
+remove: [
+  "rm" "-rf" "%{share}%/opam.wiki"
+]

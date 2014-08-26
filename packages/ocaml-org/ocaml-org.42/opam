@@ -1,0 +1,31 @@
+opam-version: "1.1"
+build: [
+  [make "opam.ocaml.org_template"]
+  ["sh" "-c" "cd opam.ocaml.org &&
+                ./link_blog_doc_ext.sh
+                  %{share}%/platform-blog/
+                  %{share}%/opam.wiki
+                  %{share}%/opam2web/ext/"]
+  ["opam2web" "-c" "opam.ocaml.org" "-o" "www"]
+  ["cp" "-R" "%{share}%/opam2web/ext" "www/"]
+  ["webmaster" "relativize" "www" "--root" "www" "-o" "www_out"]
+  ["webmaster" "resolve" "--has-host"
+      "--base" "https://" "www_out"
+      "--root" "www_out" "-f"
+      "-o" "www_out"]
+  ["mkdir" "-p" "%{share}%/ocaml.org"]
+  ["cp" "-R" "opam.ocaml.org" "%{share}%/ocaml.org/opam"]
+]
+remove: [
+  "rm" "-rf" "%{share}%/ocaml.org"
+]
+depends: [
+  "ocamlfind"
+  "mpp" {>= "0.1.2"}
+  "omd" {>= "0.9.7"}
+  "opam2web" {>= "1.3.1"}
+  "uri" {>= "1.3.11"}
+  "ssl" "ocamlnet"
+  "ocamlrss"
+  "opam-wiki" "platform-blog" "opam2web" "webmaster"
+]
