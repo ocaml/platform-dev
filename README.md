@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/ocaml/platform-dev.png?branch=master)](https://travis-ci.org/ocaml/platform-dev)
