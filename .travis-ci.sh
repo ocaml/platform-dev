@@ -25,4 +25,4 @@ case "$OCAML_VERSION," in
 esac
 
 opam install opam-doc-base
-opam install opam-org
+opam install ocaml-org
