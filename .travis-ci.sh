@@ -20,9 +20,11 @@ export OPAMVERBOSE=1
 opam init git://github.com/ocaml/opam-repository >/dev/null 2>&1
 opam repo add platform .
 
-case "$OCAML_VERSION," in
-  4.02.0+doc) opam swith 4.02+doc ;;
+case "$OCAML_VERSION" in
+  4.02.0+doc)
+    opam swith 4.02+doc
+    opam install opam-doc-base ;;
+  *) echo "Skipping installation of opam-doc-base" ;;
 esac
 
-opam install opam-doc-base
 opam install ocaml-org
