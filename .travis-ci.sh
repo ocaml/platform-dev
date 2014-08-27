@@ -20,7 +20,7 @@ opam init git://github.com/ocaml/opam-repository >/dev/null 2>&1
 opam repo add platform .
 
 case "$OCAML_VERSION" in
-  4.02.0+doc)
+  4.02.0)
     opam switch 4.02.0+rc1 ;;
   4.02.0+doc)
     opam switch 4.02.0+doc
