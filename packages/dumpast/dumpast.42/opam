@@ -5,7 +5,10 @@ license: "ISC"
 build: [
   [make
     "OCAML_VERSION=402" { ocaml-version >= "4.02.0"}
-    "OCAML_VERSION=401" { ocaml-version < "4.02.0"} ]
-  [make "install"]
+    "OCAML_VERSION=401" { ocaml-version < "4.02.0"}]
+  [make
+    "OCAML_VERSION=402" { ocaml-version >= "4.02.0"}
+    "OCAML_VERSION=401" { ocaml-version < "4.02.0"}
+    "install"]
 ]
 depends: ["ocamlfind"]
