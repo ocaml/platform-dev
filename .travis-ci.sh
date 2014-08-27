@@ -22,7 +22,7 @@ opam repo add platform .
 
 case "$OCAML_VERSION" in
   4.02.0+doc)
-    opam swith 4.02+doc
+    opam switch 4.02+doc
     opam install opam-doc-base ;;
   *) echo "Skipping installation of opam-doc-base" ;;
 esac
