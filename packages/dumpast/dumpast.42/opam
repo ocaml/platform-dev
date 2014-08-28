@@ -3,7 +3,12 @@ maintainer: "thomas@gazagnaire.org"
 authors: ["Thomas Gazagnaire <thomas@gazagnaire.org>"]
 license: "ISC"
 build: [
-  [make "OCAML_VERSION=402" { ocaml-version > "4.01.0" }]
-  [make "install"]
+  [make
+    "OCAML_VERSION=402" { ocaml-version >= "4.02.0"}
+    "OCAML_VERSION=401" { ocaml-version < "4.02.0"}]
+  [make
+    "OCAML_VERSION=402" { ocaml-version >= "4.02.0"}
+    "OCAML_VERSION=401" { ocaml-version < "4.02.0"}
+    "install"]
 ]
 depends: ["ocamlfind"]
