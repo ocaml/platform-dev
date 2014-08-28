@@ -18,4 +18,3 @@ build: [
   [make "install"]
 ]
 remove: ["ocamlfind" "remove" "opam-units"]
-libraries: "opam-units"
