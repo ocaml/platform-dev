@@ -20,12 +20,15 @@ opam repo add platform .
 
 case "$OCAML_VERSION" in
   4.01.0)
+    opam install opam-publish
     opam install ocaml-org ;;
   4.02.0)
     opam switch 4.02.0+rc1
+    opam install opam-publish
     opam install ocaml-org ;;
   4.02.0+doc)
     opam switch 4.02.0+doc
+    opam install opam-publish
     opam install opam-doc-base ;;
   *)
     echo "Nothing to do";
