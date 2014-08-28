@@ -3,10 +3,7 @@ script: bash -e .travis-ci.sh
 os:
 - linux
 env:
-  global:
-    - OPAM_VERSION=1.1.0
   matrix:
     - OCAML_VERSION=4.02.0
     - OCAML_VERSION=4.01.0
-    - OCAML_VERSION=4.00.1
     - OCAML_VERSION=4.02.0+doc
