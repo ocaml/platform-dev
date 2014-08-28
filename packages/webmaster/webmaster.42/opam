@@ -7,4 +7,5 @@ build: [
 depends: [
   "assemblage"
   "uri"
+  "ocamlnet"
 ]
