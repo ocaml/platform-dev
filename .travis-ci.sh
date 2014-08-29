@@ -29,7 +29,8 @@ case "$OCAML_VERSION" in
   4.02.0+doc)
     opam switch 4.02.0+doc
     opam install opam-publish
-    opam install opam-doc-base ;;
+    opam install opam-doc-base
+    opam install ocaml-org ;;
   *)
     echo "Nothing to do";
     exit 1 ;;
