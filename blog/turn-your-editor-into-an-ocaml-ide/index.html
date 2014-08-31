@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  Platform Blog  – OCaml</title>
+    <link href="https://ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="https://ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="https://ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="https://ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="https://ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+    
+    <link href="https://ocaml.org/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="https://ocaml.org/" class="brand"><img src="https://ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="https://ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="https://ocaml.org/learn/">Learn</a></li>
+              <li><a href="https://ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="https://ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../.">OPAM</a></li>  <li class=""><a href="../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../about.html">About OPAM</a></li>  <li class="active"><a href="../../blog/turn-your-editor-into-an-ocaml-ide/">Platform Blog</a></li>         
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+        <div class="row">
+          <div class="span3">
+            <div class="bs-docs-menu hidden-phone">
+              
+      <ul class="nav nav-pills nav-stacked">
+        
+            <li class="active">
+              <a href="../turn-your-editor-into-an-ocaml-ide/">Turn your editor into a full fledged OCaml IDE</a>
+            </li>
+          
+            <li class="">
+              <a href="../opam-1-2-pin/">OPAM 1.2: Repository Pinning</a>
+            </li>
+          
+            <li class="">
+              <a href="../opam-1-2-0-beta4/">OPAM 1.2.0 public beta released</a>
+            </li>
+          
+            <li class="">
+              <a href="../opam-1-1-1-released/">OPAM 1.1.1 released</a>
+            </li>
+          
+            <li class="">
+              <a href="../opam-1-1-0-released/">OPAM 1.1.0 released</a>
+            </li>
+          
+            <li class="">
+              <a href="../opam-1-1-0-release-candidate/">OPAM 1.1.0 release candidate out</a>
+            </li>
+          
+            <li class="">
+              <a href="../opam-1-1-0-beta/">OPAM 1.1.0 beta released</a>
+            </li>
+          
+            <li class="">
+              <a href="../opam-1-0-0-released/">OPAM 1.0.0 released</a>
+            </li>
+          
+      </ul>
+    
+            </div>
+          </div>
+          <div class="span9">
+            
+        <div class="page-header"><h3>
+          Turn your editor into a full fledged OCaml IDE
+          <div class="text-right"><small>
+            On  <time datetime="2014-08-20T23:00:00">2014-08-20</time>, by <span class="authors">  <a class="author" href="https://github.com/def-lkb">Frederic Bour</a>  and  <a class="author" href="https://github.com/trefis">Thomas Refis</a>  </span>
+          </small></div>
+        </h3></div>
+        
+<p>This post is a short presentation of a couple of tools you can use with your
+editor to have a smoother experience while developing in OCaml.  We are working
+towards making these tools work out-of-the-box with OPAM, and hence will be
+blogging about them here along with the OPAM tool itself.</p>
+<p>At the time of writing, interfaces to these tools are available for
+Emacs and Vim.  Efforts are underway to add support for other editors,
+including <a href="https://github.com/raphael-proust/merlin-acme">Acme</a> and
+<a href="https://github.com/def-lkb/sublime-text-merlin">Sublime Text 3</a>.</p>
+<h1 id="Overview">Overview</h1>
+<p>The first tool, <a href="http://www.typerex.org/ocp-indent.html">ocp-indent</a>,
+handles the task of indenting your OCaml files.  It is an OCaml executable that
+can be used from the command line or directly from your editor.</p>
+<p>The second tool, <a href="http://the-lambda-church.github.io/merlin/">merlin</a> performs
+&quot;static analysis&quot; of your source files.  The analysis is then used to provide error reporting, source
+browsing, auto-completion and more.</p>
+<h2 id="Ocpindentforindentation">Ocp-indent for indentation</h2>
+<p>Most editors provide some kind of indentation &quot;out of the box&quot;.
+However recently a good chunk of the OCaml community has moved to using
+ocp-indent for fine-tuned indentation:</p>
+<ul>
+ <li>it follows language evolution closely, nicely handling recent features,</li>
+ <li>it will indent the same even if your co-worker has a different editor,</li>
+ <li>it is more flexible, for instance by supporting project-specific styles;</li>
+</ul>
+
+<p>Indeed the indentation behaviour of ocp-indent can be configured through several
+options, directing how it will behave when encountering different OCaml language constructs.
+These options can either be set in a configuration file (such as 
+<a href="https://github.com/OCamlPro/ocp-indent/blob/master/.ocp-indent">this example configuration</a>)
+or passed directly as parameters when ocp-indent is invoked from the command line.</p>
+<p>Finally, ocp-indent will also recognize a number of common syntax extensions of the
+OCaml ecosystem and indent them meaningfully, while your editor probably will not.</p>
+<h2 id="Merlinforanalysis">Merlin for analysis</h2>
+<p>Merlin enhances your experience editing OCaml code by providing interactive
+feedback about your code.</p>
+<p>Under the hood, it maintains a &quot;code model&quot; of the file you are editing.  For
+other files in your project, it will use the output produced by the compiler;
+rebuild regularly after editing to keep the model synchronized with your code.</p>
+<p>From this code model, it provides a lot of useful features:</p>
+<ul>
+ <li>scope/context-aware completion, like IntelliSense;</li>
+ <li>querying the type of any expression in the file;</li>
+ <li>quick reporting of type and syntax errors, shortening the editing cycle;</li>
+ <li>jumping to definitions;</li>
+ <li>listing uses of identifiers in the current buffer.</li>
+</ul>
+
+<p><img src="turn-your-editor-into-an-ocaml-ide-merlin.png" alt=""/></p>
+<h1 id="Quickstart">Quick start</h1>
+<p>Assuming opam is already installed on your system, you just need to invoke</p>
+<pre><code>$ opam install ocp-indent merlin</code></pre>
+<p>to install these two tools.</p>
+<p><strong>Emacs.</strong> You will have to add <code>opam/share</code> to <code>'load-path</code> and then load the plugin-specific
+file.  This can be done by adding the following lines to your <code>.emacs</code>:</p>
+<pre class="lisp"><code class="lisp">(setq opam-share (substring (shell-command-to-string &quot;opam config var share 2&gt; /dev/null&quot;) 0 -1))
+(add-to-list 'load-path (concat opam-share &quot;/emacs/site-lisp&quot;))
+
+(require 'ocp-indent)
+(require 'merlin)</code></pre>
+<p>For more information about merlin setup, you can look at
+<a href="https://github.com/the-lambda-church/merlin/wiki">the dedicated merlin wiki</a>.</p>
+<p><strong>Vim &amp; ocp-indent.</strong>  We recommend using the
+<a href="https://github.com/def-lkb/ocp-indent-vim">ocp-indent-vim</a> plugin instead of
+the default one. It provides interactive indentation &quot;as you type&quot;, while the
+official mode only provides an indenting function to call manually but
+no passive indentation.</p>
+<p>This mode does require vim to be compiled with Python support, while the
+official one doesn't.</p>
+<p>Installing is as simple as cloning
+<a href="https://github.com/def-lkb/ocp-indent-vim">ocp-indent-vim</a> and adding the
+directory to your runtime-path.</p>
+<p>Assuming your clone is in <code>~/my-clone-of/ocp-indent-vim</code>, add this to <code>.vimrc</code>:</p>
+<pre class="viml"><code class="viml">set rtp+=~/my-clone-of/ocp-indent-vim</code></pre>
+<p><strong>Vim &amp; merlin.</strong>  A comprehensive guide to the installation procedure for
+merlin is available on <a href="https://github.com/the-lambda-church/merlin/wiki">the dedicated
+merlin wiki</a>.  Once again, if you
+just want to get started the following lines contain everything you need.</p>
+<p>Loading merlin in vim boils down to adding the plugin directory to the
+runtime path. However as merlin depends on your current opam switch, a more
+flexible way is to find the current switch and use it as the base directory.</p>
+<p>This code does exactly that: it finds the current opam share directory, then adds
+the merlin plugin subdirectory to the current runtime path. Add it to your <code>.vimrc</code>:</p>
+<pre class="viml"><code class="viml">let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute &quot;set rtp+=&quot; . g:opamshare . &quot;/merlin/vim&quot;</code></pre>
+<h2 id="Integratingwithyourproject">Integrating with your project</h2>
+<p>To maintain synchronization with the compiler, merlin needs some information
+about the structure of your project: build and source directories, package
+dependencies, syntax extensions.  This structure can be described in a <code>.merlin</code> file in the root directory of your project.
+The <a href="https://github.com/the-lambda-church/merlin/blob/master/.merlin"><code>.merlin</code> file for the merlin project</a> illustrates the syntax.</p>
+<p>The <code>.merlin</code> file will be loaded the next time you open an OCaml file in the editor.</p>
+<p>To benefit from code navigation across files you'll also need to turn on
+generation of &quot;cmt&quot; files by passing the <code>-bin-annot</code> flag to the OCaml
+compiler.  You can do this in <code>ocamlbuild</code> by adding the <code>bin_annot</code> tag
+into the <code>_tags</code> file with OCaml 4.01 and higher.</p>
+
+      
+          </div>
+        </div>
+      
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="footer">
+    <div class="icons">
+    <div class="icon">
+      <a href="https://github.com/ocaml/opam2web">
+      <img src="../../ext/img/github.png"/>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="http://www.ocamlpro.com/">
+      <img src="../../ext/img/ocamlpro.png"/>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="http://www.ocaml.org/">
+      <img src="../../ext/img/ocaml.png"/>
+      </a>
+    </div>
+    </div>
+    <div class="copyright">
+      <small>
+      Generated using <a href="http://github.com/ocaml/opam2web">opam2web</a>,
+      courtesy of <a href="http://ocamlpro.com">OCamlPro</a>.
+      <a href="http://opam.ocamlpro.com">Commercial support</a>.
+      </small>
+    </div>
+  </div>
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="https://ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="https://ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="https://ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="https://ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="https://ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="https://ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="https://ocaml.org/community/planet/">News</a></li>
+      <li><a href="https://ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="https://ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="https://ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../ext/js/jquery.js"> </script>  <script src="../../ext/js/site.js"> </script>  <script src="../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  Platform Blog ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="https://ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

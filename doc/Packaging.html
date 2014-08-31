@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  Packaging  – OCaml</title>
+    <link href="https://ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="https://ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="https://ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="https://ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="https://ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+    
+    <link href="https://ocaml.org/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="https://ocaml.org/" class="brand"><img src="https://ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="https://ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="https://ocaml.org/learn/">Learn</a></li>
+              <li><a href="https://ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="https://ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../.">OPAM</a></li>  <li class=""><a href="../packages/">Repository</a></li> 
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class="active"><a href="../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../about.html">About OPAM</a></li>  <li class=""><a href="../blog/turn-your-editor-into-an-ocaml-ide/">Platform Blog</a></li>         
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+          <div class="row">
+            <div class="span3">
+          <div class="bs-docs-menu hidden-phone">
+            
+      <ul class="nav nav-pills nav-stacked">
+        
+            <li class="disabled">
+              <a href="#"><strong>Primer</strong></a>
+            </li>
+          <li class="">
+            <a href="Quick_Install.html"> Quick Install</a>
+          </li><li class="">
+            <a href="Basic_Usage.html"> Basic Usage</a>
+          </li><li class="">
+            <a href="Specifying_Solver_Preferences.html"> Specifying Solver Preferences</a>
+          </li><li class="">
+            <a href="FAQ.html"> FAQ</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+            <li class="disabled">
+              <a href="#"><strong>Go Further</strong></a>
+            </li>
+          <li class="">
+            <a href="Advanced_Install.html"> Advanced Install</a>
+          </li><li class="">
+            <a href="Advanced_Usage.html"> Advanced Usage</a>
+          </li><li class="">
+            <a href="Developing.html"> Developing</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+            <li class="disabled">
+              <a href="#"><strong>For Packagers</strong></a>
+            </li>
+          <li class="active">
+            <a href="Packaging.html"> Packaging</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+      </ul>
+    
+            <ul>
+ <li><a href="#CreatingOPAMpackages">Creating OPAM packages</a>
+ </li>
+ <li><a href="#TheounitOPAMpackage">The <em>ounit</em> OPAM package</a>
+  <ul>
+   <li><a href="#Notes">Notes</a>
+   </li>
+  </ul>
+
+ </li>
+ <li><a href="#TestingcustomOPAMpackages">Testing custom OPAM packages</a>
+ </li>
+ <li><a href="#AdvancedOPAMpackagingguide">Advanced OPAM packaging guide</a>
+  <ul>
+   <li><a href="#OPAMvariables">OPAM variables</a>
+   </li>
+   <li><a href="#Optionaldependencies">Optional dependencies</a>
+   </li>
+   <li><a href="#Versionconstraints">Version constraints</a>
+   </li>
+   <li><a href="#Manuallyinstallingbinariesorlibaries">Manually installing binaries or libaries</a>
+   </li>
+   <li><a href="#Compilerversionconstraints">Compiler version constraints</a>
+   </li>
+   <li><a href="#Patchingsources">Patching sources</a>
+   </li>
+   <li><a href="#GitDarcspackages">Git / Darcs packages</a>
+   </li>
+   <li><a href="#Wheretogofromhere">Where to go from here</a>
+   </li>
+  </ul>
+
+ </li>
+ <li><a href="#IncludingpackagestotheofficialOPAMrepository">Including packages to the official OPAM repository</a>
+ </li>
+</ul>
+
+          </div>
+          </div>
+          <div class="span9">
+          <blockquote><p><strong>NOTE</strong></p>
+<p>this documentation is for the current stable version <strong>1.1</strong>. If you
+are already testing the <a href="https://github.com/ocaml/opam/releases">1.2.0 beta</a>,
+head straight to the <a href="1.2/">updated documentation</a></p>
+</blockquote>
+
+          <h1 id="CreatingOPAMpackages">Creating OPAM packages</h1>
+<p>In this tutorial, you will learn how to package an OCaml library or
+software for OPAM. The first section will introducpde you the <em>ounit</em>
+OPAM package. Albeit simple, it is a real example of what an OPAM
+package is, and actually most packages in the OPAM repository are that
+simple. The second section will be a comprehensive guide illustrated
+by more complicated examples of real packaging cases.</p>
+<p>An important thing to keep in mind is that OPAM is (at least for now)
+<strong>only</strong> a package manager, as opposed to — for example — the
+<em>oasis/odb</em> suite, which includes a build system (<em>oasis</em>) as well
+as a package manager (<em>odb</em>). This means that OPAM cannot help you to
+actually build your ocaml software or library, to do so, you need to
+use dedicated tools such as <em>ocamlbuild</em>, <em>oasis</em>, <em>omake</em> and
+others. OPAM packages are just built the same way you would build the
+software yourself (with shell commands).</p>
+<h1 id="TheounitOPAMpackage">The <em>ounit</em> OPAM package</h1>
+<p>Let get started by learning from the <em>ounit</em> OPAM package. This is a
+widely used OCaml library to create unit tests for OCaml projects, and
+is a perfect example of a minimalistic yet complete package.</p>
+<p>By reading about <em>ounit</em> on the <a href="http://ounit.forge.ocamlcore.org">upstream website</a>,
+you learn that it is a library to create unit tests, that its latest version
+is <em>1.1.2</em>, and that it depends on <a href="http://projects.camlcity.org/projects/findlib.html/">ocamlfind</a>.
+You know the URL you can download its source tarball, and you must compute the <em>md5sum</em> of
+this source tarball by running <code>md5sum ounit-1.1.2.tar.gz</code> (or, on some operating systems, <code>md5</code> instead of <code>md5sum</code>).</p>
+<p>You also learn that to build and install it, you have to:</p>
+<pre><code>make build
+make install</code></pre>
+<p>And that’s all the information you need to build an OPAM package.</p>
+<p>A minimum OPAM package is a directory containing three files: <code>descr</code>, <code>opam</code>, and <code>url</code>.
+The name of the directory defines the package name and version: <code>&lt;package-name&gt;.&lt;package-version&gt;</code>.
+In our case, the directory will be <code>ounit.1.1.2</code> and contain the following files:</p>
+<ul>
+ <li><code>packages/&lt;package-name&gt;/&lt;package-name&gt;.&lt;package-version&gt;/descr</code></li>
+</ul>
+
+<pre><code>Unit testing framework inspired by the JUnit tool and the HUnit tool</code></pre>
+<ul>
+ <li><code>packages/&lt;package-name&gt;/&lt;package-name&gt;.&lt;package-version&gt;/opam</code></li>
+</ul>
+
+<pre><code>opam-version: &quot;1&quot;
+maintainer: &quot;contact@ocamlpro.com&quot;
+build: [
+  [make &quot;build&quot;]
+  [make &quot;install&quot;]
+]
+remove: [
+  [&quot;ocamlfind&quot; &quot;remove&quot; &quot;oUnit&quot;]
+]
+depends: [&quot;ocamlfind&quot;]</code></pre>
+<ul>
+ <li><code>packages/&lt;package-name&gt;/&lt;package-name&gt;.&lt;package-version&gt;/url</code></li>
+</ul>
+
+<pre><code>archive: &quot;http://forge.ocamlcore.org/frs/download.php/886/ounit-1.1.2.tar.gz&quot;
+checksum: &quot;14e4d8ee551004dbcc1607f438ef7d83&quot;</code></pre>
+<h2 id="Notes">Notes</h2>
+<h3 id="descr"><code>descr</code></h3>
+<p>This file is pure text. Its first line will be used as a short
+description of the package, it is what is displayed for each package
+when you do <code>opam list</code>. The whole text contained in there is
+displayed when you do <code>opam search &lt;package&gt;</code>. Therefore you should
+put a short meaningful description on the first line, and a long
+description starting from the second line.</p>
+<h3 id="opam"><code>opam</code></h3>
+<p>The full ABNF specification of the syntax for <em>opam</em> files is
+available in OPAM
+<a href="https://github.com/ocaml/opam/blob/latest/doc/dev-manual/dev-manual.pdf?raw=true">developer manual</a>.
+In this file,
+<code>opam-version</code> MUST be <code>1</code>, and you should put your email in the
+<code>maintainer</code> field. <code>build</code> has OCaml type <code>string list list</code>, and
+contains the build instructions. Here,</p>
+<pre><code>make build
+make install</code></pre>
+<p>gets translated into</p>
+<pre><code>build: [
+  [make &quot;build&quot;]
+  [make &quot;install&quot;]
+]</code></pre>
+<p>You should adapt this to the required commands to build your package,
+and each line contains the shell commands corresponding to a
+<code>string list</code>. Note that <code>make</code> is a special variable which will be
+automatically translated to either <code>make</code> on linux and OSX or <code>gmake</code>
+on BSD systems.</p>
+<p>The <code>remove</code> field follows the same syntax as the <code>build</code> field. The
+<code>depends</code> field is a <code>string list</code> of dependencies, with each dependency
+being another OPAM package. Here <em>ounit</em> depends only on <em>ocamlfind</em>.</p>
+<h3 id="url"><code>url</code></h3>
+<p>This file contains at least one <code>archive</code> line containing the URL of
+the source package, and optionally a <code>checksum</code> line that must contain
+the MD5 sum of the source package if it is present. It is good practice
+to systematically add a checksum line to your packages, unless the
+source package has no fixed version (the typical example being a
+source package hosted on <em>github</em> with no tags). This checksum will be
+checked when creating and installing the package.</p>
+<p>The URL can also contain a single <code>git</code> or <code>darcs</code> field instead of <code>archive</code>,
+which points to GIT or DARCS repository URL.  This will be checked out and
+updated every time <code>opam update</code> is run, which is useful for development
+packages.</p>
+<h1 id="TestingcustomOPAMpackages">Testing custom OPAM packages</h1>
+<p>The easiest way to test your new packages is to set-up a local
+repository for testing purposes.</p>
+<pre><code>$ mkdir -p /tmp/testing
+$ opam repo add testing /tmp/testing</code></pre>
+<p>These commands add a new (currently empty) repository named
+<code>testing</code> (you can pick an other name if your prefer) which will
+contain what is in <code>/tmp/testing</code> (<em>Remark</em>: you can also clone the
+official git repository if you don't want to start from a fresh one,
+this will work as well).</p>
+<p>You can now check that this new repository exists:</p>
+<pre><code>$ opam repo  # eq. to 'opam repo list'</code></pre>
+<p>This command displays the list of repositories, with <code>testing</code>
+having the highest priority (you can use <code>opam repo priority</code> to
+change the relative repository priorities later).</p>
+<p>Now it is time to populate <code>/tmp/testing/packages</code> with your new package
+files. For instance, if you want to test the version <code>1.1.3</code> of <code>ounit</code>,
+you have to create <code>/tmp/testing/packages/ounit.1.1.3/{opam,descr,url}</code>
+following the guidelines defined above.</p>
+<p>To take this changes into account, update your testing repository:</p>
+<pre><code>$ opam update testing</code></pre>
+<p>If everything is fine, OPAM should tell you than a new version of <code>ounit</code> is
+available. If this is the case, you can install it by doing:</p>
+<pre><code>$ opam install ounit.1.1.3</code></pre>
+<p><em>Remark</em>: you can use <code>opam-admin</code> to simulate the creation of OPAM
+package archives done on <code>opam.ocaml.org</code>:</p>
+<pre><code>$ cd /tmp/testing &amp;&amp; opam-admin check &amp;&amp; opam-admin make -g ounit</code></pre>
+<p>This command will:</p>
+<ul>
+ <li>Check that your metadata are well-formed.</li>
+ <li>Download the upstream archive, and generate the correct checksum
+ (because of `-g);</li>
+ <li>Create the archive <code>archives/ounit.1.1.3+opam.tar.gz</code> containing
+ the content of the upstream archive + the files in
+ <code>packages/ounit/ounit.1.1.3/files/</code></li>
+ <li>Create <code>urls.txt</code> and <code>index.tar.gz</code> at the root of your repository,
+ which will let you host it as an HTTP remote.</li>
+</ul>
+
+<p>If <code>archives/ounit.1.1.3+opam.tar.gz</code> exists, OPAM will use it
+directly instead of downloading the archive upstream.</p>
+<p>If (i) the basic installation and (ii) the archive creation work, you
+are in good shape to submit your new package upstream (see below).</p>
+<h1 id="AdvancedOPAMpackagingguide">Advanced OPAM packaging guide</h1>
+<p>This section will be as comprehensive as possible on the art of
+creating OPAM packages, but in case of ambiguities, the ABNF syntax
+documentation has priority.</p>
+<p>Since everything has already be said about the <code>descr</code> file and almost
+everything about the <code>url</code> file, this section is mostly about the
+<code>opam</code> files.</p>
+<h2 id="OPAMvariables">OPAM variables</h2>
+<p>OPAM maintains a set of variables (key value pairs) that can be used
+in <code>opam</code> files and that will be substituted by their values on
+package creation. The list of variables that can be used in <code>opam</code>
+files can be displayed by doing <code>opam config list</code>. The
+following example shows the <code>build</code> section of package <em>ocamlnet</em> that
+use the variable <code>bin</code>:</p>
+<pre><code>build: [
+  [&quot;./configure&quot; &quot;--bindir&quot; bin]
+  [make &quot;all&quot;]
+  [make &quot;opt&quot;]
+  [make &quot;install&quot;]
+]
+
+</code></pre>
+<p>In this case, <code>bin</code> will be substituted by the value of the <code>bin</code>
+variable. In case you need to substitue a substring, you can use
+<code>&quot;--bindir=%{bin}%&quot;</code>: here <code>%{bin}%</code> will be substituted by the
+value of <code>bin</code>.</p>
+<h2 id="Optionaldependencies">Optional dependencies</h2>
+<p>We mentioned the ability to specify optional dependencies for packages.
+If a package has optional dependencies, they will not be installed automatically,
+but will be taken into account if they are present <em>before</em> the installation.
+If the optional dependency is not present, but are subsequently installed,
+then the depending package will also be recompiled to take advantage of the newly
+installed library.</p>
+<p>Let us see how it works via the following example, which shows the <code>opam</code> file of the <em>lwt</em> package:</p>
+<pre><code>opam-version: &quot;1&quot;
+maintainer: &quot;contact@ocamlpro.com&quot;
+build: [
+  [&quot;./configure&quot;
+     &quot;--%{conf-libev:enable}%-libev&quot;
+     &quot;--%{react:enable}%-react&quot;
+     &quot;--%{ssl:enable}%-ssl&quot;
+     &quot;--%{base-unix:enable}%-unix&quot;
+     &quot;--%{base-unix:enable}%-extra&quot;
+     &quot;--%{base-threads:enable}%-preemptive&quot;]
+  [make &quot;build&quot;]
+  [make &quot;install&quot;]
+]
+remove: [
+  [&quot;ocamlfind&quot; &quot;remove&quot; &quot;lwt&quot;]
+]
+depends: [&quot;ocamlfind&quot;]
+depopts: [&quot;base-threads&quot; &quot;base-unix&quot; &quot;conf-libev&quot; &quot;ssl&quot; &quot;react&quot;]</code></pre>
+<p>Notice the new <code>depopts</code> field, which contains the list of
+optional dependencies, specified in the same format as the
+<code>depends</code> field.</p>
+<p>Also notice a new syntax for substitutions of the form
+<code>%{&lt;package&gt;:enable}%</code>. If <em>package</em> is
+installed, this pattern will be replaced by <code>enable</code>, otherwise by
+<code>disable</code>. This ease the building of lines of type <code>./configure
+--enable-&lt;feature1&gt; --disable-&lt;feature2&gt;</code>.</p>
+<h2 id="Versionconstraints">Version constraints</h2>
+<p>If a package depends (respectively optionally depends) on a specific
+version of a package, this can be specified by using the following
+syntax for the field <code>depends</code> (respectively <code>depopts</code>) of the <code>opam</code>
+file:</p>
+<pre><code>depends: [ &quot;ocamlfind&quot; &quot;re&quot; &quot;uri&quot; &quot;ounit&quot; ]
+depopts: [ &quot;async&quot; {= &quot;108.00.02&quot;} &quot;lwt&quot; &quot;mirage-net&quot; ]</code></pre>
+<p>The above example shows two fields of the <code>opam</code> file of package
+<em>cohttp</em>, that optionally depends of the version 108.00.02 of package
+<em>async</em>.</p>
+<p>The OPAM specification document specifies the format used by the
+<code>depends</code> and <code>depopts</code> fields. As there is much more to say about
+version constraints, you should read it to learn how to write very
+fine grained version constraints.</p>
+<h2 id="Manuallyinstallingbinariesorlibaries">Manually installing binaries or libaries</h2>
+<p>Most of the time, when a package is built, binaries and/or libraries
+that it provides are installed by the package's build
+commands. However, for various reasons, sometimes a source package's
+build commands do not allow you to install all the files you would
+like or do not install them with the name or path you would like. Opam
+allows you to control installed files precisely by providing a
+<code>.install</code> file. For example, the package <em>xmlm</em> has this following
+<code>opam</code> file:</p>
+<pre><code>opam-version: &quot;1&quot;
+maintainer: &quot;contact@ocamlpro.com&quot;
+build: [
+  [&quot;ocaml&quot; &quot;setup.ml&quot; &quot;-configure&quot; &quot;--prefix&quot; prefix]
+  [&quot;ocaml&quot; &quot;setup.ml&quot; &quot;-build&quot;]
+  [&quot;ocaml&quot; &quot;setup.ml&quot; &quot;-install&quot;]
+]
+remove: [
+  [&quot;ocamlfind&quot; &quot;remove&quot; &quot;xmlm&quot;]
+]
+depends: [&quot;ocamlfind&quot;]</code></pre>
+<p>and has additional file <code>files/xmlm.install</code>:</p>
+<pre><code>bin: [&quot;_build/test/xmltrip.native&quot; {&quot;xmltrip&quot;}]</code></pre>
+<p>This has the semantics: “install the file of path
+<code>_build/test/xmltrip.native</code> relative to the root of the source
+package into the directory returned by the command <code>opam config var
+bin</code> under the name <code>xmltrip</code>”. If the source filename starts by <code>?</code>,
+the installation will not fail if the file is not present.</p>
+<p>Thus, this additional file gets installed and removed by opam, in
+addition to those installed by the <code>ocaml setup.ml -install</code> and
+removed by the <code>ocamlfind remove xmlm</code> commands.</p>
+<p>The <code>bin</code> section installs files in opam's <code>bin</code> directory. You can
+also define a list of files to be installed in the sections: <code>lib</code>,
+<code>toplevel</code>, <code>share</code>, <code>doc</code>, <code>misc</code>, <code>stublibs</code>, and <code>man</code>. For
+example, to install additional library files, you can have the
+section:</p>
+<pre><code>lib: [ &quot;META&quot; &quot;lib/foo.cmi&quot; &quot;lib/foo.cmo&quot; &quot;lib/foo.cmx&quot; ]</code></pre>
+<p>Note the destination name in curly braces can be omitted if no
+modification to the filename is necessary.</p>
+<p>Ideally, the <code>.install</code> file should be dynamically created by the
+package build system at the root of the project and should be named
+<code>$(OPAM_PACKAGE_NAME).install</code> (<code>$OPAM_PACKAGE_NAME</code> is automatically
+set by OPAM). If it comprehensively lists every file that should be
+installed, then the <code>build</code> section of the package's <code>opam</code> file
+should exclude a <code>make install</code> (or equivalent) command, and the
+<code>remove</code> section should be omitted.</p>
+<p>Aside from dynamically generating this file, it is also possible to
+include a static version in a package under the <code>files</code> sub-directory,
+as is the case for the xmlm example above. This is less ideal than
+dynamically generating it, but is supported because package developers
+may find it easier to generate this file manually than figuring out
+how to dynamically generate it with their build system.</p>
+<p>For comprehensive information about this facility refer to the Section 1.2.5 of OPAM
+<a href="https://github.com/ocaml/opam/blob/latest/doc/dev-manual/dev-manual.pdf?raw=true">developer manual</a></p>
+<h2 id="Compilerversionconstraints">Compiler version constraints</h2>
+<p>Some packages require a specific OCaml version to work and thus can
+only be installed under specific compiler versions. To specify such a
+constraint, you can add a field <code>ocaml-version: [ &lt;
+&quot;4.00.0&quot; ]</code> (or <code>available: [ ocaml-version &lt; &quot;4.00.0&quot; ]</code> for OPAM 1.1 on) to the <code>opam</code> file. This particular constraint implies
+that the package cannot be built or installed under OCaml 4.00.0 or
+later.</p>
+<h2 id="Patchingsources">Patching sources</h2>
+<p>You can instruct OPAM to apply patches to the source code before building a package. To do so, you have to add a <em>patches</em> field to the opam file, the syntax being of the form <code>patches: [&quot;bugfix1.patch&quot; &quot;bugfix2.patch&quot;]</code>, where <em>bugfix1.patch</em> and <em>bugfix2.patch</em> are two files existing in the directory <code>files</code>. Before building such a package, OPAM will substitute any opam variable (of the form <code>%{variable}%</code>) to their respective values and apply the resulting patches to the source code. Only then will the package be built. For more information, please look at packages including patches, such as <code>dbm.1.0</code>.</p>
+<h2 id="GitDarcspackages">Git / Darcs packages</h2>
+<p>It is possible to use a git repository instead of an archive file in
+<code>url</code> files. To do so, you need to use the following syntax:</p>
+<pre><code>git: &quot;&lt;url&gt;&quot;</code></pre>
+<p><code>&lt;url&gt;</code> being any url that git knows how to clone. For git packages,
+OPAM has the following behaviour:</p>
+<ul>
+ <li><p>When installing a git package, OPAM will use git to clone its url
+ and use it as the package source</p>
+ </li>
+ <li><p>When updating packages, OPAM will do a <code>git fetch</code> in order to have
+ the last patches available for git packages</p>
+ </li>
+ <li><p>When upgrading packages, OPAM will merge the last changes before
+ rebuilding and upgrading the packages</p>
+ </li>
+ <li><p>You can specify a branch other than the default by suffixing the
+ url with <code>#&lt;branch&gt;</code>, eg. <code>git: git@github.com:me/project.git#next</code></p>
+ </li>
+</ul>
+
+<p>If you host your project on <em>Github</em>, you may
+instead use github’s functionality to create a tarball from a git
+repository. It is generally available at
+<code>https://github.com/&lt;your-id&gt;/&lt;your-project&gt;/tarball/&lt;branch-or-tag&gt;</code>. You
+can use this url to create “normal” — non-git packages from git
+repositories hosted on github.</p>
+<p>Note that git packages will normally never be included in the default
+OPAM repository, and are mainly an aid for developers who use OPAM in
+their development process. If you plan to do that, please have a look
+at the <a href="http://opam.ocaml.org/doc/Developing.html">Developing with OPAM
+tutorial</a>.</p>
+<h3 id="Darcspackages">Darcs packages</h3>
+<p><a href="http://darcs.net/">Darcs</a> repositories are supported as well. OPAM behaves the
+same way it does with git repositories, as described above. You just need to
+specify the repository url using the following syntax in <code>url</code> files:</p>
+<pre><code>darcs: &quot;&lt;url&gt;&quot;</code></pre>
+<h2 id="Wheretogofromhere">Where to go from here</h2>
+<p>Although this tutorial covered most packaging cases, there are still
+packages that requires more tuning that what have been described
+above. If you find yourself stuck trying to package a software or a
+library, please read the OPAM
+<a href="https://github.com/ocaml/opam/blob/latest/doc/dev-manual/dev-manual.pdf?raw=true">developer manual</a>
+(you will find it in the
+<code>doc</code> directory in the OPAM tarball) and/or read existing OPAM
+package descriptions for inspiration.</p>
+<h1 id="IncludingpackagestotheofficialOPAMrepository">Including packages to the official OPAM repository</h1>
+<p>This section will help you getting started with the process of
+submitting packages to the official OPAM repository. This repository
+is available at url [http://opam.ocaml.org], but its content is
+generated from a <a href="https://github.com/ocaml/opam-repository">git
+repository</a> hosted on
+<a href="https://github.com/">github</a>.</p>
+<p>To submit a package for inclusion in the official repository, all you
+have to do is to fork <code>opam-repository</code> on github, commit a patch
+containing the package(s) you want to include, and open a pull request
+for it.</p>
+<p>If the above sentence makes no sense for you, you probably don’t know
+about either <em>git</em> or <em>github</em> (or both). <em>git</em> is a distributed
+version control system, very popular at the time we write those
+lines. Getting started with git is definitely a topic outside the
+scope of this short tutorial, but you can read about it on git’s
+<a href="http://git-scm.com/documentation">documentation</a> page.</p>
+<p>Github is a web frontend to git. It allows users to store public git
+repositories, and provides additional convenient features over git
+such as “<a href="https://help.github.com/articles/using-pull-requests">pull
+requests</a>” that
+automatise the process of sharing patches with others. You can learn
+how to use it <a href="https://help.github.com/">here</a>.</p>
+<p>If you cannot (or do not want to) use github but still want to
+contribute to packages, you can try sending a mail to
+<code>contact@ocamlpro.com</code> with your patches to <code>opam-repository</code>. As this
+method requires manual intervention from our not very big OPAM team,
+it should only be used if the first method is not an option for
+you. It might as well take more time for your request to be processed
+in this case.</p>
+
+          </div>
+        </div>
+      
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="footer">
+    <div class="icons">
+    <div class="icon">
+      <a href="https://github.com/ocaml/opam2web">
+      <img src="../ext/img/github.png"/>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="http://www.ocamlpro.com/">
+      <img src="../ext/img/ocamlpro.png"/>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="http://www.ocaml.org/">
+      <img src="../ext/img/ocaml.png"/>
+      </a>
+    </div>
+    </div>
+    <div class="copyright">
+      <small>
+      Generated using <a href="http://github.com/ocaml/opam2web">opam2web</a>,
+      courtesy of <a href="http://ocamlpro.com">OCamlPro</a>.
+      <a href="http://opam.ocamlpro.com">Commercial support</a>.
+      </small>
+    </div>
+  </div>
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="https://ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="https://ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="https://ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="https://ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="https://ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="https://ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="https://ocaml.org/community/planet/">News</a></li>
+      <li><a href="https://ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="https://ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="https://ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../ext/js/jquery.js"> </script>  <script src="../ext/js/site.js"> </script>  <script src="../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  Packaging ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="https://ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

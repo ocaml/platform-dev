@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  Advanced Usage  – OCaml</title>
+    <link href="https://ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="https://ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="https://ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="https://ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="https://ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+    
+    <link href="https://ocaml.org/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="https://ocaml.org/" class="brand"><img src="https://ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="https://ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="https://ocaml.org/learn/">Learn</a></li>
+              <li><a href="https://ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="https://ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../.">OPAM</a></li>  <li class=""><a href="../packages/">Repository</a></li> 
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../doc/Advanced_Install.html">Advanced Install</a></li>  <li class="active"><a href="../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../about.html">About OPAM</a></li>  <li class=""><a href="../blog/turn-your-editor-into-an-ocaml-ide/">Platform Blog</a></li>         
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+          <div class="row">
+            <div class="span3">
+          <div class="bs-docs-menu hidden-phone">
+            
+      <ul class="nav nav-pills nav-stacked">
+        
+            <li class="disabled">
+              <a href="#"><strong>Primer</strong></a>
+            </li>
+          <li class="">
+            <a href="Quick_Install.html"> Quick Install</a>
+          </li><li class="">
+            <a href="Basic_Usage.html"> Basic Usage</a>
+          </li><li class="">
+            <a href="Specifying_Solver_Preferences.html"> Specifying Solver Preferences</a>
+          </li><li class="">
+            <a href="FAQ.html"> FAQ</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+            <li class="disabled">
+              <a href="#"><strong>Go Further</strong></a>
+            </li>
+          <li class="">
+            <a href="Advanced_Install.html"> Advanced Install</a>
+          </li><li class="active">
+            <a href="Advanced_Usage.html"> Advanced Usage</a>
+          </li><li class="">
+            <a href="Developing.html"> Developing</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+            <li class="disabled">
+              <a href="#"><strong>For Packagers</strong></a>
+            </li>
+          <li class="">
+            <a href="Packaging.html"> Packaging</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+      </ul>
+    
+            <ul>
+ <li><a href="#UsingOPAM">Using OPAM</a>
+  <ul>
+   <li><a href="#Updatingpackages">Updating packages</a>
+   </li>
+   <li><a href="#Examiningpackages">Examining packages</a>
+   </li>
+   <li><a href="#Installingpackages">Installing packages</a>
+   </li>
+   <li><a href="#Upgradingpackages">Upgrading packages</a>
+   </li>
+   <li><a href="#Usingadifferentcompiler">Using a different compiler</a>
+   </li>
+   <li><a href="#Versionpinning">Version pinning</a>
+   </li>
+   <li><a href="#Handlingofrepositories">Handling of repositories</a>
+   </li>
+  </ul>
+
+ </li>
+</ul>
+
+          </div>
+          </div>
+          <div class="span9">
+          <blockquote><p><strong>NOTE</strong></p>
+<p>this documentation is for the current stable version <strong>1.1</strong>. If you
+are already testing the <a href="https://github.com/ocaml/opam/releases">1.2.0 beta</a>,
+head straight to the <a href="1.2/">updated documentation</a></p>
+</blockquote>
+
+          <h1 id="UsingOPAM">Using OPAM</h1>
+<p>This tutorial covers most of the OPAM features you will want to use. For
+a quick overview of most common OPAM commands, the <a href="Basic_Usage.html">Basic
+Usage</a> tutorial is a good reading. There is also a dedicated
+guide explaining how to <a href="Developing.html">use OPAM efficiently in a development
+workflow</a>.</p>
+<h2 id="Updatingpackages">Updating packages</h2>
+<p>When adding a new repository, as it is the case when running <code>opam
+init</code>, OPAM will store its state into <code>~/.opam/repo/&lt;name&gt;</code>, including
+the list of all available packages, their versions, etc. To be sure
+this state reflects the state of your remote repositories, just run:</p>
+<pre><code>opam update</code></pre>
+<p>This command will update the locally-saved states of your repositories
+to make sure you have access to the last updates from them.</p>
+<h2 id="Examiningpackages">Examining packages</h2>
+<p>You are now ready to install packages. But first you probably want to
+see what packages are available and get some info about those
+packages.</p>
+<h3 id="opamlist"><code>opam list</code></h3>
+<p>This will display as many lines as there are packages available, and
+each line displays the name of the package, its version if it is
+installed, and a short description. For the moment, you don’t have any
+installed package, except the so-called <em>base</em> packages that aren’t
+real OPAM packages, but modules that may or may not be distributed
+with you OCaml installation. The <em>base</em> packages are just an
+indication of whether the compiler comes with these modules or not.</p>
+<h3 id="opamsearchfoo"><code>opam search foo</code></h3>
+<p>This will display something similar to <code>opam list</code> except for it is
+only going to display available packages whose name or description
+match the string <em>foo</em>.</p>
+<h3 id="opaminfoopam"><code>opam info opam</code></h3>
+<p>This will display information about the package <em>opam</em>. This
+information includes the installed version if the package is
+installed, all available versions that can be installed, and the full
+description of the package.</p>
+<h2 id="Installingpackages">Installing packages</h2>
+<p>We are now ready to install some packages. Suppose you want to install
+the package <em>lwt</em>:</p>
+<pre><code>opam install lwt</code></pre>
+<p>If the package to be installed has no dependencies or if all its
+dependencies are already installed, then OPAM will install it without
+further ado. Otherwise, it will print a summary of the actions that
+are going to be performed, and you will be asked if it should go ahead
+or not.</p>
+<p>A package can also have <em>optional dependencies</em>. These are
+dependencies that the package can make use of, but that are not
+mandatory. They will not be installed with the package by default, but
+<em>opam install</em> will take advantage of them if they are already
+installed while installing a package that optionally depends on
+them. For example, if you install <em>react</em> before installing <em>lwt</em>,
+<em>opam install lwt</em> will configure <em>lwt</em> to use <em>react</em>, but just
+installing <em>lwt</em> will not install <em>react</em>.</p>
+<p>OPAM is even able to <em>track</em> optional dependencies. This means that
+while installing a new package, OPAM will check if any already
+installed package optionally depends on the package to be installed,
+and will recompile such packages and all their forward
+dependencies. For example, doing <em>opam install react</em> after an <em>opam
+install lwt</em> will have the effect to recompile <em>lwt</em> (with <em>react</em>
+support) as well as all the packages that depend on <em>lwt</em>.</p>
+<h2 id="Upgradingpackages">Upgrading packages</h2>
+<p>After running <code>opam update</code>, it is possible that some packages that
+you installed got updated upstream, and it is now possible to upgrade
+them on your system. Just type:</p>
+<pre><code>opam upgrade</code></pre>
+<p>to upgrade your packages. The dependency solver will be called to make
+sure the upgrade is possible, that is, that <em>most</em> packages can get
+upgraded. OPAM will select the the best upgrade scenario and display a
+summary of what will be done during the upgrade. You will be asked if
+it should go ahead or not. This is similar to what happen when you
+upgrade your packages in most operating systems.</p>
+<h2 id="Usingadifferentcompiler">Using a different compiler</h2>
+<p>OPAM has the ability to install and use different OCaml
+compilers. This functionality is useful if you need to use different
+compilers on the same computer, and will make it very easy to switch
+between different compiler versions.</p>
+<p>This functionality is driven by the <code>opam switch</code> command. Using <code>opam
+switch --help</code> will give you the full documentation. What follows is a
+short primer for the most useful features.</p>
+<ul>
+ <li><p><code>opam switch list</code> will display a list of the available
+ compilers. The first section is a list of installed compilers on
+ this computer. It contains at least <em>system</em>, which is not a
+ compiler installed by opam but the compiler that was used to compile
+ opam in the first place. A “*” symbol will be displayed before the
+ current selected compiler.</p>
+ </li>
+ <li><p><code>opam switch 4.00.0</code> will make opam to switch to OCaml 4.00.0. If
+ opam did not install it already, it will do so now. The first <em>opam
+ switch</em> therefore takes the time it needs for your system to compile
+ OCaml 4.00.0.</p>
+ </li>
+ <li><p><code>opam switch remove &lt;version&gt;</code> will just delete an opam-installed
+ compiler from your system, thus freeing some disk space.</p>
+ </li>
+</ul>
+
+<p>After switching to another compiler, opam will ask you to update your
+environment by running <code>eval `opam config env` </code>. Indeed, compiler
+switching rely on environment variables so that your shell can find
+the libraries and binaries corresponding to the compiler you
+selected. Please don’t forget to run this command!</p>
+<p>These are the basic features of <em>opam switch</em>. There is two useful
+additions to them, which we will present now:</p>
+<h3 id="Abilitytomakeacopyofagivencompilerunderanalias">Ability to make a copy of a given compiler under an alias</h3>
+<p>It is useful if you want to use two instances of the same compiler. As
+<em>ocamlfind</em> allows only one version of an OCaml package to be
+installed, you can use this as a workaround to install multiple
+versions of the same package. Or more generally, if you need to hack
+packages and are afraid to break your clean opam installation, you can
+just use this feature as well. The sytax is</p>
+<pre><code>opam switch install &lt;alias&gt; --alias-of &lt;version&gt;</code></pre>
+<p>For example do <code>opam switch -install foo -alias-of 4.00.0</code> will make a
+copy of OCaml 4.00.0 under the name <em>foo</em>. Note that the state of
+compiler <em>4.00.0</em> will not be replicated in <em>foo</em>. <em>foo</em> is brand new
+with no packages installed.</p>
+<h3 id="Abilitytoexportacompileruniverseintoanotherone">Ability to <em>export</em> a compiler universe into another one</h3>
+<p>This means “replicate the state (installed packages, etc.) from one
+compiler to another one”. It is useful if you want to have the ability
+to fork a given compiler. The syntax is</p>
+<pre><code>opam switch &lt;version&gt;
+opam switch export -f universe_for_&lt;version&gt;
+opam switch &lt;other-version&gt;
+opam switch import -f universe_for_&lt;version&gt;</code></pre>
+<p>The <code>import</code> installs all packages from the file into the currently selected compiler. The above sequence of commands will install all packages installed in the compiler <code>&lt;version&gt;</code> into the compiler <code>&lt;other-version&gt;</code>.</p>
+<h2 id="Versionpinning">Version pinning</h2>
+<pre><code>opam pin &lt;package&gt; &lt;/local/path&gt;</code></pre>
+<p>This command will use the content of <code>&lt;/local/path&gt;</code> to compile <code>&lt;package&gt;</code>. This means
+that the next time you will do <code>opam install &lt;package&gt;</code>, the compilation process will be
+using a mirror of <code>&lt;/local/path&gt;</code> instead of downloading the archive. This also means that
+any modification to <code>&lt;/local/path&gt;</code> will be picked up by <code>opam update</code>, and thus <code>opam upgrade</code>
+will recompile <code>&lt;package&gt;</code> (and its forward dependencies) if needed.</p>
+<p>To unpin a package, simply run:</p>
+<pre><code>opam pin &lt;package&gt; none</code></pre>
+<p>You can also pin a package to a specific version: <code>opam pin &lt;package&gt; &lt;version&gt;</code></p>
+<p>By default, local directories will be pinned as <code>local</code> backends. You can change that default choice by forcing a given backend kind using the <code>--kind</code> option.</p>
+<h2 id="Handlingofrepositories">Handling of repositories</h2>
+<p>OPAM supports using multiple repositories at the same time, and
+supports multiple repository backends as well. Currently supported
+backends are <em>HTTP</em>, <em>rsync</em>, and <em>git</em>.</p>
+<ul>
+ <li><p>The <em>HTTP</em> backend is used when the repository is available via the
+ HTTP protocol, typically because it resides on a public
+ website. This backend is the equivalent of what most Linux
+ distributions are using to manage their packages. This backend needs
+ either the <em>curl</em> or <em>wget</em> program to be installed on your system
+ to work. It is also the default backend used by opam when doing a
+ <code>opam init</code>.</p>
+ </li>
+ <li><p>The <em>rsync</em> backend uses the <em>rsync</em> program to fetch data from a
+ repository. It can thus be used if the repository is accessible to
+ the rsync program, that is either locally (on your computer’s
+ filesystem) or via <em>sftp</em>.</p>
+ </li>
+ <li><p>The <em>git</em> backend uses <em>git</em> to fetch data from a repository. It
+ will be used if the repository is stored as a git repository.</p>
+ </li>
+</ul>
+
+<p>These three backends should be sufficient to access most
+repositories. Additional backends can be added without much effort
+because of the modularized interface, basically, adding a backend
+means just implementing a module matching the <code>REPOSITORY</code> signature.</p>
+<p>From repositories, OPAM makes a global index of all available
+packages. This means that if two repositories export the same package,
+OPAM will download it from a random one (in practice, from the last
+added repository). You can change that by editing <code>~/.opam/repo/index</code>
+and moving the repository you want to use in the beginning of each
+package line you want to install from this repository.</p>
+<p>Using multiple repositories covers several cases:</p>
+<h3 id="Youmadepackagesandyouwanttousethem">You made packages and you want to use them</h3>
+<p>in addition of the ones available in the default OPAM repository. In
+order to do that, put these packages in a private repository and then
+add this repository in order to be able to install these packages the
+same way you install public OPAM packages. For example, if your
+packages are stored in a git repository, do:</p>
+<pre><code>opam init # Use the default repository
+opam remote add devel git://devel.git</code></pre>
+<p>OPAM will add the default OPAM repository when initializing, and you
+add your development repository afterwards under the name <em>devel</em>. The
+<em>git</em> backend will be used because the URL starts by <code>git://</code>. By
+default, OPAM manage to figure out automatically which backend to
+use. See <code>opam help remote</code> for more information.</p>
+<h3 id="Youwantmorecontroloverthepublicrepository">You want more control over the public repository</h3>
+<p>because for example, you want to hack the packages, or you want to add
+some packages that are not available in the public repository
+yourself.</p>
+<p>In this case, you probably want to do</p>
+<pre><code>git clone git://github.com/ocaml/opam-repository.git ~/myrepo
+opam init default ~/myrepo</code></pre>
+<p>Afterwards, you can modify packages into <code>~/myrepo</code> and use them in
+opam after doing an <code>opam update</code>.</p>
+
+          </div>
+        </div>
+      
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="footer">
+    <div class="icons">
+    <div class="icon">
+      <a href="https://github.com/ocaml/opam2web">
+      <img src="../ext/img/github.png"/>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="http://www.ocamlpro.com/">
+      <img src="../ext/img/ocamlpro.png"/>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="http://www.ocaml.org/">
+      <img src="../ext/img/ocaml.png"/>
+      </a>
+    </div>
+    </div>
+    <div class="copyright">
+      <small>
+      Generated using <a href="http://github.com/ocaml/opam2web">opam2web</a>,
+      courtesy of <a href="http://ocamlpro.com">OCamlPro</a>.
+      <a href="http://opam.ocamlpro.com">Commercial support</a>.
+      </small>
+    </div>
+  </div>
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="https://ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="https://ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="https://ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="https://ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="https://ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="https://ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="https://ocaml.org/community/planet/">News</a></li>
+      <li><a href="https://ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="https://ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="https://ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../ext/js/jquery.js"> </script>  <script src="../ext/js/site.js"> </script>  <script src="../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  Advanced Usage ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="https://ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  FAQ  – OCaml</title>
+    <link href="https://ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="https://ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="https://ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="https://ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="https://ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+    
+    <link href="https://ocaml.org/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="https://ocaml.org/" class="brand"><img src="https://ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="https://ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="https://ocaml.org/learn/">Learn</a></li>
+              <li><a href="https://ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="https://ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../.">OPAM</a></li>  <li class=""><a href="../packages/">Repository</a></li> 
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class="active"><a href="../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../about.html">About OPAM</a></li>  <li class=""><a href="../blog/turn-your-editor-into-an-ocaml-ide/">Platform Blog</a></li>         
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+          <div class="row">
+            <div class="span3">
+          <div class="bs-docs-menu hidden-phone">
+            
+      <ul class="nav nav-pills nav-stacked">
+        
+            <li class="disabled">
+              <a href="#"><strong>Primer</strong></a>
+            </li>
+          <li class="">
+            <a href="Quick_Install.html"> Quick Install</a>
+          </li><li class="">
+            <a href="Basic_Usage.html"> Basic Usage</a>
+          </li><li class="">
+            <a href="Specifying_Solver_Preferences.html"> Specifying Solver Preferences</a>
+          </li><li class="active">
+            <a href="FAQ.html"> FAQ</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+            <li class="disabled">
+              <a href="#"><strong>Go Further</strong></a>
+            </li>
+          <li class="">
+            <a href="Advanced_Install.html"> Advanced Install</a>
+          </li><li class="">
+            <a href="Advanced_Usage.html"> Advanced Usage</a>
+          </li><li class="">
+            <a href="Developing.html"> Developing</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+            <li class="disabled">
+              <a href="#"><strong>For Packagers</strong></a>
+            </li>
+          <li class="">
+            <a href="Packaging.html"> Packaging</a>
+          </li><li class="disabled divider"><a href="#"> </a></li>
+      </ul>
+    
+            <ul>
+ <li><a href="#OPAMFAQ">OPAM FAQ</a>
+ </li>
+</ul>
+
+          </div>
+          </div>
+          <div class="span9">
+          <blockquote><p><strong>NOTE</strong></p>
+<p>this documentation is for the current stable version <strong>1.1</strong>. If you
+are already testing the <a href="https://github.com/ocaml/opam/releases">1.2.0 beta</a>,
+head straight to the <a href="1.2/">updated documentation</a></p>
+</blockquote>
+
+          <h1 id="OPAMFAQ">OPAM FAQ</h1>
+<h4 id="HowtoupgradeOPAMitselftoitslatestversion">How to upgrade OPAM itself to its latest version ?</h4>
+<p>In summary: upgrade the OPAM binary to the latest and run <code>opam update</code> to update your package descriptions.</p>
+<ul>
+ <li><p>Upgrade from source: fetch the latest sources and ./configure &amp;&amp; make &amp;&amp; sudo make install. If you run into odd build errors from old trees, you may find a make distclean will help before the configure.</p>
+ </li>
+ <li><p>On MacOS X, we keep the Homebrew packages up-to-date, so <code>brew update &amp;&amp; brew upgrade opam</code> will do the trick. I believe there are MacPorts packages also, but I don't track them closely.</p>
+ </li>
+ <li><p>On Debian, packages in <em>sid</em> should be fairly up-to-date.</p>
+ </li>
+ <li><p>On the various BSDs, we should have ports when shortly (OPAM mostly works, but many packages are a little broken on the BSDs due to GNU make vs BSD make problems. Easy to fix, but there are a lot of packages to test now).</p>
+ </li>
+</ul>
+
+<h4 id="Whataretheminimumrequirements">What are the minimum requirements ?</h4>
+<p>1GB of memory should be all you need. It was reported that you may run into problems with 512MB of RAM and no swap.</p>
+<h4 id="HowdoIupgradethesystemcompilerofOPAMafterinstallinganewversionofOCaml">How do I upgrade the system compiler of OPAM after installing a new version of OCaml ?</h4>
+<p>OPAM should automatically detect that a new version of OCaml has been installed on your system and it will propose you to update. If something went wrong, you can use <code>opam switch reinstall system</code> to recompile you system compiler switch with the new compiler version.</p>
+<h4 id="What39sthedifferencebetween39fast39and39slow39clone">What's the difference between 'fast' and 'slow' clone ?</h4>
+<p>With OPAM, you have the ability to create new compiler environments (dubbed 'switches' in the OPAM terminology) by using the <code>opam switch</code> command.</p>
+<p>You have two kinds of switches: The slow ones, where you install a fresh compiler each time: For instance, <code>opam switch myswitch --alias-of 4.01.00</code> will download, compile and install the <code>4.01.00</code> compiler into <code>~/.opam/myswitch/bin/</code> -- you can have as many <code>4.01.00</code> instances as you want, but it can take quite a long time (minutes) to get them ready.</p>
+<p>However, you can also use the compiler installed on your system and have fast clones. <code>opam switch myswitch --alias-of system</code> will use the compiler installed on your system but install all the packages libraries in <code>~/.opam/myswitch/lib/</code>.</p>
+<p>Remark: <code>opam switch xxx --alias-of xxx</code> is equivalent to <code>opam switch xxx</code> if <code>xxx</code> is not already installed.</p>
+<h4 id="Ihaveweirdchecksumerrorswheredoestheycomefrom">I have weird checksum errors: where does they come from ?</h4>
+<p>First of all, you should update your repositories (<code>opam update</code>).</p>
+<p>If this doesn't work (or if you get the checksum errors while running <code>opam init</code>) this comes probably a badly configured proxy cache that is serving stale files. To clear your proxy cache, you can use <code>wget --no-cache &lt;remote-file&gt;</code> and then you can retry.</p>
+<p>If this doesn't work as well, you can bypass the checksum checks using <code>-no-checksums</code>.</p>
+<h4 id="IsthereawaytotellOPAMtoinstallfromINRIA39sSVNrepositoryeitherthetrunkoraspecificbranchandtoupdateondemand">Is there a way to tell OPAM to install from INRIA's SVN repository (either the trunk or a specific branch), and to update on demand?</h4>
+<p><code>opam switch 4.01.0dev+trunk</code> has been added recently, which will grab the latest trunk snapshot.
+To reinstall it and refresh to a newer snapshot, just do <code>opam switch reinstall 4.01.0dev+trunk</code>, which will also attempt to recompile any packages you had in there before.</p>
+<p>It's also pretty easy to add your own branches; see
+https://github.com/ocaml/opam-repository/blob/master/compilers/4.01.0dev%2Btrunk.comp
+...for the trunk description, and there are several others out there.</p>
+<p>For instance, Pierre Chambart is maintaining his various optimisation patches in his repository as an example, so you can see how to maintain custom branches as normal OPAM remotes (just like for packages).
+https://github.com/chambart/opam-compilers-repository</p>
+<p>Note that SVN isn't directly supported by OPAM (only Darcs and Git), so all of these are using the SVN-&gt;Git mirror at http://github.com/ocaml/ocaml, which is updated every hour via our friendly double-humped Bactrian Github bot.  Let us know how you get along with this!</p>
+<p>The compiler description isn't simply called &quot;trunk&quot;, without a reference to a version number, because OPAM also has compiler version constraints, so that you can mark a package as requiring <code>{&gt;=4.00}</code> for example.  If the package is just marked trunk, then we need to manually record the version number somewhere.</p>
+<p>One option is to have a very high version, so that any packages with a lower bound will continue to work.  The other option (which I chose) is to pick the current working version, since compiler releases only happen a couple of times a year.  We can improve on this...</p>
+<h4 id="NowIwanttocreatemyfirstpackageI39vefollowedtheinstructionsfromhttpopamocamlprocomdocPackaginghtmlbutIdon39tknowwheretofindopamadminI39veinstalledopamfromtheamd64linuxbinary">Now I want to create my first package.  I've followed the instructions from http://opam.ocamlpro.com/doc/Packaging.html but I don't know where to find opam-admin (I've installed opam from the amd64 linux binary).</h4>
+<p>(that binary is hopefully just a stopgap until the OPAM binary packages become more widely available)</p>
+<p><code>opam-admin</code> is installed as part of OPAM, so you'll need to install from source.  However, you don't actually need to create a repository unless you want to host a mirror of the tarballs. Simply try this:</p>
+<p>````
+$ mkdir -p my-repo/packages
+$ opam remote add localdev my-repo
+&lt;create your package inside my-repo/packages/&gt;
+$ opam update
+&lt;the new packages will be available&gt;
+$ opam install &lt;new-package&gt;</p>
+<pre><code>
+
+The same applies for compilers.
+
+If you specify a git:// or darcs:// URL in the package `url` file, a subsequent `opam update` will refresh the working copy from the remote source.
+
+If you want to work with a local copy of that package, just do `opam pin &lt;package&gt; &lt;dir&gt;`.
+
+If you want the bleeding edge version of a stable package, you can even do `opam pin &lt;package&gt; git://foo/bar`.
+
+Quite the swiss-army knife, but each of those scenarios has come in useful at one point or another, particularly when hacking on Mirage which requires rebuilding lots of forward dependencies if (e.g.) a network driver library is being modified.
+
+#### How do I create an HTTP repository
+
+It is very easy to create and maintain your own HTTP repository:
+
+</code></pre>
+<p>$ git clone https://github.com/ocaml/opam.git
+$ cd opam
+$ opam-admin make
+```</p>
+<p>The last command will create all the <code>archives/NAME.VERSION+opam.tar.gz</code> files, <code>urls.txt</code> and <code>index.tar.gz</code>.</p>
+<h4 id="WheredoIreportBugsIssuesandFeatureRequests">Where do I report Bugs, Issues and Feature Requests?</h4>
+<p>Bug reports and feature requests for the OPAM tool should be reported on <a href="https://github.com/ocaml/opam/issues">OPAM's issue-tracker</a>. Packaging issues or requests for a new package can be reported on the <a href="https://github.com/ocaml/opam-repository/issues">official repository's issue-tracker</a>.</p>
+<p>General queries for both the tool and the packages can be addressed on the <a href="http://lists.ocaml.org/listinfo/platform">OCaml-platform mailing-list</a> and insights and evolution of OPAM internals can discussed on the <a href="http://lists.ocaml.org/listinfo/opam-devel">OPAM-devel mailing-list</a>.</p>
+
+          </div>
+        </div>
+      
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="footer">
+    <div class="icons">
+    <div class="icon">
+      <a href="https://github.com/ocaml/opam2web">
+      <img src="../ext/img/github.png"/>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="http://www.ocamlpro.com/">
+      <img src="../ext/img/ocamlpro.png"/>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="http://www.ocaml.org/">
+      <img src="../ext/img/ocaml.png"/>
+      </a>
+    </div>
+    </div>
+    <div class="copyright">
+      <small>
+      Generated using <a href="http://github.com/ocaml/opam2web">opam2web</a>,
+      courtesy of <a href="http://ocamlpro.com">OCamlPro</a>.
+      <a href="http://opam.ocamlpro.com">Commercial support</a>.
+      </small>
+    </div>
+  </div>
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="https://ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="https://ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="https://ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="https://ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="https://ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="https://ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="https://ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="https://ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="https://ocaml.org/community/planet/">News</a></li>
+      <li><a href="https://ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="https://ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="https://ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../ext/js/jquery.js"> </script>  <script src="../ext/js/site.js"> </script>  <script src="../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  FAQ ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="https://ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>
