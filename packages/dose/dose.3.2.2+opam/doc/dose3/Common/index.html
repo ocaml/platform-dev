@@ -1,0 +1,2972 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  dose.3.2.2+opam dose3 Module 'Common' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="module:Util">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Util : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Util#val:uuid">
+  <div class="val">
+    <span class="keyword">val</span> uuid : unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:list_unique">
+  <div class="val">
+    <span class="keyword">val</span> list_unique : 'a list -&gt; 'a list
+    
+      <div class="doc">
+        return a list of unique elements. This algorithm runs in
+O(n) but is not stable . elements are returned in reverse order
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:memo">
+  <div class="val">
+    <span class="keyword">val</span> memo : 'a -&gt; 'b -&gt; 'a -&gt; 'b
+    
+      <div class="doc">
+        A generic memoization function. To use with care as it allocates
+an hashtbl storing all results that will be released only on exit
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:timestamp">
+  <div class="val">
+    <span class="keyword">val</span> timestamp : unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#type:label">
+  <div class="type">
+    <span class="keyword">type</span> label = string
+    
+  </div>
+  </div>
+  
+    <div id="module:Util#modtype:Messages">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> Messages = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="module:Util#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        create a new message handle with label <code>t</code> .
+Printing is disabled per default
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : ?enabled:bool -&gt; label -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:eprintf">
+  <div class="val">
+    <span class="keyword">val</span> eprintf : ?raw:bool -&gt; t -&gt; ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+      <div class="doc">
+        Print the message on <code>stderr</code> if the Util module has been
+set to verbose using the function <code>make_verbose</code> and
+either the handle <code>t</code> is enable or all handles were enabled with
+the function <code>all_enabled</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:enable">
+  <div class="val">
+    <span class="keyword">val</span> enable : label -&gt; unit
+    
+      <div class="doc">
+        <code>enable l</code> the handle with label <code>l</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:disable">
+  <div class="val">
+    <span class="keyword">val</span> disable : label -&gt; unit
+    
+      <div class="doc">
+        <code>disable l</code> the handle with label <code>l</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:all_disabled">
+  <div class="val">
+    <span class="keyword">val</span> all_disabled : unit -&gt; unit
+    
+      <div class="doc">
+        disable all handles in the module
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:all_enabled">
+  <div class="val">
+    <span class="keyword">val</span> all_enabled : unit -&gt; unit
+    
+      <div class="doc">
+        enable all handles in the module
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:avalaible">
+  <div class="val">
+    <span class="keyword">val</span> avalaible : unit -&gt; label list
+    
+      <div class="doc">
+        return the list of all labels known to the module
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:is_enabled">
+  <div class="val">
+    <span class="keyword">val</span> is_enabled : label -&gt; bool
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Debug : Messages
+      </div>
+      
+      <div class="doc">
+        Debug, Info and Warning messages are printed immediately on stderr.
+Info messages are enabled per default. Debug and Warning messages
+must be enabled explicitely
+        
+      </div>
+    
+    </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Warning : Messages
+      </div>
+      
+    </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Info : Messages
+      </div>
+      
+    </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Notice : Messages
+      </div>
+      
+    </div>
+  <span style="color:red">TODO: functor:dose.3.2.2+opam/dose3/Common.Util.Logging</span>
+    <div id="module:Util#module:Progress">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Progress : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        ProgressBars are printed immediately on stderr.
+To be used, the **must** be created outside the functions where
+they are used.
+They can enabled or disabled (default)
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Util#module:Progress#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Progress#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : ?enabled:bool -&gt; ?total:int -&gt; ?unbounded:bool -&gt; label -&gt; t
+    
+      <div class="doc">
+        <code>create &quot;barname&quot;</code> : create new a progress bar labelled &quot;barname&quot;.
+The progress bar is disabled by default
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Progress#val:enable">
+  <div class="val">
+    <span class="keyword">val</span> enable : label -&gt; unit
+    
+      <div class="doc">
+        <code>enable &quot;barname&quot;</code> : enable the progress bar with label &quot;barname&quot;
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Progress#val:disable">
+  <div class="val">
+    <span class="keyword">val</span> disable : label -&gt; unit
+    
+      <div class="doc">
+        <code>disable &quot;barname&quot;</code> : disable the progress bar with label &quot;barname&quot;
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Progress#val:set_total">
+  <div class="val">
+    <span class="keyword">val</span> set_total : t -&gt; int -&gt; unit
+    
+      <div class="doc">
+        <code>set_total bar 10</code> : set the max width of the progress bar to 10 units
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Progress#val:progress">
+  <div class="val">
+    <span class="keyword">val</span> progress : ?i:int -&gt; t -&gt; unit
+    
+      <div class="doc">
+        increment the progress bar of <code>i</code> units
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Progress#val:reset">
+  <div class="val">
+    <span class="keyword">val</span> reset : t -&gt; unit
+    
+      <div class="doc">
+        reset the progress bar
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Progress#val:available">
+  <div class="val">
+    <span class="keyword">val</span> available : unit -&gt; label list
+    
+      <div class="doc">
+        return the labels of all available progress bar
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Util#module:Timer">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Timer : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Timers are printed all at once by the <code>dump</code> function on stderr.
+They can enabled or disabled (default)
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Util#module:Timer#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Timer#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : ?enabled:bool -&gt; string -&gt; t
+    
+      <div class="doc">
+        <code>create s</code> create and register a new logger named <code>s</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Timer#val:enable">
+  <div class="val">
+    <span class="keyword">val</span> enable : label -&gt; unit
+    
+      <div class="doc">
+        <code>enable &quot;barname&quot;</code> : enable the progress bar with label &quot;barname&quot;
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Timer#val:pp_timer">
+  <div class="val">
+    <span class="keyword">val</span> pp_timer : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Timer#val:dump">
+  <div class="val">
+    <span class="keyword">val</span> dump : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; unit -&gt; unit
+    
+      <div class="doc">
+        print all timers that are enabled
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Timer#val:start">
+  <div class="val">
+    <span class="keyword">val</span> start : t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Timer#val:stop">
+  <div class="val">
+    <span class="keyword">val</span> stop : t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:Timer#val:available">
+  <div class="val">
+    <span class="keyword">val</span> available : unit -&gt; label list
+    
+      <div class="doc">
+        return the labels of all available progress bar
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Util#module:IntHashtbl">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> IntHashtbl : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Util#module:IntHashtbl#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = int
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : int -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:reset">
+  <div class="val">
+    <span class="keyword">val</span> reset : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : 'a t -&gt; key -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : 'a t -&gt; key -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:find_all">
+  <div class="val">
+    <span class="keyword">val</span> find_all : 'a t -&gt; key -&gt; 'a list
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:replace">
+  <div class="val">
+    <span class="keyword">val</span> replace : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : 'a t -&gt; key -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:length">
+  <div class="val">
+    <span class="keyword">val</span> length : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntHashtbl#val:stats">
+  <div class="val">
+    <span class="keyword">val</span> stats : 'a t -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:statistics">statistics</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Util#module:IntPairHashtbl">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> IntPairHashtbl : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Util#module:IntPairHashtbl#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = (int * int)
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : int -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:reset">
+  <div class="val">
+    <span class="keyword">val</span> reset : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : 'a t -&gt; key -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : 'a t -&gt; key -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:find_all">
+  <div class="val">
+    <span class="keyword">val</span> find_all : 'a t -&gt; key -&gt; 'a list
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:replace">
+  <div class="val">
+    <span class="keyword">val</span> replace : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : 'a t -&gt; key -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:length">
+  <div class="val">
+    <span class="keyword">val</span> length : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:IntPairHashtbl#val:stats">
+  <div class="val">
+    <span class="keyword">val</span> stats : 'a t -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:statistics">statistics</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Util#module:StringHashtbl">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> StringHashtbl : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Util#module:StringHashtbl#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : int -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:reset">
+  <div class="val">
+    <span class="keyword">val</span> reset : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : 'a t -&gt; key -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : 'a t -&gt; key -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:find_all">
+  <div class="val">
+    <span class="keyword">val</span> find_all : 'a t -&gt; key -&gt; 'a list
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:replace">
+  <div class="val">
+    <span class="keyword">val</span> replace : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : 'a t -&gt; key -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:length">
+  <div class="val">
+    <span class="keyword">val</span> length : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringHashtbl#val:stats">
+  <div class="val">
+    <span class="keyword">val</span> stats : 'a t -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:statistics">statistics</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Util#module:StringPairHashtbl">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> StringPairHashtbl : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Util#module:StringPairHashtbl#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = (string * string)
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : int -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:reset">
+  <div class="val">
+    <span class="keyword">val</span> reset : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : 'a t -&gt; key -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : 'a t -&gt; key -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:find_all">
+  <div class="val">
+    <span class="keyword">val</span> find_all : 'a t -&gt; key -&gt; 'a list
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:replace">
+  <div class="val">
+    <span class="keyword">val</span> replace : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : 'a t -&gt; key -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:length">
+  <div class="val">
+    <span class="keyword">val</span> length : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#module:StringPairHashtbl#val:stats">
+  <div class="val">
+    <span class="keyword">val</span> stats : 'a t -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:statistics">statistics</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Util#val:range">
+  <div class="val">
+    <span class="keyword">val</span> range : int -&gt; int -&gt; int list
+    
+  </div>
+  </div>
+  
+  <div id="module:Util#val:string_of_list">
+  <div class="val">
+    <span class="keyword">val</span> string_of_list : 'a -&gt; string -&gt; string -&gt; 'a list -&gt; string
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:EdosSolver">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> EdosSolver : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div id="module:EdosSolver#modtype:S">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> S = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        generic failure reason
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:EdosSolver#type:reason">
+  <div class="type">
+    <span class="keyword">type</span> reason
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:EdosSolver#modtype:T">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> T = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        Sat solver functor type
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> X : S
+      </div>
+      
+      <div class="doc">
+        generic failure reason
+        
+      </div>
+    
+    </div>
+  
+  <div id="module:EdosSolver#type:state">
+  <div class="type">
+    <span class="keyword">type</span> state
+    
+      <div class="doc">
+        state of the solver
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#type:var">
+  <div class="type">
+    <span class="keyword">type</span> var = int
+    
+      <div class="doc">
+        variables are integers numbered from 0 to (size - 1)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#type:value">
+  <div class="type">
+    <span class="keyword">type</span> value = <div class="constr">| True</div><div class="constr">| False</div><div class="constr">| Unknown</div>
+    
+      <div class="doc">
+        The value of a literal
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#type:lit">
+  <div class="type">
+    <span class="keyword">type</span> lit
+    
+      <div class="doc">
+        A literal. Literals can be positive or negative
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:lit_of_var">
+  <div class="val">
+    <span class="keyword">val</span> lit_of_var : var -&gt; bool -&gt; lit
+    
+      <div class="doc">
+        <code>lit_of_var</code> given a variable create a positive or a negative literal.
+By default the <b>assigment</b> of all variables (that is its value) is
+<b>Unknown</b>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:initialize_problem">
+  <div class="val">
+    <span class="keyword">val</span> initialize_problem : ?pbo:int array -&gt; ?print_var:<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; int -&gt; unit -&gt; ?buffer:bool -&gt; int -&gt; state
+    
+      <div class="doc">
+        initialize the solver <code>initialize_problem n</code>
+        
+  <div class="tag param">
+    <span class="label">print_var</span> a function to print a variable
+  </div>
+  
+  <div class="tag param">
+    <span class="label">buffer</span> decide weather or not to store a human readable
+representaion of the sat problem.
+  </div>
+  
+  <div class="tag param">
+    <span class="label">n</span> the size of the sat problem. that is the max number of
+variables to consider
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : state -&gt; state
+    
+      <div class="doc">
+        provide a deep copy of the current state of the solver
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:propagate">
+  <div class="val">
+    <span class="keyword">val</span> propagate : state -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:protect">
+  <div class="val">
+    <span class="keyword">val</span> protect : state -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:reset">
+  <div class="val">
+    <span class="keyword">val</span> reset : state -&gt; unit
+    
+      <div class="doc">
+        <code>reset</code> reset the state of the solver to a state that would be obtained
+by re initializing the solver with an identical constraints set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:assignment">
+  <div class="val">
+    <span class="keyword">val</span> assignment : state -&gt; value array
+    
+      <div class="doc">
+        <code>assignment st</code> return the array of values associated to every variable.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:assignment_true">
+  <div class="val">
+    <span class="keyword">val</span> assignment_true : state -&gt; var list
+    
+      <div class="doc">
+        <code>assignment_true st</code> return the list of variables that are true
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:add_rule">
+  <div class="val">
+    <span class="keyword">val</span> add_rule : state -&gt; lit array -&gt; X.reason list -&gt; unit
+    
+      <div class="doc">
+        <code>add_rule st l</code> add a disjuction to the solver of type <a href="\Bigvee l">TARGET NONE: \Bigvee l</a>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:associate_vars">
+  <div class="val">
+    <span class="keyword">val</span> associate_vars : state -&gt; lit -&gt; var list -&gt; unit
+    
+      <div class="doc">
+        <code>associate_vars st lit vl</code> associate a variable to a list of variables. The solver
+will use this information to guide the search heuristic
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:solve_all">
+  <div class="val">
+    <span class="keyword">val</span> solve_all : state -&gt; unit -&gt; state -&gt; var -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:solve_pbo">
+  <div class="val">
+    <span class="keyword">val</span> solve_pbo : (int array * state) -&gt; unit -&gt; state -&gt; var -&gt; bool
+    
+      <div class="doc">
+        <code>solve st v</code> finds a variable assignment that makes <code>v</code> <code>True</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:solve">
+  <div class="val">
+    <span class="keyword">val</span> solve : state -&gt; var -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:solve_lst">
+  <div class="val">
+    <span class="keyword">val</span> solve_lst : state -&gt; var list -&gt; bool
+    
+      <div class="doc">
+        <code>solve st l</code> finds a variable assignment that makes <code>True</code> all variables in <code>l</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:collect_reasons">
+  <div class="val">
+    <span class="keyword">val</span> collect_reasons : state -&gt; var -&gt; X.reason list
+    
+      <div class="doc">
+        in case of failure return the list of associated reasons
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:collect_reasons_lst">
+  <div class="val">
+    <span class="keyword">val</span> collect_reasons_lst : state -&gt; var list -&gt; X.reason list
+    
+      <div class="doc">
+        in case of failure return the list of associated reasons
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:dump">
+  <div class="val">
+    <span class="keyword">val</span> dump : state -&gt; (int * bool) list list
+    
+      <div class="doc">
+        if the solver was initialized with <code>buffer = true</code>,
+dump the state of the solver. Return an empty list otherwise
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : bool -&gt; unit
+    
+      <div class="doc">
+        enable debug messages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:stats">
+  <div class="val">
+    <span class="keyword">val</span> stats : state -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:EdosSolver#val:pboidx">
+  <div class="val">
+    <span class="keyword">val</span> pboidx : state -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:dose.3.2.2+opam/dose3/Common.EdosSolver.M</span>
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:CudfSolver">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> CudfSolver : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Pcre = <a href="../../../../../re/re.1.2.2/doc/re/Re_pcre/">Re_pcre</a>
+      </div>
+      
+    </div>
+  
+  <div id="module:CudfSolver#val:it">
+  <div class="val">
+    <span class="keyword">val</span> it : Util.Info.t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:info">
+  <div class="val">
+    <span class="keyword">val</span> info : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:nt">
+  <div class="val">
+    <span class="keyword">val</span> nt : Util.Notice.t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:notice">
+  <div class="val">
+    <span class="keyword">val</span> notice : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:wt">
+  <div class="val">
+    <span class="keyword">val</span> wt : Util.Warning.t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:warning">
+  <div class="val">
+    <span class="keyword">val</span> warning : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:dt">
+  <div class="val">
+    <span class="keyword">val</span> dt : Util.Debug.t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:check_fail">
+  <div class="val">
+    <span class="keyword">val</span> check_fail : string -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:mktmpdir">
+  <div class="val">
+    <span class="keyword">val</span> mktmpdir : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:rmtmpdir">
+  <div class="val">
+    <span class="keyword">val</span> rmtmpdir : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:input_all_lines">
+  <div class="val">
+    <span class="keyword">val</span> input_all_lines : string list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:quote">
+  <div class="val">
+    <span class="keyword">val</span> quote : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:sanitize">
+  <div class="val">
+    <span class="keyword">val</span> sanitize : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:interpolate_solver_pat">
+  <div class="val">
+    <span class="keyword">val</span> interpolate_solver_pat : string -&gt; string -&gt; string -&gt; string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#exception:Error">
+  <div class="exception">
+    <span class="keyword">exception</span> Error <span class="keyword">of</span> string
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#exception:Unsat">
+  <div class="exception">
+    <span class="keyword">exception</span> Unsat
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:fatal">
+  <div class="val">
+    <span class="keyword">val</span> fatal : ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:check_exit_status">
+  <div class="val">
+    <span class="keyword">val</span> check_exit_status : string -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/">Unix</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/#type:process_status">process_status</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:timer3">
+  <div class="val">
+    <span class="keyword">val</span> timer3 : Util.Timer.t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:timer4">
+  <div class="val">
+    <span class="keyword">val</span> timer4 : Util.Timer.t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfSolver#val:execsolver">
+  <div class="val">
+    <span class="keyword">val</span> execsolver : string -&gt; string -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:cudf">cudf</a> -&gt; (<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:preamble">preamble</a> option * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a>)
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Url">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Url : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Url#type:debtypes">
+  <div class="type">
+    <span class="keyword">type</span> debtypes = <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#type:rpmtypes">
+  <div class="type">
+    <span class="keyword">type</span> rpmtypes = <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#type:osgitypes">
+  <div class="type">
+    <span class="keyword">type</span> osgitypes = <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#type:othertypes">
+  <div class="type">
+    <span class="keyword">type</span> othertypes = <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#type:filetypes">
+  <div class="type">
+    <span class="keyword">type</span> filetypes = <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#val:supported_input_types">
+  <div class="val">
+    <span class="keyword">val</span> supported_input_types : filetypes list
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#type:url">
+  <div class="type">
+    <span class="keyword">type</span> url = {<div class="field">scheme : filetypes;</div><div class="field">path : string; <span class="doc">(* db name or filename *)</span></div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; url
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#exception:Invalid_url">
+  <div class="exception">
+    <span class="keyword">exception</span> Invalid_url <span class="keyword">of</span> string
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : url -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#val:scheme_to_string">
+  <div class="val">
+    <span class="keyword">val</span> scheme_to_string : filetypes -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Url#val:scheme_of_string">
+  <div class="val">
+    <span class="keyword">val</span> scheme_of_string : string -&gt; filetypes
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Input">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Input : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Input#val:std_open_file">
+  <div class="val">
+    <span class="keyword">val</span> std_open_file : string -&gt; <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a>
+    
+      <div class="doc">
+        load a non compressed file
+        
+  <div class="tag return">
+    <span class="label">Returns</span> ExtLib.IO.input channel
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Input#val:open_file">
+  <div class="val">
+    <span class="keyword">val</span> open_file : string -&gt; <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a>
+    
+      <div class="doc">
+        load a file either in gzip, bzip or not compressed format
+        
+  <div class="tag return">
+    <span class="label">Returns</span> ExtLib.IO.input channel
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Input#val:open_ch">
+  <div class="val">
+    <span class="keyword">val</span> open_ch : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Input#val:close_ch">
+  <div class="val">
+    <span class="keyword">val</span> close_ch : <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Input#val:parse_uri">
+  <div class="val">
+    <span class="keyword">val</span> parse_uri : string -&gt; (Url.filetypes * (string option * string option * string option * string option * string) * string option)
+    
+      <div class="doc">
+        parse a uri.
+i.e. :
+deb://path/to/file
+rpm://path/to/file
+cudf://path/to/file
+        
+  <div class="tag return">
+    <span class="label">Returns</span> a tuple representing the uri
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Input#val:guess_format">
+  <div class="val">
+    <span class="keyword">val</span> guess_format : string list list -&gt; Url.filetypes
+    
+      <div class="doc">
+        guess the input format from a list of list of uris and check
+if the list is omogenueous w.r.t the guessed format. Fails otherwise
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:CudfAdd">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> CudfAdd : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:CudfAdd#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; bool
+    
+      <div class="doc">
+        Equality test: two CUDF packages are equal if their names and versions are equal.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; int
+    
+      <div class="doc">
+        Compare function: compares two CUDF packages using standard CUDF comparison operator (i.e. comparing by their name and version).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:hash">
+  <div class="val">
+    <span class="keyword">val</span> hash : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; int
+    
+      <div class="doc">
+        A hash function for CUDF packages, using only their name and version.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:sort">
+  <div class="val">
+    <span class="keyword">val</span> sort : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list
+    
+      <div class="doc">
+        Sort function: sorts a CUDF packages list using the standard CUDF comparison operator in ascending order
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:CudfAdd#module:Cudf_hashtbl">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Cudf_hashtbl : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Specialized hashtable for CUDF packages.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:CudfAdd#module:Cudf_hashtbl#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : int -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:reset">
+  <div class="val">
+    <span class="keyword">val</span> reset : 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : 'a t -&gt; key -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : 'a t -&gt; key -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:find_all">
+  <div class="val">
+    <span class="keyword">val</span> find_all : 'a t -&gt; key -&gt; 'a list
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:replace">
+  <div class="val">
+    <span class="keyword">val</span> replace : 'a t -&gt; key -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : 'a t -&gt; key -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:length">
+  <div class="val">
+    <span class="keyword">val</span> length : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_hashtbl#val:stats">
+  <div class="val">
+    <span class="keyword">val</span> stats : 'a t -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:statistics">statistics</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:CudfAdd#module:Cudf_set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Cudf_set : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Specialized set data structure for CUDF packages.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:CudfAdd#module:Cudf_set#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:Cudf_set#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:CudfAdd#val:to_set">
+  <div class="val">
+    <span class="keyword">val</span> to_set : Cudf_set.elt list -&gt; Cudf_set.t
+    
+      <div class="doc">
+        Convert a list of CUDF packages to a set of CUDF packages.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:who_provides">
+  <div class="val">
+    <span class="keyword">val</span> who_provides : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:vpkg">vpkg</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list
+    
+      <div class="doc">
+        Return the list of packages that that respect the given constraint
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:resolve_deps">
+  <div class="val">
+    <span class="keyword">val</span> resolve_deps : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:vpkglist">vpkglist</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list
+    
+      <div class="doc">
+        Return the list of packages satisfying the vpkg list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:who_depends">
+  <div class="val">
+    <span class="keyword">val</span> who_depends : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list list
+    
+      <div class="doc">
+        Returns the list of packages that are dependencies of the given package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#type:ctable">
+  <div class="type">
+    <span class="keyword">type</span> ctable = (int, int list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>
+    
+      <div class="doc">
+        A table to associate to each id the list of packages id that are in
+conflict with it. Reflexive conflicts are made explicit.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:init_conflicts">
+  <div class="val">
+    <span class="keyword">val</span> init_conflicts : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; ctable
+    
+      <div class="doc">
+        Create a ctable from a package universe
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:who_conflicts">
+  <div class="val">
+    <span class="keyword">val</span> who_conflicts : ctable -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list
+    
+      <div class="doc">
+        Return the list of packages in conflict with the given package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:resolve_vpkg_int">
+  <div class="val">
+    <span class="keyword">val</span> resolve_vpkg_int : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:vpkg">vpkg</a> -&gt; int list
+    
+      <div class="doc">
+        Like who_provides but returns a list of cudf ids
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:resolve_vpkgs_int">
+  <div class="val">
+    <span class="keyword">val</span> resolve_vpkgs_int : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:vpkglist">vpkglist</a> -&gt; int list
+    
+      <div class="doc">
+        Like resolve_deps but returns a list of cudf ids
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:encode">
+  <div class="val">
+    <span class="keyword">val</span> encode : string -&gt; string
+    
+      <div class="doc">
+        Encode a string.<br/>Replaces all the &quot;not allowed&quot; characters
+with their ASCII code (in hexadecimal format),
+prefixed with a '%' sign.<br/>Only &quot;allowed&quot; characters are letters, numbers and these: <code>@/+().-</code>,
+all the others are replaced.<br/>Examples:
+<ul><li><code>encode &quot;ab&quot;  = &quot;ab&quot;</code></li><li><code>encode &quot;|&quot;   = &quot;%7c&quot;</code></li><li><code>encode &quot;a|b&quot; = &quot;a%7cb&quot;</code></li></ul>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:decode">
+  <div class="val">
+    <span class="keyword">val</span> decode : string -&gt; string
+    
+      <div class="doc">
+        Decode a string. Opposite of the <code>encode</code> function.<br/>Replaces all the encoded &quot;not allowed&quot; characters
+in the string by their original (i.e. not encoded) versions.<br/>Examples:
+<ul><li><code>decode &quot;ab&quot; = &quot;ab&quot;</code></li><li><code>decode &quot;%7c&quot; = &quot;|&quot;</code></li><li><code>decode &quot;a%7cb&quot; = &quot;a|b&quot;</code></li></ul>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:string_of">
+  <div class="val">
+    <span class="keyword">val</span> string_of : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; 'a -&gt; 'b -&gt; 'a -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:pp_version">
+  <div class="val">
+    <span class="keyword">val</span> pp_version : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:pp_package">
+  <div class="val">
+    <span class="keyword">val</span> pp_package : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:string_of_version">
+  <div class="val">
+    <span class="keyword">val</span> string_of_version : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; string
+    
+      <div class="doc">
+        return a string containg either the value of the optional field
+&quot;number&quot; or the cudf version
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:string_of_package">
+  <div class="val">
+    <span class="keyword">val</span> string_of_package : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; string
+    
+      <div class="doc">
+        return a string of the form &quot;name ( = version)&quot;
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:latest">
+  <div class="val">
+    <span class="keyword">val</span> latest : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list
+    
+      <div class="doc">
+        Returns a list of packages containing for each package only the
+latest version
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:CudfAdd#module:StringSet">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> StringSet : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Set of strings
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:CudfAdd#module:StringSet#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:String">String</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:String%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#module:StringSet#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:CudfAdd#val:pkgnames">
+  <div class="val">
+    <span class="keyword">val</span> pkgnames : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; StringSet.t
+    
+      <div class="doc">
+        Returns the set of all names in the given universe
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:add_properties">
+  <div class="val">
+    <span class="keyword">val</span> add_properties : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:preamble">preamble</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:typedecl">typedecl</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:preamble">preamble</a>
+    
+      <div class="doc">
+        Add a new property to the given cudf preamble
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:get_property">
+  <div class="val">
+    <span class="keyword">val</span> get_property : string -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; string
+    
+      <div class="doc">
+        return the value of the requested property.
+emit a warning and raise Not_found if the property does not exists
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:is_essential">
+  <div class="val">
+    <span class="keyword">val</span> is_essential : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; bool
+    
+      <div class="doc">
+        Returns true if the package is essential, that is the cudf package has
+a extra property named &quot;essential&quot; and its value is &quot;yes&quot;
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:realversionmap">
+  <div class="val">
+    <span class="keyword">val</span> realversionmap : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list -&gt; ((<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:pkgname">pkgname</a> * string), <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>
+    
+      <div class="doc">
+        build a hash table that associates (package name, String version) to CUDF packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:vartoint">
+  <div class="val">
+    <span class="keyword">val</span> vartoint : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; int
+    
+      <div class="doc">
+        Return the unique cudf id of a package in a universe
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:inttovar">
+  <div class="val">
+    <span class="keyword">val</span> inttovar : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; int -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>
+    
+      <div class="doc">
+        Given a universe and a cudf id returns the corresponding package.
+Raise Not_found if the id does not correspond to a package.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:cudfop">
+  <div class="val">
+    <span class="keyword">val</span> cudfop : (string * string) option -&gt; (<span style="color:red">TODO: a</span> * string) option
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:pp">
+  <div class="val">
+    <span class="keyword">val</span> pp : (<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:pkgname">pkgname</a> * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:version">version</a>) -&gt; ('a * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:pkgname">pkgname</a>) -&gt; ?decode:<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:pkgname">pkgname</a> -&gt; string -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; (string * string * (string * string) list)
+    
+      <div class="doc">
+        <code>pp ?decode from_cudf pkg</code> package pretty printer.
+<code>from_cudf</code> a function that gets a (name,cudfversion) pair and returns a
+(name,realversion).
+<code>?decode</code> a function that decode the package name and version<br/>returns : a pair (name,versiom,property list)<br/>note that if the package has version less then 0, then the version is printed
+as &quot;nan&quot;
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:compute_pool">
+  <div class="val">
+    <span class="keyword">val</span> compute_pool : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; (int list list array * int list array)
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:add_to_package_list">
+  <div class="val">
+    <span class="keyword">val</span> add_to_package_list : ('a, 'b list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a> -&gt; 'a -&gt; 'b -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:get_package_list">
+  <div class="val">
+    <span class="keyword">val</span> get_package_list : ('a, 'b list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a> -&gt; 'a -&gt; 'b list
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfAdd#val:normalize_set">
+  <div class="val">
+    <span class="keyword">val</span> normalize_set : int list -&gt; int list
+    
+      <div class="doc">
+        normalize_set l returns the list l without any duplicate element.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:CudfDiff">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> CudfDiff : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Cudf_set = CudfAdd.Cudf_set
+      </div>
+      
+    </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> StringSet = CudfAdd.StringSet
+      </div>
+      
+    </div>
+  
+  <div id="module:CudfDiff#type:solution">
+  <div class="type">
+    <span class="keyword">type</span> solution = {<div class="field">installed : Cudf_set.t;</div><div class="field">removed : Cudf_set.t;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfDiff#val:to_set">
+  <div class="val">
+    <span class="keyword">val</span> to_set : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list -&gt; Cudf_set.t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfDiff#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; (StringSet.elt, solution) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfDiff#type:summary_t">
+  <div class="type">
+    <span class="keyword">type</span> summary_t = {<div class="field">i : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list;</div><div class="field">r : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list;</div><div class="field">u : (<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>) option;</div><div class="field">d : (<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>) option;</div><div class="field">nu : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list;</div>}
+    
+      <div class="doc">
+        <code>all</code> : all versions of a package in the universe .
+<code>s</code> : the set of version for version of a package in a solution
+returns a list that contains for each version its status : installed,
+removed, upgraded, etc
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfDiff#val:default_summary">
+  <div class="val">
+    <span class="keyword">val</span> default_summary : unit -&gt; summary_t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfDiff#val:uniqueversion">
+  <div class="val">
+    <span class="keyword">val</span> uniqueversion : Cudf_set.t -&gt; solution -&gt; summary_t
+    
+  </div>
+  </div>
+  
+  <div id="module:CudfDiff#val:summary">
+  <div class="val">
+    <span class="keyword">val</span> summary : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; (StringSet.elt, solution) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a> -&gt; (<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list * (<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>) list * (<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>) list * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list)
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:VersionInfo">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> VersionInfo : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:VersionInfo#val:svn_rev">
+  <div class="val">
+    <span class="keyword">val</span> svn_rev : string
+    
+  </div>
+  </div>
+  
+  <div id="module:VersionInfo#val:svn_lastchangedate">
+  <div class="val">
+    <span class="keyword">val</span> svn_lastchangedate : string
+    
+  </div>
+  </div>
+  
+  <div id="module:VersionInfo#val:ocaml_version">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_version : string
+    
+  </div>
+  </div>
+  
+  <div id="module:VersionInfo#val:build_timestamp">
+  <div class="val">
+    <span class="keyword">val</span> build_timestamp : string
+    
+  </div>
+  </div>
+  
+  <div id="module:VersionInfo#val:build_host">
+  <div class="val">
+    <span class="keyword">val</span> build_host : string
+    
+  </div>
+  </div>
+  
+  <div id="module:VersionInfo#val:build_os">
+  <div class="val">
+    <span class="keyword">val</span> build_os : string
+    
+  </div>
+  </div>
+  
+  <div id="module:VersionInfo#val:version">
+  <div class="val">
+    <span class="keyword">val</span> version : string
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  dose.3.2.2+opam dose3 Module 'Common' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,3806 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  opam-lib.42 opam-lib Module 'OpamFile' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFile/">OpamFile</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="modtype:IO_FILE">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> IO_FILE = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        All Configuration files satisfies this signature
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Lines">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Lines : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Lines of space-separated words.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Lines#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = string list list
+    
+  </div>
+  </div>
+  
+  <div id="module:Lines#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Lines#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Lines#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Lines#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Lines#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Lines#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Config">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Config : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Configuration file: <code>$opam/config</code>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Config#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : OpamTypes.switch -&gt; OpamTypes.repository_name list -&gt; ?criteria:(OpamTypes.solver_criteria * string) list -&gt; ?solver:string -&gt; int -&gt; int -&gt; t
+    
+      <div class="doc">
+        Creation
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:with_switch">
+  <div class="val">
+    <span class="keyword">val</span> with_switch : t -&gt; OpamTypes.switch -&gt; t
+    
+      <div class="doc">
+        OCaml switch updates
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:with_repositories">
+  <div class="val">
+    <span class="keyword">val</span> with_repositories : t -&gt; OpamTypes.repository_name list -&gt; t
+    
+      <div class="doc">
+        Repository updates
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:with_current_opam_version">
+  <div class="val">
+    <span class="keyword">val</span> with_current_opam_version : t -&gt; t
+    
+      <div class="doc">
+        Update opam-version to the current one
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:with_criteria">
+  <div class="val">
+    <span class="keyword">val</span> with_criteria : t -&gt; (OpamTypes.solver_criteria * string) list -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:with_solver">
+  <div class="val">
+    <span class="keyword">val</span> with_solver : t -&gt; string option -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:opam_version">
+  <div class="val">
+    <span class="keyword">val</span> opam_version : t -&gt; OpamTypes.opam_version
+    
+      <div class="doc">
+        Return the OPAM version
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:repositories">
+  <div class="val">
+    <span class="keyword">val</span> repositories : t -&gt; OpamTypes.repository_name list
+    
+      <div class="doc">
+        Return the list of repository
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:switch">
+  <div class="val">
+    <span class="keyword">val</span> switch : t -&gt; OpamTypes.switch
+    
+      <div class="doc">
+        Return the OCaml switch
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:jobs">
+  <div class="val">
+    <span class="keyword">val</span> jobs : t -&gt; int
+    
+      <div class="doc">
+        Return the number of jobs
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:dl_jobs">
+  <div class="val">
+    <span class="keyword">val</span> dl_jobs : t -&gt; int
+    
+      <div class="doc">
+        Return the number of download jobs
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:criteria">
+  <div class="val">
+    <span class="keyword">val</span> criteria : t -&gt; (OpamTypes.solver_criteria * string) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Config#val:solver">
+  <div class="val">
+    <span class="keyword">val</span> solver : t -&gt; string option
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:OPAM">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> OPAM : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        OPAM files
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:OPAM#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : OpamTypes.package -&gt; t
+    
+      <div class="doc">
+        Create an opam file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:template">
+  <div class="val">
+    <span class="keyword">val</span> template : OpamTypes.package -&gt; t
+    
+      <div class="doc">
+        Create an OPAM package template filled with common options
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:opam_version">
+  <div class="val">
+    <span class="keyword">val</span> opam_version : t -&gt; OpamTypes.opam_version
+    
+      <div class="doc">
+        Get OPAM version.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:name">
+  <div class="val">
+    <span class="keyword">val</span> name : t -&gt; OpamTypes.name
+    
+      <div class="doc">
+        Package name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:name_opt">
+  <div class="val">
+    <span class="keyword">val</span> name_opt : t -&gt; OpamTypes.name option
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:version">
+  <div class="val">
+    <span class="keyword">val</span> version : t -&gt; OpamTypes.version
+    
+      <div class="doc">
+        Package version
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:version_opt">
+  <div class="val">
+    <span class="keyword">val</span> version_opt : t -&gt; OpamTypes.version option
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:ocaml_version">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_version : t -&gt; OpamTypes.compiler_constraint option
+    
+      <div class="doc">
+        Compiler constraint
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:os">
+  <div class="val">
+    <span class="keyword">val</span> os : t -&gt; (bool * string) OpamTypes.generic_formula
+    
+      <div class="doc">
+        OS constraint
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:available">
+  <div class="val">
+    <span class="keyword">val</span> available : t -&gt; OpamTypes.filter
+    
+      <div class="doc">
+        Availability formula (OS + compiler constraints)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:maintainer">
+  <div class="val">
+    <span class="keyword">val</span> maintainer : t -&gt; string list
+    
+      <div class="doc">
+        Package maintainer(s)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:substs">
+  <div class="val">
+    <span class="keyword">val</span> substs : t -&gt; OpamTypes.basename list
+    
+      <div class="doc">
+        File substitutions
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:build_env">
+  <div class="val">
+    <span class="keyword">val</span> build_env : t -&gt; (string * string * string) list
+    
+      <div class="doc">
+        List of environment variables to set-up for the build
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:build">
+  <div class="val">
+    <span class="keyword">val</span> build : t -&gt; OpamTypes.command list
+    
+      <div class="doc">
+        List of command to run for building the package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:install">
+  <div class="val">
+    <span class="keyword">val</span> install : t -&gt; OpamTypes.command list
+    
+      <div class="doc">
+        List of command to run for installing the package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : t -&gt; OpamTypes.command list
+    
+      <div class="doc">
+        List of command to run for removing the package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:depends">
+  <div class="val">
+    <span class="keyword">val</span> depends : t -&gt; OpamTypes.ext_formula
+    
+      <div class="doc">
+        Package dependencies
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:depopts">
+  <div class="val">
+    <span class="keyword">val</span> depopts : t -&gt; OpamTypes.ext_formula
+    
+      <div class="doc">
+        Optional dependencies
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:depexts">
+  <div class="val">
+    <span class="keyword">val</span> depexts : t -&gt; OpamTypes.tags option
+    
+      <div class="doc">
+        External dependencies
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:conflicts">
+  <div class="val">
+    <span class="keyword">val</span> conflicts : t -&gt; OpamTypes.formula
+    
+      <div class="doc">
+        Package conflicts
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:libraries">
+  <div class="val">
+    <span class="keyword">val</span> libraries : t -&gt; (string * OpamTypes.filter option) list
+    
+      <div class="doc">
+        List of exported libraries
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:syntax">
+  <div class="val">
+    <span class="keyword">val</span> syntax : t -&gt; (string * OpamTypes.filter option) list
+    
+      <div class="doc">
+        List of exported syntax extensions
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:patches">
+  <div class="val">
+    <span class="keyword">val</span> patches : t -&gt; (OpamTypes.basename * OpamTypes.filter option) list
+    
+      <div class="doc">
+        Patches
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:homepage">
+  <div class="val">
+    <span class="keyword">val</span> homepage : t -&gt; string list
+    
+      <div class="doc">
+        Homepage(s)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:author">
+  <div class="val">
+    <span class="keyword">val</span> author : t -&gt; string list
+    
+      <div class="doc">
+        Author(s)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:license">
+  <div class="val">
+    <span class="keyword">val</span> license : t -&gt; string list
+    
+      <div class="doc">
+        License(s)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:doc">
+  <div class="val">
+    <span class="keyword">val</span> doc : t -&gt; string list
+    
+      <div class="doc">
+        API documentation
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:tags">
+  <div class="val">
+    <span class="keyword">val</span> tags : t -&gt; string list
+    
+      <div class="doc">
+        Classification tags
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:build_test">
+  <div class="val">
+    <span class="keyword">val</span> build_test : t -&gt; OpamTypes.command list
+    
+      <div class="doc">
+        Commands to build and run the tests
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:build_doc">
+  <div class="val">
+    <span class="keyword">val</span> build_doc : t -&gt; OpamTypes.command list
+    
+      <div class="doc">
+        Commands to build the documentation
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:messages">
+  <div class="val">
+    <span class="keyword">val</span> messages : t -&gt; (string * OpamTypes.filter option) list
+    
+      <div class="doc">
+        Messages to display before taking action
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:post_messages">
+  <div class="val">
+    <span class="keyword">val</span> post_messages : t -&gt; (string * OpamTypes.filter option) list
+    
+      <div class="doc">
+        Messages to display at end of install
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:bug_reports">
+  <div class="val">
+    <span class="keyword">val</span> bug_reports : t -&gt; string list
+    
+      <div class="doc">
+        Where to post bug reports.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:flags">
+  <div class="val">
+    <span class="keyword">val</span> flags : t -&gt; OpamTypes.package_flag list
+    
+      <div class="doc">
+        The package flags that are present for this package.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:dev_repo">
+  <div class="val">
+    <span class="keyword">val</span> dev_repo : t -&gt; OpamTypes.pin_option option
+    
+      <div class="doc">
+        The package source repository address
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_name">
+  <div class="val">
+    <span class="keyword">val</span> with_name : t -&gt; OpamTypes.name -&gt; t
+    
+      <div class="doc">
+        construct as <code>name</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_name_opt">
+  <div class="val">
+    <span class="keyword">val</span> with_name_opt : t -&gt; OpamTypes.name option -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_version">
+  <div class="val">
+    <span class="keyword">val</span> with_version : t -&gt; OpamTypes.version -&gt; t
+    
+      <div class="doc">
+        construct as <code>version</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_version_opt">
+  <div class="val">
+    <span class="keyword">val</span> with_version_opt : t -&gt; OpamTypes.version option -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_depends">
+  <div class="val">
+    <span class="keyword">val</span> with_depends : t -&gt; OpamTypes.ext_formula -&gt; t
+    
+      <div class="doc">
+        Construct as <code>depends</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_depopts">
+  <div class="val">
+    <span class="keyword">val</span> with_depopts : t -&gt; OpamTypes.ext_formula -&gt; t
+    
+      <div class="doc">
+        Construct as <code>depopts</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_conflicts">
+  <div class="val">
+    <span class="keyword">val</span> with_conflicts : t -&gt; OpamTypes.formula -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_build">
+  <div class="val">
+    <span class="keyword">val</span> with_build : t -&gt; OpamTypes.command list -&gt; t
+    
+      <div class="doc">
+        Construct as <code>build</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_install">
+  <div class="val">
+    <span class="keyword">val</span> with_install : t -&gt; OpamTypes.command list -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_remove">
+  <div class="val">
+    <span class="keyword">val</span> with_remove : t -&gt; OpamTypes.command list -&gt; t
+    
+      <div class="doc">
+        Construct as <code>remove</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_libraries">
+  <div class="val">
+    <span class="keyword">val</span> with_libraries : t -&gt; (string * OpamTypes.filter option) list -&gt; t
+    
+      <div class="doc">
+        Construct as <code>libraries</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_syntax">
+  <div class="val">
+    <span class="keyword">val</span> with_syntax : t -&gt; (string * OpamTypes.filter option) list -&gt; t
+    
+      <div class="doc">
+        Replace the <code>syntax</code> field of the given OPAM file.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_substs">
+  <div class="val">
+    <span class="keyword">val</span> with_substs : t -&gt; OpamTypes.basename list -&gt; t
+    
+      <div class="doc">
+        Construct as <code>substs</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_ocaml_version">
+  <div class="val">
+    <span class="keyword">val</span> with_ocaml_version : t -&gt; OpamTypes.compiler_constraint option -&gt; t
+    
+      <div class="doc">
+        Construct as <code>compiler_version</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_maintainer">
+  <div class="val">
+    <span class="keyword">val</span> with_maintainer : t -&gt; string list -&gt; t
+    
+      <div class="doc">
+        Construct as <code>maintainer</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_patches">
+  <div class="val">
+    <span class="keyword">val</span> with_patches : t -&gt; (OpamTypes.basename * OpamTypes.filter option) list -&gt; t
+    
+      <div class="doc">
+        Construct as <code>patches</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_bug_reports">
+  <div class="val">
+    <span class="keyword">val</span> with_bug_reports : t -&gt; string list -&gt; t
+    
+      <div class="doc">
+        Construct using <code>bug_reports</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_depexts">
+  <div class="val">
+    <span class="keyword">val</span> with_depexts : t -&gt; OpamTypes.tags option -&gt; t
+    
+      <div class="doc">
+        Construct using <code>depexts</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_flags">
+  <div class="val">
+    <span class="keyword">val</span> with_flags : t -&gt; OpamTypes.package_flag list -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:with_dev_repo">
+  <div class="val">
+    <span class="keyword">val</span> with_dev_repo : t -&gt; OpamTypes.pin_option option -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:OPAM#val:to_1_0">
+  <div class="val">
+    <span class="keyword">val</span> to_1_0 : OpamTypes.file -&gt; OpamTypes.file
+    
+      <div class="doc">
+        Convert to OPAM 1.0
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Descr">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Descr : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Package descriptions: <code>$opam/descr/</code>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Descr#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+      <div class="doc">
+        Create an abstract description file from a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:synopsis">
+  <div class="val">
+    <span class="keyword">val</span> synopsis : t -&gt; string
+    
+      <div class="doc">
+        Return the first line
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:body">
+  <div class="val">
+    <span class="keyword">val</span> body : t -&gt; string
+    
+      <div class="doc">
+        Return the body
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Descr#val:full">
+  <div class="val">
+    <span class="keyword">val</span> full : t -&gt; string
+    
+      <div class="doc">
+        Return the full description
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Aliases">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Aliases : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Compiler aliases: <code>$opam/aliases</code>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Aliases#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.compiler OpamTypes.switch_map
+    
+  </div>
+  </div>
+  
+  <div id="module:Aliases#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Aliases#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Aliases#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Aliases#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Aliases#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Aliases#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Export">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Export : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Import/export file. This difference with <code>installed</code> is that we
+are explicit about root packages.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Export#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = (OpamTypes.package_set * OpamTypes.package_set * OpamTypes.pin_option <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name">Name</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Map">Map</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Map%23type:t">t</a>)
+    
+  </div>
+  </div>
+  
+  <div id="module:Export#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Export#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Export#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Export#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Export#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Export#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Installed">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Installed : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        List of installed packages: <code>$opam/$oversion/installed</code>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Installed#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.package_set
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Installed_roots">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Installed_roots : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        List of packages explicitly installed by the user:
+<code>$opam/$switch/installed.user</code>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Installed_roots#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.package_set
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed_roots#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed_roots#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed_roots#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed_roots#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed_roots#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Installed_roots#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Reinstall">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Reinstall : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        List of packages to reinstall: <code>$opam/$oversion/reinstall</code>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Reinstall#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.package_set
+    
+  </div>
+  </div>
+  
+  <div id="module:Reinstall#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Reinstall#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Reinstall#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Reinstall#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Reinstall#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Reinstall#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Comp">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Comp : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Compiler version <code>$opam/compilers/</code>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Comp#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:create_preinstalled">
+  <div class="val">
+    <span class="keyword">val</span> create_preinstalled : OpamTypes.compiler -&gt; OpamTypes.compiler_version -&gt; OpamTypes.name list -&gt; (string * string * string) list -&gt; t
+    
+      <div class="doc">
+        Create a pre-installed compiler description file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:preinstalled">
+  <div class="val">
+    <span class="keyword">val</span> preinstalled : t -&gt; bool
+    
+      <div class="doc">
+        Is it a pre-installed compiler description file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:opam_version">
+  <div class="val">
+    <span class="keyword">val</span> opam_version : t -&gt; OpamTypes.opam_version
+    
+      <div class="doc">
+        Get OPAM version
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:name">
+  <div class="val">
+    <span class="keyword">val</span> name : t -&gt; OpamTypes.compiler
+    
+      <div class="doc">
+        Return the compiler name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:version">
+  <div class="val">
+    <span class="keyword">val</span> version : t -&gt; OpamTypes.compiler_version
+    
+      <div class="doc">
+        Return the compiler version
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:src">
+  <div class="val">
+    <span class="keyword">val</span> src : t -&gt; OpamTypes.address option
+    
+      <div class="doc">
+        Return the url of the compiler
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:kind">
+  <div class="val">
+    <span class="keyword">val</span> kind : t -&gt; OpamTypes.repository_kind
+    
+      <div class="doc">
+        Return the url kind
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:patches">
+  <div class="val">
+    <span class="keyword">val</span> patches : t -&gt; OpamTypes.filename list
+    
+      <div class="doc">
+        Return the list of patches to apply
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:configure">
+  <div class="val">
+    <span class="keyword">val</span> configure : t -&gt; string list
+    
+      <div class="doc">
+        Options to give to the &quot;./configure&quot; command
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:make">
+  <div class="val">
+    <span class="keyword">val</span> make : t -&gt; string list
+    
+      <div class="doc">
+        Options to give to the &quot;make&quot; command
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:build">
+  <div class="val">
+    <span class="keyword">val</span> build : t -&gt; OpamTypes.command list
+    
+      <div class="doc">
+        Options to give to build the package. If this one is provided,
+nothing should be specified for <code>configure</code> and <code>make</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:packages">
+  <div class="val">
+    <span class="keyword">val</span> packages : t -&gt; OpamTypes.formula
+    
+      <div class="doc">
+        Packages to install immediately after the creation of OCaml
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:env">
+  <div class="val">
+    <span class="keyword">val</span> env : t -&gt; (string * string * string) list
+    
+      <div class="doc">
+        Environment variable to set-up before running commands in the
+subtree
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Comp#val:to_1_0">
+  <div class="val">
+    <span class="keyword">val</span> to_1_0 : OpamTypes.file -&gt; OpamTypes.file
+    
+      <div class="doc">
+        Convert to OPAM 1.0
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Dot_install">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Dot_install : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        .install files
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Dot_install#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:bin">
+  <div class="val">
+    <span class="keyword">val</span> bin : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        List of files to install in $bin/
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:sbin">
+  <div class="val">
+    <span class="keyword">val</span> sbin : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        List of files to install in $sbin/
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:lib">
+  <div class="val">
+    <span class="keyword">val</span> lib : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        List of files to install in $lib/
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:toplevel">
+  <div class="val">
+    <span class="keyword">val</span> toplevel : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        List of toplevel files
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:stublibs">
+  <div class="val">
+    <span class="keyword">val</span> stublibs : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        C bindings
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:share">
+  <div class="val">
+    <span class="keyword">val</span> share : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        List of architecture-independent files
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:share_root">
+  <div class="val">
+    <span class="keyword">val</span> share_root : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        List of files under the more general share prefix
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:etc">
+  <div class="val">
+    <span class="keyword">val</span> etc : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        List of etc files
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:doc">
+  <div class="val">
+    <span class="keyword">val</span> doc : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        List of doc files
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:man">
+  <div class="val">
+    <span class="keyword">val</span> man : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.basename option) list
+    
+      <div class="doc">
+        Man pages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_install#val:misc">
+  <div class="val">
+    <span class="keyword">val</span> misc : t -&gt; (OpamTypes.basename OpamTypes.optional * OpamTypes.filename) list
+    
+      <div class="doc">
+        List of other files to install
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Dot_config">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Dot_config : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        .config files
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Dot_config#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : (OpamTypes.variable * OpamTypes.variable_contents) list -&gt; t
+    
+      <div class="doc">
+        Create a new .config file (containing only variables)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:variable">
+  <div class="val">
+    <span class="keyword">val</span> variable : t -&gt; OpamTypes.variable -&gt; OpamTypes.variable_contents option
+    
+      <div class="doc">
+        Top-level variables
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Dot_config#val:variables">
+  <div class="val">
+    <span class="keyword">val</span> variables : t -&gt; OpamTypes.variable list
+    
+      <div class="doc">
+        The list of top-level variables
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Package_index">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Package_index : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Association between package names and repositories
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Package_index#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = (OpamTypes.repository_name * string option) OpamTypes.package_map
+    
+  </div>
+  </div>
+  
+  <div id="module:Package_index#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package_index#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package_index#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package_index#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package_index#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package_index#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Compiler_index">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Compiler_index : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Association between compiler names and repositories
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Compiler_index#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = (OpamTypes.repository_name * string option) OpamTypes.compiler_map
+    
+  </div>
+  </div>
+  
+  <div id="module:Compiler_index#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Compiler_index#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Compiler_index#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Compiler_index#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Compiler_index#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Compiler_index#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Repo_config">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Repo_config : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Repository config: <code>$opam/repo/$repo/config</code>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Repo_config#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.repository
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo_config#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo_config#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo_config#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo_config#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo_config#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo_config#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Pinned">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Pinned : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Pinned package files
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Pinned#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.pin_option OpamTypes.name_map
+    
+  </div>
+  </div>
+  
+  <div id="module:Pinned#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Pinned#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Pinned#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Pinned#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Pinned#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Pinned#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Repo">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Repo : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Repository metadata
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Repo#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : ?browse:string -&gt; ?upstream:string -&gt; ?opam_version:string -&gt; ?redirect:(string * OpamTypes.filter option) list -&gt; unit -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:opam_version">
+  <div class="val">
+    <span class="keyword">val</span> opam_version : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamVersion/">OpamVersion</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamVersion/#type:t">t</a>
+    
+      <div class="doc">
+        The minimum OPAM version required for this repository
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:browse">
+  <div class="val">
+    <span class="keyword">val</span> browse : t -&gt; string option
+    
+      <div class="doc">
+        Base URL for browsing packages on the WWW
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:upstream">
+  <div class="val">
+    <span class="keyword">val</span> upstream : t -&gt; string option
+    
+      <div class="doc">
+        Base URL for browsing OPAM repository source on the WWW
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repo#val:redirect">
+  <div class="val">
+    <span class="keyword">val</span> redirect : t -&gt; (string * OpamTypes.filter option) list
+    
+      <div class="doc">
+        Redirections.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Subst">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Subst : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Substitution files
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Subst#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Subst#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Subst#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Subst#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Subst#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Subst#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Subst#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Subst#val:replace">
+  <div class="val">
+    <span class="keyword">val</span> replace : t -&gt; OpamTypes.full_variable -&gt; OpamTypes.variable_contents -&gt; t
+    
+      <div class="doc">
+        Substitute the variables appearing in a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Subst#val:replace_string">
+  <div class="val">
+    <span class="keyword">val</span> replace_string : string -&gt; OpamTypes.full_variable -&gt; OpamTypes.variable_contents -&gt; string
+    
+      <div class="doc">
+        Substitute the variables appearing in a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:URL">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> URL : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        <h2 class="section">Urls for OPAM repositories</h2>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:URL#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        File contents
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : OpamTypes.repository_kind -&gt; ?mirrors:OpamTypes.address list -&gt; OpamTypes.address -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:url">
+  <div class="val">
+    <span class="keyword">val</span> url : t -&gt; OpamTypes.address
+    
+      <div class="doc">
+        URL address
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:mirrors">
+  <div class="val">
+    <span class="keyword">val</span> mirrors : t -&gt; OpamTypes.address list
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:kind">
+  <div class="val">
+    <span class="keyword">val</span> kind : t -&gt; OpamTypes.repository_kind
+    
+      <div class="doc">
+        Backend kind (could be curl/rsync/git/darcs/hg at the moment)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:checksum">
+  <div class="val">
+    <span class="keyword">val</span> checksum : t -&gt; string option
+    
+      <div class="doc">
+        Archive checksum
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:URL#val:with_checksum">
+  <div class="val">
+    <span class="keyword">val</span> with_checksum : t -&gt; string -&gt; t
+    
+      <div class="doc">
+        Constructor
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:File_attributes">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> File_attributes : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        <h2 class="section">urls.txt file *</h2>
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:File_attributes#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.file_attribute_set
+    
+  </div>
+  </div>
+  
+  <div id="module:File_attributes#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:File_attributes#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:File_attributes#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:File_attributes#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:File_attributes#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:File_attributes#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Filenames">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Filenames : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        List of filenames
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Filenames#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.filename_set
+    
+  </div>
+  </div>
+  
+  <div id="module:Filenames#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Filenames#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Filenames#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Filenames#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Filenames#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Filenames#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Prefix">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Prefix : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Prefix of package directories
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Prefix#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = string OpamTypes.name_map
+    
+  </div>
+  </div>
+  
+  <div id="module:Prefix#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+      <div class="doc">
+        Empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Prefix#val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : OpamTypes.filename -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write some contents to a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Prefix#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Raise an error if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Prefix#val:safe_read">
+  <div class="val">
+    <span class="keyword">val</span> safe_read : OpamTypes.filename -&gt; t
+    
+      <div class="doc">
+        Read file contents. Return <code>empty</code> if the file does not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Prefix#val:read_from_channel">
+  <div class="val">
+    <span class="keyword">val</span> read_from_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; t
+    
+      <div class="doc">
+        Read from channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Prefix#val:write_to_channel">
+  <div class="val">
+    <span class="keyword">val</span> write_to_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Write to channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:print_stats">
+  <div class="val">
+    <span class="keyword">val</span> print_stats : unit -&gt; unit
+    
+      <div class="doc">
+        Display statistics about file access.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  opam-lib.42 opam-lib Module 'OpamFile' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

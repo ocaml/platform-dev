@@ -1,0 +1,848 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 compiler-libs Module 'Clflags' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Clflags/">Clflags</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="val:objfiles">
+  <div class="val">
+    <span class="keyword">val</span> objfiles : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:ccobjs">
+  <div class="val">
+    <span class="keyword">val</span> ccobjs : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dllibs">
+  <div class="val">
+    <span class="keyword">val</span> dllibs : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:compile_only">
+  <div class="val">
+    <span class="keyword">val</span> compile_only : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:output_name">
+  <div class="val">
+    <span class="keyword">val</span> output_name : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:include_dirs">
+  <div class="val">
+    <span class="keyword">val</span> include_dirs : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:no_std_include">
+  <div class="val">
+    <span class="keyword">val</span> no_std_include : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:print_types">
+  <div class="val">
+    <span class="keyword">val</span> print_types : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_archive">
+  <div class="val">
+    <span class="keyword">val</span> make_archive : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:fast">
+  <div class="val">
+    <span class="keyword">val</span> fast : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:link_everything">
+  <div class="val">
+    <span class="keyword">val</span> link_everything : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:custom_runtime">
+  <div class="val">
+    <span class="keyword">val</span> custom_runtime : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:bytecode_compatible_32">
+  <div class="val">
+    <span class="keyword">val</span> bytecode_compatible_32 : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:output_c_object">
+  <div class="val">
+    <span class="keyword">val</span> output_c_object : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:all_ccopts">
+  <div class="val">
+    <span class="keyword">val</span> all_ccopts : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:classic">
+  <div class="val">
+    <span class="keyword">val</span> classic : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:nopervasives">
+  <div class="val">
+    <span class="keyword">val</span> nopervasives : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:open_modules">
+  <div class="val">
+    <span class="keyword">val</span> open_modules : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:preprocessor">
+  <div class="val">
+    <span class="keyword">val</span> preprocessor : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:all_ppx">
+  <div class="val">
+    <span class="keyword">val</span> all_ppx : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:annotations">
+  <div class="val">
+    <span class="keyword">val</span> annotations : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:binary_annotations">
+  <div class="val">
+    <span class="keyword">val</span> binary_annotations : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:include_documentation">
+  <div class="val">
+    <span class="keyword">val</span> include_documentation : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:use_threads">
+  <div class="val">
+    <span class="keyword">val</span> use_threads : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:use_vmthreads">
+  <div class="val">
+    <span class="keyword">val</span> use_vmthreads : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:noassert">
+  <div class="val">
+    <span class="keyword">val</span> noassert : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:verbose">
+  <div class="val">
+    <span class="keyword">val</span> verbose : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:noprompt">
+  <div class="val">
+    <span class="keyword">val</span> noprompt : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:nopromptcont">
+  <div class="val">
+    <span class="keyword">val</span> nopromptcont : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:init_file">
+  <div class="val">
+    <span class="keyword">val</span> init_file : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:noinit">
+  <div class="val">
+    <span class="keyword">val</span> noinit : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:use_prims">
+  <div class="val">
+    <span class="keyword">val</span> use_prims : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:use_runtime">
+  <div class="val">
+    <span class="keyword">val</span> use_runtime : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:principal">
+  <div class="val">
+    <span class="keyword">val</span> principal : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:real_paths">
+  <div class="val">
+    <span class="keyword">val</span> real_paths : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:recursive_types">
+  <div class="val">
+    <span class="keyword">val</span> recursive_types : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:strict_sequence">
+  <div class="val">
+    <span class="keyword">val</span> strict_sequence : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:applicative_functors">
+  <div class="val">
+    <span class="keyword">val</span> applicative_functors : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_runtime">
+  <div class="val">
+    <span class="keyword">val</span> make_runtime : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:gprofile">
+  <div class="val">
+    <span class="keyword">val</span> gprofile : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:c_compiler">
+  <div class="val">
+    <span class="keyword">val</span> c_compiler : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:no_auto_link">
+  <div class="val">
+    <span class="keyword">val</span> no_auto_link : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dllpaths">
+  <div class="val">
+    <span class="keyword">val</span> dllpaths : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_package">
+  <div class="val">
+    <span class="keyword">val</span> make_package : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:for_package">
+  <div class="val">
+    <span class="keyword">val</span> for_package : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:error_size">
+  <div class="val">
+    <span class="keyword">val</span> error_size : int <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:float_const_prop">
+  <div class="val">
+    <span class="keyword">val</span> float_const_prop : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:transparent_modules">
+  <div class="val">
+    <span class="keyword">val</span> transparent_modules : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_source">
+  <div class="val">
+    <span class="keyword">val</span> dump_source : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_parsetree">
+  <div class="val">
+    <span class="keyword">val</span> dump_parsetree : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_typedtree">
+  <div class="val">
+    <span class="keyword">val</span> dump_typedtree : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_rawlambda">
+  <div class="val">
+    <span class="keyword">val</span> dump_rawlambda : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_lambda">
+  <div class="val">
+    <span class="keyword">val</span> dump_lambda : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_clambda">
+  <div class="val">
+    <span class="keyword">val</span> dump_clambda : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_instr">
+  <div class="val">
+    <span class="keyword">val</span> dump_instr : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:keep_asm_file">
+  <div class="val">
+    <span class="keyword">val</span> keep_asm_file : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:optimize_for_speed">
+  <div class="val">
+    <span class="keyword">val</span> optimize_for_speed : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_cmm">
+  <div class="val">
+    <span class="keyword">val</span> dump_cmm : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_selection">
+  <div class="val">
+    <span class="keyword">val</span> dump_selection : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_cse">
+  <div class="val">
+    <span class="keyword">val</span> dump_cse : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_live">
+  <div class="val">
+    <span class="keyword">val</span> dump_live : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_spill">
+  <div class="val">
+    <span class="keyword">val</span> dump_spill : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_split">
+  <div class="val">
+    <span class="keyword">val</span> dump_split : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_interf">
+  <div class="val">
+    <span class="keyword">val</span> dump_interf : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_prefer">
+  <div class="val">
+    <span class="keyword">val</span> dump_prefer : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_regalloc">
+  <div class="val">
+    <span class="keyword">val</span> dump_regalloc : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_reload">
+  <div class="val">
+    <span class="keyword">val</span> dump_reload : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_scheduling">
+  <div class="val">
+    <span class="keyword">val</span> dump_scheduling : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_linear">
+  <div class="val">
+    <span class="keyword">val</span> dump_linear : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:keep_startup_file">
+  <div class="val">
+    <span class="keyword">val</span> keep_startup_file : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dump_combine">
+  <div class="val">
+    <span class="keyword">val</span> dump_combine : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:native_code">
+  <div class="val">
+    <span class="keyword">val</span> native_code : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:inline_threshold">
+  <div class="val">
+    <span class="keyword">val</span> inline_threshold : int <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dont_write_files">
+  <div class="val">
+    <span class="keyword">val</span> dont_write_files : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:std_include_flag">
+  <div class="val">
+    <span class="keyword">val</span> std_include_flag : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:std_include_dir">
+  <div class="val">
+    <span class="keyword">val</span> std_include_dir : unit -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="val:shared">
+  <div class="val">
+    <span class="keyword">val</span> shared : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:dlcode">
+  <div class="val">
+    <span class="keyword">val</span> dlcode : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:runtime_variant">
+  <div class="val">
+    <span class="keyword">val</span> runtime_variant : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:force_slash">
+  <div class="val">
+    <span class="keyword">val</span> force_slash : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:keep_locs">
+  <div class="val">
+    <span class="keyword">val</span> keep_locs : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:unsafe_string">
+  <div class="val">
+    <span class="keyword">val</span> unsafe_string : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:opaque">
+  <div class="val">
+    <span class="keyword">val</span> opaque : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 compiler-libs Module 'Clflags' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

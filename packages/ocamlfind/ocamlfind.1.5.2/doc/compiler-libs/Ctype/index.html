@@ -1,0 +1,995 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 compiler-libs Module 'Ctype' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ctype/">Ctype</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="exception:Unify">
+  <div class="exception">
+    <span class="keyword">exception</span> Unify <span class="keyword">of</span> (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list
+    
+  </div>
+  </div>
+  
+  <div id="exception:Tags">
+  <div class="exception">
+    <span class="keyword">exception</span> Tags <span class="keyword">of</span> Asttypes.label * Asttypes.label
+    
+  </div>
+  </div>
+  
+  <div id="exception:Subtype">
+  <div class="exception">
+    <span class="keyword">exception</span> Subtype <span class="keyword">of</span> (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list * (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list
+    
+  </div>
+  </div>
+  
+  <div id="exception:Cannot_expand">
+  <div class="exception">
+    <span class="keyword">exception</span> Cannot_expand
+    
+  </div>
+  </div>
+  
+  <div id="exception:Cannot_apply">
+  <div class="exception">
+    <span class="keyword">exception</span> Cannot_apply
+    
+  </div>
+  </div>
+  
+  <div id="exception:Recursive_abbrev">
+  <div class="exception">
+    <span class="keyword">exception</span> Recursive_abbrev
+    
+  </div>
+  </div>
+  
+  <div id="exception:Unification_recursive_abbrev">
+  <div class="exception">
+    <span class="keyword">exception</span> Unification_recursive_abbrev <span class="keyword">of</span> (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list
+    
+  </div>
+  </div>
+  
+  <div id="val:init_def">
+  <div class="val">
+    <span class="keyword">val</span> init_def : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:begin_def">
+  <div class="val">
+    <span class="keyword">val</span> begin_def : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:end_def">
+  <div class="val">
+    <span class="keyword">val</span> end_def : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:begin_class_def">
+  <div class="val">
+    <span class="keyword">val</span> begin_class_def : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:raise_nongen_level">
+  <div class="val">
+    <span class="keyword">val</span> raise_nongen_level : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:reset_global_level">
+  <div class="val">
+    <span class="keyword">val</span> reset_global_level : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:increase_global_level">
+  <div class="val">
+    <span class="keyword">val</span> increase_global_level : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:restore_global_level">
+  <div class="val">
+    <span class="keyword">val</span> restore_global_level : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:newty">
+  <div class="val">
+    <span class="keyword">val</span> newty : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_desc">type_desc</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:newvar">
+  <div class="val">
+    <span class="keyword">val</span> newvar : ?name:string -&gt; unit -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:newvar2">
+  <div class="val">
+    <span class="keyword">val</span> newvar2 : ?name:string -&gt; int -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:new_global_var">
+  <div class="val">
+    <span class="keyword">val</span> new_global_var : ?name:string -&gt; unit -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:newobj">
+  <div class="val">
+    <span class="keyword">val</span> newobj : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:newconstr">
+  <div class="val">
+    <span class="keyword">val</span> newconstr : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:none">
+  <div class="val">
+    <span class="keyword">val</span> none : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:repr">
+  <div class="val">
+    <span class="keyword">val</span> repr : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:object_fields">
+  <div class="val">
+    <span class="keyword">val</span> object_fields : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:flatten_fields">
+  <div class="val">
+    <span class="keyword">val</span> flatten_fields : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; ((string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:field_kind">field_kind</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:associate_fields">
+  <div class="val">
+    <span class="keyword">val</span> associate_fields : (string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:field_kind">field_kind</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list -&gt; (string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:field_kind">field_kind</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list -&gt; ((string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:field_kind">field_kind</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:field_kind">field_kind</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list * (string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:field_kind">field_kind</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list * (string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:field_kind">field_kind</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list)
+    
+  </div>
+  </div>
+  
+  <div id="val:opened_object">
+  <div class="val">
+    <span class="keyword">val</span> opened_object : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:close_object">
+  <div class="val">
+    <span class="keyword">val</span> close_object : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:row_variable">
+  <div class="val">
+    <span class="keyword">val</span> row_variable : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_object_name">
+  <div class="val">
+    <span class="keyword">val</span> set_object_name : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_object_name">
+  <div class="val">
+    <span class="keyword">val</span> remove_object_name : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:hide_private_methods">
+  <div class="val">
+    <span class="keyword">val</span> hide_private_methods : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:find_cltype_for_path">
+  <div class="val">
+    <span class="keyword">val</span> find_cltype_for_path : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_declaration">type_declaration</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:lid_of_path">
+  <div class="val">
+    <span class="keyword">val</span> lid_of_path : ?sharp:string -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/">Longident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:sort_row_fields">
+  <div class="val">
+    <span class="keyword">val</span> sort_row_fields : (Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list -&gt; (Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list
+    
+  </div>
+  </div>
+  
+  <div id="val:merge_row_fields">
+  <div class="val">
+    <span class="keyword">val</span> merge_row_fields : (Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list -&gt; (Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list -&gt; ((Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list * (Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list * (Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list)
+    
+  </div>
+  </div>
+  
+  <div id="val:filter_row_fields">
+  <div class="val">
+    <span class="keyword">val</span> filter_row_fields : bool -&gt; (Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list -&gt; (Asttypes.label * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:row_field">row_field</a>) list
+    
+  </div>
+  </div>
+  
+  <div id="val:generalize">
+  <div class="val">
+    <span class="keyword">val</span> generalize : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:iterative_generalization">
+  <div class="val">
+    <span class="keyword">val</span> iterative_generalization : int -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list
+    
+  </div>
+  </div>
+  
+  <div id="val:generalize_expansive">
+  <div class="val">
+    <span class="keyword">val</span> generalize_expansive : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:generalize_global">
+  <div class="val">
+    <span class="keyword">val</span> generalize_global : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:generalize_structure">
+  <div class="val">
+    <span class="keyword">val</span> generalize_structure : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:generalize_spine">
+  <div class="val">
+    <span class="keyword">val</span> generalize_spine : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:correct_levels">
+  <div class="val">
+    <span class="keyword">val</span> correct_levels : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:limited_generalize">
+  <div class="val">
+    <span class="keyword">val</span> limited_generalize : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:instance">
+  <div class="val">
+    <span class="keyword">val</span> instance : ?partial:bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_def">
+  <div class="val">
+    <span class="keyword">val</span> instance_def : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_list">
+  <div class="val">
+    <span class="keyword">val</span> instance_list : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_constructor">
+  <div class="val">
+    <span class="keyword">val</span> instance_constructor : ?in_pattern:(<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> * int) -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:constructor_description">constructor_description</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_parameterized_type">
+  <div class="val">
+    <span class="keyword">val</span> instance_parameterized_type : ?keep_names:bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_parameterized_type_2">
+  <div class="val">
+    <span class="keyword">val</span> instance_parameterized_type_2 : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_declaration">
+  <div class="val">
+    <span class="keyword">val</span> instance_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_declaration">type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_declaration">type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_class">
+  <div class="val">
+    <span class="keyword">val</span> instance_class : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_poly">
+  <div class="val">
+    <span class="keyword">val</span> instance_poly : ?keep_names:bool -&gt; bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:instance_label">
+  <div class="val">
+    <span class="keyword">val</span> instance_label : bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:label_description">label_description</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:apply">
+  <div class="val">
+    <span class="keyword">val</span> apply : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:expand_head_once">
+  <div class="val">
+    <span class="keyword">val</span> expand_head_once : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:expand_head">
+  <div class="val">
+    <span class="keyword">val</span> expand_head : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:try_expand_once_opt">
+  <div class="val">
+    <span class="keyword">val</span> try_expand_once_opt : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:expand_head_opt">
+  <div class="val">
+    <span class="keyword">val</span> expand_head_opt : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:full_expand">
+  <div class="val">
+    <span class="keyword">val</span> full_expand : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:extract_concrete_typedecl">
+  <div class="val">
+    <span class="keyword">val</span> extract_concrete_typedecl : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_declaration">type_declaration</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:enforce_constraints">
+  <div class="val">
+    <span class="keyword">val</span> enforce_constraints : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:unify">
+  <div class="val">
+    <span class="keyword">val</span> unify : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:unify_gadt">
+  <div class="val">
+    <span class="keyword">val</span> unify_gadt : newtype_level:int -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:unify_var">
+  <div class="val">
+    <span class="keyword">val</span> unify_var : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:filter_arrow">
+  <div class="val">
+    <span class="keyword">val</span> filter_arrow : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; Asttypes.label -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:filter_method">
+  <div class="val">
+    <span class="keyword">val</span> filter_method : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; string -&gt; Asttypes.private_flag -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:check_filter_method">
+  <div class="val">
+    <span class="keyword">val</span> check_filter_method : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; string -&gt; Asttypes.private_flag -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:occur_in">
+  <div class="val">
+    <span class="keyword">val</span> occur_in : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:deep_occur">
+  <div class="val">
+    <span class="keyword">val</span> deep_occur : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:filter_self_method">
+  <div class="val">
+    <span class="keyword">val</span> filter_self_method : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; string -&gt; Asttypes.private_flag -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#module:Meths">Meths</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#module:Meths%23type:t">t</a> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:moregeneral">
+  <div class="val">
+    <span class="keyword">val</span> moregeneral : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:rigidify">
+  <div class="val">
+    <span class="keyword">val</span> rigidify : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list
+    
+  </div>
+  </div>
+  
+  <div id="val:all_distinct_vars">
+  <div class="val">
+    <span class="keyword">val</span> all_distinct_vars : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:matches">
+  <div class="val">
+    <span class="keyword">val</span> matches : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="type:class_match_failure">
+  <div class="type">
+    <span class="keyword">type</span> class_match_failure = <div class="constr">| CM_Virtual_class</div><div class="constr">| CM_Parameter_arity_mismatch <span class="keyword">of</span> int * int</div><div class="constr">| CM_Type_parameter_mismatch <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> * (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list</div><div class="constr">| CM_Class_type_mismatch <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a></div><div class="constr">| CM_Parameter_mismatch <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> * (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list</div><div class="constr">| CM_Val_type_mismatch <span class="keyword">of</span> string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> * (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list</div><div class="constr">| CM_Meth_type_mismatch <span class="keyword">of</span> string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> * (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>) list</div><div class="constr">| CM_Non_mutable_value <span class="keyword">of</span> string</div><div class="constr">| CM_Non_concrete_value <span class="keyword">of</span> string</div><div class="constr">| CM_Missing_value <span class="keyword">of</span> string</div><div class="constr">| CM_Missing_method <span class="keyword">of</span> string</div><div class="constr">| CM_Hide_public <span class="keyword">of</span> string</div><div class="constr">| CM_Hide_virtual <span class="keyword">of</span> string * string</div><div class="constr">| CM_Public_method <span class="keyword">of</span> string</div><div class="constr">| CM_Private_method <span class="keyword">of</span> string</div><div class="constr">| CM_Virtual_method <span class="keyword">of</span> string</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:match_class_types">
+  <div class="val">
+    <span class="keyword">val</span> match_class_types : ?trace:bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> -&gt; class_match_failure list
+    
+  </div>
+  </div>
+  
+  <div id="val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:match_class_declarations">
+  <div class="val">
+    <span class="keyword">val</span> match_class_declarations : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> -&gt; class_match_failure list
+    
+  </div>
+  </div>
+  
+  <div id="val:enlarge_type">
+  <div class="val">
+    <span class="keyword">val</span> enlarge_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * bool)
+    
+  </div>
+  </div>
+  
+  <div id="val:subtype">
+  <div class="val">
+    <span class="keyword">val</span> subtype : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:nondep_type">
+  <div class="val">
+    <span class="keyword">val</span> nondep_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:nondep_type_decl">
+  <div class="val">
+    <span class="keyword">val</span> nondep_type_decl : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_declaration">type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_declaration">type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:nondep_extension_constructor">
+  <div class="val">
+    <span class="keyword">val</span> nondep_extension_constructor : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:extension_constructor">extension_constructor</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:extension_constructor">extension_constructor</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:nondep_class_declaration">
+  <div class="val">
+    <span class="keyword">val</span> nondep_class_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_declaration">class_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_declaration">class_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:nondep_cltype_declaration">
+  <div class="val">
+    <span class="keyword">val</span> nondep_cltype_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type_declaration">class_type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type_declaration">class_type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:cyclic_abbrev">
+  <div class="val">
+    <span class="keyword">val</span> cyclic_abbrev : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:is_contractive">
+  <div class="val">
+    <span class="keyword">val</span> is_contractive : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:normalize_type">
+  <div class="val">
+    <span class="keyword">val</span> normalize_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:closed_schema">
+  <div class="val">
+    <span class="keyword">val</span> closed_schema : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:free_variables">
+  <div class="val">
+    <span class="keyword">val</span> free_variables : ?env:<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list
+    
+  </div>
+  </div>
+  
+  <div id="val:closed_type_decl">
+  <div class="val">
+    <span class="keyword">val</span> closed_type_decl : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_declaration">type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> option
+    
+  </div>
+  </div>
+  
+  <div id="val:closed_extension_constructor">
+  <div class="val">
+    <span class="keyword">val</span> closed_extension_constructor : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:extension_constructor">extension_constructor</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> option
+    
+  </div>
+  </div>
+  
+  <div id="type:closed_class_failure">
+  <div class="type">
+    <span class="keyword">type</span> closed_class_failure = <div class="constr">| CC_Method <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * bool * string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a></div><div class="constr">| CC_Value <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> * bool * string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a></div>
+    
+  </div>
+  </div>
+  
+  <div id="val:closed_class">
+  <div class="val">
+    <span class="keyword">val</span> closed_class : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_signature">class_signature</a> -&gt; closed_class_failure option
+    
+  </div>
+  </div>
+  
+  <div id="val:unalias">
+  <div class="val">
+    <span class="keyword">val</span> unalias : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:signature_of_class_type">
+  <div class="val">
+    <span class="keyword">val</span> signature_of_class_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_signature">class_signature</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:self_type">
+  <div class="val">
+    <span class="keyword">val</span> self_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:class_type_arity">
+  <div class="val">
+    <span class="keyword">val</span> class_type_arity : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:class_type">class_type</a> -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:arity">
+  <div class="val">
+    <span class="keyword">val</span> arity : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:collapse_conj_params">
+  <div class="val">
+    <span class="keyword">val</span> collapse_conj_params : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_current_level">
+  <div class="val">
+    <span class="keyword">val</span> get_current_level : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:wrap_trace_gadt_instances">
+  <div class="val">
+    <span class="keyword">val</span> wrap_trace_gadt_instances : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; 'a -&gt; 'b -&gt; 'a -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:package_subtype">
+  <div class="val">
+    <span class="keyword">val</span> package_subtype : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/">Longident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/#type:t">t</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/">Longident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/#type:t">t</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a> list -&gt; bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 compiler-libs Module 'Ctype' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,1026 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  utop.1.15 utop Module 'UTop' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../utop/utop.1.15/doc/utop/UTop/">UTop</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="val:version">
+  <div class="val">
+    <span class="keyword">val</span> version : string
+    
+      <div class="doc">
+        Version of utop.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:count">
+  <div class="val">
+    <span class="keyword">val</span> count : int React.signal
+    
+      <div class="doc">
+        The number of commands already executed.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:keywords">
+  <div class="val">
+    <span class="keyword">val</span> keywords : Set.Make(String).t <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+      <div class="doc">
+        The set of OCaml keywords.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_keyword">
+  <div class="val">
+    <span class="keyword">val</span> add_keyword : string -&gt; unit
+    
+      <div class="doc">
+        Add a new OCaml keyword.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:require">
+  <div class="val">
+    <span class="keyword">val</span> require : string list -&gt; unit
+    
+      <div class="doc">
+        Load all the given findlib packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:ui">
+  <div class="type">
+    <span class="keyword">type</span> ui = <div class="constr">| Console</div><div class="constr">| Emacs <span class="doc">(* The user interface in use. *)</span></div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_ui">
+  <div class="val">
+    <span class="keyword">val</span> get_ui : unit -&gt; ui
+    
+      <div class="doc">
+        Returns the user interface in use.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:hide_reserved">
+  <div class="val">
+    <span class="keyword">val</span> hide_reserved : bool React.signal
+    
+      <div class="doc">
+        If <code>true</code> (the default) identifiers starting with a '_' will be hidden from the
+output. i.e. the following phrase won't produces any output:<br/><pre><code>        let _x = 1</code></pre><br/>This is for hidding variables created by code generators for internal use. It can
+also be set/unset by the command line options <code>-hide-reserved</code> and <code>-show-reserved</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_hide_reserved">
+  <div class="val">
+    <span class="keyword">val</span> get_hide_reserved : unit -&gt; bool
+    
+      <div class="doc">
+        Returns the value of hide_reserved.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_hide_reserved">
+  <div class="val">
+    <span class="keyword">val</span> set_hide_reserved : bool -&gt; unit
+    
+      <div class="doc">
+        Modifies hide_reserved.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:topfind_verbose">
+  <div class="val">
+    <span class="keyword">val</span> topfind_verbose : bool React.signal
+    
+      <div class="doc">
+        If <code>false</code> (the default) messages from findlib are hidden. This is only effective
+with findlib &gt;= 1.4.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_topfind_verbose">
+  <div class="val">
+    <span class="keyword">val</span> get_topfind_verbose : unit -&gt; bool
+    
+      <div class="doc">
+        Returns the value of topfind_verbose.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_topfind_verbose">
+  <div class="val">
+    <span class="keyword">val</span> set_topfind_verbose : bool -&gt; unit
+    
+      <div class="doc">
+        Modifies topfind_verbose.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:topfind_log">
+  <div class="val">
+    <span class="keyword">val</span> topfind_log : string list React.signal
+    
+      <div class="doc">
+        List of messages logged by findlib since the beginning of the session. This
+requires findlib &gt;= 1.4.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:show_box">
+  <div class="val">
+    <span class="keyword">val</span> show_box : bool React.signal
+    
+      <div class="doc">
+        If <code>true</code> (the default) the completion bar is displayed.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_show_box">
+  <div class="val">
+    <span class="keyword">val</span> get_show_box : unit -&gt; bool
+    
+      <div class="doc">
+        Returns the value of show_box.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_show_box">
+  <div class="val">
+    <span class="keyword">val</span> set_show_box : bool -&gt; unit
+    
+      <div class="doc">
+        Modifies show_box.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:syntax">
+  <div class="type">
+    <span class="keyword">type</span> syntax = <div class="constr">| Normal <span class="doc">(* No camlp4. *)</span></div><div class="constr">| Camlp4o <span class="doc">(* Camlp4, original syntax. *)</span></div><div class="constr">| Camlp4r <span class="doc">(* Camlp4, revised syntax. *)</span></div>
+    
+      <div class="doc">
+        Syntax.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:syntax">
+  <div class="val">
+    <span class="keyword">val</span> syntax : syntax React.signal
+    
+      <div class="doc">
+        The syntax in use. If it is Camlp4o or Camlp4r quotations
+are recognized. It is modified when you type <code>#camlp4o</code> or
+<code>#camlp4r</code>. At the beginning it is Normal.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_syntax">
+  <div class="val">
+    <span class="keyword">val</span> get_syntax : unit -&gt; syntax
+    
+      <div class="doc">
+        Returns the current value of syntax.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_syntax">
+  <div class="val">
+    <span class="keyword">val</span> set_syntax : syntax -&gt; unit
+    
+      <div class="doc">
+        Changes the syntax used in utop. If the syntax is the same as
+the current one, it does nothing. Otherwise it loads camlp4 and
+setup several configuration variables.<br/>Notes:<ul><li>the syntax can only be changed once. Once you set it to
+Camlp4o or Camlp4r you cannot change it again.</li><li>Typing <code>#camlp4o</code> is the same as calling <code>set_syntax Camlp4o</code>.</li><li>Typing <code>#camlp4r</code> is the same as calling <code>set_syntax Camlp4r</code>.</li></ul>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:phrase_terminator">
+  <div class="val">
+    <span class="keyword">val</span> phrase_terminator : string React.signal
+    
+      <div class="doc">
+        The phrase terminator. It is &quot;;;&quot; by default and &quot;;&quot; when you
+use revised syntax.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_phrase_terminator">
+  <div class="val">
+    <span class="keyword">val</span> get_phrase_terminator : unit -&gt; string
+    
+      <div class="doc">
+        Returns the value of phrase_terminator.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_phrase_terminator">
+  <div class="val">
+    <span class="keyword">val</span> set_phrase_terminator : string -&gt; unit
+    
+      <div class="doc">
+        Modifies phrase_terminator.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:auto_run_lwt">
+  <div class="val">
+    <span class="keyword">val</span> auto_run_lwt : bool React.signal
+    
+      <div class="doc">
+        If <code>true</code> (the default) toplevel lwt expressions are
+automatically run with <code>Lwt_main.run</code>. i.e. if you type:<br/><pre><code>        Lwt_io.printl &quot;Hello, world&quot;</code></pre><br/>this will be replaced by:<br/><pre><code>        Lwt_main.run (Lwt_io.printl &quot;Hello, world&quot;)</code></pre>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_auto_run_lwt">
+  <div class="val">
+    <span class="keyword">val</span> get_auto_run_lwt : unit -&gt; bool
+    
+      <div class="doc">
+        Returns the value of auto_run_lwt.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_auto_run_lwt">
+  <div class="val">
+    <span class="keyword">val</span> set_auto_run_lwt : bool -&gt; unit
+    
+      <div class="doc">
+        Modifies auto_run_lwt.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:auto_run_async">
+  <div class="val">
+    <span class="keyword">val</span> auto_run_async : bool React.signal
+    
+      <div class="doc">
+        If <code>true</code> (the default) toplevel Async expressions are
+automatically run with in a separate thread with
+<code>Thread_safe.block_on_async_exn</code>. i.e. if you type:<br/><pre><code>        after (Time.Span.of_s 1.0)</code></pre><br/>this will be replaced by:<br/><pre><code>        Thread_safe.block_on_async_exn (fun () -&gt; after (Time.Span.of_s 1.0))</code></pre>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_auto_run_async">
+  <div class="val">
+    <span class="keyword">val</span> get_auto_run_async : unit -&gt; bool
+    
+      <div class="doc">
+        Returns the value of auto_run_async.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_auto_run_async">
+  <div class="val">
+    <span class="keyword">val</span> set_auto_run_async : bool -&gt; unit
+    
+      <div class="doc">
+        Modifies auto_run_async.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:history">
+  <div class="val">
+    <span class="keyword">val</span> history : <a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_history/">LTerm_history</a>.<a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_history/#type:t">t</a>
+    
+      <div class="doc">
+        The history used by utop. You can configure limits using the
+<code>LTerm_history</code> module.<br/>For example if you want to limit the history to 1000 line, add
+these lines to your ~/.ocamlinit file:<br/><pre><code>        #require &quot;lambda-term&quot;;;
+        LTerm_history.set_max_entries UTop.history 1000;;</code></pre>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:history_file_name">
+  <div class="val">
+    <span class="keyword">val</span> history_file_name : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+      <div class="doc">
+        Name of the history file. If <code>None</code>, no history will be loaded
+or saved.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:history_file_max_size">
+  <div class="val">
+    <span class="keyword">val</span> history_file_max_size : int option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+      <div class="doc">
+        Maximum size of the history file. If <code>None</code> (the default) the
+maximum size of <code>history</code> will be used.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:history_file_max_entries">
+  <div class="val">
+    <span class="keyword">val</span> history_file_max_entries : int option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+      <div class="doc">
+        Maximum entries to store in the history file. If <code>None</code> (the
+default) the maximum number of entries if <code>history</code> will be
+used.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:profile">
+  <div class="type">
+    <span class="keyword">type</span> profile = <div class="constr">| Dark</div><div class="constr">| Light <span class="doc">(* Profile for colors. *)</span></div>
+    
+  </div>
+  </div>
+  
+  <div id="val:profile">
+  <div class="val">
+    <span class="keyword">val</span> profile : profile React.signal
+    
+      <div class="doc">
+        The color profile. It defaults to Dark. This is used by the
+default prompt to choose colors.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_profile">
+  <div class="val">
+    <span class="keyword">val</span> set_profile : profile -&gt; unit
+    
+      <div class="doc">
+        Sets the color profile.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:size">
+  <div class="val">
+    <span class="keyword">val</span> size : <a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_geom/">LTerm_geom</a>.<a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_geom/#type:size">size</a> React.signal
+    
+      <div class="doc">
+        The current size of the terminal. This is used only in the
+console UI.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:key_sequence">
+  <div class="val">
+    <span class="keyword">val</span> key_sequence : <a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_key/">LTerm_key</a>.<a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_key/#type:t">t</a> list React.signal
+    
+      <div class="doc">
+        The current key sequence entered by the user. This is used only
+in the console UI.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:time">
+  <div class="val">
+    <span class="keyword">val</span> time : float <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+      <div class="doc">
+        The time of the beginning of the current command.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:prompt">
+  <div class="val">
+    <span class="keyword">val</span> prompt : <a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_text/">LTerm_text</a>.<a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_text/#type:t">t</a> React.signal <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+      <div class="doc">
+        The prompt.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:new_command_hooks">
+  <div class="val">
+    <span class="keyword">val</span> new_command_hooks : unit -&gt; unit <a href="../../../../../lwt/lwt.2.4.5/doc/lwt/Lwt_sequence/">Lwt_sequence</a>.<a href="../../../../../lwt/lwt.2.4.5/doc/lwt/Lwt_sequence/#type:t">t</a>
+    
+      <div class="doc">
+        Functions called before each new command.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:at_new_command">
+  <div class="val">
+    <span class="keyword">val</span> at_new_command : unit -&gt; unit -&gt; unit
+    
+      <div class="doc">
+        <code>at_new_command f</code> adds <code>f</code> to the hooks executed before each
+new commands.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:location">
+  <div class="type">
+    <span class="keyword">type</span> location = (int * int)
+    
+      <div class="doc">
+        Type of a string-location. It is composed of a start and stop
+offsets (in bytes).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:result">
+  <div class="type">
+    <span class="keyword">type</span> 'a result = <div class="constr">| Value <span class="keyword">of</span> 'a <span class="doc">(* The function succeeded and returned this value. *)</span></div><div class="constr">| Error <span class="keyword">of</span> location list * string <span class="doc">(* The function failed. Arguments are a list of locations to
+highlight in the source and an error message. *)</span></div>
+    
+      <div class="doc">
+        Result of a function processing a programx.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Need_more">
+  <div class="exception">
+    <span class="keyword">exception</span> Need_more
+    
+      <div class="doc">
+        Exception raised by a parser when it need more data.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_use_file">
+  <div class="val">
+    <span class="keyword">val</span> parse_use_file : string -&gt; bool -&gt; Parsetree.toplevel_phrase list result <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_use_file_default">
+  <div class="val">
+    <span class="keyword">val</span> parse_use_file_default : string -&gt; bool -&gt; Parsetree.toplevel_phrase list result
+    
+      <div class="doc">
+        The default parser for toplevel regions. It uses the standard
+ocaml parser.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_toplevel_phrase">
+  <div class="val">
+    <span class="keyword">val</span> parse_toplevel_phrase : string -&gt; bool -&gt; Parsetree.toplevel_phrase result <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+      <div class="doc">
+        <code>parse_toplevel_phrase</code> is the function used to parse a phrase
+typed in the toplevel.<br/>Its arguments are:<ul><li><code>input</code>: the string to parse</li><li><code>eos_is_error</code></li></ul>If <code>eos_is_error</code> is <code>true</code> and the parser reach the end of
+input, then Parse_failure should be returned.<br/>If <code>eos_is_error</code> is <code>false</code> and the parser reach the end of
+input, the exception Need_more must be thrown.<br/>Except for Need_more, the function must not raise any
+exception.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_toplevel_phrase_default">
+  <div class="val">
+    <span class="keyword">val</span> parse_toplevel_phrase_default : string -&gt; bool -&gt; Parsetree.toplevel_phrase result
+    
+      <div class="doc">
+        The default parser for toplevel phrases. It uses the standard
+ocaml parser.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_default">
+  <div class="val">
+    <span class="keyword">val</span> parse_default : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; 'a -&gt; string -&gt; bool -&gt; 'a result
+    
+      <div class="doc">
+        The default parser. It uses the standard ocaml parser.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:input_name">
+  <div class="val">
+    <span class="keyword">val</span> input_name : string
+    
+      <div class="doc">
+        The name you must use in location to let ocaml know that it is
+from the toplevel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lexbuf_of_string">
+  <div class="val">
+    <span class="keyword">val</span> lexbuf_of_string : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; string -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a>
+    
+      <div class="doc">
+        <code>lexbuf_of_string eof str</code> is the same as <code>Lexing.from_string
+      str</code> except that if the lexer reach the end of <code>str</code> then <code>eof</code> is
+set to <code>true</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_message">
+  <div class="val">
+    <span class="keyword">val</span> get_message : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; 'a -&gt; unit -&gt; 'a -&gt; string
+    
+      <div class="doc">
+        <code>get_message printer x</code> applies <code>printer</code> on <code>x</code> and
+returns everything it prints as a string.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_ocaml_error_message">
+  <div class="val">
+    <span class="keyword">val</span> get_ocaml_error_message : exn -&gt; (location * string)
+    
+      <div class="doc">
+        <code>get_ocaml_error_message exn</code> returns the location and error
+message for the exception <code>exn</code> which must be an exception from
+the compiler.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:check_phrase">
+  <div class="val">
+    <span class="keyword">val</span> check_phrase : Parsetree.toplevel_phrase -&gt; (location list * string) option
+    
+      <div class="doc">
+        <code>check_phrase phrase</code> checks that <code>phrase</code> can be executed
+without typing or compilation errors. It returns <code>None</code> if
+<code>phrase</code> is OK and an error message otherwise.<br/>If the result is <code>None</code> it is guaranteed that
+<code>Toploop.execute_phrase</code> won't raise any exception.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:collect_formatters">
+  <div class="val">
+    <span class="keyword">val</span> collect_formatters : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Buffer/">Buffer</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Buffer/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> list -&gt; unit -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        <code>collect_formatters buf pps f</code> executes <code>f</code> and redirect
+everything it prints on <code>pps</code> to <code>buf</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:discard_formatters">
+  <div class="val">
+    <span class="keyword">val</span> discard_formatters : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> list -&gt; unit -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        <code>discard_formatters pps f</code> executes <code>f</code>, dropping everything it
+prints on <code>pps</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:split_words">
+  <div class="val">
+    <span class="keyword">val</span> split_words : string -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="val:prompt_continue">
+  <div class="val">
+    <span class="keyword">val</span> prompt_continue : <a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_text/">LTerm_text</a>.<a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_text/#type:t">t</a> React.signal <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:prompt_comment">
+  <div class="val">
+    <span class="keyword">val</span> prompt_comment : <a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_text/">LTerm_text</a>.<a href="../../../../../lambda-term/lambda-term.1.6/doc/lambda-term/LTerm_text/#type:t">t</a> React.signal <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:smart_accept">
+  <div class="val">
+    <span class="keyword">val</span> smart_accept : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:new_prompt_hooks">
+  <div class="val">
+    <span class="keyword">val</span> new_prompt_hooks : unit -&gt; unit <a href="../../../../../lwt/lwt.2.4.5/doc/lwt/Lwt_sequence/">Lwt_sequence</a>.<a href="../../../../../lwt/lwt.2.4.5/doc/lwt/Lwt_sequence/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:at_new_prompt">
+  <div class="val">
+    <span class="keyword">val</span> at_new_prompt : unit -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  utop.1.15 utop Module 'UTop' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

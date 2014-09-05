@@ -1,0 +1,538 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 findlib Module 'Findlib' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/findlib/Findlib/">Findlib</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="exception:No_such_package">
+  <div class="exception">
+    <span class="keyword">exception</span> No_such_package <span class="keyword">of</span> string * string
+    
+      <div class="doc">
+        First arg is the package name not found, second arg contains additional
+info for the user
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Package_loop">
+  <div class="exception">
+    <span class="keyword">exception</span> Package_loop <span class="keyword">of</span> string
+    
+      <div class="doc">
+        A package is required by itself. The arg is the name of the
+package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:init">
+  <div class="val">
+    <span class="keyword">val</span> init : ?env_ocamlpath:string -&gt; ?env_ocamlfind_destdir:string -&gt; ?env_ocamlfind_metadir:string -&gt; ?env_ocamlfind_commands:string -&gt; ?env_ocamlfind_ignore_dups_in:string -&gt; ?env_camllib:string -&gt; ?env_ldconf:string -&gt; ?config:string -&gt; ?toolchain:string -&gt; unit -&gt; unit
+    
+      <div class="doc">
+        Initializes the library from the configuration file and the environment.
+By default the
+function reads the file specified at compile time, but you can also
+pass a different file name in the <code>config</code> argument.
+Furthermore, the environment variables OCAMLPATH, OCAMLFIND_DESTDIR,
+OCAMLFIND_COMMANDS, and CAMLLIB are interpreted. By default, the function takes
+the values found in the environment, but you can pass different values
+using the <code>env_*</code> arguments. By setting these values to empty strings
+they are no longer considered.
+The result of the initialization is determined as follows:<ul><li>The default installation directory is the env variable OCAMLFIND_DESTDIR
+(if present and non-empty), and otherwise the variable <code>destdir</code> of the
+configuration file.</li><li>The installation directory for META files is read from the env
+variable OCAMLFIND_METADIR (if present and non-empty), and otherwise
+from the variable <code>metadir</code> of the configuration file, and otherwise
+no such directory is used.
+The special value <code>&quot;none&quot;</code> turns this feature off.</li><li>The search path is the concatenation of the env variable OCAMLPATH
+and the variable <code>path</code> of the config file</li><li>The executables of (ocamlc|ocamlopt|ocamlcp|ocamlmklib|ocamlmktop) are
+determined as follows: if the env variable OCAMLFIND_COMMANDS is set
+and non-empty, its contents specify the executables. Otherwise, if the
+config file variables <code>ocamlc</code>, <code>ocamlopt</code>, <code>ocamlcp</code>, <code>ocamlmklib</code> and
+<code>ocamlmktop</code> are set, their contents specify the executables. Otherwise,
+the obvious default values are chosen: <code>&quot;ocamlc&quot;</code> for <code>ocamlc</code>,
+<code>&quot;ocamlopt&quot;</code> for <code>ocamlopt</code>, and so on.</li><li>The directory of the standard library is the value of the environment
+variable CAMLLIB (or OCAMLLIB), or if unset or empty, the value of
+the configuration variable <code>stdlib</code>, or if unset the built-in location</li><li>The <code>ld.conf</code> file (configuring the dynamic loader) is the value of
+the environment variable OCAMLFIND_LDCONF, or if unset or empty, the
+value of the configuration variable <code>ldconf</code>, or if unset the
+built-in location.</li></ul>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:init_manually">
+  <div class="val">
+    <span class="keyword">val</span> init_manually : ?ocamlc_command:string -&gt; ?ocamlopt_command:string -&gt; ?ocamlcp_command:string -&gt; ?ocamloptp_command:string -&gt; ?ocamlmklib_command:string -&gt; ?ocamlmktop_command:string -&gt; ?ocamldep_command:string -&gt; ?ocamlbrowser_command:string -&gt; ?ocamldoc_command:string -&gt; ?ignore_dups_in:string -&gt; ?stdlib:string -&gt; ?ldconf:string -&gt; install_dir:string -&gt; meta_dir:string -&gt; search_path:string list -&gt; unit -&gt; unit
+    
+      <div class="doc">
+        This is an alternate way to initialize the library directly.
+Environment variables and configuration files are ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:default_location">
+  <div class="val">
+    <span class="keyword">val</span> default_location : unit -&gt; string
+    
+      <div class="doc">
+        Get the default installation directory for packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:meta_directory">
+  <div class="val">
+    <span class="keyword">val</span> meta_directory : unit -&gt; string
+    
+      <div class="doc">
+        Get the META installation directory for packages.
+Returns <code>&quot;&quot;</code> if no such directory is configured.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:search_path">
+  <div class="val">
+    <span class="keyword">val</span> search_path : unit -&gt; string list
+    
+      <div class="doc">
+        Get the search path for packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:command">
+  <div class="val">
+    <span class="keyword">val</span> command : <span style="color:red">TODO: a</span> -&gt; string
+    
+      <div class="doc">
+        Get the name/path of the executable
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ocaml_stdlib">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_stdlib : unit -&gt; string
+    
+      <div class="doc">
+        Get the directory of the standard library
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ocaml_ldconf">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_ldconf : unit -&gt; string
+    
+      <div class="doc">
+        Get the file name of <code>ld.conf</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:package_directory">
+  <div class="val">
+    <span class="keyword">val</span> package_directory : string -&gt; string
+    
+      <div class="doc">
+        Get the absolute path of the directory where the given package is
+stored.<br/>Raises <code>No_such_package</code> if the package cannot be found.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ignore_dups_in">
+  <div class="val">
+    <span class="keyword">val</span> ignore_dups_in : unit -&gt; string option
+    
+      <div class="doc">
+        If <code>Some d</code>, duplicate packages below <code>d</code> are ignored, and do not
+produce warnings. (Only affects the generation of warnings.)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:package_property">
+  <div class="val">
+    <span class="keyword">val</span> package_property : string list -&gt; string -&gt; string -&gt; string
+    
+      <div class="doc">
+        <code>package_property predlist pkg propname</code>:
+Looks up the property <code>propname</code> of package <code>pkg</code> under the assumption
+that the predicates in <code>predlist</code> are true.<br/>Raises <code>No_such_package</code> if the package, and <code>Not_found</code> if the property
+cannot be found.<br/>EXAMPLES:<ul><li><code>package_property [] &quot;p&quot; &quot;requires&quot;:</code>
+get the value of the <code>requires</code> clause of package <code>p</code></li><li><code>package_property [ &quot;mt&quot;; &quot;byte&quot; ] &quot;p&quot; &quot;archive&quot;:</code>
+get the value of the <code>archive</code> property of package <code>p</code> for multi-
+threaded bytecode applications.</li></ul>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:package_ancestors">
+  <div class="val">
+    <span class="keyword">val</span> package_ancestors : string list -&gt; string -&gt; string list
+    
+      <div class="doc">
+        <code>package_ancestors predlist pkg:</code>
+Determines the direct ancestors of package <code>pkg</code> under the assumption
+that the predicates in <code>predlist</code> are true, i.e. the names of the
+packages required by <code>pkg</code>.
+The returned list is unsorted.<br/>Raises <code>No_such_package</code> if the package <code>pkg</code> or one of its ancestors
+could not be found.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:package_deep_ancestors">
+  <div class="val">
+    <span class="keyword">val</span> package_deep_ancestors : string list -&gt; string list -&gt; string list
+    
+      <div class="doc">
+        <code>package_deep_ancestors predlist pkglist:</code>
+determines the list of direct or indirect ancestors of the packages
+named in <code>pkglist</code> under the assumption that the predicates in <code>predlist</code>
+are true.<br/>The returned list is topologically sorted: The first element is the
+deepest ancestor; the last element is one of <code>pkglist</code>.<br/>Raises <code>No_such_package</code> if one of the packages in <code>pkglist</code> or one of
+the ancestors cannot be found. Raises <code>Package_loop</code> if there is a
+cyclic dependency.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:resolve_path">
+  <div class="val">
+    <span class="keyword">val</span> resolve_path : ?base:string -&gt; ?explicit:bool -&gt; string -&gt; string
+    
+      <div class="doc">
+        Resolves findlib notation in filename paths. The notation
+<code>+name/path</code> can be used to refer to the subdirectory <code>name</code>
+of the standard library directory; the continuation <code>/path</code> is
+optional. The notation <code>@name/path</code> can be used to refer to
+the directory of the package <code>name</code>; the continuation <code>/path</code>
+is optional. For these two notations, absolute paths are returned.
+        
+  <div class="tag param">
+    <span class="label">base</span> When the function is applied on a relative path, the
+<code>base</code> path is prepended. Otherwise, the path is returned as
+it is.
+  </div>
+  
+  <div class="tag param">
+    <span class="label">explicit</span> Changes the meaning of <code>base</code> so that only paths
+count as relative that include at least one slash.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:list_packages">
+  <div class="val">
+    <span class="keyword">val</span> list_packages : ?tab:int -&gt; ?descr:bool -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; unit
+    
+      <div class="doc">
+        Prints the list of available packages to the <code>out_channel</code>.
+        
+  <div class="tag param">
+    <span class="label">tab</span> The tabulator width, by default 20
+  </div>
+  
+  <div class="tag param">
+    <span class="label">descr</span> Whether package descriptions are printed. Default: false
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 findlib Module 'Findlib' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

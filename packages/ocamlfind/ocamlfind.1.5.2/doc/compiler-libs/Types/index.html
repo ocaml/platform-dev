@@ -1,0 +1,1211 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 compiler-libs Module 'Types' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:type_expr">
+  <div class="type">
+    <span class="keyword">type</span> type_expr = {<div class="field">desc : type_desc;</div><div class="field">level : int;</div><div class="field">id : int;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:type_desc">
+  <div class="type">
+    <span class="keyword">type</span> type_desc = <div class="constr">| Tvar <span class="keyword">of</span> string option</div><div class="constr">| Tarrow <span class="keyword">of</span> Asttypes.label * type_expr * type_expr * commutable</div><div class="constr">| Ttuple <span class="keyword">of</span> type_expr list</div><div class="constr">| Tconstr <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * type_expr list * abbrev_memo <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a></div><div class="constr">| Tobject <span class="keyword">of</span> type_expr * (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * type_expr list) option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a></div><div class="constr">| Tfield <span class="keyword">of</span> string * field_kind * type_expr * type_expr</div><div class="constr">| Tnil</div><div class="constr">| Tlink <span class="keyword">of</span> type_expr</div><div class="constr">| Tsubst <span class="keyword">of</span> type_expr</div><div class="constr">| Tvariant <span class="keyword">of</span> row_desc</div><div class="constr">| Tunivar <span class="keyword">of</span> string option</div><div class="constr">| Tpoly <span class="keyword">of</span> type_expr * type_expr list</div><div class="constr">| Tpackage <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/">Longident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/#type:t">t</a> list * type_expr list</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:row_desc">
+  <div class="type">
+    <span class="keyword">type</span> row_desc = {<div class="field">row_fields : (Asttypes.label * row_field) list;</div><div class="field">row_more : type_expr;</div><div class="field">row_bound : unit;</div><div class="field">row_closed : bool;</div><div class="field">row_fixed : bool;</div><div class="field">row_name : (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * type_expr list) option;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:row_field">
+  <div class="type">
+    <span class="keyword">type</span> row_field = <div class="constr">| Rpresent <span class="keyword">of</span> type_expr option</div><div class="constr">| Reither <span class="keyword">of</span> bool * type_expr list * bool * row_field option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a></div><div class="constr">| Rabsent</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:abbrev_memo">
+  <div class="type">
+    <span class="keyword">type</span> abbrev_memo = <div class="constr">| Mnil</div><div class="constr">| Mcons <span class="keyword">of</span> Asttypes.private_flag * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * type_expr * type_expr * abbrev_memo</div><div class="constr">| Mlink <span class="keyword">of</span> abbrev_memo <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a></div>
+    
+  </div>
+  </div>
+  
+  <div id="type:field_kind">
+  <div class="type">
+    <span class="keyword">type</span> field_kind = <div class="constr">| Fvar <span class="keyword">of</span> field_kind option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a></div><div class="constr">| Fpresent</div><div class="constr">| Fabsent</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:commutable">
+  <div class="type">
+    <span class="keyword">type</span> commutable = <div class="constr">| Cok</div><div class="constr">| Cunknown</div><div class="constr">| Clink <span class="keyword">of</span> commutable <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a></div>
+    
+  </div>
+  </div>
+  
+    <div id="module:TypeOps">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> TypeOps : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:TypeOps#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = type_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:TypeOps#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:TypeOps#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:TypeOps#val:hash">
+  <div class="val">
+    <span class="keyword">val</span> hash : t -&gt; int
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Meths">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Meths : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Meths#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Meths#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Vars">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Vars : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Vars#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Vars#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="type:value_description">
+  <div class="type">
+    <span class="keyword">type</span> value_description = {<div class="field">val_type : type_expr;</div><div class="field">val_kind : value_kind;</div><div class="field">val_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">val_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:value_kind">
+  <div class="type">
+    <span class="keyword">type</span> value_kind = <div class="constr">| Val_reg</div><div class="constr">| Val_prim <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Primitive/">Primitive</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Primitive/#type:description">description</a></div><div class="constr">| Val_ivar <span class="keyword">of</span> Asttypes.mutable_flag * string</div><div class="constr">| Val_self <span class="keyword">of</span> (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * type_expr) Meths.t <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> * (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * Asttypes.mutable_flag * Asttypes.virtual_flag * type_expr) Vars.t <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> * string * type_expr</div><div class="constr">| Val_anc <span class="keyword">of</span> (string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a>) list * string</div><div class="constr">| Val_unbound</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:constructor_description">
+  <div class="type">
+    <span class="keyword">type</span> constructor_description = {<div class="field">cstr_name : string;</div><div class="field">cstr_res : type_expr;</div><div class="field">cstr_existentials : type_expr list;</div><div class="field">cstr_args : type_expr list;</div><div class="field">cstr_arity : int;</div><div class="field">cstr_tag : constructor_tag;</div><div class="field">cstr_consts : int;</div><div class="field">cstr_nonconsts : int;</div><div class="field">cstr_normal : int;</div><div class="field">cstr_generalized : bool;</div><div class="field">cstr_private : Asttypes.private_flag;</div><div class="field">cstr_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">cstr_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:constructor_tag">
+  <div class="type">
+    <span class="keyword">type</span> constructor_tag = <div class="constr">| Cstr_constant <span class="keyword">of</span> int</div><div class="constr">| Cstr_block <span class="keyword">of</span> int</div><div class="constr">| Cstr_extension <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * bool</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:label_description">
+  <div class="type">
+    <span class="keyword">type</span> label_description = {<div class="field">lbl_name : string;</div><div class="field">lbl_res : type_expr;</div><div class="field">lbl_arg : type_expr;</div><div class="field">lbl_mut : Asttypes.mutable_flag;</div><div class="field">lbl_pos : int;</div><div class="field">lbl_all : label_description array;</div><div class="field">lbl_repres : record_representation;</div><div class="field">lbl_private : Asttypes.private_flag;</div><div class="field">lbl_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">lbl_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:record_representation">
+  <div class="type">
+    <span class="keyword">type</span> record_representation = <div class="constr">| Record_regular</div><div class="constr">| Record_float</div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Variance">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Variance : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Variance#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#type:f">
+  <div class="type">
+    <span class="keyword">type</span> f = <div class="constr">| May_pos</div><div class="constr">| May_neg</div><div class="constr">| May_weak</div><div class="constr">| Inj</div><div class="constr">| Pos</div><div class="constr">| Neg</div><div class="constr">| Inv</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:null">
+  <div class="val">
+    <span class="keyword">val</span> null : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:full">
+  <div class="val">
+    <span class="keyword">val</span> full : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:covariant">
+  <div class="val">
+    <span class="keyword">val</span> covariant : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:may_inv">
+  <div class="val">
+    <span class="keyword">val</span> may_inv : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:set">
+  <div class="val">
+    <span class="keyword">val</span> set : f -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : f -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:conjugate">
+  <div class="val">
+    <span class="keyword">val</span> conjugate : t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:get_upper">
+  <div class="val">
+    <span class="keyword">val</span> get_upper : t -&gt; (bool * bool)
+    
+  </div>
+  </div>
+  
+  <div id="module:Variance#val:get_lower">
+  <div class="val">
+    <span class="keyword">val</span> get_lower : t -&gt; (bool * bool * bool * bool)
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="type:type_declaration">
+  <div class="type">
+    <span class="keyword">type</span> type_declaration = {<div class="field">type_params : type_expr list;</div><div class="field">type_arity : int;</div><div class="field">type_kind : type_kind;</div><div class="field">type_private : Asttypes.private_flag;</div><div class="field">type_manifest : type_expr option;</div><div class="field">type_variance : Variance.t list;</div><div class="field">type_newtype_level : (int * int) option;</div><div class="field">type_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">type_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:type_kind">
+  <div class="type">
+    <span class="keyword">type</span> type_kind = <div class="constr">| Type_abstract</div><div class="constr">| Type_record <span class="keyword">of</span> label_declaration list * record_representation</div><div class="constr">| Type_variant <span class="keyword">of</span> constructor_declaration list</div><div class="constr">| Type_open</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:label_declaration">
+  <div class="type">
+    <span class="keyword">type</span> label_declaration = {<div class="field">ld_id : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a>;</div><div class="field">ld_mutable : Asttypes.mutable_flag;</div><div class="field">ld_type : type_expr;</div><div class="field">ld_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">ld_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:constructor_declaration">
+  <div class="type">
+    <span class="keyword">type</span> constructor_declaration = {<div class="field">cd_id : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a>;</div><div class="field">cd_args : type_expr list;</div><div class="field">cd_res : type_expr option;</div><div class="field">cd_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">cd_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:extension_constructor">
+  <div class="type">
+    <span class="keyword">type</span> extension_constructor = {<div class="field">ext_type_path : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a>;</div><div class="field">ext_type_params : type_expr list;</div><div class="field">ext_args : type_expr list;</div><div class="field">ext_ret_type : type_expr option;</div><div class="field">ext_private : Asttypes.private_flag;</div><div class="field">ext_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">ext_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:type_transparence">
+  <div class="type">
+    <span class="keyword">type</span> type_transparence = <div class="constr">| Type_public</div><div class="constr">| Type_new</div><div class="constr">| Type_private</div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Concr">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Concr : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Concr#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Concr#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="type:class_type">
+  <div class="type">
+    <span class="keyword">type</span> class_type = <div class="constr">| Cty_constr <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * type_expr list * class_type</div><div class="constr">| Cty_signature <span class="keyword">of</span> class_signature</div><div class="constr">| Cty_arrow <span class="keyword">of</span> Asttypes.label * type_expr * class_type</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:class_signature">
+  <div class="type">
+    <span class="keyword">type</span> class_signature = {<div class="field">csig_self : type_expr;</div><div class="field">csig_vars : (Asttypes.mutable_flag * Asttypes.virtual_flag * type_expr) Vars.t;</div><div class="field">csig_concr : Concr.t;</div><div class="field">csig_inher : (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> * type_expr list) list;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:class_declaration">
+  <div class="type">
+    <span class="keyword">type</span> class_declaration = {<div class="field">cty_params : type_expr list;</div><div class="field">cty_type : class_type;</div><div class="field">cty_path : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a>;</div><div class="field">cty_new : type_expr option;</div><div class="field">cty_variance : Variance.t list;</div><div class="field">cty_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">cty_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:class_type_declaration">
+  <div class="type">
+    <span class="keyword">type</span> class_type_declaration = {<div class="field">clty_params : type_expr list;</div><div class="field">clty_type : class_type;</div><div class="field">clty_path : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a>;</div><div class="field">clty_variance : Variance.t list;</div><div class="field">clty_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">clty_attributes : Parsetree.attributes;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:module_type">
+  <div class="type">
+    <span class="keyword">type</span> module_type = <div class="constr">| Mty_ident <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a></div><div class="constr">| Mty_signature <span class="keyword">of</span> signature</div><div class="constr">| Mty_functor <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * module_type option * module_type</div><div class="constr">| Mty_alias <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a></div>
+    
+  </div>
+  </div>
+  
+  <div id="type:signature">
+  <div class="type">
+    <span class="keyword">type</span> signature = signature_item list
+    
+  </div>
+  </div>
+  
+  <div id="type:signature_item">
+  <div class="type">
+    <span class="keyword">type</span> signature_item = <div class="constr">| Sig_value <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * value_description</div><div class="constr">| Sig_type <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * type_declaration * rec_status</div><div class="constr">| Sig_typext <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * extension_constructor * ext_status</div><div class="constr">| Sig_module <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * module_declaration * rec_status</div><div class="constr">| Sig_modtype <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * modtype_declaration</div><div class="constr">| Sig_class <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * class_declaration * rec_status</div><div class="constr">| Sig_class_type <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * class_type_declaration * rec_status</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:module_declaration">
+  <div class="type">
+    <span class="keyword">type</span> module_declaration = {<div class="field">md_type : module_type;</div><div class="field">md_attributes : Parsetree.attributes;</div><div class="field">md_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:modtype_declaration">
+  <div class="type">
+    <span class="keyword">type</span> modtype_declaration = {<div class="field">mtd_type : module_type option;</div><div class="field">mtd_attributes : Parsetree.attributes;</div><div class="field">mtd_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:rec_status">
+  <div class="type">
+    <span class="keyword">type</span> rec_status = <div class="constr">| Trec_not</div><div class="constr">| Trec_first</div><div class="constr">| Trec_next</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:ext_status">
+  <div class="type">
+    <span class="keyword">type</span> ext_status = <div class="constr">| Text_first</div><div class="constr">| Text_next</div><div class="constr">| Text_exception</div>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 compiler-libs Module 'Types' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

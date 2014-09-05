@@ -1,0 +1,1358 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  opam-lib.42 opam-lib Module 'OpamPath' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPath/">OpamPath</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = OpamTypes.dirname
+    
+      <div class="doc">
+        Type of path root
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:root">
+  <div class="val">
+    <span class="keyword">val</span> root : unit -&gt; t
+    
+      <div class="doc">
+        Default root path
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:state_cache">
+  <div class="val">
+    <span class="keyword">val</span> state_cache : t -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        State cache
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:update_cache">
+  <div class="val">
+    <span class="keyword">val</span> update_cache : t -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Update cache
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lock">
+  <div class="val">
+    <span class="keyword">val</span> lock : t -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        lock file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:config">
+  <div class="val">
+    <span class="keyword">val</span> config : t -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Main configuration file: <i>$opam/config</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:aliases">
+  <div class="val">
+    <span class="keyword">val</span> aliases : t -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Compiler aliases
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:packages_dir">
+  <div class="val">
+    <span class="keyword">val</span> packages_dir : t -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Package directroy <i>$opam/packages/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:packages">
+  <div class="val">
+    <span class="keyword">val</span> packages : t -&gt; OpamTypes.package -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Package sub-directory <i>$opam/packages/$NAME/$NAME.$VERSION/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:opam">
+  <div class="val">
+    <span class="keyword">val</span> opam : t -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        OPAM files: <i>$opam/packages/$NAME/$NAME.$VERSION/opam</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:url">
+  <div class="val">
+    <span class="keyword">val</span> url : t -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        URL files: <i>$opam/packages/$NAME/$NAME.$VERSION/url</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:files">
+  <div class="val">
+    <span class="keyword">val</span> files : t -&gt; OpamTypes.package -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Additional files: <i>$opam/packages/$NAME/$NAME.$VERSION/files</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:dev_packages_dir">
+  <div class="val">
+    <span class="keyword">val</span> dev_packages_dir : t -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Tempory folder for dev packages <i>$opam/packages.dev/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:dev_package">
+  <div class="val">
+    <span class="keyword">val</span> dev_package : t -&gt; OpamTypes.package -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Tempory folder for dev packages <i>$opam/packages.dev/$NAME.$VERSION/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:descr">
+  <div class="val">
+    <span class="keyword">val</span> descr : t -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Description file: <i>$opam/packages/$NAME/$NAME.$VERSION/descr</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:archives_dir">
+  <div class="val">
+    <span class="keyword">val</span> archives_dir : t -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Archives dir
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:archive">
+  <div class="val">
+    <span class="keyword">val</span> archive : t -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Archive file: <i>$opam/archives/$NAME.$VERSION+opam.tar.gz</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:compiler_comp">
+  <div class="val">
+    <span class="keyword">val</span> compiler_comp : t -&gt; OpamTypes.compiler -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Compiler files: <i>$opam/compilers/$VERSION/$COMP.comp</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:compiler_descr">
+  <div class="val">
+    <span class="keyword">val</span> compiler_descr : t -&gt; OpamTypes.compiler -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Compiler description files: <i>$opam/compilers/$VERSION/$COMP.descr</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:compilers_dir">
+  <div class="val">
+    <span class="keyword">val</span> compilers_dir : t -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Compiler files: <i>$opam/compilers/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:compilers">
+  <div class="val">
+    <span class="keyword">val</span> compilers : t -&gt; OpamTypes.compiler -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Compiler subdir <i>$opam/compilers/$VERSION/$COMP</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:package_index">
+  <div class="val">
+    <span class="keyword">val</span> package_index : t -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Return the repository index: <i>$opam/repo/package-index</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:compiler_index">
+  <div class="val">
+    <span class="keyword">val</span> compiler_index : t -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Return the repository index: <i>$opam/repo/compiler-index</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:init">
+  <div class="val">
+    <span class="keyword">val</span> init : t -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Init scripts
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:log">
+  <div class="val">
+    <span class="keyword">val</span> log : t -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Log dir <i>$opam/log</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:backup_dir">
+  <div class="val">
+    <span class="keyword">val</span> backup_dir : t -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        The directory where global backups are stored
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:backup">
+  <div class="val">
+    <span class="keyword">val</span> backup : t -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Backup file for state export
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Switch">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Switch : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Switch related paths
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Switch#val:root">
+  <div class="val">
+    <span class="keyword">val</span> root : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Root dir: <i>$opam/$switch</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:lock">
+  <div class="val">
+    <span class="keyword">val</span> lock : t -&gt; OpamTypes.switch -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        lock file: <i>$opam/lock</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:backup_dir">
+  <div class="val">
+    <span class="keyword">val</span> backup_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        The directory where backups are stored for this switch
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:backup">
+  <div class="val">
+    <span class="keyword">val</span> backup : t -&gt; OpamTypes.switch -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Backup file for state export
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:lib">
+  <div class="val">
+    <span class="keyword">val</span> lib : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Library path for a given package:
+<i>$opam/$switch/lib/$name</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:lib_dir">
+  <div class="val">
+    <span class="keyword">val</span> lib_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Library path: <i>$opam/$switch/lib</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:stublibs">
+  <div class="val">
+    <span class="keyword">val</span> stublibs : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        DLL paths
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:toplevel">
+  <div class="val">
+    <span class="keyword">val</span> toplevel : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        toplevel path: <i>$opam/$switch/lib/toplevel</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:doc">
+  <div class="val">
+    <span class="keyword">val</span> doc : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Documentation path for a given package:
+<i>$opam/$switch/doc/$name</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:doc_dir">
+  <div class="val">
+    <span class="keyword">val</span> doc_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Documentation path: <i>$opam/$switch/doc/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:share_dir">
+  <div class="val">
+    <span class="keyword">val</span> share_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Shared directory: <i>$opam/$switch/share</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:share">
+  <div class="val">
+    <span class="keyword">val</span> share : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Share directory for a given package: <i>$opam/$switch/share/$package</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:etc_dir">
+  <div class="val">
+    <span class="keyword">val</span> etc_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Etc directory: <i>$opam/$switch/etc</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:etc">
+  <div class="val">
+    <span class="keyword">val</span> etc : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Etc directory for a given package: <i>$opam/$switch/etc/$package</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:man_dir">
+  <div class="val">
+    <span class="keyword">val</span> man_dir : ?num:string -&gt; t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Man pages path: <i>$opam/$switch/man/</i>. The optional
+<code>num</code> argument will add a <i>manN</i> suffix if specified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:bin">
+  <div class="val">
+    <span class="keyword">val</span> bin : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Installed binaries: <i>$opam/$switch/bin</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:sbin">
+  <div class="val">
+    <span class="keyword">val</span> sbin : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Installed system binaries: <i>$opam/$switch/sbin</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:installed">
+  <div class="val">
+    <span class="keyword">val</span> installed : t -&gt; OpamTypes.switch -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        List of installed packages with their version:
+<i>$opam/$switch/installed</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:installed_roots">
+  <div class="val">
+    <span class="keyword">val</span> installed_roots : t -&gt; OpamTypes.switch -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        List of packages expliciterly installed by the user: <i>$opam/$switch/installed.roots</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:build">
+  <div class="val">
+    <span class="keyword">val</span> build : t -&gt; OpamTypes.switch -&gt; OpamTypes.package -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Tempory folders used to decompress and compile
+the corresponding archives:
+<i>$opam/$switch/build/$packages</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:build_ocaml">
+  <div class="val">
+    <span class="keyword">val</span> build_ocaml : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Tempory folders used to decompress and compile the OCaml
+compiler: <i>$opam/$switch/build/ocaml</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:build_dir">
+  <div class="val">
+    <span class="keyword">val</span> build_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Tempory folder: <i>$opam/$switch/build</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:build_install">
+  <div class="val">
+    <span class="keyword">val</span> build_install : t -&gt; OpamTypes.switch -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Tempory location of install files: <i>$opam/$switch/build/$package/$name.install</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:build_config">
+  <div class="val">
+    <span class="keyword">val</span> build_config : t -&gt; OpamTypes.switch -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Tempory location of config files: <i>$opam/$switch/build/$packages/$name.config</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:install">
+  <div class="val">
+    <span class="keyword">val</span> install : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Installed files for a given package: <i>$opam/$switch/install/$name.install</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:install_dir">
+  <div class="val">
+    <span class="keyword">val</span> install_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Installed files: <i>$opam/$switch/install/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:reinstall">
+  <div class="val">
+    <span class="keyword">val</span> reinstall : t -&gt; OpamTypes.switch -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Packages to reinstall on next upgrade: <i>$opam/$switch/reinstall</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:config">
+  <div class="val">
+    <span class="keyword">val</span> config : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Compile and link flags for a given package: <i>$opam/$switch/lib/$name/opam.config</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:config_dir">
+  <div class="val">
+    <span class="keyword">val</span> config_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Configuration folder: <i>$opam/$switch/config</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:global_config">
+  <div class="val">
+    <span class="keyword">val</span> global_config : t -&gt; OpamTypes.switch -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Global config for the switch: <i>$opam/$switch/config/global-config.config</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:pinned">
+  <div class="val">
+    <span class="keyword">val</span> pinned : t -&gt; OpamTypes.switch -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Pinned package file: <i>$opam/$switch/pinned</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:dev_packages_dir">
+  <div class="val">
+    <span class="keyword">val</span> dev_packages_dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Build dir for all pinned packages: <i>$opam/$switch/packages.dev/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#val:dev_package">
+  <div class="val">
+    <span class="keyword">val</span> dev_package : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Build dir for a given pinned package: <i>$opam/$switch/packages.dev/$name.$version/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Switch#module:Overlay">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Overlay : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Switch#module:Overlay#val:dir">
+  <div class="val">
+    <span class="keyword">val</span> dir : t -&gt; OpamTypes.switch -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Switch metadata overlay (over the global metadata): <i>$opam/$switch/overlay/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#module:Overlay#val:package">
+  <div class="val">
+    <span class="keyword">val</span> package : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Switch metadata overlay (over the global metadata): <i>$opam/$switch/overlay/$name.$version</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#module:Overlay#val:opam">
+  <div class="val">
+    <span class="keyword">val</span> opam : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        OPAM overlay: <i>$opam/$switch/cache/$name.$version/opam</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#module:Overlay#val:url">
+  <div class="val">
+    <span class="keyword">val</span> url : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        URL overlay: <i>$opam/$switch/overlay/$name.$version/url</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#module:Overlay#val:descr">
+  <div class="val">
+    <span class="keyword">val</span> descr : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Descr orverlay
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Switch#module:Overlay#val:files">
+  <div class="val">
+    <span class="keyword">val</span> files : t -&gt; OpamTypes.switch -&gt; OpamTypes.name -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Files overlay
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Repository">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Repository : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Repository paths
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Repository#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : t -&gt; OpamTypes.repository_name -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Repository local path: <i>$opam/repo/&lt;name&gt;</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:update_cache">
+  <div class="val">
+    <span class="keyword">val</span> update_cache : OpamTypes.repository -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Update cache
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:repo">
+  <div class="val">
+    <span class="keyword">val</span> repo : OpamTypes.repository -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Return the repo file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:remote_repo">
+  <div class="val">
+    <span class="keyword">val</span> remote_repo : OpamTypes.repository -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Remote repo file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:raw_config">
+  <div class="val">
+    <span class="keyword">val</span> raw_config : OpamTypes.dirname -&gt; OpamTypes.repository_name -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Return the repository config: <i>$opam/repo/$repo/config</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:config">
+  <div class="val">
+    <span class="keyword">val</span> config : OpamTypes.repository -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Return the repository config: <i>$opam/repo/$repo/config</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:packages_dir">
+  <div class="val">
+    <span class="keyword">val</span> packages_dir : OpamTypes.repository -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Packages folder: <i>$opam/repo/$repo/packages</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:remote_packages_dir">
+  <div class="val">
+    <span class="keyword">val</span> remote_packages_dir : OpamTypes.repository -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Remote package files: <i>$remote/packages</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:packages">
+  <div class="val">
+    <span class="keyword">val</span> packages : OpamTypes.repository -&gt; string option -&gt; OpamTypes.package -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Package folder: <i>$opam/repo/$repo/packages/XXX/$NAME.$VERSION</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:opam">
+  <div class="val">
+    <span class="keyword">val</span> opam : OpamTypes.repository -&gt; string option -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Return the OPAM file for a given package:
+<i>$opam/repo/$repo/packages/XXX/$NAME.$VERSION/opam</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:descr">
+  <div class="val">
+    <span class="keyword">val</span> descr : OpamTypes.repository -&gt; string option -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Return the description file for a given package:
+<i>$opam/repo/$repo/packages/XXX/$NAME.VERSION/descr</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:url">
+  <div class="val">
+    <span class="keyword">val</span> url : OpamTypes.repository -&gt; string option -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        urls <i>$opma/repo/$repo/package/XXX/$NAME.$VERSION/url</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:files">
+  <div class="val">
+    <span class="keyword">val</span> files : OpamTypes.repository -&gt; string option -&gt; OpamTypes.package -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        files <i>$opam/repo/$repo/packages/XXX/$NAME.$VERSION/files</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:archive">
+  <div class="val">
+    <span class="keyword">val</span> archive : OpamTypes.repository -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Return the archive for a given package:
+<i>$opam/repo/$repo/archives/$NAME.$VERSION.tar.gz</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:remote_archive">
+  <div class="val">
+    <span class="keyword">val</span> remote_archive : OpamTypes.repository -&gt; OpamTypes.package -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Remote archive <i>$remote/archives/$NAME.$VERSION.tar.gz</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:archives_dir">
+  <div class="val">
+    <span class="keyword">val</span> archives_dir : OpamTypes.repository -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Return the archive folder: <i>$opam/repo/$repo/archives/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:upload_dir">
+  <div class="val">
+    <span class="keyword">val</span> upload_dir : OpamTypes.repository -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Return the upload folder for a given version:
+<i>$opam/repo/$repo/upload/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:compilers_dir">
+  <div class="val">
+    <span class="keyword">val</span> compilers_dir : OpamTypes.repository -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Compiler files: <i>$opam/repo/$repo/compilers/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:compiler_comp">
+  <div class="val">
+    <span class="keyword">val</span> compiler_comp : OpamTypes.repository -&gt; string option -&gt; OpamTypes.compiler -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Compiler files: <i>$opam/repo/$repo/compilers/XXX/$OVERSION.comp</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:compiler_descr">
+  <div class="val">
+    <span class="keyword">val</span> compiler_descr : OpamTypes.repository -&gt; string option -&gt; OpamTypes.compiler -&gt; OpamTypes.filename
+    
+      <div class="doc">
+        Compiler description files: <i>$opam/repo/$repo/compilers/XXX/$OVERSION.descr</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Repository#val:remote_compilers_dir">
+  <div class="val">
+    <span class="keyword">val</span> remote_compilers_dir : OpamTypes.repository -&gt; OpamTypes.dirname
+    
+      <div class="doc">
+        Remote compiler files: <i>$remote/compilers</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  opam-lib.42 opam-lib Module 'OpamPath' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

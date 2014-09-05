@@ -1,0 +1,735 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  uri.1.7.2 uri Module 'Uri' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../uri/uri.1.7.2/doc/uri/Uri/">Uri</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        A single URI that is a compact sequence of characters that identifies
+an abstract or physical resource.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:component">
+  <div class="type">
+    <span class="keyword">type</span> component = <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="val:pct_encode">
+  <div class="val">
+    <span class="keyword">val</span> pct_encode : ?scheme:string -&gt; ?component:component -&gt; string -&gt; string
+    
+      <div class="doc">
+        Percent-encode a string. The <code>scheme</code> argument defaults to 'http' and
+the <code>component</code> argument defaults to `Path
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:pct_decode">
+  <div class="val">
+    <span class="keyword">val</span> pct_decode : string -&gt; string
+    
+      <div class="doc">
+        Percent-decode a percent-encoded string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+      <div class="doc">
+        Parse a URI string literal into a URI structure
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Convert a URI structure into a percent-encoded URI string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:resolve">
+  <div class="val">
+    <span class="keyword">val</span> resolve : string -&gt; t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Resolve a URI against a default scheme and base URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:query">
+  <div class="val">
+    <span class="keyword">val</span> query : t -&gt; (string * string list) list
+    
+      <div class="doc">
+        Get a query string from a URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:encoded_of_query">
+  <div class="val">
+    <span class="keyword">val</span> encoded_of_query : ?scheme:string -&gt; (string * string list) list -&gt; string
+    
+      <div class="doc">
+        Make a percent-encoded query string from percent-decoded query tuple
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:query_of_encoded">
+  <div class="val">
+    <span class="keyword">val</span> query_of_encoded : string -&gt; (string * string list) list
+    
+      <div class="doc">
+        Parse a percent-encoded query string into a percent-decoded query tuple
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_query">
+  <div class="val">
+    <span class="keyword">val</span> with_query : t -&gt; (string * string list) list -&gt; t
+    
+      <div class="doc">
+        Replace the query URI with the supplied list.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_query'">
+  <div class="val">
+    <span class="keyword">val</span> with_query' : t -&gt; (string * string) list -&gt; t
+    
+      <div class="doc">
+        Replace the query URI with the supplied singleton query list.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_query_param'">
+  <div class="val">
+    <span class="keyword">val</span> get_query_param' : t -&gt; string -&gt; string list option
+    
+      <div class="doc">
+        <code>get_query_param' q key</code> returns the list of values for the
+<code>key</code> parameter in query <code>q</code>. Note that an empty list is not the
+same as a <code>None</code> return value. For a query <code>foo</code>, the mapping is:<ul><li><code>/</code> returns None</li><li><code>/?foo</code> returns Some <code></code></li><li><code>/?foo=</code> returns <code>Some [&quot;&quot;]</code></li><li><code>/?foo=bar</code> returns <code>Some [&quot;bar&quot;]</code></li><li><code>/?foo=bar,chi</code> returns <code>Some [&quot;bar&quot;,&quot;chi&quot;]</code></li></ul>Query keys can be duplicated in the URI, in which case the first
+one is returned. If you want to resolve duplicate keys, obtain
+the full result set with query instead.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_query_param">
+  <div class="val">
+    <span class="keyword">val</span> get_query_param : t -&gt; string -&gt; string option
+    
+      <div class="doc">
+        <code>get_query_param q key</code> returns the value found for a <code>key</code> in
+query <code>q</code>. If there are multiple values for the key, then the
+first one is returned/
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_query_param">
+  <div class="val">
+    <span class="keyword">val</span> add_query_param : t -&gt; (string * string list) -&gt; t
+    
+      <div class="doc">
+        Add a query parameter to the input query URI.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_query_param'">
+  <div class="val">
+    <span class="keyword">val</span> add_query_param' : t -&gt; (string * string) -&gt; t
+    
+      <div class="doc">
+        Add a query parameter to the input singleton query URI.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_query_params">
+  <div class="val">
+    <span class="keyword">val</span> add_query_params : t -&gt; (string * string list) list -&gt; t
+    
+      <div class="doc">
+        Add a query parameter list to the input query URI.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_query_params'">
+  <div class="val">
+    <span class="keyword">val</span> add_query_params' : t -&gt; (string * string) list -&gt; t
+    
+      <div class="doc">
+        Add a query singleton parameter list to the input query URI.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_query_param">
+  <div class="val">
+    <span class="keyword">val</span> remove_query_param : t -&gt; string -&gt; t
+    
+      <div class="doc">
+        Remove a query key from the input query URI.
+Input URI is not modified, and no error is generated if the
+key does not already exist in the URI.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make">
+  <div class="val">
+    <span class="keyword">val</span> make : ?scheme:string -&gt; ?userinfo:string -&gt; ?host:string -&gt; ?port:int -&gt; ?path:string -&gt; ?query:(string * string list) list -&gt; ?fragment:string -&gt; unit -&gt; t
+    
+      <div class="doc">
+        Make a URI from supplied components. If userinfo or port are
+supplied without host, an empty host is added. If path is supplied
+and userinfo, host, or port is also supplied, path is made
+absolute but not resolved.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:path">
+  <div class="val">
+    <span class="keyword">val</span> path : t -&gt; string
+    
+      <div class="doc">
+        Get the encoded path component of a URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:path_and_query">
+  <div class="val">
+    <span class="keyword">val</span> path_and_query : t -&gt; string
+    
+      <div class="doc">
+        Get the encoded path and query components of a URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_path">
+  <div class="val">
+    <span class="keyword">val</span> with_path : t -&gt; string -&gt; t
+    
+      <div class="doc">
+        Replace the path URI with the supplied encoded path.
+If a host is present in the supplied URI, the path is made absolute but not
+resolved. If the path is empty, the path component is removed.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:scheme">
+  <div class="val">
+    <span class="keyword">val</span> scheme : t -&gt; string option
+    
+      <div class="doc">
+        Get the scheme component of a URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_scheme">
+  <div class="val">
+    <span class="keyword">val</span> with_scheme : t -&gt; string option -&gt; t
+    
+      <div class="doc">
+        Replace the scheme portion of the URI with the supplied <code>scheme</code>.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:userinfo">
+  <div class="val">
+    <span class="keyword">val</span> userinfo : t -&gt; string option
+    
+      <div class="doc">
+        Get the userinfo component of a URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_userinfo">
+  <div class="val">
+    <span class="keyword">val</span> with_userinfo : t -&gt; string option -&gt; t
+    
+      <div class="doc">
+        Replace the userinfo portion of the URI with the supplied <code>string option</code>.
+If no host is present in the supplied URI, an empty host is added.
+Input URI is not modified.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:host">
+  <div class="val">
+    <span class="keyword">val</span> host : t -&gt; string option
+    
+      <div class="doc">
+        Get the host component of a URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_host">
+  <div class="val">
+    <span class="keyword">val</span> with_host : t -&gt; string option -&gt; t
+    
+      <div class="doc">
+        Replace the host component of the URI.
+Input URI is not modified.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:host_with_default">
+  <div class="val">
+    <span class="keyword">val</span> host_with_default : ?default:string -&gt; t -&gt; string
+    
+      <div class="doc">
+        Get the host component of a URI, with a default supplied if one is
+not present
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:port">
+  <div class="val">
+    <span class="keyword">val</span> port : t -&gt; int option
+    
+      <div class="doc">
+        Get the port component of a URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_port">
+  <div class="val">
+    <span class="keyword">val</span> with_port : t -&gt; int option -&gt; t
+    
+      <div class="doc">
+        Replace the port component of the URI with the supplied port.
+If no host is present in the supplied URI, an empty host is added.
+Input URI is not modified.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fragment">
+  <div class="val">
+    <span class="keyword">val</span> fragment : t -&gt; string option
+    
+      <div class="doc">
+        Get the fragment component of a URI
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_fragment">
+  <div class="val">
+    <span class="keyword">val</span> with_fragment : t -&gt; string option -&gt; t
+    
+      <div class="doc">
+        Replace the fragment component of a URI with the supplied fragment.
+Input URI is not modified
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_hum">
+  <div class="val">
+    <span class="keyword">val</span> pp_hum : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:t_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> t_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="val:sexp_of_t">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_t : t -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:component_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> component_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; component
+    
+  </div>
+  </div>
+  
+  <div id="val:__component_of_sexp__">
+  <div class="val">
+    <span class="keyword">val</span> __component_of_sexp__ : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; component
+    
+  </div>
+  </div>
+  
+  <div id="val:sexp_of_component">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_component : component -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  uri.1.7.2 uri Module 'Uri' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

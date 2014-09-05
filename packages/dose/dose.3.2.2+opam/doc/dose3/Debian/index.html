@@ -1,0 +1,2834 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  dose.3.2.2+opam dose3 Module 'Debian' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Debian/">Debian</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="module:Format822">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Format822 : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Format822#val:it">
+  <div class="val">
+    <span class="keyword">val</span> it : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info">Info</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:info">
+  <div class="val">
+    <span class="keyword">val</span> info : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:nt">
+  <div class="val">
+    <span class="keyword">val</span> nt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice">Notice</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:notice">
+  <div class="val">
+    <span class="keyword">val</span> notice : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:wt">
+  <div class="val">
+    <span class="keyword">val</span> wt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning">Warning</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:warning">
+  <div class="val">
+    <span class="keyword">val</span> warning : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:dt">
+  <div class="val">
+    <span class="keyword">val</span> dt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug">Debug</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:fatal">
+  <div class="val">
+    <span class="keyword">val</span> fatal : ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:loc">
+  <div class="type">
+    <span class="keyword">type</span> loc = (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:position">position</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:position">position</a>)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:stanza">
+  <div class="type">
+    <span class="keyword">type</span> stanza = (string * (loc * string)) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:doc">
+  <div class="type">
+    <span class="keyword">type</span> doc = stanza list
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:dummy_loc">
+  <div class="val">
+    <span class="keyword">val</span> dummy_loc : loc
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:extend_loc">
+  <div class="val">
+    <span class="keyword">val</span> extend_loc : ('a * 'b) -&gt; ('c * 'd) -&gt; ('a * 'd)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:loc_of_lexbuf">
+  <div class="val">
+    <span class="keyword">val</span> loc_of_lexbuf : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:position">position</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:position">position</a>)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:pp_posfname">
+  <div class="val">
+    <span class="keyword">val</span> pp_posfname : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:position">position</a> -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:pp_lpos">
+  <div class="val">
+    <span class="keyword">val</span> pp_lpos : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:position">position</a> -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#exception:Parse_error_822">
+  <div class="exception">
+    <span class="keyword">exception</span> Parse_error_822 <span class="keyword">of</span> string * loc
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#exception:Syntax_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Syntax_error <span class="keyword">of</span> string * loc
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#exception:Type_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Type_error <span class="keyword">of</span> string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:deb_parser">
+  <div class="type">
+    <span class="keyword">type</span> deb_parser = {<div class="field">lexbuf : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a>;</div><div class="field">fname : string;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:from_channel">
+  <div class="val">
+    <span class="keyword">val</span> from_channel : <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; deb_parser
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:parser_wrapper_ch">
+  <div class="val">
+    <span class="keyword">val</span> parser_wrapper_ch : <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; deb_parser -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#val:parse_from_ch">
+  <div class="val">
+    <span class="keyword">val</span> parse_from_ch : deb_parser -&gt; 'a -&gt; <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:name">
+  <div class="type">
+    <span class="keyword">type</span> name = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:version">
+  <div class="type">
+    <span class="keyword">type</span> version = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:architecture">
+  <div class="type">
+    <span class="keyword">type</span> architecture = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:architectures">
+  <div class="type">
+    <span class="keyword">type</span> architectures = architecture list
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:buildprofile">
+  <div class="type">
+    <span class="keyword">type</span> buildprofile = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:vpkgname">
+  <div class="type">
+    <span class="keyword">type</span> vpkgname = (string * architecture option)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:multiarch">
+  <div class="type">
+    <span class="keyword">type</span> multiarch = <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:source">
+  <div class="type">
+    <span class="keyword">type</span> source = (name * version option)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:relop">
+  <div class="type">
+    <span class="keyword">type</span> relop = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:constr">
+  <div class="type">
+    <span class="keyword">type</span> constr = (relop * version)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:vpkg">
+  <div class="type">
+    <span class="keyword">type</span> vpkg = (vpkgname * constr option)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:vpkglist">
+  <div class="type">
+    <span class="keyword">type</span> vpkglist = vpkg list
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:vpkgformula">
+  <div class="type">
+    <span class="keyword">type</span> vpkgformula = vpkg list list
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:builddep">
+  <div class="type">
+    <span class="keyword">type</span> builddep = (vpkg * (bool * architecture) list * (bool * buildprofile) list)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:builddepslist">
+  <div class="type">
+    <span class="keyword">type</span> builddepslist = builddep list
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:builddepsformula">
+  <div class="type">
+    <span class="keyword">type</span> builddepsformula = builddep list list
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:action">
+  <div class="type">
+    <span class="keyword">type</span> action = <div class="constr">| I</div><div class="constr">| R</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:suite">
+  <div class="type">
+    <span class="keyword">type</span> suite = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822#type:vpkgreq">
+  <div class="type">
+    <span class="keyword">type</span> vpkgreq = (action option * vpkg * suite option)
+    
+  </div>
+  </div>
+  <span style="color:red">TODO: functor:dose.3.2.2+opam/dose3/Debian.Format822.RawInput</span>
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Format822_parser">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Format822_parser : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Format822_parser#type:token">
+  <div class="type">
+    <span class="keyword">type</span> token = <div class="constr">| FIELD <span class="keyword">of</span> (string * (Format822.loc * string))</div><div class="constr">| CONT <span class="keyword">of</span> (Format822.loc * string)</div><div class="constr">| BLANKLINE</div><div class="constr">| EOF</div><div class="constr">| PGPHEAD</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_parser#val:doc_822">
+  <div class="val">
+    <span class="keyword">val</span> doc_822 : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.doc
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_parser#val:stanza_822">
+  <div class="val">
+    <span class="keyword">val</span> stanza_822 : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.stanza option
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_parser#val:doc_822_sign">
+  <div class="val">
+    <span class="keyword">val</span> doc_822_sign : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.stanza option
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Format822_lexer">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Format822_lexer : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Format822_lexer#val:get_range">
+  <div class="val">
+    <span class="keyword">val</span> get_range : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:position">position</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:position">position</a>)
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_lexer#val:raise_error">
+  <div class="val">
+    <span class="keyword">val</span> raise_error : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; char -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_lexer#val:__ocaml_lex_tables">
+  <div class="val">
+    <span class="keyword">val</span> __ocaml_lex_tables : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lex_tables">lex_tables</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_lexer#val:token_822">
+  <div class="val">
+    <span class="keyword">val</span> token_822 : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822_parser.token
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_lexer#val:__ocaml_lex_token_822_rec">
+  <div class="val">
+    <span class="keyword">val</span> __ocaml_lex_token_822_rec : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; int -&gt; Format822_parser.token
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_lexer#val:pgpsignature">
+  <div class="val">
+    <span class="keyword">val</span> pgpsignature : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822_parser.token
+    
+  </div>
+  </div>
+  
+  <div id="module:Format822_lexer#val:__ocaml_lex_pgpsignature_rec">
+  <div class="val">
+    <span class="keyword">val</span> __ocaml_lex_pgpsignature_rec : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; int -&gt; Format822_parser.token
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Packages_parser">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Packages_parser : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Packages_parser#type:token">
+  <div class="type">
+    <span class="keyword">type</span> token = <div class="constr">| IDENT <span class="keyword">of</span> string</div><div class="constr">| VIDENT <span class="keyword">of</span> string</div><div class="constr">| STRING <span class="keyword">of</span> string</div><div class="constr">| RELOP <span class="keyword">of</span> string</div><div class="constr">| LBRACKET</div><div class="constr">| RBRACKET</div><div class="constr">| LPAREN</div><div class="constr">| RPAREN</div><div class="constr">| LT</div><div class="constr">| GT</div><div class="constr">| COMMA</div><div class="constr">| PIPE</div><div class="constr">| EQ</div><div class="constr">| BANG</div><div class="constr">| PLUS</div><div class="constr">| MINUS</div><div class="constr">| COLON</div><div class="constr">| SLASH</div><div class="constr">| EOL</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:pkgname_top">
+  <div class="val">
+    <span class="keyword">val</span> pkgname_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.name
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:version_top">
+  <div class="val">
+    <span class="keyword">val</span> version_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.version
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:archlist_top">
+  <div class="val">
+    <span class="keyword">val</span> archlist_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.architecture list
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:multiarch_top">
+  <div class="val">
+    <span class="keyword">val</span> multiarch_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.multiarch
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:source_top">
+  <div class="val">
+    <span class="keyword">val</span> source_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.source
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:vpkgname_top">
+  <div class="val">
+    <span class="keyword">val</span> vpkgname_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.vpkgname
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:vpkg_top">
+  <div class="val">
+    <span class="keyword">val</span> vpkg_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.vpkg
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:vpkglist_top">
+  <div class="val">
+    <span class="keyword">val</span> vpkglist_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.vpkglist
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:vpkgformula_top">
+  <div class="val">
+    <span class="keyword">val</span> vpkgformula_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.vpkgformula
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:builddepsformula_top">
+  <div class="val">
+    <span class="keyword">val</span> builddepsformula_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.builddepsformula
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:builddepslist_top">
+  <div class="val">
+    <span class="keyword">val</span> builddepslist_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.builddepslist
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:request_top">
+  <div class="val">
+    <span class="keyword">val</span> request_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.vpkgreq
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_parser#val:requestlist_top">
+  <div class="val">
+    <span class="keyword">val</span> requestlist_top : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Format822.vpkgreq list
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Packages_lexer">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Packages_lexer : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Packages_lexer#val:__ocaml_lex_tables">
+  <div class="val">
+    <span class="keyword">val</span> __ocaml_lex_tables : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lex_tables">lex_tables</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_lexer#val:token_deb">
+  <div class="val">
+    <span class="keyword">val</span> token_deb : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Packages_parser.token
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages_lexer#val:__ocaml_lex_token_deb_rec">
+  <div class="val">
+    <span class="keyword">val</span> __ocaml_lex_token_deb_rec : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; int -&gt; Packages_parser.token
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Packages">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Packages : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Packages#val:it">
+  <div class="val">
+    <span class="keyword">val</span> it : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info">Info</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:info">
+  <div class="val">
+    <span class="keyword">val</span> info : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:nt">
+  <div class="val">
+    <span class="keyword">val</span> nt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice">Notice</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:notice">
+  <div class="val">
+    <span class="keyword">val</span> notice : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:wt">
+  <div class="val">
+    <span class="keyword">val</span> wt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning">Warning</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:warning">
+  <div class="val">
+    <span class="keyword">val</span> warning : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:dt">
+  <div class="val">
+    <span class="keyword">val</span> dt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug">Debug</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:fatal">
+  <div class="val">
+    <span class="keyword">val</span> fatal : ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#type:package">
+  <div class="type">
+    <span class="keyword">type</span> package = {<div class="field">name : Format822.name;</div><div class="field">version : Format822.version;</div><div class="field">architecture : Format822.architecture;</div><div class="field">multiarch : Format822.multiarch;</div><div class="field">essential : bool;</div><div class="field">build_essential : bool;</div><div class="field">extra_source_only : bool;</div><div class="field">priority : string;</div><div class="field">source : (Format822.name * Format822.version option);</div><div class="field">depends : Format822.vpkgformula;</div><div class="field">pre_depends : Format822.vpkgformula;</div><div class="field">recommends : Format822.vpkgformula;</div><div class="field">suggests : Format822.vpkgformula;</div><div class="field">enhances : Format822.vpkgformula;</div><div class="field">conflicts : Format822.vpkglist;</div><div class="field">breaks : Format822.vpkglist;</div><div class="field">replaces : Format822.vpkglist;</div><div class="field">provides : Format822.vpkglist;</div><div class="field">extras : (string * string) list;</div>}
+    
+      <div class="doc">
+        debian package format
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:default_package">
+  <div class="val">
+    <span class="keyword">val</span> default_package : package
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:lexbuf_wrapper">
+  <div class="val">
+    <span class="keyword">val</span> lexbuf_wrapper : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; Packages_parser.token -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/">Lexing</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lexing/#type:lexbuf">lexbuf</a> -&gt; 'a -&gt; (Format822.loc * string) -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_name">
+  <div class="val">
+    <span class="keyword">val</span> parse_name : (Format822.loc * Format822.architecture) -&gt; Format822.name
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_version">
+  <div class="val">
+    <span class="keyword">val</span> parse_version : (Format822.loc * Format822.architecture) -&gt; Format822.version
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_multiarch">
+  <div class="val">
+    <span class="keyword">val</span> parse_multiarch : (Format822.loc * Format822.architecture) -&gt; Format822.multiarch
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_source">
+  <div class="val">
+    <span class="keyword">val</span> parse_source : (Format822.loc * Format822.architecture) -&gt; Format822.source
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_vpkg">
+  <div class="val">
+    <span class="keyword">val</span> parse_vpkg : (Format822.loc * string) -&gt; Format822.vpkg
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_vpkglist">
+  <div class="val">
+    <span class="keyword">val</span> parse_vpkglist : (Format822.loc * Format822.architecture) -&gt; Format822.vpkglist
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_vpkgformula">
+  <div class="val">
+    <span class="keyword">val</span> parse_vpkgformula : (Format822.loc * Format822.architecture) -&gt; Format822.vpkgformula
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_binarylist">
+  <div class="val">
+    <span class="keyword">val</span> parse_binarylist : (Format822.loc * string) -&gt; Format822.vpkglist
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:assoc">
+  <div class="val">
+    <span class="keyword">val</span> assoc : string -&gt; (string * 'a) list -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#exception:ParseError">
+  <div class="exception">
+    <span class="keyword">exception</span> ParseError <span class="keyword">of</span> string * string
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#exception:IgnorePackage">
+  <div class="exception">
+    <span class="keyword">exception</span> IgnorePackage <span class="keyword">of</span> string
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_s">
+  <div class="val">
+    <span class="keyword">val</span> parse_s : ?opt:'a -&gt; ?err:string -&gt; ?multi:bool -&gt; ('b * 'c) -&gt; 'a -&gt; string -&gt; (string * ('b * 'c)) list -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_string">
+  <div class="val">
+    <span class="keyword">val</span> parse_string : ('a * 'b) -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_int">
+  <div class="val">
+    <span class="keyword">val</span> parse_int : ('a * string) -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_e">
+  <div class="val">
+    <span class="keyword">val</span> parse_e : (string * (string * ('a * 'b)) list -&gt; 'b option) list -&gt; (string * ('a * 'b)) list -&gt; (string * 'b) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_bool">
+  <div class="val">
+    <span class="keyword">val</span> parse_bool : ('a * string) -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_architecture">
+  <div class="val">
+    <span class="keyword">val</span> parse_architecture : string list -&gt; ('a * string) -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_package_stanza">
+  <div class="val">
+    <span class="keyword">val</span> parse_package_stanza : (string * (Format822.loc * Format822.architecture)) list -&gt; bool option -&gt; Format822.architecture list -&gt; (string * (string * (Format822.loc * Format822.architecture)) list -&gt; Format822.architecture option) list -&gt; (string * (Format822.loc * Format822.architecture)) list -&gt; package option
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:status_filter">
+  <div class="val">
+    <span class="keyword">val</span> status_filter : (string * ('a * string)) list -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:arch_filter">
+  <div class="val">
+    <span class="keyword">val</span> arch_filter : 'a list -&gt; (string * ('b * 'a)) list -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:packages_parser">
+  <div class="val">
+    <span class="keyword">val</span> packages_parser : string -&gt; (string * (Format822.loc * string)) list -&gt; 'a option -&gt; 'a list -&gt; Format822.deb_parser -&gt; 'a list
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:parse_packages_in">
+  <div class="val">
+    <span class="keyword">val</span> parse_packages_in : ?filter:(string * (Format822.loc * Format822.architecture)) list -&gt; bool -&gt; ?archs:Format822.architecture list -&gt; ?extras:(string * (string * (Format822.loc * Format822.architecture)) list -&gt; Format822.architecture option) list -&gt; string -&gt; <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; package list
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:id">
+  <div class="val">
+    <span class="keyword">val</span> id : package -&gt; (Format822.name * Format822.version * Format822.architecture)
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:(&gt;%)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;%) : package -&gt; package -&gt; int
+    
+  </div>
+  </div>
+  
+    <div id="module:Packages#module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Packages#module:Set#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = package
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#module:Set#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Packages#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : Set.elt list -&gt; Set.elt list -&gt; Set.elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:installed_re">
+  <div class="val">
+    <span class="keyword">val</span> installed_re : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:is_installed">
+  <div class="val">
+    <span class="keyword">val</span> is_installed : package -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:is_on_hold">
+  <div class="val">
+    <span class="keyword">val</span> is_on_hold : package -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:default_extras">
+  <div class="val">
+    <span class="keyword">val</span> default_extras : (string * 'a option) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:input_raw">
+  <div class="val">
+    <span class="keyword">val</span> input_raw : ?filter:(string * (Format822.loc * Format822.architecture)) list -&gt; bool -&gt; ?archs:Format822.architecture list -&gt; ?extras:(string * (string * (Format822.loc * Format822.architecture)) list -&gt; Format822.architecture option) list -&gt; string list -&gt; Set.elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Packages#val:input_raw_ch">
+  <div class="val">
+    <span class="keyword">val</span> input_raw_ch : ?filter:(string * (Format822.loc * Format822.architecture)) list -&gt; bool -&gt; ?archs:Format822.architecture list -&gt; ?extras:(string * (string * (Format822.loc * Format822.architecture)) list -&gt; Format822.architecture option) list -&gt; <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; Set.elt list
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Apt">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Apt : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Pcre = <a href="../../../../../re/re.1.2.2/doc/re/Re_pcre/">Re_pcre</a>
+      </div>
+      
+    </div>
+  
+  <div id="module:Apt#val:it">
+  <div class="val">
+    <span class="keyword">val</span> it : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info">Info</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:info">
+  <div class="val">
+    <span class="keyword">val</span> info : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:nt">
+  <div class="val">
+    <span class="keyword">val</span> nt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice">Notice</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:notice">
+  <div class="val">
+    <span class="keyword">val</span> notice : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:wt">
+  <div class="val">
+    <span class="keyword">val</span> wt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning">Warning</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:warning">
+  <div class="val">
+    <span class="keyword">val</span> warning : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:dt">
+  <div class="val">
+    <span class="keyword">val</span> dt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug">Debug</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:fatal">
+  <div class="val">
+    <span class="keyword">val</span> fatal : ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:blank_regexp">
+  <div class="val">
+    <span class="keyword">val</span> blank_regexp : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_inst">
+  <div class="val">
+    <span class="keyword">val</span> parse_inst : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; ((string * string), unit) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_inst_from_cmd">
+  <div class="val">
+    <span class="keyword">val</span> parse_inst_from_cmd : string -&gt; ((string * string), unit) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_inst_from_file">
+  <div class="val">
+    <span class="keyword">val</span> parse_inst_from_file : string -&gt; ((string * string), unit) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_popcon">
+  <div class="val">
+    <span class="keyword">val</span> parse_popcon : string -&gt; (int * string * int)
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#type:apt_req">
+  <div class="type">
+    <span class="keyword">type</span> apt_req = <div class="constr">| Install <span class="keyword">of</span> Format822.vpkgreq list</div><div class="constr">| Remove <span class="keyword">of</span> Format822.vpkgreq list</div><div class="constr">| Upgrade <span class="keyword">of</span> Format822.suite option</div><div class="constr">| DistUpgrade <span class="keyword">of</span> Format822.suite option</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_req">
+  <div class="val">
+    <span class="keyword">val</span> parse_req : string -&gt; Format822.vpkgreq
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_pkg_req">
+  <div class="val">
+    <span class="keyword">val</span> parse_pkg_req : Format822.suite option -&gt; string -&gt; (Format822.action option * ((string * Format822.architecture option) * Format822.constr option) * Format822.suite option)
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_request_apt">
+  <div class="val">
+    <span class="keyword">val</span> parse_request_apt : string -&gt; apt_req
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_request_aptitude">
+  <div class="val">
+    <span class="keyword">val</span> parse_request_aptitude : string -&gt; apt_req
+    
+  </div>
+  </div>
+  
+    <div id="module:Apt#module:Pref">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Pref : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        for details on the apt_preferences format :
+man apt_preferences
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Apt#module:Pref#type:pin_t">
+  <div class="type">
+    <span class="keyword">type</span> pin_t = <div class="constr">| Release <span class="keyword">of</span> (string * string) list</div><div class="constr">| Origin <span class="keyword">of</span> string</div><div class="constr">| Version <span class="keyword">of</span> string</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#module:Pref#type:package_t">
+  <div class="type">
+    <span class="keyword">type</span> package_t = <div class="constr">| Package <span class="keyword">of</span> string</div><div class="constr">| Star</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#module:Pref#type:pin_priority_t">
+  <div class="type">
+    <span class="keyword">type</span> pin_priority_t = int
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#module:Pref#type:apt_preferences">
+  <div class="type">
+    <span class="keyword">type</span> apt_preferences = {<div class="field">package : package_t;</div><div class="field">pin : pin_t;</div><div class="field">pin_priority : pin_priority_t;</div>}
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Apt#val:comma_regexp">
+  <div class="val">
+    <span class="keyword">val</span> comma_regexp : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:eq_regexp">
+  <div class="val">
+    <span class="keyword">val</span> eq_regexp : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:di_regexp">
+  <div class="val">
+    <span class="keyword">val</span> di_regexp : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:al_regexp">
+  <div class="val">
+    <span class="keyword">val</span> al_regexp : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_pref_labels">
+  <div class="val">
+    <span class="keyword">val</span> parse_pref_labels : string -&gt; (string * string) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:general_regexp">
+  <div class="val">
+    <span class="keyword">val</span> general_regexp : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_pref_package">
+  <div class="val">
+    <span class="keyword">val</span> parse_pref_package : ('a * Format822.architecture) -&gt; Pref.package_t
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:pin_regexp">
+  <div class="val">
+    <span class="keyword">val</span> pin_regexp : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_pin">
+  <div class="val">
+    <span class="keyword">val</span> parse_pin : ('a * string) -&gt; Pref.pin_t
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_preferences_stanza">
+  <div class="val">
+    <span class="keyword">val</span> parse_preferences_stanza : (string * ('a * Format822.architecture)) list -&gt; Pref.apt_preferences
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:preferences_parser">
+  <div class="val">
+    <span class="keyword">val</span> preferences_parser : Format822.stanza -&gt; 'a -&gt; 'a list -&gt; Format822.deb_parser -&gt; 'a list
+    
+  </div>
+  </div>
+  
+  <div id="module:Apt#val:parse_preferences_in">
+  <div class="val">
+    <span class="keyword">val</span> parse_preferences_in : <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; Pref.apt_preferences list
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Architecture">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Architecture : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Architecture#val:src_matches_arch">
+  <div class="val">
+    <span class="keyword">val</span> src_matches_arch : string -&gt; string -&gt; bool
+    
+      <div class="doc">
+        check whether a source architecture string matches a host
+architecture. The source architecture string may contain
+architecture wildcards (&quot;linux-any&quot;, &quot;any-i386&quot;), or be &quot;any&quot; or
+&quot;all&quot;. The host architecure is one that may be obtained by
+running &quot;dpkg-architecture -qDEB_HOST_ARCH&quot;).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Architecture#val:read_triplettable">
+  <div class="val">
+    <span class="keyword">val</span> read_triplettable : ?ttfile:string option -&gt; ?ctfile:string option -&gt; unit -&gt; unit
+    
+      <div class="doc">
+        fill the lookup table mapping debian architectures to debian triplets
+this function is called by src_matches_arch without supplying anything
+for the optional ttfile and ctfile arguments. If they are not None,
+then they can point to a file like /usr/share/dpkg/triplettable or
+/usr/share/dpkg/cputable respectively.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Sources">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Sources : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Sources#val:it">
+  <div class="val">
+    <span class="keyword">val</span> it : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info">Info</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:info">
+  <div class="val">
+    <span class="keyword">val</span> info : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:nt">
+  <div class="val">
+    <span class="keyword">val</span> nt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice">Notice</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:notice">
+  <div class="val">
+    <span class="keyword">val</span> notice : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:wt">
+  <div class="val">
+    <span class="keyword">val</span> wt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning">Warning</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:warning">
+  <div class="val">
+    <span class="keyword">val</span> warning : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:dt">
+  <div class="val">
+    <span class="keyword">val</span> dt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug">Debug</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:fatal">
+  <div class="val">
+    <span class="keyword">val</span> fatal : ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#type:source">
+  <div class="type">
+    <span class="keyword">type</span> source = {<div class="field">name : Format822.name;</div><div class="field">version : Format822.version;</div><div class="field">architecture : Format822.architecture list;</div><div class="field">binaries : string list;</div><div class="field">build_depends : Format822.builddepsformula;</div><div class="field">build_depends_indep : Format822.builddepsformula;</div><div class="field">build_conflicts : Format822.builddepslist;</div><div class="field">build_conflicts_indep : Format822.builddepslist;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:default_source">
+  <div class="val">
+    <span class="keyword">val</span> default_source : source
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:parse_s">
+  <div class="val">
+    <span class="keyword">val</span> parse_s : ?opt:'a -&gt; ?err:string -&gt; ?multi:bool -&gt; ('b * 'c) -&gt; 'a -&gt; string -&gt; (string * ('b * 'c)) list -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:parse_name">
+  <div class="val">
+    <span class="keyword">val</span> parse_name : (Format822.loc * Format822.architecture) -&gt; Format822.name
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:parse_version">
+  <div class="val">
+    <span class="keyword">val</span> parse_version : (Format822.loc * Format822.architecture) -&gt; Format822.version
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:parse_builddepslist">
+  <div class="val">
+    <span class="keyword">val</span> parse_builddepslist : (Format822.loc * Format822.architecture) -&gt; Format822.builddepslist
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:parse_builddepsformula">
+  <div class="val">
+    <span class="keyword">val</span> parse_builddepsformula : (Format822.loc * Format822.architecture) -&gt; Format822.builddepsformula
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:parse_architectures">
+  <div class="val">
+    <span class="keyword">val</span> parse_architectures : string list -&gt; (Format822.loc * string) -&gt; Format822.architecture list
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:parse_package_stanza">
+  <div class="val">
+    <span class="keyword">val</span> parse_package_stanza : (string * (Format822.loc * Format822.architecture)) list -&gt; bool option -&gt; string list -&gt; (string * (Format822.loc * Format822.architecture)) list -&gt; source option
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:parse_sources_in">
+  <div class="val">
+    <span class="keyword">val</span> parse_sources_in : ?filter:(string * (Format822.loc * Format822.architecture)) list -&gt; bool -&gt; ?archs:string list -&gt; string -&gt; <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; source list
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:input_raw">
+  <div class="val">
+    <span class="keyword">val</span> input_raw : ?filter:(string * (Format822.loc * Format822.architecture)) list -&gt; bool -&gt; ?archs:string list -&gt; string list -&gt; source list
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:sep">
+  <div class="val">
+    <span class="keyword">val</span> sep : string
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:select">
+  <div class="val">
+    <span class="keyword">val</span> select : string -&gt; 'a option -&gt; ('b * (bool * string) list * (bool * 'a) list) -&gt; 'b option
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:sources2packages">
+  <div class="val">
+    <span class="keyword">val</span> sources2packages : ?profiles:bool -&gt; ?noindep:bool -&gt; ?src:Format822.buildprofile -&gt; Format822.architecture -&gt; Format822.architecture -&gt; source list -&gt; Packages.package list
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:is_source">
+  <div class="val">
+    <span class="keyword">val</span> is_source : ?src:string -&gt; Packages.package -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#exception:MismatchSrc">
+  <div class="exception">
+    <span class="keyword">exception</span> MismatchSrc <span class="keyword">of</span> <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#exception:NotfoundSrc">
+  <div class="exception">
+    <span class="keyword">exception</span> NotfoundSrc
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:get_src_package">
+  <div class="val">
+    <span class="keyword">val</span> get_src_package : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:srcbin_table">
+  <div class="val">
+    <span class="keyword">val</span> srcbin_table : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd">CudfAdd</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_hashtbl">Cudf_hashtbl</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_hashtbl%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:get_bin_packages">
+  <div class="val">
+    <span class="keyword">val</span> get_bin_packages : 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd">CudfAdd</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_hashtbl">Cudf_hashtbl</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_hashtbl%23type:t">t</a> -&gt; <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd">CudfAdd</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_hashtbl">Cudf_hashtbl</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_hashtbl%23type:key">key</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Sources#val:binset">
+  <div class="val">
+    <span class="keyword">val</span> binset : 'a -&gt; <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd">CudfAdd</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_set">Cudf_set</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_set%23type:elt">elt</a> list -&gt; 'a list -&gt; <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd">CudfAdd</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_set">Cudf_set</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:CudfAdd%23module:Cudf_set%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Version">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Version : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Version#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : string -&gt; string -&gt; bool
+    
+      <div class="doc">
+        
+        
+  <div class="tag return">
+    <span class="label">Returns</span> <code>true</code> iff the two strings define the same version. Hence,
+the result may be true even when the two string differ
+syntactically.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Version#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : string -&gt; string -&gt; int
+    
+      <div class="doc">
+        <code>compare x y</code> returns 0 if x is eqivalent to y, -1 if x is smaller
+than y, and 1 if x is greater than y. This is consistent with
+<code>Pervasives.compare</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Version#type:version_analysis">
+  <div class="type">
+    <span class="keyword">type</span> version_analysis = <div class="constr">| Native <span class="keyword">of</span> string * string * string <span class="doc">(* epoch,upstream,binnmu *)</span></div><div class="constr">| NonNative <span class="keyword">of</span> string * string * string * string <span class="doc">(* epoch,upstream,revision,binnmu *)</span></div>
+    
+      <div class="doc">
+        result type of the analysis of a version string. The binNMU part,
+if present, has been removed from the upstream (if native version)
+or revision (if non-native vesion).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Version#val:decompose">
+  <div class="val">
+    <span class="keyword">val</span> decompose : string -&gt; version_analysis
+    
+      <div class="doc">
+        decompose a version string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Version#val:compose">
+  <div class="val">
+    <span class="keyword">val</span> compose : version_analysis -&gt; string
+    
+      <div class="doc">
+        recompose a decomposed version string. For all v:
+<code>equal(v,compose(decompose v)) = true</code>. There may, however, be
+small syntactic differences between <code>v</code> and <code>compose(decompose v)</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Version#val:strip_epoch_binnmu">
+  <div class="val">
+    <span class="keyword">val</span> strip_epoch_binnmu : string -&gt; string
+    
+      <div class="doc">
+        return a version without its epoch and without its binNMU part
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Version#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : string -&gt; (string * string * string * string)
+    
+      <div class="doc">
+        split the debian version into its components.
+(epoch,upstream,revision,binnmu) = split v
+v = epoch ^ &quot;:&quot; ^ upstream ^ &quot;-&quot; ^ revision ^ binnmu.
+        
+  <div class="tag deprecated">
+    <span class="label">Deprecated</span> <code>decompose</code> should be used instead.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Version#val:concat">
+  <div class="val">
+    <span class="keyword">val</span> concat : (string * string * string * string) -&gt; string
+    
+      <div class="doc">
+        
+        
+  <div class="tag deprecated">
+    <span class="label">Deprecated</span> <code>recompose</code> should be used instead.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Version#val:normalize">
+  <div class="val">
+    <span class="keyword">val</span> normalize : string -&gt; string
+    
+      <div class="doc">
+        chop the epoch and binnmu component from a version.
+        
+  <div class="tag deprecated">
+    <span class="label">Deprecated</span> <code>strip_epoch_binnmu</code> should be used instead.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Debcudf">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Debcudf : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Debcudf#type:tables">
+  <div class="type">
+    <span class="keyword">type</span> tables
+    
+      <div class="doc">
+        abstract data type holding the conversion tables for the debcudf translation.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#type:extramap">
+  <div class="type">
+    <span class="keyword">type</span> extramap = (string * (string * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:typedecl1">typedecl1</a>)) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#type:options">
+  <div class="type">
+    <span class="keyword">type</span> options = {<div class="field">extras_opt : extramap;</div><div class="field">native : string option; <span class="doc">(* the native architecture *)</span></div><div class="field">foreign : string list; <span class="doc">(* list of foreign architectures *)</span></div><div class="field">host : string option; <span class="doc">(* the host architecture - cross compile *)</span></div><div class="field">ignore_essential : bool;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:default_options">
+  <div class="val">
+    <span class="keyword">val</span> default_options : options
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:init_tables">
+  <div class="val">
+    <span class="keyword">val</span> init_tables : ?step:int -&gt; ?versionlist:Format822.version list -&gt; Packages.package list -&gt; tables
+    
+      <div class="doc">
+        initialize the version conversion tables
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : tables -&gt; unit
+    
+      <div class="doc">
+        return the cudf version associated to a tuple (name,version).
+return Not_found if there is not package or cudf version associated
+to the tuple (name,version)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:get_cudf_version">
+  <div class="val">
+    <span class="keyword">val</span> get_cudf_version : tables -&gt; (Format822.name * Format822.version) -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:get_real_version">
+  <div class="val">
+    <span class="keyword">val</span> get_real_version : tables -&gt; (<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:pkgname">pkgname</a> * <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:version">version</a>) -&gt; Format822.version
+    
+      <div class="doc">
+        return the real version associated to a Cudf package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:tocudf">
+  <div class="val">
+    <span class="keyword">val</span> tocudf : tables -&gt; ?options:options -&gt; ?inst:bool -&gt; Packages.package -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>
+    
+      <div class="doc">
+        <code>tocudf tbl p</code>
+convert the a debian package representation to cudf.<ul><li>Version and package name normalization.</li><li>Adding self conflicts.</li><li>Virtual package normalization.</li><li>Adding priority information if avaiblable.</li><li>Mapping APT request.</li></ul>
+        
+  <div class="tag param">
+    <span class="label">inst</span> : set the <i>Installed</i> cudf field
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:lltocudf">
+  <div class="val">
+    <span class="keyword">val</span> lltocudf : ?enc:bool -&gt; tables -&gt; Format822.vpkg list list -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:vpkgformula">vpkgformula</a>
+    
+      <div class="doc">
+        convert a debian dependency list in a cudf constraints formula
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:ltocudf">
+  <div class="val">
+    <span class="keyword">val</span> ltocudf : ?enc:bool -&gt; tables -&gt; Format822.vpkg list -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/">Cudf_types</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf_types/#type:vpkglist">vpkglist</a>
+    
+      <div class="doc">
+        convert a debian conflict list in a cudf constraints list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:preamble">
+  <div class="val">
+    <span class="keyword">val</span> preamble : <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:preamble">preamble</a>
+    
+      <div class="doc">
+        declare the Cudf preamble used by cudf. Namely, debcudf add :<ul><li>a property named <b>Number</b> of type string containing the original debian version</li><li>a property named <b>Source</b> of type string</li><li>a property named <b>Sourceversion</b> of type string</li></ul>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:load_universe">
+  <div class="val">
+    <span class="keyword">val</span> load_universe : ?options:options -&gt; Packages.package list -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a>
+    
+      <div class="doc">
+        create a Cudf universe from a debian package representation list.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debcudf#val:load_list">
+  <div class="val">
+    <span class="keyword">val</span> load_list : ?options:options -&gt; Packages.package list -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a> list
+    
+      <div class="doc">
+        create a Cudf package list from a debian package representation list.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Release">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Release : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Release#type:release">
+  <div class="type">
+    <span class="keyword">type</span> release = {<div class="field">fname : string;</div><div class="field">origin : string;</div><div class="field">label : string;</div><div class="field">suite : string;</div><div class="field">version : string;</div><div class="field">codename : string;</div><div class="field">date : string;</div><div class="field">architecture : string;</div><div class="field">component : string;</div><div class="field">notauto : bool;</div><div class="field">autoup : bool;</div><div class="field">description : string;</div><div class="field">md5sums : (string * string * string) list;</div><div class="field">sha1 : (string * string * string) list;</div><div class="field">sha256 : (string * string * string) list;</div>}
+    
+      <div class="doc">
+        The type for representing the contents of one release file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Release#val:parse_release_in">
+  <div class="val">
+    <span class="keyword">val</span> parse_release_in : string -&gt; <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; release option
+    
+      <div class="doc">
+        <code>parse_release_in filename channel</code> parses the contents of a release
+file of name <code>filename</code> from the input channel <code>channel</code>. Returns
+<code>Some(c)</code> when <code>c</code> is the contents of the release file read from the
+stream, or <code>None</code> when the stream contains only whitespace.<br/>The release file may be signed, but in this case the validity of
+the signature is not checked!!
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Debutil">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Debutil : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Debutil#val:it">
+  <div class="val">
+    <span class="keyword">val</span> it : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info">Info</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:info">
+  <div class="val">
+    <span class="keyword">val</span> info : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:nt">
+  <div class="val">
+    <span class="keyword">val</span> nt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice">Notice</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:notice">
+  <div class="val">
+    <span class="keyword">val</span> notice : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:wt">
+  <div class="val">
+    <span class="keyword">val</span> wt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning">Warning</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:warning">
+  <div class="val">
+    <span class="keyword">val</span> warning : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:dt">
+  <div class="val">
+    <span class="keyword">val</span> dt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug">Debug</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:fatal">
+  <div class="val">
+    <span class="keyword">val</span> fatal : ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:get_source">
+  <div class="val">
+    <span class="keyword">val</span> get_source : Packages.package -&gt; (Format822.name * Format822.version)
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:cluster">
+  <div class="val">
+    <span class="keyword">val</span> cluster : Packages.package list -&gt; ((Format822.name * Format822.version), (string * string * Packages.package list) list) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Debutil#val:debvpkg">
+  <div class="val">
+    <span class="keyword">val</span> debvpkg : (string * string) -&gt; ('a * 'b) -&gt; ((string * string option) * (string * string) option) -&gt; (string * (<span style="color:red">TODO: c</span> * 'b) option)
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Evolution">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Evolution : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Evolution#type:range">
+  <div class="type">
+    <span class="keyword">type</span> range = <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:string_of_range">
+  <div class="val">
+    <span class="keyword">val</span> string_of_range : <span style="color:red">TODO: a</span> -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:range">
+  <div class="val">
+    <span class="keyword">val</span> range : ?bottom:bool -&gt; string list -&gt; <span style="color:red">TODO: a</span> list
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:discriminant">
+  <div class="val">
+    <span class="keyword">val</span> discriminant : ?bottom:bool -&gt; ?highest:bool -&gt; <span style="color:red">TODO: a</span> -&gt; 'b -&gt; 'c -&gt; string list -&gt; 'b list -&gt; ('a * 'a list) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:add_unique">
+  <div class="val">
+    <span class="keyword">val</span> add_unique : ('a, ('b, unit) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a> -&gt; 'a -&gt; 'b -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:conj_iter">
+  <div class="val">
+    <span class="keyword">val</span> conj_iter : ('a, ((<span style="color:red">TODO: b</span> * string) option, unit) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a> -&gt; (('a * 'c) * (string * string) option) list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:cnf_iter">
+  <div class="val">
+    <span class="keyword">val</span> cnf_iter : ('a, ((<span style="color:red">TODO: b</span> * string) option, unit) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a> -&gt; (('a * 'c) * (string * string) option) list list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:constraints">
+  <div class="val">
+    <span class="keyword">val</span> constraints : Packages.package list -&gt; (string, (<span style="color:red">TODO: a</span> * string) list) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:all_constraints">
+  <div class="val">
+    <span class="keyword">val</span> all_constraints : ('a, 'b list) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a> -&gt; 'a -&gt; 'b list
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:align">
+  <div class="val">
+    <span class="keyword">val</span> align : string -&gt; <span style="color:red">TODO: a</span> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:all_versions">
+  <div class="val">
+    <span class="keyword">val</span> all_versions : ('a * 'b) list -&gt; 'b list
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:migrate">
+  <div class="val">
+    <span class="keyword">val</span> migrate : Packages.package list -&gt; <span style="color:red">TODO: a</span> -&gt; ((Packages.package * 'a) * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:extract_epochs">
+  <div class="val">
+    <span class="keyword">val</span> extract_epochs : string list -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:add_normalize">
+  <div class="val">
+    <span class="keyword">val</span> add_normalize : string list -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:add_epochs">
+  <div class="val">
+    <span class="keyword">val</span> add_epochs : string list -&gt; string list -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="module:Evolution#val:all_ver_constr">
+  <div class="val">
+    <span class="keyword">val</span> all_ver_constr : (Format822.name, ('a * Format822.version) list) <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/">ExtLib</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl">Hashtbl</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/ExtLib/#module:Hashtbl%23type:t">t</a> -&gt; Packages.package list -&gt; (Format822.version list * ('a * Format822.version) list)
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Edsp">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Edsp : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Pcre = <a href="../../../../../re/re.1.2.2/doc/re/Re_pcre/">Re_pcre</a>
+      </div>
+      
+    </div>
+  
+  <div id="module:Edsp#val:it">
+  <div class="val">
+    <span class="keyword">val</span> it : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info">Info</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Info%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:info">
+  <div class="val">
+    <span class="keyword">val</span> info : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:nt">
+  <div class="val">
+    <span class="keyword">val</span> nt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice">Notice</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Notice%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:notice">
+  <div class="val">
+    <span class="keyword">val</span> notice : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:wt">
+  <div class="val">
+    <span class="keyword">val</span> wt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning">Warning</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Warning%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:warning">
+  <div class="val">
+    <span class="keyword">val</span> warning : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:dt">
+  <div class="val">
+    <span class="keyword">val</span> dt : <a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/">Common</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util">Util</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug">Debug</a>.<a href="../../../../../dose/dose.3.2.2+opam/doc/dose3/Common/#module:Util%23module:Debug%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : ('a, unit, string, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:fatal">
+  <div class="val">
+    <span class="keyword">val</span> fatal : ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#type:request">
+  <div class="type">
+    <span class="keyword">type</span> request = {<div class="field">request : string;</div><div class="field">install : Format822.vpkg list;</div><div class="field">remove : Format822.vpkg list;</div><div class="field">architecture : Format822.architecture option;</div><div class="field">architectures : Format822.architectures;</div><div class="field">autoremove : bool;</div><div class="field">upgrade : bool;</div><div class="field">distupgrade : bool;</div><div class="field">strict_pin : bool;</div><div class="field">preferences : string;</div><div class="field">cmdline : string;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:default_request">
+  <div class="val">
+    <span class="keyword">val</span> default_request : request
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:from_apt_request">
+  <div class="val">
+    <span class="keyword">val</span> from_apt_request : Format822.architecture option -&gt; request -&gt; Apt.apt_req -&gt; request
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_s">
+  <div class="val">
+    <span class="keyword">val</span> parse_s : ?opt:'a -&gt; ?err:string -&gt; ?multi:bool -&gt; ('b * 'c) -&gt; 'a -&gt; string -&gt; (string * ('b * 'c)) list -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_string">
+  <div class="val">
+    <span class="keyword">val</span> parse_string : ('a * 'b) -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_string_opt">
+  <div class="val">
+    <span class="keyword">val</span> parse_string_opt : ('a * string) -&gt; string option
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_string_list">
+  <div class="val">
+    <span class="keyword">val</span> parse_string_list : ('a * string) -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_int_s">
+  <div class="val">
+    <span class="keyword">val</span> parse_int_s : ('a * string) -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_req">
+  <div class="val">
+    <span class="keyword">val</span> parse_req : (Format822.loc * string) -&gt; Format822.vpkg list
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_edsp_version">
+  <div class="val">
+    <span class="keyword">val</span> parse_edsp_version : ('a * string) -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_request_stanza">
+  <div class="val">
+    <span class="keyword">val</span> parse_request_stanza : (string * (Format822.loc * Format822.architecture)) list -&gt; request
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_bool_s">
+  <div class="val">
+    <span class="keyword">val</span> parse_bool_s : ('a * string) -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_installed">
+  <div class="val">
+    <span class="keyword">val</span> parse_installed : Format822.stanza -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_hold">
+  <div class="val">
+    <span class="keyword">val</span> parse_hold : Format822.stanza -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_apt_id">
+  <div class="val">
+    <span class="keyword">val</span> parse_apt_id : Format822.stanza -&gt; Format822.architecture
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_apt_pin">
+  <div class="val">
+    <span class="keyword">val</span> parse_apt_pin : Format822.stanza -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_automatic">
+  <div class="val">
+    <span class="keyword">val</span> parse_automatic : Format822.stanza -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_candidate">
+  <div class="val">
+    <span class="keyword">val</span> parse_candidate : Format822.stanza -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:parse_section">
+  <div class="val">
+    <span class="keyword">val</span> parse_section : Format822.stanza -&gt; Format822.architecture
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:extras">
+  <div class="val">
+    <span class="keyword">val</span> extras : (string * Format822.stanza -&gt; Format822.architecture option) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:packages_parser">
+  <div class="val">
+    <span class="keyword">val</span> packages_parser : ?request:bool -&gt; (request * Packages.package list) -&gt; Format822.deb_parser -&gt; (request * Packages.package list)
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:input_raw_ch">
+  <div class="val">
+    <span class="keyword">val</span> input_raw_ch : <a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/">IO</a>.<a href="../../../../../extlib-compat/extlib-compat.1.6.1/doc/extlib/IO/#type:input">input</a> -&gt; (request * Packages.package list)
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:input_raw">
+  <div class="val">
+    <span class="keyword">val</span> input_raw : string -&gt; (request * Packages.package list)
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:extras_tocudf">
+  <div class="val">
+    <span class="keyword">val</span> extras_tocudf : (string * (string * <span style="color:red">TODO: a</span>)) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:is_installed">
+  <div class="val">
+    <span class="keyword">val</span> is_installed : Packages.package -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:is_on_hold">
+  <div class="val">
+    <span class="keyword">val</span> is_on_hold : Packages.package -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:tocudf">
+  <div class="val">
+    <span class="keyword">val</span> tocudf : Debcudf.tables -&gt; ?options:Debcudf.options -&gt; ?inst:bool -&gt; Packages.package -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:package">package</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Edsp#val:requesttocudf">
+  <div class="val">
+    <span class="keyword">val</span> requesttocudf : Debcudf.tables -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:universe">universe</a> -&gt; request -&gt; <a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/">Cudf</a>.<a href="../../../../../cudf/cudf.0.7/doc/cudf/Cudf/#type:request">request</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Printer">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Printer : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Printer#val:pp_multiarch">
+  <div class="val">
+    <span class="keyword">val</span> pp_multiarch : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; <span style="color:red">TODO: a</span> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:string_of_vpkg">
+  <div class="val">
+    <span class="keyword">val</span> string_of_vpkg : ((string * string option) * (string * string) option) -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:pp_vpkg">
+  <div class="val">
+    <span class="keyword">val</span> pp_vpkg : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; ((string * string option) * (string * string) option) -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:string_of_vpkglist">
+  <div class="val">
+    <span class="keyword">val</span> string_of_vpkglist : ((string * string option) * (string * string) option) list -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:pp_vpkglist">
+  <div class="val">
+    <span class="keyword">val</span> pp_vpkglist : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; ((string * string option) * (string * string) option) list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:string_of_vpkgformula">
+  <div class="val">
+    <span class="keyword">val</span> string_of_vpkgformula : ((string * string option) * (string * string) option) list list -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:pp_vpkgformula">
+  <div class="val">
+    <span class="keyword">val</span> pp_vpkgformula : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; ((string * string option) * (string * string) option) list list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:pp_package">
+  <div class="val">
+    <span class="keyword">val</span> pp_package : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; Packages.package -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:strinf_of_builddep">
+  <div class="val">
+    <span class="keyword">val</span> strinf_of_builddep : (((string * string option) * (string * string) option) * (bool * string) list * (bool * string) list) -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:string_of_builddepformula">
+  <div class="val">
+    <span class="keyword">val</span> string_of_builddepformula : (((string * string option) * (string * string) option) * (bool * string) list * (bool * string) list) list list -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:pp_builddepformula">
+  <div class="val">
+    <span class="keyword">val</span> pp_builddepformula : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; (((string * string option) * (string * string) option) * (bool * string) list * (bool * string) list) list list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:string_of_builddeplist">
+  <div class="val">
+    <span class="keyword">val</span> string_of_builddeplist : (((string * string option) * (string * string) option) * (bool * string) list * (bool * string) list) list -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:pp_builddeplist">
+  <div class="val">
+    <span class="keyword">val</span> pp_builddeplist : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; (((string * string option) * (string * string) option) * (bool * string) list * (bool * string) list) list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Printer#val:pp_source">
+  <div class="val">
+    <span class="keyword">val</span> pp_source : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; Sources.source -&gt; unit
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  dose.3.2.2+opam dose3 Module 'Debian' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

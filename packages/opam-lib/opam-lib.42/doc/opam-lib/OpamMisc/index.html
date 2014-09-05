@@ -1,0 +1,3958 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  opam-lib.42 opam-lib Module 'OpamMisc' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/">OpamMisc</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="modtype:SET">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> SET = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        Collection of abstract values
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt
+    
+  </div>
+  </div>
+  
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:MAP">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> MAP = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        Dictionaries of abstract values
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="type:key">
+  <div class="type">
+    <span class="keyword">type</span> key
+    
+  </div>
+  </div>
+  
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:ABSTRACT">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> ABSTRACT = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        All abstract types should implement this signature
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        ABSTRACT type
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+      <div class="doc">
+        Create an abstract value from a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Convert an abstract value to a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Convert an abstract value to a JSON object
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        <span style="color:red">TODO: functor:opam-lib.42/opam-lib/OpamMisc.Set.Make</span>
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Map">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Map : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        <span style="color:red">TODO: functor:opam-lib.42/opam-lib/OpamMisc.Map.Make</span>
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:OrderedType">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> OrderedType = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        Extended sets and maps
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Set constructor
+        
+      </div>
+    
+      <div class="sig">
+        <span style="color:red">TODO: functor:opam-lib.42/opam-lib/OpamMisc.Set.Make</span>
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Map">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Map : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Map constructor
+        
+      </div>
+    
+      <div class="sig">
+        <span style="color:red">TODO: functor:opam-lib.42/opam-lib/OpamMisc.Map.Make</span>
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Base">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Base : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Base module, useful to abstract strings
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Base#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+    <div id="module:Base#module:Map">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Map : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Base#module:Map#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Map#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Base#module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Base#module:Set#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Base#module:Set#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Base#module:Set#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Base#module:Set#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:IntMap">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> IntMap : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Map of ints
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:IntMap#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = int
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntMap#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:IntSet">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> IntSet : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Set of ints
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:IntSet#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = int
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:IntSet#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:IntSet#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:IntSet#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:string_of_list">
+  <div class="val">
+    <span class="keyword">val</span> string_of_list : 'a -&gt; string -&gt; 'a list -&gt; string
+    
+      <div class="doc">
+        Display a list of strings
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:string_map">
+  <div class="val">
+    <span class="keyword">val</span> string_map : char -&gt; char -&gt; string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:pretty_list">
+  <div class="val">
+    <span class="keyword">val</span> pretty_list : ?last:string -&gt; string list -&gt; string
+    
+      <div class="doc">
+        Display a pretty list: <code>&quot;x&quot;;&quot;y&quot;;&quot;z&quot;</code> -&gt; &quot;x, y and z&quot;.
+&quot;and&quot; can be changed by specifying <code>last</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_duplicates">
+  <div class="val">
+    <span class="keyword">val</span> remove_duplicates : 'a list -&gt; 'a list
+    
+      <div class="doc">
+        Removes consecutive duplicates in a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:StringMap">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> StringMap : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Map of strings
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:StringMap#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = string
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringMap#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:StringSet">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> StringSet : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Set of strings
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:StringSet#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = string
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:StringSet#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:StringSet#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:StringSetSet">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> StringSetSet : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Set of string sets
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:StringSetSet#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = StringSet.t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:StringSetSet#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:StringSetSet#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetSet#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:StringSetMap">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> StringSetMap : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Map of string sets
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:StringSetMap#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = StringSet.t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSetMap#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:strip">
+  <div class="val">
+    <span class="keyword">val</span> strip : string -&gt; string
+    
+      <div class="doc">
+        Strip a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:starts_with">
+  <div class="val">
+    <span class="keyword">val</span> starts_with : prefix:string -&gt; string -&gt; bool
+    
+      <div class="doc">
+        Does a string starts with the given prefix ?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ends_with">
+  <div class="val">
+    <span class="keyword">val</span> ends_with : suffix:string -&gt; string -&gt; bool
+    
+      <div class="doc">
+        Does a string ends with the given suffix ?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_prefix">
+  <div class="val">
+    <span class="keyword">val</span> remove_prefix : prefix:string -&gt; string -&gt; string
+    
+      <div class="doc">
+        Remove a prefix
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_suffix">
+  <div class="val">
+    <span class="keyword">val</span> remove_suffix : suffix:string -&gt; string -&gt; string
+    
+      <div class="doc">
+        Remove a suffix
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:cut_at">
+  <div class="val">
+    <span class="keyword">val</span> cut_at : string -&gt; char -&gt; (string * string) option
+    
+      <div class="doc">
+        Cut a string at the first occurence of the given char
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:rcut_at">
+  <div class="val">
+    <span class="keyword">val</span> rcut_at : string -&gt; char -&gt; (string * string) option
+    
+      <div class="doc">
+        Same as <code>cut_at</code>, but starts from the right
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:contains">
+  <div class="val">
+    <span class="keyword">val</span> contains : string -&gt; char -&gt; bool
+    
+      <div class="doc">
+        Does a string contains the given chars ?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : string -&gt; char -&gt; string list
+    
+      <div class="doc">
+        Split a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:indent_left">
+  <div class="val">
+    <span class="keyword">val</span> indent_left : string -&gt; ?visual:string -&gt; int -&gt; string
+    
+      <div class="doc">
+        left indenting. <code>~visual</code> can be used to indent eg. ANSI colored
+strings and should correspond to the visible characters of s
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:indent_right">
+  <div class="val">
+    <span class="keyword">val</span> indent_right : string -&gt; ?visual:string -&gt; int -&gt; string
+    
+      <div class="doc">
+        right indenting
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:sub_at">
+  <div class="val">
+    <span class="keyword">val</span> sub_at : int -&gt; string -&gt; string
+    
+      <div class="doc">
+        Cut a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Option">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Option : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Option#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a option -&gt; 'b option
+    
+  </div>
+  </div>
+  
+  <div id="module:Option#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : 'a -&gt; unit -&gt; 'a option -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Option#val:default">
+  <div class="val">
+    <span class="keyword">val</span> default : 'a -&gt; 'a option -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Option#val:default_map">
+  <div class="val">
+    <span class="keyword">val</span> default_map : 'a option -&gt; 'a option -&gt; 'a option
+    
+  </div>
+  </div>
+  
+    <div id="module:Option#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Option#module:Op#val:(&gt;&gt;=)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;&gt;=) : 'a option -&gt; 'a -&gt; 'b option -&gt; 'b option
+    
+  </div>
+  </div>
+  
+  <div id="module:Option#module:Op#val:(&gt;&gt;|)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;&gt;|) : 'a option -&gt; 'a -&gt; 'b -&gt; 'b option
+    
+  </div>
+  </div>
+  
+  <div id="module:Option#module:Op#val:(+!)">
+  <div class="val">
+    <span class="keyword">val</span> (+!) : 'a option -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Option#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : 'a option -&gt; 'a option -&gt; 'a option
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:reset_env_value">
+  <div class="val">
+    <span class="keyword">val</span> reset_env_value : prefix:string -&gt; char -&gt; string -&gt; string list
+    
+      <div class="doc">
+        Remove from a c-separated list of string the one with the given prefix
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:cut_env_value">
+  <div class="val">
+    <span class="keyword">val</span> cut_env_value : prefix:string -&gt; char -&gt; string -&gt; (string list * string list)
+    
+      <div class="doc">
+        split a c-separated list of string in two according to the first
+occurrences of the string with the given <code>prefix</code>. The list of
+elements occurring before is returned in reverse order. If there are
+other elements with the same <code>prefix</code> they are kept in the second list.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:rsync_trim">
+  <div class="val">
+    <span class="keyword">val</span> rsync_trim : string list -&gt; string list
+    
+      <div class="doc">
+        if rsync -arv return 4 lines, this means that no files have changed
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:exact_match">
+  <div class="val">
+    <span class="keyword">val</span> exact_match : <a href="../../../../../re/re.1.2.2/doc/re/Re/">Re</a>.<a href="../../../../../re/re.1.2.2/doc/re/Re/#type:re">re</a> -&gt; string -&gt; bool
+    
+      <div class="doc">
+        Exact regexp matching
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:filter_map">
+  <div class="val">
+    <span class="keyword">val</span> filter_map : 'a -&gt; 'b option -&gt; 'a list -&gt; 'b list
+    
+      <div class="doc">
+        Filter and map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:insert">
+  <div class="val">
+    <span class="keyword">val</span> insert : 'a -&gt; 'a -&gt; int -&gt; 'a -&gt; 'a list -&gt; 'a list
+    
+      <div class="doc">
+        Insert a value in an ordered list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:getenv">
+  <div class="val">
+    <span class="keyword">val</span> getenv : string -&gt; string
+    
+      <div class="doc">
+        Lazy environment variable
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:env">
+  <div class="val">
+    <span class="keyword">val</span> env : unit -&gt; (string * string) list
+    
+      <div class="doc">
+        Lazy environment
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fatal">
+  <div class="val">
+    <span class="keyword">val</span> fatal : exn -&gt; unit
+    
+      <div class="doc">
+        To use when catching default exceptions: ensures we don't catch fatal errors
+like C-c. try-with should _always_ (by decreasing order of preference):<ul><li>either catch specific exceptions</li><li>or re-raise the same exception</li><li>or call this function on the caught exception</li></ul>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:register_backtrace">
+  <div class="val">
+    <span class="keyword">val</span> register_backtrace : exn -&gt; unit
+    
+      <div class="doc">
+        Register a backtrace for when you need to process a finalizer (that
+internally uses exceptions) and then re-raise the same exception.
+To be printed by pretty_backtrace.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:pretty_backtrace">
+  <div class="val">
+    <span class="keyword">val</span> pretty_backtrace : exn -&gt; string
+    
+      <div class="doc">
+        Return a pretty-printed backtrace
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:prettify_path">
+  <div class="val">
+    <span class="keyword">val</span> prettify_path : string -&gt; string
+    
+      <div class="doc">
+        Prettify a local path (eg. replace /home/me/ by '~')
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:OP">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> OP : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:OP#val:(@@)">
+  <div class="val">
+    <span class="keyword">val</span> (@@) : 'a -&gt; 'b -&gt; 'a -&gt; 'b
+    
+      <div class="doc">
+        Function application (with lower priority) (predefined in OCaml 4.01+)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OP#val:(|&gt;)">
+  <div class="val">
+    <span class="keyword">val</span> (|&gt;) : 'a -&gt; 'a -&gt; 'b -&gt; 'b
+    
+      <div class="doc">
+        Pipe operator -- reverse application (predefined in OCaml 4.01+)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OP#val:(@*)">
+  <div class="val">
+    <span class="keyword">val</span> (@*) : 'b -&gt; 'c -&gt; 'a -&gt; 'b -&gt; 'a -&gt; 'c
+    
+      <div class="doc">
+        Function composition : (f @* g) x =~ f (g x)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:OP#val:(@&gt;)">
+  <div class="val">
+    <span class="keyword">val</span> (@&gt;) : 'a -&gt; 'b -&gt; 'b -&gt; 'c -&gt; 'a -&gt; 'c
+    
+      <div class="doc">
+        Reverse function composition : (f @&gt; g) x =~ g (f x)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:terminal_columns">
+  <div class="val">
+    <span class="keyword">val</span> terminal_columns : unit -&gt; int
+    
+      <div class="doc">
+        When <code>stdout</code> refers to a terminal, query the number of columns.
+Otherwise return <code>max_int</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:uname_s">
+  <div class="val">
+    <span class="keyword">val</span> uname_s : unit -&gt; string option
+    
+      <div class="doc">
+        Get the output of <code>uname -s</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:uname_m">
+  <div class="val">
+    <span class="keyword">val</span> uname_m : unit -&gt; string option
+    
+      <div class="doc">
+        Get the output of <code>uname -m</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:guess_shell_compat">
+  <div class="val">
+    <span class="keyword">val</span> guess_shell_compat : unit -&gt; <span style="color:red">TODO: a</span>
+    
+      <div class="doc">
+        Guess the shell compat-mode
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:guess_dot_profile">
+  <div class="val">
+    <span class="keyword">val</span> guess_dot_profile : <span style="color:red">TODO: a</span> -&gt; string
+    
+      <div class="doc">
+        Guess the location of .profile
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:debug">
+  <div class="val">
+    <span class="keyword">val</span> debug : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  opam-lib.42 opam-lib Module 'OpamMisc' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

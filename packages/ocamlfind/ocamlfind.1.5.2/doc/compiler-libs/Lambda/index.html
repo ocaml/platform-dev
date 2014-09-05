@@ -1,0 +1,754 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 compiler-libs Module 'Lambda' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Lambda/">Lambda</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:compile_time_constant">
+  <div class="type">
+    <span class="keyword">type</span> compile_time_constant = <div class="constr">| Big_endian</div><div class="constr">| Word_size</div><div class="constr">| Ostype_unix</div><div class="constr">| Ostype_win32</div><div class="constr">| Ostype_cygwin</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:loc_kind">
+  <div class="type">
+    <span class="keyword">type</span> loc_kind = <div class="constr">| Loc_FILE</div><div class="constr">| Loc_LINE</div><div class="constr">| Loc_MODULE</div><div class="constr">| Loc_LOC</div><div class="constr">| Loc_POS</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:primitive">
+  <div class="type">
+    <span class="keyword">type</span> primitive = <div class="constr">| Pidentity</div><div class="constr">| Pignore</div><div class="constr">| Prevapply <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a></div><div class="constr">| Pdirapply <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a></div><div class="constr">| Ploc <span class="keyword">of</span> loc_kind</div><div class="constr">| Pgetglobal <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a></div><div class="constr">| Psetglobal <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a></div><div class="constr">| Pmakeblock <span class="keyword">of</span> int * Asttypes.mutable_flag</div><div class="constr">| Pfield <span class="keyword">of</span> int</div><div class="constr">| Psetfield <span class="keyword">of</span> int * bool</div><div class="constr">| Pfloatfield <span class="keyword">of</span> int</div><div class="constr">| Psetfloatfield <span class="keyword">of</span> int</div><div class="constr">| Pduprecord <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:record_representation">record_representation</a> * int</div><div class="constr">| Plazyforce</div><div class="constr">| Pccall <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Primitive/">Primitive</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Primitive/#type:description">description</a></div><div class="constr">| Praise <span class="keyword">of</span> raise_kind</div><div class="constr">| Psequand</div><div class="constr">| Psequor</div><div class="constr">| Pnot</div><div class="constr">| Pnegint</div><div class="constr">| Paddint</div><div class="constr">| Psubint</div><div class="constr">| Pmulint</div><div class="constr">| Pdivint</div><div class="constr">| Pmodint</div><div class="constr">| Pandint</div><div class="constr">| Porint</div><div class="constr">| Pxorint</div><div class="constr">| Plslint</div><div class="constr">| Plsrint</div><div class="constr">| Pasrint</div><div class="constr">| Pintcomp <span class="keyword">of</span> comparison</div><div class="constr">| Poffsetint <span class="keyword">of</span> int</div><div class="constr">| Poffsetref <span class="keyword">of</span> int</div><div class="constr">| Pintoffloat</div><div class="constr">| Pfloatofint</div><div class="constr">| Pnegfloat</div><div class="constr">| Pabsfloat</div><div class="constr">| Paddfloat</div><div class="constr">| Psubfloat</div><div class="constr">| Pmulfloat</div><div class="constr">| Pdivfloat</div><div class="constr">| Pfloatcomp <span class="keyword">of</span> comparison</div><div class="constr">| Pstringlength</div><div class="constr">| Pstringrefu</div><div class="constr">| Pstringsetu</div><div class="constr">| Pstringrefs</div><div class="constr">| Pstringsets</div><div class="constr">| Pmakearray <span class="keyword">of</span> array_kind</div><div class="constr">| Parraylength <span class="keyword">of</span> array_kind</div><div class="constr">| Parrayrefu <span class="keyword">of</span> array_kind</div><div class="constr">| Parraysetu <span class="keyword">of</span> array_kind</div><div class="constr">| Parrayrefs <span class="keyword">of</span> array_kind</div><div class="constr">| Parraysets <span class="keyword">of</span> array_kind</div><div class="constr">| Pisint</div><div class="constr">| Pisout</div><div class="constr">| Pbittest</div><div class="constr">| Pbintofint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pintofbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pcvtbint <span class="keyword">of</span> boxed_integer * boxed_integer</div><div class="constr">| Pnegbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Paddbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Psubbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pmulbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pdivbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pmodbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pandbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Porbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pxorbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Plslbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Plsrbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pasrbint <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pbintcomp <span class="keyword">of</span> boxed_integer * comparison</div><div class="constr">| Pbigarrayref <span class="keyword">of</span> bool * int * bigarray_kind * bigarray_layout</div><div class="constr">| Pbigarrayset <span class="keyword">of</span> bool * int * bigarray_kind * bigarray_layout</div><div class="constr">| Pbigarraydim <span class="keyword">of</span> int</div><div class="constr">| Pstring_load_16 <span class="keyword">of</span> bool</div><div class="constr">| Pstring_load_32 <span class="keyword">of</span> bool</div><div class="constr">| Pstring_load_64 <span class="keyword">of</span> bool</div><div class="constr">| Pstring_set_16 <span class="keyword">of</span> bool</div><div class="constr">| Pstring_set_32 <span class="keyword">of</span> bool</div><div class="constr">| Pstring_set_64 <span class="keyword">of</span> bool</div><div class="constr">| Pbigstring_load_16 <span class="keyword">of</span> bool</div><div class="constr">| Pbigstring_load_32 <span class="keyword">of</span> bool</div><div class="constr">| Pbigstring_load_64 <span class="keyword">of</span> bool</div><div class="constr">| Pbigstring_set_16 <span class="keyword">of</span> bool</div><div class="constr">| Pbigstring_set_32 <span class="keyword">of</span> bool</div><div class="constr">| Pbigstring_set_64 <span class="keyword">of</span> bool</div><div class="constr">| Pctconst <span class="keyword">of</span> compile_time_constant</div><div class="constr">| Pbswap16</div><div class="constr">| Pbbswap <span class="keyword">of</span> boxed_integer</div><div class="constr">| Pint_as_pointer</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:comparison">
+  <div class="type">
+    <span class="keyword">type</span> comparison = <div class="constr">| Ceq</div><div class="constr">| Cneq</div><div class="constr">| Clt</div><div class="constr">| Cgt</div><div class="constr">| Cle</div><div class="constr">| Cge</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:array_kind">
+  <div class="type">
+    <span class="keyword">type</span> array_kind = <div class="constr">| Pgenarray</div><div class="constr">| Paddrarray</div><div class="constr">| Pintarray</div><div class="constr">| Pfloatarray</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:boxed_integer">
+  <div class="type">
+    <span class="keyword">type</span> boxed_integer = <div class="constr">| Pnativeint</div><div class="constr">| Pint32</div><div class="constr">| Pint64</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:bigarray_kind">
+  <div class="type">
+    <span class="keyword">type</span> bigarray_kind = <div class="constr">| Pbigarray_unknown</div><div class="constr">| Pbigarray_float32</div><div class="constr">| Pbigarray_float64</div><div class="constr">| Pbigarray_sint8</div><div class="constr">| Pbigarray_uint8</div><div class="constr">| Pbigarray_sint16</div><div class="constr">| Pbigarray_uint16</div><div class="constr">| Pbigarray_int32</div><div class="constr">| Pbigarray_int64</div><div class="constr">| Pbigarray_caml_int</div><div class="constr">| Pbigarray_native_int</div><div class="constr">| Pbigarray_complex32</div><div class="constr">| Pbigarray_complex64</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:bigarray_layout">
+  <div class="type">
+    <span class="keyword">type</span> bigarray_layout = <div class="constr">| Pbigarray_unknown_layout</div><div class="constr">| Pbigarray_c_layout</div><div class="constr">| Pbigarray_fortran_layout</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:raise_kind">
+  <div class="type">
+    <span class="keyword">type</span> raise_kind = <div class="constr">| Raise_regular</div><div class="constr">| Raise_reraise</div><div class="constr">| Raise_notrace</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:structured_constant">
+  <div class="type">
+    <span class="keyword">type</span> structured_constant = <div class="constr">| Const_base <span class="keyword">of</span> Asttypes.constant</div><div class="constr">| Const_pointer <span class="keyword">of</span> int</div><div class="constr">| Const_block <span class="keyword">of</span> int * structured_constant list</div><div class="constr">| Const_float_array <span class="keyword">of</span> string list</div><div class="constr">| Const_immstring <span class="keyword">of</span> string</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:function_kind">
+  <div class="type">
+    <span class="keyword">type</span> function_kind = <div class="constr">| Curried</div><div class="constr">| Tupled</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:let_kind">
+  <div class="type">
+    <span class="keyword">type</span> let_kind = <div class="constr">| Strict</div><div class="constr">| Alias</div><div class="constr">| StrictOpt</div><div class="constr">| Variable</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:meth_kind">
+  <div class="type">
+    <span class="keyword">type</span> meth_kind = <div class="constr">| Self</div><div class="constr">| Public</div><div class="constr">| Cached</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:shared_code">
+  <div class="type">
+    <span class="keyword">type</span> shared_code = (int * int) list
+    
+  </div>
+  </div>
+  
+  <div id="type:lambda">
+  <div class="type">
+    <span class="keyword">type</span> lambda = <div class="constr">| Lvar <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a></div><div class="constr">| Lconst <span class="keyword">of</span> structured_constant</div><div class="constr">| Lapply <span class="keyword">of</span> lambda * lambda list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a></div><div class="constr">| Lfunction <span class="keyword">of</span> function_kind * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> list * lambda</div><div class="constr">| Llet <span class="keyword">of</span> let_kind * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * lambda * lambda</div><div class="constr">| Lletrec <span class="keyword">of</span> (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * lambda) list * lambda</div><div class="constr">| Lprim <span class="keyword">of</span> primitive * lambda list</div><div class="constr">| Lswitch <span class="keyword">of</span> lambda * lambda_switch</div><div class="constr">| Lstringswitch <span class="keyword">of</span> lambda * (string * lambda) list * lambda option</div><div class="constr">| Lstaticraise <span class="keyword">of</span> int * lambda list</div><div class="constr">| Lstaticcatch <span class="keyword">of</span> lambda * (int * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> list) * lambda</div><div class="constr">| Ltrywith <span class="keyword">of</span> lambda * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * lambda</div><div class="constr">| Lifthenelse <span class="keyword">of</span> lambda * lambda * lambda</div><div class="constr">| Lsequence <span class="keyword">of</span> lambda * lambda</div><div class="constr">| Lwhile <span class="keyword">of</span> lambda * lambda</div><div class="constr">| Lfor <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * lambda * lambda * Asttypes.direction_flag * lambda</div><div class="constr">| Lassign <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * lambda</div><div class="constr">| Lsend <span class="keyword">of</span> meth_kind * lambda * lambda * lambda list * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a></div><div class="constr">| Levent <span class="keyword">of</span> lambda * lambda_event</div><div class="constr">| Lifused <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> * lambda</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:lambda_switch">
+  <div class="type">
+    <span class="keyword">type</span> lambda_switch = {<div class="field">sw_numconsts : int;</div><div class="field">sw_consts : (int * lambda) list;</div><div class="field">sw_numblocks : int;</div><div class="field">sw_blocks : (int * lambda) list;</div><div class="field">sw_failaction : lambda option;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:lambda_event">
+  <div class="type">
+    <span class="keyword">type</span> lambda_event = {<div class="field">lev_loc : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>;</div><div class="field">lev_kind : lambda_event_kind;</div><div class="field">lev_repr : int <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> option;</div><div class="field">lev_env : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:summary">summary</a>;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:lambda_event_kind">
+  <div class="type">
+    <span class="keyword">type</span> lambda_event_kind = <div class="constr">| Lev_before</div><div class="constr">| Lev_after <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/">Types</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Types/#type:type_expr">type_expr</a></div><div class="constr">| Lev_function</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_key">
+  <div class="val">
+    <span class="keyword">val</span> make_key : lambda -&gt; lambda option
+    
+  </div>
+  </div>
+  
+  <div id="val:const_unit">
+  <div class="val">
+    <span class="keyword">val</span> const_unit : structured_constant
+    
+  </div>
+  </div>
+  
+  <div id="val:lambda_unit">
+  <div class="val">
+    <span class="keyword">val</span> lambda_unit : lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:name_lambda">
+  <div class="val">
+    <span class="keyword">val</span> name_lambda : let_kind -&gt; lambda -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; lambda -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:name_lambda_list">
+  <div class="val">
+    <span class="keyword">val</span> name_lambda_list : lambda list -&gt; lambda list -&gt; lambda -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : lambda -&gt; unit -&gt; lambda -&gt; unit
+    
+  </div>
+  </div>
+  
+    <div id="module:IdentSet">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> IdentSet : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:IdentSet#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:IdentSet#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:free_variables">
+  <div class="val">
+    <span class="keyword">val</span> free_variables : lambda -&gt; IdentSet.t
+    
+  </div>
+  </div>
+  
+  <div id="val:free_methods">
+  <div class="val">
+    <span class="keyword">val</span> free_methods : lambda -&gt; IdentSet.t
+    
+  </div>
+  </div>
+  
+  <div id="val:transl_normal_path">
+  <div class="val">
+    <span class="keyword">val</span> transl_normal_path : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:transl_path">
+  <div class="val">
+    <span class="keyword">val</span> transl_path : ?loc:<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/">Env</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Env/#type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:make_sequence">
+  <div class="val">
+    <span class="keyword">val</span> make_sequence : 'a -&gt; lambda -&gt; 'a list -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:subst_lambda">
+  <div class="val">
+    <span class="keyword">val</span> subst_lambda : lambda <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:tbl">tbl</a> -&gt; lambda -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:bind">
+  <div class="val">
+    <span class="keyword">val</span> bind : let_kind -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/">Ident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ident/#type:t">t</a> -&gt; lambda -&gt; lambda -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:commute_comparison">
+  <div class="val">
+    <span class="keyword">val</span> commute_comparison : comparison -&gt; comparison
+    
+  </div>
+  </div>
+  
+  <div id="val:negate_comparison">
+  <div class="val">
+    <span class="keyword">val</span> negate_comparison : comparison -&gt; comparison
+    
+  </div>
+  </div>
+  
+  <div id="val:next_raise_count">
+  <div class="val">
+    <span class="keyword">val</span> next_raise_count : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:next_negative_raise_count">
+  <div class="val">
+    <span class="keyword">val</span> next_negative_raise_count : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:staticfail">
+  <div class="val">
+    <span class="keyword">val</span> staticfail : lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:is_guarded">
+  <div class="val">
+    <span class="keyword">val</span> is_guarded : lambda -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:patch_guarded">
+  <div class="val">
+    <span class="keyword">val</span> patch_guarded : lambda -&gt; lambda -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:raise_kind">
+  <div class="val">
+    <span class="keyword">val</span> raise_kind : raise_kind -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:lam_of_loc">
+  <div class="val">
+    <span class="keyword">val</span> lam_of_loc : loc_kind -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a> -&gt; lambda
+    
+  </div>
+  </div>
+  
+  <div id="val:reset">
+  <div class="val">
+    <span class="keyword">val</span> reset : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 compiler-libs Module 'Lambda' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

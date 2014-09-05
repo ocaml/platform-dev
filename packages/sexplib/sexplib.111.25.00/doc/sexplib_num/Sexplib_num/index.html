@@ -1,0 +1,2045 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  sexplib.111.25.00 sexplib_num Module 'Sexplib_num' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib_num/Sexplib_num/">Sexplib_num</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="module:Sexplib_num_conv">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Sexplib_num_conv : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Sexplib_num_conv#val:sexp_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_big_int : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+      <div class="doc">
+        <code>sexp_of_big_int n</code> converts the value <code>n</code> of type <code>Big_int.big_int</code>
+to an S-expression.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sexplib_num_conv#val:sexp_of_nat">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_nat : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a> -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+      <div class="doc">
+        <code>sexp_of_nat n</code> converts the value <code>n</code> of type <code>Nat.nat</code> to an
+S-expression.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sexplib_num_conv#val:sexp_of_ratio">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/">Ratio</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/#type:ratio">ratio</a> -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+      <div class="doc">
+        <code>sexp_of_ratio n</code> converts the value <code>n</code> of type <code>Ratio.ratio</code> to an
+S-expression.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sexplib_num_conv#val:sexp_of_num">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_num : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/">Num</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/#type:num">num</a> -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+      <div class="doc">
+        <code>sexp_of_num n</code> converts the value <code>n</code> of type <code>Num.num</code> to an S-expression.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sexplib_num_conv#val:big_int_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+      <div class="doc">
+        <code>big_int_of_sexp sexp</code> converts S-expression <code>sexp</code> to a value
+of type <code>Big_int.big_int</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sexplib_num_conv#val:nat_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> nat_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a>
+    
+      <div class="doc">
+        <code>nat_of_sexp sexp</code> converts S-expression <code>sexp</code> to a value
+of type <code>Nat.nat</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sexplib_num_conv#val:ratio_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> ratio_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/">Ratio</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/#type:ratio">ratio</a>
+    
+      <div class="doc">
+        <code>ratio_of_sexp sexp</code> converts S-expression <code>sexp</code> to a value
+of type <code>Nat.ratio</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Sexplib_num_conv#val:num_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> num_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/">Num</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/#type:num">num</a>
+    
+      <div class="doc">
+        <code>num_of_sexp sexp</code> converts S-expression <code>sexp</code> to a value of type <code>Nat.num</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Std">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Std : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div id="module:Std#module:Big_int">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Big_int : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Std#module:Big_int#type:big_int">
+  <div class="type">
+    <span class="keyword">type</span> big_int = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:zero_big_int">
+  <div class="val">
+    <span class="keyword">val</span> zero_big_int : big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:unit_big_int">
+  <div class="val">
+    <span class="keyword">val</span> unit_big_int : big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:minus_big_int">
+  <div class="val">
+    <span class="keyword">val</span> minus_big_int : big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:abs_big_int">
+  <div class="val">
+    <span class="keyword">val</span> abs_big_int : big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:add_big_int">
+  <div class="val">
+    <span class="keyword">val</span> add_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:succ_big_int">
+  <div class="val">
+    <span class="keyword">val</span> succ_big_int : big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:add_int_big_int">
+  <div class="val">
+    <span class="keyword">val</span> add_int_big_int : int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:sub_big_int">
+  <div class="val">
+    <span class="keyword">val</span> sub_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:pred_big_int">
+  <div class="val">
+    <span class="keyword">val</span> pred_big_int : big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:mult_big_int">
+  <div class="val">
+    <span class="keyword">val</span> mult_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:mult_int_big_int">
+  <div class="val">
+    <span class="keyword">val</span> mult_int_big_int : int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:square_big_int">
+  <div class="val">
+    <span class="keyword">val</span> square_big_int : big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:sqrt_big_int">
+  <div class="val">
+    <span class="keyword">val</span> sqrt_big_int : big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:quomod_big_int">
+  <div class="val">
+    <span class="keyword">val</span> quomod_big_int : big_int -&gt; big_int -&gt; (big_int * big_int)
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:div_big_int">
+  <div class="val">
+    <span class="keyword">val</span> div_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:mod_big_int">
+  <div class="val">
+    <span class="keyword">val</span> mod_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:gcd_big_int">
+  <div class="val">
+    <span class="keyword">val</span> gcd_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:power_int_positive_int">
+  <div class="val">
+    <span class="keyword">val</span> power_int_positive_int : int -&gt; int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:power_big_int_positive_int">
+  <div class="val">
+    <span class="keyword">val</span> power_big_int_positive_int : big_int -&gt; int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:power_int_positive_big_int">
+  <div class="val">
+    <span class="keyword">val</span> power_int_positive_big_int : int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:power_big_int_positive_big_int">
+  <div class="val">
+    <span class="keyword">val</span> power_big_int_positive_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:sign_big_int">
+  <div class="val">
+    <span class="keyword">val</span> sign_big_int : big_int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:compare_big_int">
+  <div class="val">
+    <span class="keyword">val</span> compare_big_int : big_int -&gt; big_int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:eq_big_int">
+  <div class="val">
+    <span class="keyword">val</span> eq_big_int : big_int -&gt; big_int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:le_big_int">
+  <div class="val">
+    <span class="keyword">val</span> le_big_int : big_int -&gt; big_int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:ge_big_int">
+  <div class="val">
+    <span class="keyword">val</span> ge_big_int : big_int -&gt; big_int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:lt_big_int">
+  <div class="val">
+    <span class="keyword">val</span> lt_big_int : big_int -&gt; big_int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:gt_big_int">
+  <div class="val">
+    <span class="keyword">val</span> gt_big_int : big_int -&gt; big_int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:max_big_int">
+  <div class="val">
+    <span class="keyword">val</span> max_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:min_big_int">
+  <div class="val">
+    <span class="keyword">val</span> min_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:num_digits_big_int">
+  <div class="val">
+    <span class="keyword">val</span> num_digits_big_int : big_int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:string_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> string_of_big_int : big_int -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:big_int_of_string">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_string : string -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:big_int_of_int">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_int : int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:is_int_big_int">
+  <div class="val">
+    <span class="keyword">val</span> is_int_big_int : big_int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:int_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> int_of_big_int : big_int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:big_int_of_int32">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_int32 : int32 -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:big_int_of_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_nativeint : nativeint -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:big_int_of_int64">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_int64 : int64 -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:int32_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> int32_of_big_int : big_int -&gt; int32
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:nativeint_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> nativeint_of_big_int : big_int -&gt; nativeint
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:int64_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> int64_of_big_int : big_int -&gt; int64
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:float_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> float_of_big_int : big_int -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:and_big_int">
+  <div class="val">
+    <span class="keyword">val</span> and_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:or_big_int">
+  <div class="val">
+    <span class="keyword">val</span> or_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:xor_big_int">
+  <div class="val">
+    <span class="keyword">val</span> xor_big_int : big_int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:shift_left_big_int">
+  <div class="val">
+    <span class="keyword">val</span> shift_left_big_int : big_int -&gt; int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:shift_right_big_int">
+  <div class="val">
+    <span class="keyword">val</span> shift_right_big_int : big_int -&gt; int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:shift_right_towards_zero_big_int">
+  <div class="val">
+    <span class="keyword">val</span> shift_right_towards_zero_big_int : big_int -&gt; int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:extract_big_int">
+  <div class="val">
+    <span class="keyword">val</span> extract_big_int : big_int -&gt; int -&gt; int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:nat_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> nat_of_big_int : big_int -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:big_int_of_nat">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_nat : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a> -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:base_power_big_int">
+  <div class="val">
+    <span class="keyword">val</span> base_power_big_int : int -&gt; int -&gt; big_int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:sys_big_int_of_string">
+  <div class="val">
+    <span class="keyword">val</span> sys_big_int_of_string : string -&gt; int -&gt; int -&gt; big_int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:round_futur_last_digit">
+  <div class="val">
+    <span class="keyword">val</span> round_futur_last_digit : bytes -&gt; int -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:approx_big_int">
+  <div class="val">
+    <span class="keyword">val</span> approx_big_int : int -&gt; big_int -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:sexp_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_big_int : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Big_int#val:big_int_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Std#module:Nat">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Nat : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Std#module:Nat#type:nat">
+  <div class="type">
+    <span class="keyword">type</span> nat = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:create_nat">
+  <div class="val">
+    <span class="keyword">val</span> create_nat : int -&gt; nat
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:make_nat">
+  <div class="val">
+    <span class="keyword">val</span> make_nat : int -&gt; nat
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:set_to_zero_nat">
+  <div class="val">
+    <span class="keyword">val</span> set_to_zero_nat : nat -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:blit_nat">
+  <div class="val">
+    <span class="keyword">val</span> blit_nat : nat -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:copy_nat">
+  <div class="val">
+    <span class="keyword">val</span> copy_nat : nat -&gt; int -&gt; int -&gt; nat
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:set_digit_nat">
+  <div class="val">
+    <span class="keyword">val</span> set_digit_nat : nat -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:nth_digit_nat">
+  <div class="val">
+    <span class="keyword">val</span> nth_digit_nat : nat -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:set_digit_nat_native">
+  <div class="val">
+    <span class="keyword">val</span> set_digit_nat_native : nat -&gt; int -&gt; nativeint -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:nth_digit_nat_native">
+  <div class="val">
+    <span class="keyword">val</span> nth_digit_nat_native : nat -&gt; int -&gt; nativeint
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:length_nat">
+  <div class="val">
+    <span class="keyword">val</span> length_nat : nat -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:num_digits_nat">
+  <div class="val">
+    <span class="keyword">val</span> num_digits_nat : nat -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:num_leading_zero_bits_in_digit">
+  <div class="val">
+    <span class="keyword">val</span> num_leading_zero_bits_in_digit : nat -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:is_digit_int">
+  <div class="val">
+    <span class="keyword">val</span> is_digit_int : nat -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:is_digit_zero">
+  <div class="val">
+    <span class="keyword">val</span> is_digit_zero : nat -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:is_digit_normalized">
+  <div class="val">
+    <span class="keyword">val</span> is_digit_normalized : nat -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:is_digit_odd">
+  <div class="val">
+    <span class="keyword">val</span> is_digit_odd : nat -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:is_zero_nat">
+  <div class="val">
+    <span class="keyword">val</span> is_zero_nat : nat -&gt; int -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:is_nat_int">
+  <div class="val">
+    <span class="keyword">val</span> is_nat_int : nat -&gt; int -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:int_of_nat">
+  <div class="val">
+    <span class="keyword">val</span> int_of_nat : nat -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:nat_of_int">
+  <div class="val">
+    <span class="keyword">val</span> nat_of_int : int -&gt; nat
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:incr_nat">
+  <div class="val">
+    <span class="keyword">val</span> incr_nat : nat -&gt; int -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:add_nat">
+  <div class="val">
+    <span class="keyword">val</span> add_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:complement_nat">
+  <div class="val">
+    <span class="keyword">val</span> complement_nat : nat -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:decr_nat">
+  <div class="val">
+    <span class="keyword">val</span> decr_nat : nat -&gt; int -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:sub_nat">
+  <div class="val">
+    <span class="keyword">val</span> sub_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:mult_digit_nat">
+  <div class="val">
+    <span class="keyword">val</span> mult_digit_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:mult_nat">
+  <div class="val">
+    <span class="keyword">val</span> mult_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:square_nat">
+  <div class="val">
+    <span class="keyword">val</span> square_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:shift_left_nat">
+  <div class="val">
+    <span class="keyword">val</span> shift_left_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:div_digit_nat">
+  <div class="val">
+    <span class="keyword">val</span> div_digit_nat : nat -&gt; int -&gt; nat -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:div_nat">
+  <div class="val">
+    <span class="keyword">val</span> div_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:shift_right_nat">
+  <div class="val">
+    <span class="keyword">val</span> shift_right_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:compare_digits_nat">
+  <div class="val">
+    <span class="keyword">val</span> compare_digits_nat : nat -&gt; int -&gt; nat -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:compare_nat">
+  <div class="val">
+    <span class="keyword">val</span> compare_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:eq_nat">
+  <div class="val">
+    <span class="keyword">val</span> eq_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:le_nat">
+  <div class="val">
+    <span class="keyword">val</span> le_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:lt_nat">
+  <div class="val">
+    <span class="keyword">val</span> lt_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:ge_nat">
+  <div class="val">
+    <span class="keyword">val</span> ge_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:gt_nat">
+  <div class="val">
+    <span class="keyword">val</span> gt_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:land_digit_nat">
+  <div class="val">
+    <span class="keyword">val</span> land_digit_nat : nat -&gt; int -&gt; nat -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:lor_digit_nat">
+  <div class="val">
+    <span class="keyword">val</span> lor_digit_nat : nat -&gt; int -&gt; nat -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:lxor_digit_nat">
+  <div class="val">
+    <span class="keyword">val</span> lxor_digit_nat : nat -&gt; int -&gt; nat -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:gcd_nat">
+  <div class="val">
+    <span class="keyword">val</span> gcd_nat : nat -&gt; int -&gt; int -&gt; nat -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:sqrt_nat">
+  <div class="val">
+    <span class="keyword">val</span> sqrt_nat : nat -&gt; int -&gt; int -&gt; nat
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:string_of_nat">
+  <div class="val">
+    <span class="keyword">val</span> string_of_nat : nat -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:nat_of_string">
+  <div class="val">
+    <span class="keyword">val</span> nat_of_string : string -&gt; nat
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:sys_nat_of_string">
+  <div class="val">
+    <span class="keyword">val</span> sys_nat_of_string : int -&gt; string -&gt; int -&gt; int -&gt; nat
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:float_of_nat">
+  <div class="val">
+    <span class="keyword">val</span> float_of_nat : nat -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:make_power_base">
+  <div class="val">
+    <span class="keyword">val</span> make_power_base : int -&gt; nat -&gt; (int * int)
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:power_base_int">
+  <div class="val">
+    <span class="keyword">val</span> power_base_int : int -&gt; int -&gt; nat
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:length_of_digit">
+  <div class="val">
+    <span class="keyword">val</span> length_of_digit : int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:sexp_of_nat">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_nat : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a> -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Nat#val:nat_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> nat_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Std#module:Ratio">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Ratio : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Std#module:Ratio#type:ratio">
+  <div class="type">
+    <span class="keyword">type</span> ratio = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/">Ratio</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/#type:ratio">ratio</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:null_denominator">
+  <div class="val">
+    <span class="keyword">val</span> null_denominator : ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:numerator_ratio">
+  <div class="val">
+    <span class="keyword">val</span> numerator_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:denominator_ratio">
+  <div class="val">
+    <span class="keyword">val</span> denominator_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:sign_ratio">
+  <div class="val">
+    <span class="keyword">val</span> sign_ratio : ratio -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:normalize_ratio">
+  <div class="val">
+    <span class="keyword">val</span> normalize_ratio : ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:cautious_normalize_ratio">
+  <div class="val">
+    <span class="keyword">val</span> cautious_normalize_ratio : ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:cautious_normalize_ratio_when_printing">
+  <div class="val">
+    <span class="keyword">val</span> cautious_normalize_ratio_when_printing : ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:create_ratio">
+  <div class="val">
+    <span class="keyword">val</span> create_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:create_normalized_ratio">
+  <div class="val">
+    <span class="keyword">val</span> create_normalized_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:is_normalized_ratio">
+  <div class="val">
+    <span class="keyword">val</span> is_normalized_ratio : ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:report_sign_ratio">
+  <div class="val">
+    <span class="keyword">val</span> report_sign_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:abs_ratio">
+  <div class="val">
+    <span class="keyword">val</span> abs_ratio : ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:is_integer_ratio">
+  <div class="val">
+    <span class="keyword">val</span> is_integer_ratio : ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:add_ratio">
+  <div class="val">
+    <span class="keyword">val</span> add_ratio : ratio -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:minus_ratio">
+  <div class="val">
+    <span class="keyword">val</span> minus_ratio : ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:add_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> add_int_ratio : int -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:add_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> add_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:sub_ratio">
+  <div class="val">
+    <span class="keyword">val</span> sub_ratio : ratio -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:mult_ratio">
+  <div class="val">
+    <span class="keyword">val</span> mult_ratio : ratio -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:mult_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> mult_int_ratio : int -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:mult_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> mult_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:square_ratio">
+  <div class="val">
+    <span class="keyword">val</span> square_ratio : ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:inverse_ratio">
+  <div class="val">
+    <span class="keyword">val</span> inverse_ratio : ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:div_ratio">
+  <div class="val">
+    <span class="keyword">val</span> div_ratio : ratio -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:integer_ratio">
+  <div class="val">
+    <span class="keyword">val</span> integer_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:floor_ratio">
+  <div class="val">
+    <span class="keyword">val</span> floor_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:round_ratio">
+  <div class="val">
+    <span class="keyword">val</span> round_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:ceiling_ratio">
+  <div class="val">
+    <span class="keyword">val</span> ceiling_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:eq_ratio">
+  <div class="val">
+    <span class="keyword">val</span> eq_ratio : ratio -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:compare_ratio">
+  <div class="val">
+    <span class="keyword">val</span> compare_ratio : ratio -&gt; ratio -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:lt_ratio">
+  <div class="val">
+    <span class="keyword">val</span> lt_ratio : ratio -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:le_ratio">
+  <div class="val">
+    <span class="keyword">val</span> le_ratio : ratio -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:gt_ratio">
+  <div class="val">
+    <span class="keyword">val</span> gt_ratio : ratio -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:ge_ratio">
+  <div class="val">
+    <span class="keyword">val</span> ge_ratio : ratio -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:max_ratio">
+  <div class="val">
+    <span class="keyword">val</span> max_ratio : ratio -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:min_ratio">
+  <div class="val">
+    <span class="keyword">val</span> min_ratio : ratio -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:eq_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> eq_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:compare_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> compare_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:lt_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> lt_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:le_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> le_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:gt_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> gt_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:ge_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> ge_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:int_of_ratio">
+  <div class="val">
+    <span class="keyword">val</span> int_of_ratio : ratio -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:ratio_of_int">
+  <div class="val">
+    <span class="keyword">val</span> ratio_of_int : int -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:ratio_of_nat">
+  <div class="val">
+    <span class="keyword">val</span> ratio_of_nat : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a> -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:nat_of_ratio">
+  <div class="val">
+    <span class="keyword">val</span> nat_of_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:ratio_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> ratio_of_big_int : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:big_int_of_ratio">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_ratio : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:div_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> div_int_ratio : int -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:div_ratio_int">
+  <div class="val">
+    <span class="keyword">val</span> div_ratio_int : ratio -&gt; int -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:div_big_int_ratio">
+  <div class="val">
+    <span class="keyword">val</span> div_big_int_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:div_ratio_big_int">
+  <div class="val">
+    <span class="keyword">val</span> div_ratio_big_int : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:approx_ratio_fix">
+  <div class="val">
+    <span class="keyword">val</span> approx_ratio_fix : int -&gt; ratio -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:approx_ratio_exp">
+  <div class="val">
+    <span class="keyword">val</span> approx_ratio_exp : int -&gt; ratio -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:float_of_rational_string">
+  <div class="val">
+    <span class="keyword">val</span> float_of_rational_string : ratio -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:string_of_ratio">
+  <div class="val">
+    <span class="keyword">val</span> string_of_ratio : ratio -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:ratio_of_string">
+  <div class="val">
+    <span class="keyword">val</span> ratio_of_string : string -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:float_of_ratio">
+  <div class="val">
+    <span class="keyword">val</span> float_of_ratio : ratio -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:power_ratio_positive_int">
+  <div class="val">
+    <span class="keyword">val</span> power_ratio_positive_int : ratio -&gt; int -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:power_ratio_positive_big_int">
+  <div class="val">
+    <span class="keyword">val</span> power_ratio_positive_big_int : ratio -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; ratio
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:sexp_of_ratio">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/">Ratio</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/#type:ratio">ratio</a> -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Ratio#val:ratio_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> ratio_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/">Ratio</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/#type:ratio">ratio</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Std#module:Num">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Num : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Std#module:Num#type:num">
+  <div class="type">
+    <span class="keyword">type</span> num = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/">Num</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/#type:num">num</a> = <div class="constr">| Int <span class="keyword">of</span> int</div><div class="constr">| Big_int <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a></div><div class="constr">| Ratio <span class="keyword">of</span> <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/">Ratio</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/#type:ratio">ratio</a></div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(+/)">
+  <div class="val">
+    <span class="keyword">val</span> (+/) : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:add_num">
+  <div class="val">
+    <span class="keyword">val</span> add_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:minus_num">
+  <div class="val">
+    <span class="keyword">val</span> minus_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(-/)">
+  <div class="val">
+    <span class="keyword">val</span> (-/) : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:sub_num">
+  <div class="val">
+    <span class="keyword">val</span> sub_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(*/)">
+  <div class="val">
+    <span class="keyword">val</span> (*/) : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:mult_num">
+  <div class="val">
+    <span class="keyword">val</span> mult_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:square_num">
+  <div class="val">
+    <span class="keyword">val</span> square_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(//)">
+  <div class="val">
+    <span class="keyword">val</span> (//) : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:div_num">
+  <div class="val">
+    <span class="keyword">val</span> div_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:quo_num">
+  <div class="val">
+    <span class="keyword">val</span> quo_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:mod_num">
+  <div class="val">
+    <span class="keyword">val</span> mod_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(**/)">
+  <div class="val">
+    <span class="keyword">val</span> (**/) : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:power_num">
+  <div class="val">
+    <span class="keyword">val</span> power_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:abs_num">
+  <div class="val">
+    <span class="keyword">val</span> abs_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:succ_num">
+  <div class="val">
+    <span class="keyword">val</span> succ_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:pred_num">
+  <div class="val">
+    <span class="keyword">val</span> pred_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:incr_num">
+  <div class="val">
+    <span class="keyword">val</span> incr_num : num <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:decr_num">
+  <div class="val">
+    <span class="keyword">val</span> decr_num : num <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:is_integer_num">
+  <div class="val">
+    <span class="keyword">val</span> is_integer_num : num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:integer_num">
+  <div class="val">
+    <span class="keyword">val</span> integer_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:floor_num">
+  <div class="val">
+    <span class="keyword">val</span> floor_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:round_num">
+  <div class="val">
+    <span class="keyword">val</span> round_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:ceiling_num">
+  <div class="val">
+    <span class="keyword">val</span> ceiling_num : num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:sign_num">
+  <div class="val">
+    <span class="keyword">val</span> sign_num : num -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(=/)">
+  <div class="val">
+    <span class="keyword">val</span> (=/) : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(&lt;/)">
+  <div class="val">
+    <span class="keyword">val</span> (&lt;/) : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(&gt;/)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;/) : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(&lt;=/)">
+  <div class="val">
+    <span class="keyword">val</span> (&lt;=/) : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(&gt;=/)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;=/) : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:(&lt;&gt;/)">
+  <div class="val">
+    <span class="keyword">val</span> (&lt;&gt;/) : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:eq_num">
+  <div class="val">
+    <span class="keyword">val</span> eq_num : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:lt_num">
+  <div class="val">
+    <span class="keyword">val</span> lt_num : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:le_num">
+  <div class="val">
+    <span class="keyword">val</span> le_num : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:gt_num">
+  <div class="val">
+    <span class="keyword">val</span> gt_num : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:ge_num">
+  <div class="val">
+    <span class="keyword">val</span> ge_num : num -&gt; num -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:compare_num">
+  <div class="val">
+    <span class="keyword">val</span> compare_num : num -&gt; num -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:max_num">
+  <div class="val">
+    <span class="keyword">val</span> max_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:min_num">
+  <div class="val">
+    <span class="keyword">val</span> min_num : num -&gt; num -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:string_of_num">
+  <div class="val">
+    <span class="keyword">val</span> string_of_num : num -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:approx_num_fix">
+  <div class="val">
+    <span class="keyword">val</span> approx_num_fix : int -&gt; num -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:approx_num_exp">
+  <div class="val">
+    <span class="keyword">val</span> approx_num_exp : int -&gt; num -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:num_of_string">
+  <div class="val">
+    <span class="keyword">val</span> num_of_string : string -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:int_of_num">
+  <div class="val">
+    <span class="keyword">val</span> int_of_num : num -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:num_of_int">
+  <div class="val">
+    <span class="keyword">val</span> num_of_int : int -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:nat_of_num">
+  <div class="val">
+    <span class="keyword">val</span> nat_of_num : num -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:num_of_nat">
+  <div class="val">
+    <span class="keyword">val</span> num_of_nat : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/">Nat</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Nat/#type:nat">nat</a> -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:num_of_big_int">
+  <div class="val">
+    <span class="keyword">val</span> num_of_big_int : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a> -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:big_int_of_num">
+  <div class="val">
+    <span class="keyword">val</span> big_int_of_num : num -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/">Big_int</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Big_int/#type:big_int">big_int</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:ratio_of_num">
+  <div class="val">
+    <span class="keyword">val</span> ratio_of_num : num -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/">Ratio</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/#type:ratio">ratio</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:num_of_ratio">
+  <div class="val">
+    <span class="keyword">val</span> num_of_ratio : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/">Ratio</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Ratio/#type:ratio">ratio</a> -&gt; num
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:float_of_num">
+  <div class="val">
+    <span class="keyword">val</span> float_of_num : num -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:sexp_of_num">
+  <div class="val">
+    <span class="keyword">val</span> sexp_of_num : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/">Num</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/#type:num">num</a> -&gt; <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#module:Num#val:num_of_sexp">
+  <div class="val">
+    <span class="keyword">val</span> num_of_sexp : <a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/">Sexplib</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp">Sexp</a>.<a href="../../../../../sexplib/sexplib.111.25.00/doc/sexplib/Sexplib/#module:Sexp%23type:t">t</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/">Num</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/num/Num/#type:num">num</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  sexplib.111.25.00 sexplib_num Module 'Sexplib_num' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

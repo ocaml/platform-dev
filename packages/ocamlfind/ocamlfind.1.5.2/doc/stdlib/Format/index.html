@@ -1,0 +1,1121 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 stdlib Module 'Format' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="val:open_box">
+  <div class="val">
+    <span class="keyword">val</span> open_box : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:close_box">
+  <div class="val">
+    <span class="keyword">val</span> close_box : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_string">
+  <div class="val">
+    <span class="keyword">val</span> print_string : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_as">
+  <div class="val">
+    <span class="keyword">val</span> print_as : int -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_int">
+  <div class="val">
+    <span class="keyword">val</span> print_int : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_float">
+  <div class="val">
+    <span class="keyword">val</span> print_float : float -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_char">
+  <div class="val">
+    <span class="keyword">val</span> print_char : char -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_bool">
+  <div class="val">
+    <span class="keyword">val</span> print_bool : bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_space">
+  <div class="val">
+    <span class="keyword">val</span> print_space : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_cut">
+  <div class="val">
+    <span class="keyword">val</span> print_cut : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_break">
+  <div class="val">
+    <span class="keyword">val</span> print_break : int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_flush">
+  <div class="val">
+    <span class="keyword">val</span> print_flush : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_newline">
+  <div class="val">
+    <span class="keyword">val</span> print_newline : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:force_newline">
+  <div class="val">
+    <span class="keyword">val</span> force_newline : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_if_newline">
+  <div class="val">
+    <span class="keyword">val</span> print_if_newline : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_margin">
+  <div class="val">
+    <span class="keyword">val</span> set_margin : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_margin">
+  <div class="val">
+    <span class="keyword">val</span> get_margin : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:set_max_indent">
+  <div class="val">
+    <span class="keyword">val</span> set_max_indent : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_max_indent">
+  <div class="val">
+    <span class="keyword">val</span> get_max_indent : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:set_max_boxes">
+  <div class="val">
+    <span class="keyword">val</span> set_max_boxes : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_max_boxes">
+  <div class="val">
+    <span class="keyword">val</span> get_max_boxes : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:over_max_boxes">
+  <div class="val">
+    <span class="keyword">val</span> over_max_boxes : unit -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:open_hbox">
+  <div class="val">
+    <span class="keyword">val</span> open_hbox : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:open_vbox">
+  <div class="val">
+    <span class="keyword">val</span> open_vbox : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:open_hvbox">
+  <div class="val">
+    <span class="keyword">val</span> open_hvbox : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:open_hovbox">
+  <div class="val">
+    <span class="keyword">val</span> open_hovbox : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:open_tbox">
+  <div class="val">
+    <span class="keyword">val</span> open_tbox : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:close_tbox">
+  <div class="val">
+    <span class="keyword">val</span> close_tbox : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_tbreak">
+  <div class="val">
+    <span class="keyword">val</span> print_tbreak : int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_tab">
+  <div class="val">
+    <span class="keyword">val</span> set_tab : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_tab">
+  <div class="val">
+    <span class="keyword">val</span> print_tab : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_ellipsis_text">
+  <div class="val">
+    <span class="keyword">val</span> set_ellipsis_text : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_ellipsis_text">
+  <div class="val">
+    <span class="keyword">val</span> get_ellipsis_text : unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="type:tag">
+  <div class="type">
+    <span class="keyword">type</span> tag = string
+    
+  </div>
+  </div>
+  
+  <div id="val:open_tag">
+  <div class="val">
+    <span class="keyword">val</span> open_tag : tag -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:close_tag">
+  <div class="val">
+    <span class="keyword">val</span> close_tag : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_tags">
+  <div class="val">
+    <span class="keyword">val</span> set_tags : bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_print_tags">
+  <div class="val">
+    <span class="keyword">val</span> set_print_tags : bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_mark_tags">
+  <div class="val">
+    <span class="keyword">val</span> set_mark_tags : bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_print_tags">
+  <div class="val">
+    <span class="keyword">val</span> get_print_tags : unit -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:get_mark_tags">
+  <div class="val">
+    <span class="keyword">val</span> get_mark_tags : unit -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:set_formatter_out_channel">
+  <div class="val">
+    <span class="keyword">val</span> set_formatter_out_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_formatter_output_functions">
+  <div class="val">
+    <span class="keyword">val</span> set_formatter_output_functions : string -&gt; int -&gt; int -&gt; unit -&gt; unit -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_formatter_output_functions">
+  <div class="val">
+    <span class="keyword">val</span> get_formatter_output_functions : unit -&gt; (string -&gt; int -&gt; int -&gt; unit * unit -&gt; unit)
+    
+  </div>
+  </div>
+  
+  <div id="type:formatter_out_functions">
+  <div class="type">
+    <span class="keyword">type</span> formatter_out_functions = {<div class="field">out_string : string -&gt; int -&gt; int -&gt; unit;</div><div class="field">out_flush : unit -&gt; unit;</div><div class="field">out_newline : unit -&gt; unit;</div><div class="field">out_spaces : int -&gt; unit;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:set_formatter_out_functions">
+  <div class="val">
+    <span class="keyword">val</span> set_formatter_out_functions : formatter_out_functions -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_formatter_out_functions">
+  <div class="val">
+    <span class="keyword">val</span> get_formatter_out_functions : unit -&gt; formatter_out_functions
+    
+  </div>
+  </div>
+  
+  <div id="type:formatter_tag_functions">
+  <div class="type">
+    <span class="keyword">type</span> formatter_tag_functions = {<div class="field">mark_open_tag : tag -&gt; string;</div><div class="field">mark_close_tag : tag -&gt; string;</div><div class="field">print_open_tag : tag -&gt; unit;</div><div class="field">print_close_tag : tag -&gt; unit;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:set_formatter_tag_functions">
+  <div class="val">
+    <span class="keyword">val</span> set_formatter_tag_functions : formatter_tag_functions -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_formatter_tag_functions">
+  <div class="val">
+    <span class="keyword">val</span> get_formatter_tag_functions : unit -&gt; formatter_tag_functions
+    
+  </div>
+  </div>
+  
+  <div id="type:formatter">
+  <div class="type">
+    <span class="keyword">type</span> formatter
+    
+  </div>
+  </div>
+  
+  <div id="val:formatter_of_out_channel">
+  <div class="val">
+    <span class="keyword">val</span> formatter_of_out_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; formatter
+    
+  </div>
+  </div>
+  
+  <div id="val:std_formatter">
+  <div class="val">
+    <span class="keyword">val</span> std_formatter : formatter
+    
+  </div>
+  </div>
+  
+  <div id="val:err_formatter">
+  <div class="val">
+    <span class="keyword">val</span> err_formatter : formatter
+    
+  </div>
+  </div>
+  
+  <div id="val:formatter_of_buffer">
+  <div class="val">
+    <span class="keyword">val</span> formatter_of_buffer : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Buffer/">Buffer</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Buffer/#type:t">t</a> -&gt; formatter
+    
+  </div>
+  </div>
+  
+  <div id="val:stdbuf">
+  <div class="val">
+    <span class="keyword">val</span> stdbuf : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Buffer/">Buffer</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Buffer/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:str_formatter">
+  <div class="val">
+    <span class="keyword">val</span> str_formatter : formatter
+    
+  </div>
+  </div>
+  
+  <div id="val:flush_str_formatter">
+  <div class="val">
+    <span class="keyword">val</span> flush_str_formatter : unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:make_formatter">
+  <div class="val">
+    <span class="keyword">val</span> make_formatter : string -&gt; int -&gt; int -&gt; unit -&gt; unit -&gt; unit -&gt; formatter
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_open_hbox">
+  <div class="val">
+    <span class="keyword">val</span> pp_open_hbox : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_open_vbox">
+  <div class="val">
+    <span class="keyword">val</span> pp_open_vbox : formatter -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_open_hvbox">
+  <div class="val">
+    <span class="keyword">val</span> pp_open_hvbox : formatter -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_open_hovbox">
+  <div class="val">
+    <span class="keyword">val</span> pp_open_hovbox : formatter -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_open_box">
+  <div class="val">
+    <span class="keyword">val</span> pp_open_box : formatter -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_close_box">
+  <div class="val">
+    <span class="keyword">val</span> pp_close_box : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_open_tag">
+  <div class="val">
+    <span class="keyword">val</span> pp_open_tag : formatter -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_close_tag">
+  <div class="val">
+    <span class="keyword">val</span> pp_close_tag : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_string">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_string : formatter -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_as">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_as : formatter -&gt; int -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_int">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_int : formatter -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_float">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_float : formatter -&gt; float -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_char">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_char : formatter -&gt; char -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_bool">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_bool : formatter -&gt; bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_break">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_break : formatter -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_cut">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_cut : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_space">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_space : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_force_newline">
+  <div class="val">
+    <span class="keyword">val</span> pp_force_newline : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_flush">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_flush : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_newline">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_newline : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_if_newline">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_if_newline : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_open_tbox">
+  <div class="val">
+    <span class="keyword">val</span> pp_open_tbox : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_close_tbox">
+  <div class="val">
+    <span class="keyword">val</span> pp_close_tbox : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_tbreak">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_tbreak : formatter -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_tab">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_tab : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_tab">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_tab : formatter -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_tags">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_tags : formatter -&gt; bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_print_tags">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_print_tags : formatter -&gt; bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_mark_tags">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_mark_tags : formatter -&gt; bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_print_tags">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_print_tags : formatter -&gt; unit -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_mark_tags">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_mark_tags : formatter -&gt; unit -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_margin">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_margin : formatter -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_margin">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_margin : formatter -&gt; unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_max_indent">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_max_indent : formatter -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_max_indent">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_max_indent : formatter -&gt; unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_max_boxes">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_max_boxes : formatter -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_max_boxes">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_max_boxes : formatter -&gt; unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_over_max_boxes">
+  <div class="val">
+    <span class="keyword">val</span> pp_over_max_boxes : formatter -&gt; unit -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_ellipsis_text">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_ellipsis_text : formatter -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_ellipsis_text">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_ellipsis_text : formatter -&gt; unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_formatter_out_channel">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_formatter_out_channel : formatter -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_formatter_output_functions">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_formatter_output_functions : formatter -&gt; string -&gt; int -&gt; int -&gt; unit -&gt; unit -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_formatter_output_functions">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_formatter_output_functions : formatter -&gt; unit -&gt; (string -&gt; int -&gt; int -&gt; unit * unit -&gt; unit)
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_formatter_tag_functions">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_formatter_tag_functions : formatter -&gt; formatter_tag_functions -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_formatter_tag_functions">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_formatter_tag_functions : formatter -&gt; unit -&gt; formatter_tag_functions
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_formatter_out_functions">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_formatter_out_functions : formatter -&gt; formatter_out_functions -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_formatter_out_functions">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_formatter_out_functions : formatter -&gt; unit -&gt; formatter_out_functions
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_list">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_list : ?pp_sep:formatter -&gt; unit -&gt; unit -&gt; formatter -&gt; 'a -&gt; unit -&gt; formatter -&gt; 'a list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_print_text">
+  <div class="val">
+    <span class="keyword">val</span> pp_print_text : formatter -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fprintf">
+  <div class="val">
+    <span class="keyword">val</span> fprintf : formatter -&gt; ('a, formatter, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format">format</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:printf">
+  <div class="val">
+    <span class="keyword">val</span> printf : ('a, formatter, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format">format</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:eprintf">
+  <div class="val">
+    <span class="keyword">val</span> eprintf : ('a, formatter, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format">format</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:sprintf">
+  <div class="val">
+    <span class="keyword">val</span> sprintf : ('a, unit, string) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format">format</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:asprintf">
+  <div class="val">
+    <span class="keyword">val</span> asprintf : ('a, formatter, unit, string) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:ifprintf">
+  <div class="val">
+    <span class="keyword">val</span> ifprintf : formatter -&gt; ('a, formatter, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format">format</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:kfprintf">
+  <div class="val">
+    <span class="keyword">val</span> kfprintf : formatter -&gt; 'a -&gt; formatter -&gt; ('b, formatter, unit, 'a) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:ikfprintf">
+  <div class="val">
+    <span class="keyword">val</span> ikfprintf : formatter -&gt; 'a -&gt; formatter -&gt; ('b, formatter, unit, 'a) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:ksprintf">
+  <div class="val">
+    <span class="keyword">val</span> ksprintf : string -&gt; 'a -&gt; ('b, unit, string, 'a) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:bprintf">
+  <div class="val">
+    <span class="keyword">val</span> bprintf : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Buffer/">Buffer</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Buffer/#type:t">t</a> -&gt; ('a, formatter, unit) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format">format</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:kprintf">
+  <div class="val">
+    <span class="keyword">val</span> kprintf : string -&gt; 'a -&gt; ('b, unit, string, 'a) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:set_all_formatter_output_functions">
+  <div class="val">
+    <span class="keyword">val</span> set_all_formatter_output_functions : out:string -&gt; int -&gt; int -&gt; unit -&gt; flush:unit -&gt; unit -&gt; newline:unit -&gt; unit -&gt; spaces:int -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_all_formatter_output_functions">
+  <div class="val">
+    <span class="keyword">val</span> get_all_formatter_output_functions : unit -&gt; (string -&gt; int -&gt; int -&gt; unit * unit -&gt; unit * unit -&gt; unit * int -&gt; unit)
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_set_all_formatter_output_functions">
+  <div class="val">
+    <span class="keyword">val</span> pp_set_all_formatter_output_functions : formatter -&gt; out:string -&gt; int -&gt; int -&gt; unit -&gt; flush:unit -&gt; unit -&gt; newline:unit -&gt; unit -&gt; spaces:int -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pp_get_all_formatter_output_functions">
+  <div class="val">
+    <span class="keyword">val</span> pp_get_all_formatter_output_functions : formatter -&gt; unit -&gt; (string -&gt; int -&gt; int -&gt; unit * unit -&gt; unit * unit -&gt; unit * int -&gt; unit)
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 stdlib Module 'Format' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,738 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ulex.1.1 ulex Module 'Ulexing' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ulex/ulex.1.1/doc/ulex/Ulexing/">Ulexing</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:lexbuf">
+  <div class="type">
+    <span class="keyword">type</span> lexbuf
+    
+      <div class="doc">
+        The type of lexer buffers. A lexer buffer is the argument passed
+to the scanning functions defined by the generated lexers.
+The lexer buffer holds the internal information for the
+scanners, including the code points of the token currently scanned,
+its position from the beginning of the input stream,
+and the current position of the lexer.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Error">
+  <div class="exception">
+    <span class="keyword">exception</span> Error
+    
+      <div class="doc">
+        Raised by a lexer when it cannot parse a token from the lexbuf.
+The functions <code>Ulexing.lexeme_start</code> (resp. <code>Ulexing.lexeme_end</code>) can be
+used to find to positions of the first code point of the current
+matched substring (resp. the first code point that yield the error).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:InvalidCodepoint">
+  <div class="exception">
+    <span class="keyword">exception</span> InvalidCodepoint <span class="keyword">of</span> int
+    
+      <div class="doc">
+        Raised by some functions to signal that some code point is not
+compatible with a specified encoding.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : int array -&gt; int -&gt; int -&gt; int -&gt; lexbuf
+    
+      <div class="doc">
+        Create a generic lexer buffer. When the lexer needs more
+characters, it will call the given function, giving it an array of
+integers <code>a</code>, a position <code>pos</code> and a code point count <code>n</code>. The
+function should put <code>n</code> code points or less in <code>a</code>, starting at
+position <code>pos</code>, and return the number of characters provided. A
+return value of 0 means end of input.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_stream">
+  <div class="val">
+    <span class="keyword">val</span> from_stream : int <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/">Stream</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/#type:t">t</a> -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from a stream of Unicode code points.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_int_array">
+  <div class="val">
+    <span class="keyword">val</span> from_int_array : int array -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from an array of Unicode code points.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_latin1_stream">
+  <div class="val">
+    <span class="keyword">val</span> from_latin1_stream : char <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/">Stream</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/#type:t">t</a> -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from a Latin1 encoded stream (ie a stream
+of Unicode code points in the range <code>0..255</code>)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_latin1_channel">
+  <div class="val">
+    <span class="keyword">val</span> from_latin1_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from a Latin1 encoded input channel.
+The client is responsible for closing the channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_latin1_string">
+  <div class="val">
+    <span class="keyword">val</span> from_latin1_string : string -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from a Latin1 encoded string.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_utf8_stream">
+  <div class="val">
+    <span class="keyword">val</span> from_utf8_stream : char <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/">Stream</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/#type:t">t</a> -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from a UTF-8 encoded stream.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_utf8_channel">
+  <div class="val">
+    <span class="keyword">val</span> from_utf8_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from a UTF-8 encoded input channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_utf8_string">
+  <div class="val">
+    <span class="keyword">val</span> from_utf8_string : string -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from a UTF-8 encoded string.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:enc">
+  <div class="type">
+    <span class="keyword">type</span> enc = <div class="constr">| Ascii</div><div class="constr">| Latin1</div><div class="constr">| Utf8</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_var_enc_stream">
+  <div class="val">
+    <span class="keyword">val</span> from_var_enc_stream : enc <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; char <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/">Stream</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/#type:t">t</a> -&gt; lexbuf
+    
+      <div class="doc">
+        Create a lexbuf from a stream whose encoding is subject
+to change during lexing. The reference can be changed at any point.
+Note that bytes that have been consumed by the lexer buffer
+are not re-interpreted with the new encoding.<br/>In <code>Ascii</code> mode, non-ASCII bytes (ie <code>&gt;127</code>) in the stream
+raise an <code>InvalidCodepoint</code> exception.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_var_enc_string">
+  <div class="val">
+    <span class="keyword">val</span> from_var_enc_string : enc <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; string -&gt; lexbuf
+    
+      <div class="doc">
+        Same as <code>Ulexing.from_var_enc_stream</code> with a string as input.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:from_var_enc_channel">
+  <div class="val">
+    <span class="keyword">val</span> from_var_enc_channel : enc <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; lexbuf
+    
+      <div class="doc">
+        Same as <code>Ulexing.from_var_enc_stream</code> with a channel as input.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lexeme_start">
+  <div class="val">
+    <span class="keyword">val</span> lexeme_start : lexbuf -&gt; int
+    
+      <div class="doc">
+        <code>Ulexing.lexeme_start lexbuf</code> returns the offset in the
+input stream of the first code point of the matched string.
+The first code point of the stream has offset 0.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lexeme_end">
+  <div class="val">
+    <span class="keyword">val</span> lexeme_end : lexbuf -&gt; int
+    
+      <div class="doc">
+        <code>Ulexing.lexeme_end lexbuf</code> returns the offset in the input stream
+of the character following the last code point of the matched
+string. The first character of the stream has offset 0.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:loc">
+  <div class="val">
+    <span class="keyword">val</span> loc : lexbuf -&gt; (int * int)
+    
+      <div class="doc">
+        <code>Ulexing.loc lexbuf</code> returns the pair
+<code>(Ulexing.lexeme_start lexbuf,Ulexing.lexeme_end lexbuf)</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lexeme_length">
+  <div class="val">
+    <span class="keyword">val</span> lexeme_length : lexbuf -&gt; int
+    
+      <div class="doc">
+        <code>Ulexing.loc lexbuf</code> returns the difference
+<code>(Ulexing.lexeme_end lexbuf) - (Ulexing.lexeme_start lexbuf)</code>,
+that is, the length (in code points) of the matched string.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lexeme">
+  <div class="val">
+    <span class="keyword">val</span> lexeme : lexbuf -&gt; int array
+    
+      <div class="doc">
+        <code>Ulexing.lexeme lexbuf</code> returns the string matched by
+the regular expression as an array of Unicode code point.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_buf">
+  <div class="val">
+    <span class="keyword">val</span> get_buf : lexbuf -&gt; int array
+    
+      <div class="doc">
+        Direct access to the internal buffer.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_start">
+  <div class="val">
+    <span class="keyword">val</span> get_start : lexbuf -&gt; int
+    
+      <div class="doc">
+        Direct access to the starting position of the lexeme in the
+internal buffer.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_pos">
+  <div class="val">
+    <span class="keyword">val</span> get_pos : lexbuf -&gt; int
+    
+      <div class="doc">
+        Direct access to the current position (end of lexeme) in the
+internal buffer.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lexeme_char">
+  <div class="val">
+    <span class="keyword">val</span> lexeme_char : lexbuf -&gt; int -&gt; int
+    
+      <div class="doc">
+        <code>Ulexing.lexeme_char lexbuf pos</code> returns code point number <code>pos</code> in
+the matched string.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:sub_lexeme">
+  <div class="val">
+    <span class="keyword">val</span> sub_lexeme : lexbuf -&gt; int -&gt; int -&gt; int array
+    
+      <div class="doc">
+        <code>Ulexing.lexeme lexbuf pos len</code> returns a substring of the string
+matched by the regular expression as an array of Unicode code point.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:latin1_lexeme">
+  <div class="val">
+    <span class="keyword">val</span> latin1_lexeme : lexbuf -&gt; string
+    
+      <div class="doc">
+        As <code>Ulexing.lexeme</code> with a result encoded in Latin1.
+This function throws an exception <code>InvalidCodepoint</code> if it is not possible
+to encode the result in Latin1.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:latin1_sub_lexeme">
+  <div class="val">
+    <span class="keyword">val</span> latin1_sub_lexeme : lexbuf -&gt; int -&gt; int -&gt; string
+    
+      <div class="doc">
+        As <code>Ulexing.sub_lexeme</code> with a result encoded in Latin1.
+This function throws an exception <code>InvalidCodepoint</code> if it is not possible
+to encode the result in Latin1.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:latin1_lexeme_char">
+  <div class="val">
+    <span class="keyword">val</span> latin1_lexeme_char : lexbuf -&gt; int -&gt; char
+    
+      <div class="doc">
+        As <code>Ulexing.lexeme_char</code> with a result encoded in Latin1.
+This function throws an exception <code>InvalidCodepoint</code> if it is not possible
+to encode the result in Latin1.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:utf8_lexeme">
+  <div class="val">
+    <span class="keyword">val</span> utf8_lexeme : lexbuf -&gt; string
+    
+      <div class="doc">
+        As <code>Ulexing.lexeme</code> with a result encoded in UTF-8.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:utf8_sub_lexeme">
+  <div class="val">
+    <span class="keyword">val</span> utf8_sub_lexeme : lexbuf -&gt; int -&gt; int -&gt; string
+    
+      <div class="doc">
+        As <code>Ulexing.sub_lexeme</code> with a result encoded in UTF-8.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:rollback">
+  <div class="val">
+    <span class="keyword">val</span> rollback : lexbuf -&gt; unit
+    
+      <div class="doc">
+        <code>Ulexing.rollback lexbuf</code> puts <code>lexbuf</code> back in its configuration before
+the last lexeme was matched. It is then possible to use another
+lexer to parse the same characters again. The other functions
+above in this section should not be used in the semantic action
+after a call to <code>Ulexing.rollback</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:start">
+  <div class="val">
+    <span class="keyword">val</span> start : lexbuf -&gt; unit
+    
+      <div class="doc">
+        <code>Ulexing.start lexbuf</code> informs the lexer buffer that any
+code points until the current position can be discarded.
+The current position become the &quot;start&quot; position as returned
+by <code>Ulexing.lexeme_start</code>. Moreover, the internal slot is set to
+<code>-1</code> and the backtrack position is set to the current position.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:next">
+  <div class="val">
+    <span class="keyword">val</span> next : lexbuf -&gt; int
+    
+      <div class="doc">
+        <code>Ulexing.next lexbuf next</code> extracts the next code point from the
+lexer buffer and increments to current position. If the input stream
+is exhausted, the function returns <code>-1</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:mark">
+  <div class="val">
+    <span class="keyword">val</span> mark : lexbuf -&gt; int -&gt; unit
+    
+      <div class="doc">
+        <code>Ulexing.mark lexbuf i</code> stores the integer <code>i</code> in the internal
+slot. The backtrack position is set to the current position.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:backtrack">
+  <div class="val">
+    <span class="keyword">val</span> backtrack : lexbuf -&gt; int
+    
+      <div class="doc">
+        <code>Ulexing.backtrack lexbuf</code> returns the value stored in the
+internal slot of the buffer, and performs backtracking
+(the current position is set to the value of the backtrack position).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ulex.1.1 ulex Module 'Ulexing' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

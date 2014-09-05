@@ -1,0 +1,1282 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlary-test-library.0.0.0 ocamlary-test-library Module 'OcamlaryTestLibrary' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlary-test-library/ocamlary-test-library.0.0.0/doc/ocamlary-test-library/OcamlaryTestLibrary/">OcamlaryTestLibrary</a></h1>
+    
+    
+    
+      <div class="doc">
+        This is an <i>interface</i> with <b>all</b> of the <em>module system</em> features.
+<div class="doc-center">This text is centered.</div>
+<div class="doc-left">This text is left-aligned.</div>
+<div class="doc-right">This text is right-aligned.</div>
+This documentation demonstrates:<ul><li>comment formatting</li><li>unassociated comments</li><li>documentation sections</li><li>module system documentation including <ol><li>submodules</li><li>module aliases</li><li>module types</li><li>module type aliases</li><li>modules with signatures</li><li>modules with aliased signatures</li></ol></li></ul>David Sheets is the author.
+        
+  <div class="tag author">
+    <span class="label">Author</span> David Sheets
+  </div>
+  
+      </div>
+    
+    <div class="sig">
+      
+    <div class="comment">You may find more information about this HTML documentation renderer
+at <a href="https://github.com/dsheets/ocamlary">github.com/dsheets/ocamlary</a>.</div>
+    
+    <div class="comment">This is some verbatim text: <pre>verbatim</pre></div>
+    
+    <div class="comment">This is some verbatim text: <pre>[][df[]]}}</pre></div>
+    
+    <div class="comment">Here is some raw LaTeX: <a href="$e^{i\pi} = -1$">TARGET NONE: $e^{i\pi} = -1$</a></div>
+    
+    <div class="comment">Here is an index table of <code>Empty</code> modules: <a href="Empty EmptyAlias">REF_LINK NONE: Empty EmptyAlias</a></div>
+    
+    <div class="comment">Here is a table of links to indexes: <span style="color: red">TODO: special-ref</span></div>
+    
+    <div class="comment">Here is some superscript: x<sup>2</sup></div>
+    
+    <div class="comment">Here is some subscript: x<sub>0</sub></div>
+    
+    <div class="comment">Here are some escaped brackets: { [ @ ] }</div>
+    
+    <div class="comment">An unassociated comment</div>
+    
+    <div class="comment">
+    <h1 class="section level_0">Level 0</h1>
+    </div>
+    
+    <div class="comment"><h1 class="section">Level 1</h1></div>
+    
+    <div class="comment"><h2 class="section">Level 2</h2></div>
+    
+    <div class="comment"><h3 class="section">Level 3</h3></div>
+    
+    <div class="comment"><h4 class="section">Level 4</h4></div>
+    
+    <div class="comment"><h5 class="section">Level 5</h5></div>
+    
+    <div class="comment"><h6 class="section">Level 6</h6></div>
+    
+    <div class="comment">
+    <h6 class="section level_7">Level 7</h6>
+    </div>
+    
+    <div class="comment">
+    <h6 class="section level_8">Level 8</h6>
+    </div>
+    
+    <div class="comment">
+    <h6 class="section level_9">Level 9</h6>
+    </div>
+    
+    <div class="comment"><h3 class="section">Basic module stuff</h3></div>
+    
+    <div id="module:Empty">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Empty : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        A plain, empty module<br/>This module has a signature without any members.
+        
+      </div>
+    
+      <div class="sig">
+        
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:MissingComment">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> MissingComment = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        An ambiguous, misnamed module type
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div class="comment">
+    <h6 class="section level_9000" id="section:s9000">Level 9000</h6>
+    </div>
+    
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> EmptyAlias = Empty
+      </div>
+      
+      <div class="doc">
+        A plain module alias of <code>Empty</code>
+        
+      </div>
+    
+    </div>
+  
+    <div class="comment"><h3 class="section" id="section:emptySig">EmptySig</h3></div>
+    
+    <div id="modtype:EmptySig">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> EmptySig = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        A plain, empty module signature
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="type:not_actually_empty">
+  <div class="type">
+    <span class="keyword">type</span> not_actually_empty
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> EmptySigAlias = EmptySig
+      </div>
+      
+      <div class="doc">
+        A plain, empty module signature alias of <pre><code>EmptySig</code></pre> (preformatted).
+        
+      </div>
+    
+    </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> ModuleWithSignature : EmptySig
+      </div>
+      
+      <div class="doc">
+        A plain module of a signature of EmptySig (reference)
+        
+      </div>
+    
+    </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> ModuleWithSignatureAlias : EmptySigAlias
+      </div>
+      
+      <div class="doc">
+        A plain module with an alias signature
+        
+  <div class="tag deprecated">
+    <span class="label">Deprecated</span> I don't like this element any more.
+  </div>
+  
+      </div>
+    
+    </div>
+  
+    <div id="module:One">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> One : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:One#type:one">
+  <div class="type">
+    <span class="keyword">type</span> one
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:SigForMod">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> SigForMod = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        There's a signature in a module in this signature.
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div id="module:Inner">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Inner : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div id="module:Inner#modtype:Empty">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> Empty = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:SuperSig">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> SuperSig = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+    <div id="modtype:SubSigA">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> SubSigA = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+    <div class="comment"><h3 class="section" id="section:subSig">A Labeled Section Header Inside of a Signature</h3></div>
+    
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+    <div id="module:SubSigAMod">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> SubSigAMod : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:SubSigAMod#type:sub_sig_a_mod">
+  <div class="type">
+    <span class="keyword">type</span> sub_sig_a_mod
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:SubSigB">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> SubSigB = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+    <div class="comment"><h3 class="section" id="section:subSig">Another Labeled Section Header Inside of a Signature</h3></div>
+    
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:EmptySig">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> EmptySig = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="type:not_actually_empty">
+  <div class="type">
+    <span class="keyword">type</span> not_actually_empty
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div class="comment">For a good time, see
+SuperSig.SubSigA.subSig or SuperSig.SubSigB.subSig or
+SuperSig.EmptySig. Section s9000 is also
+interesting. EmptySig is a general reference but
+<span style="color: red">TODO: ref:emptySig</span> is the section and EmptySig is the
+module signature.</div>
+    
+    <div class="comment">Some text before exception title. <h3 class="section">Basic exception stuff</h3> After exception title.</div>
+    
+  <div id="exception:Kaboom">
+  <div class="exception">
+    <span class="keyword">exception</span> Kaboom <span class="keyword">of</span> unit
+    
+      <div class="doc">
+        Unary exception constructor
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Kablam">
+  <div class="exception">
+    <span class="keyword">exception</span> Kablam <span class="keyword">of</span> unit * unit
+    
+      <div class="doc">
+        Binary exception constructor
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Kapow">
+  <div class="exception">
+    <span class="keyword">exception</span> Kapow <span class="keyword">of</span> (unit * unit)
+    
+      <div class="doc">
+        Unary exception constructor over binary tuple
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:EmptySig">
+  <div class="exception">
+    <span class="keyword">exception</span> EmptySig
+    
+      <div class="doc">
+        EmptySig is general but EmptySig is a module and
+<span style="color: red">TODO: ref:EmptySig</span> is this exception.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:EmptySigAlias">
+  <div class="exception">
+    <span class="keyword">exception</span> EmptySigAlias
+    
+      <div class="doc">
+        <span style="color: red">TODO: ref:EmptySigAlias</span> is this exception.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div class="comment"><h3 class="section">Basic type and value stuff with advanced doc comments</h3></div>
+    
+  <div id="type:a_function">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) a_function = 'a -&gt; 'b
+    
+      <div class="doc">
+        a_function is general but a_function is this type and
+a_function is the value below.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:a_function">
+  <div class="val">
+    <span class="keyword">val</span> a_function : x:int -&gt; int
+    
+      <div class="doc">
+        This is <code>a_function</code> with param and return type.
+        
+  <div class="tag param">
+    <span class="label">x</span> the <code>x</code> coordinate
+  </div>
+  
+  <div class="tag return">
+    <span class="label">Returns</span> the <code>y</code> coordinate
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fun_fun_fun">
+  <div class="val">
+    <span class="keyword">val</span> fun_fun_fun : ((int, int) a_function, (unit, unit) a_function) a_function
+    
+  </div>
+  </div>
+  
+  <div id="val:fun_maybe">
+  <div class="val">
+    <span class="keyword">val</span> fun_maybe : ?yes:unit -&gt; unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:not_found">
+  <div class="val">
+    <span class="keyword">val</span> not_found : unit -&gt; unit
+    
+      <div class="doc">
+        
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Not_found</code> That's all it does
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ocaml_org">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_org : string
+    
+      <div class="doc">
+        
+        
+  <div class="tag see-also">
+    <span class="label">See also</span> The OCaml Web site
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:some_file">
+  <div class="val">
+    <span class="keyword">val</span> some_file : string
+    
+      <div class="doc">
+        
+        
+  <div class="tag see-also">
+    <span class="label">See also</span> The file called <code>some_file</code>
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:some_doc">
+  <div class="val">
+    <span class="keyword">val</span> some_doc : string
+    
+      <div class="doc">
+        
+        
+  <div class="tag see-also">
+    <span class="label">See also</span> The document called <code>some_doc</code>
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:since_mesozoic">
+  <div class="val">
+    <span class="keyword">val</span> since_mesozoic : unit
+    
+      <div class="doc">
+        This value was introduced in the Mesozoic era.
+        
+  <div class="tag since">
+    <span class="label">Since</span> mesozoic
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:changing">
+  <div class="val">
+    <span class="keyword">val</span> changing : unit
+    
+      <div class="doc">
+        This value has had changes in 1.0.0, 1.1.0, and 1.2.0.
+        
+  <div class="tag before">
+    <span class="label">Before 1.0.0</span> before 1.0.0
+  </div>
+  
+  <div class="tag before">
+    <span class="label">Before 1.1.0</span> before 1.1.0
+  </div>
+  
+  <div class="tag version">
+    <span class="label">Version</span> 1.2.0
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_foo">
+  <div class="val">
+    <span class="keyword">val</span> with_foo : unit
+    
+      <div class="doc">
+        This value has a custom tag <code>foo</code>.
+        
+  <div class="tag custom foo">
+    <span class="label">Foo</span> the body of the custom <code>foo</code> tag
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+    <div class="comment"><h3 class="section">Some Operators</h3></div>
+    
+  <div id="val:(~-)">
+  <div class="val">
+    <span class="keyword">val</span> (~-) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(!)">
+  <div class="val">
+    <span class="keyword">val</span> (!) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(@)">
+  <div class="val">
+    <span class="keyword">val</span> (@) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:($)">
+  <div class="val">
+    <span class="keyword">val</span> ($) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(%)">
+  <div class="val">
+    <span class="keyword">val</span> (%) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(^)">
+  <div class="val">
+    <span class="keyword">val</span> (^) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(&amp;)">
+  <div class="val">
+    <span class="keyword">val</span> (&amp;) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(*)">
+  <div class="val">
+    <span class="keyword">val</span> (*) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(-)">
+  <div class="val">
+    <span class="keyword">val</span> (-) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(+)">
+  <div class="val">
+    <span class="keyword">val</span> (+) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(&lt;)">
+  <div class="val">
+    <span class="keyword">val</span> (&lt;) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(-?)">
+  <div class="val">
+    <span class="keyword">val</span> (-?) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(/)">
+  <div class="val">
+    <span class="keyword">val</span> (/) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(-|)">
+  <div class="val">
+    <span class="keyword">val</span> (-|) : unit
+    
+  </div>
+  </div>
+  
+  <div id="val::=">
+  <div class="val">
+    <span class="keyword">val</span> := : unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(=)">
+  <div class="val">
+    <span class="keyword">val</span> (=) : unit
+    
+  </div>
+  </div>
+  
+    <div class="comment"></div>
+    
+    <div class="comment">I'm hidden</div>
+    
+    <div class="comment"></div>
+    
+    <div class="comment"><h3 class="section">Advanced Module Stuff</h3></div>
+    
+    <div id="module:CollectionModule">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> CollectionModule : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        This comment is for <code>CollectionModule</code>.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:CollectionModule#type:collection">
+  <div class="type">
+    <span class="keyword">type</span> collection
+    
+      <div class="doc">
+        This comment is for <code>collection</code>.<br/>This comment is for <code>InnerModuleA</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:CollectionModule#module:InnerModuleA">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> InnerModuleA : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        This comment is for <code>InnerModuleTypeA</code>.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:CollectionModule#module:InnerModuleA#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = collection
+    
+      <div class="doc">
+        This comment is for <code>t</code>.<br/>This comment is for <code>InnerModuleA'</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:CollectionModule#module:InnerModuleA#module:InnerModuleA'">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> InnerModuleA' : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:CollectionModule#module:InnerModuleA#module:InnerModuleA'#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = (unit, unit) a_function
+    
+      <div class="doc">
+        This comment is for <code>t</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:CollectionModule#module:InnerModuleA#modtype:InnerModuleTypeA'">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> InnerModuleTypeA' = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        This comment is for <code>InnerModuleTypeA'</code>.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:CollectionModule#module:InnerModuleA#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = InnerModuleA'.t
+    
+      <div class="doc">
+        This comment is for <code>t</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> InnerModuleTypeA = InnerModuleA.InnerModuleTypeA'
+      </div>
+      
+    </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:ocamlary-test-library.0.0.0/ocamlary-test-library/OcamlaryTestLibrary.FunctorTypeOf</span>
+    <div id="modtype:IncludeModuleType">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> IncludeModuleType = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="doc">
+        This comment is for <code>IncludeModuleType</code>.
+        
+      </div>
+    
+      <div class="sig">
+        <span style="color:red">TODO: ocamlary-test-library.0.0.0/ocamlary-test-library/OcamlaryTestLibrary</span>
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div class="comment"><h3 class="section">Advanced Type Stuff</h3></div>
+    
+  <div id="type:record">
+  <div class="type">
+    <span class="keyword">type</span> record = {<div class="field">field1 : int; <span class="doc">(* This comment is for <code>field1</code>. *)</span></div><div class="field">field2 : int; <span class="doc">(* This comment is for <code>field2</code>. *)</span></div>}
+    
+      <div class="doc">
+        This comment is for <code>record</code>.<br/>This comment is also for <code>record</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:variant">
+  <div class="type">
+    <span class="keyword">type</span> variant = <div class="constr">| TagA <span class="doc">(* This comment is for <code>TagA</code>. *)</span></div><div class="constr">| ConstrB <span class="keyword">of</span> int <span class="doc">(* This comment is for <code>ConstrB</code>. *)</span></div><div class="constr">| ConstrC <span class="keyword">of</span> int * int <span class="doc">(* This comment is for binary <code>ConstrC</code>. *)</span></div><div class="constr">| ConstrD <span class="keyword">of</span> (int * int) <span class="doc">(* This comment is for unary <code>ConstrD</code> of binary tuple. *)</span></div>
+    
+      <div class="doc">
+        This comment is for <code>variant</code>.<br/>This comment is also for <code>variant</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:poly_variant">
+  <div class="type">
+    <span class="keyword">type</span> poly_variant = <span style="color:red">TODO: a</span>
+    
+      <div class="doc">
+        This comment is for <code>poly_variant</code>.<br/>Wow! It was a polymorphic variant!
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:full_gadt">
+  <div class="type">
+    <span class="keyword">type</span> (_, _) full_gadt = <div class="constr">| Tag : (unit, unit) full_gadt</div><div class="constr">| First : 'a -&gt; ('a, unit) full_gadt</div><div class="constr">| Second : 'a0 -&gt; (unit, 'a0) full_gadt</div><div class="constr">| Exist : 'b -&gt; (unit, unit) full_gadt</div>
+    
+      <div class="doc">
+        This comment is for <code>full_gadt</code>.<br/>Wow! It was a GADT!
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:partial_gadt">
+  <div class="type">
+    <span class="keyword">type</span> 'a0 partial_gadt = <div class="constr">| AscribeTag : 'a partial_gadt</div><div class="constr">| OfTag <span class="keyword">of</span> 'a0 partial_gadt</div><div class="constr">| ExistGadtTag : 'a1 -&gt; 'b -&gt; 'a1 partial_gadt</div>
+    
+      <div class="doc">
+        This comment is for <code>partial_gadt</code>.<br/>Wow! It was a mixed GADT!
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:alias">
+  <div class="type">
+    <span class="keyword">type</span> alias = variant
+    
+      <div class="doc">
+        This comment is for <code>alias</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:tuple">
+  <div class="type">
+    <span class="keyword">type</span> tuple = ((alias * alias) * alias * (alias * alias))
+    
+      <div class="doc">
+        This comment is for <code>tuple</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:variant_alias">
+  <div class="type">
+    <span class="keyword">type</span> variant_alias = variant = <div class="constr">| TagA</div><div class="constr">| ConstrB <span class="keyword">of</span> int</div><div class="constr">| ConstrC <span class="keyword">of</span> int * int</div><div class="constr">| ConstrD <span class="keyword">of</span> (int * int)</div>
+    
+      <div class="doc">
+        This comment is for <code>variant_alias</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:record_alias">
+  <div class="type">
+    <span class="keyword">type</span> record_alias = record = {<div class="field">field1 : int;</div><div class="field">field2 : int;</div>}
+    
+      <div class="doc">
+        This comment is for <code>record_alias</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:poly_variant_union">
+  <div class="type">
+    <span class="keyword">type</span> poly_variant_union = <span style="color:red">TODO: a</span>
+    
+      <div class="doc">
+        This comment is for <code>poly_variant_union</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:full_gadt_alias">
+  <div class="type">
+    <span class="keyword">type</span> ('a1, 'b0) full_gadt_alias = ('a1, 'b0) full_gadt = <div class="constr">| Tag : (unit, unit) full_gadt_alias</div><div class="constr">| First : 'a -&gt; ('a, unit) full_gadt_alias</div><div class="constr">| Second : 'a0 -&gt; (unit, 'a0) full_gadt_alias</div><div class="constr">| Exist : 'b -&gt; (unit, unit) full_gadt_alias</div>
+    
+      <div class="doc">
+        This comment is for <code>full_gadt_alias</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:partial_gadt_alias">
+  <div class="type">
+    <span class="keyword">type</span> 'a0 partial_gadt_alias = 'a0 partial_gadt = <div class="constr">| AscribeTag : 'a partial_gadt_alias</div><div class="constr">| OfTag <span class="keyword">of</span> 'a0 partial_gadt_alias</div><div class="constr">| ExistGadtTag : 'a1 -&gt; 'b -&gt; 'a1 partial_gadt_alias</div>
+    
+      <div class="doc">
+        This comment is for <code>partial_gadt_alias</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Exn_arrow">
+  <div class="exception">
+    <span class="keyword">exception</span> Exn_arrow : unit -&gt; exn
+    
+      <div class="doc">
+        This comment is for Exn_arrow.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:mutual_constr_a">
+  <div class="type">
+    <span class="keyword">type</span> mutual_constr_a = <div class="constr">| A</div><div class="constr">| B_ish <span class="keyword">of</span> mutual_constr_b</div>
+    
+      <div class="doc">
+        This comment is for mutual_constr_a and mutual_constr_b.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:mutual_constr_b">
+  <div class="type">
+    <span class="keyword">type</span> mutual_constr_b = <div class="constr">| B</div><div class="constr">| A_ish <span class="keyword">of</span> mutual_constr_a</div>
+    
+  </div>
+  </div>
+  <span style="color:red">TODO: ocamlary-test-library.0.0.0/ocamlary-test-library/OcamlaryTestLibrary</span>
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlary-test-library.0.0.0 ocamlary-test-library Module 'OcamlaryTestLibrary' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,1706 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 unix Module 'Unix' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/">Unix</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:error">
+  <div class="type">
+    <span class="keyword">type</span> error = <div class="constr">| E2BIG</div><div class="constr">| EACCES</div><div class="constr">| EAGAIN</div><div class="constr">| EBADF</div><div class="constr">| EBUSY</div><div class="constr">| ECHILD</div><div class="constr">| EDEADLK</div><div class="constr">| EDOM</div><div class="constr">| EEXIST</div><div class="constr">| EFAULT</div><div class="constr">| EFBIG</div><div class="constr">| EINTR</div><div class="constr">| EINVAL</div><div class="constr">| EIO</div><div class="constr">| EISDIR</div><div class="constr">| EMFILE</div><div class="constr">| EMLINK</div><div class="constr">| ENAMETOOLONG</div><div class="constr">| ENFILE</div><div class="constr">| ENODEV</div><div class="constr">| ENOENT</div><div class="constr">| ENOEXEC</div><div class="constr">| ENOLCK</div><div class="constr">| ENOMEM</div><div class="constr">| ENOSPC</div><div class="constr">| ENOSYS</div><div class="constr">| ENOTDIR</div><div class="constr">| ENOTEMPTY</div><div class="constr">| ENOTTY</div><div class="constr">| ENXIO</div><div class="constr">| EPERM</div><div class="constr">| EPIPE</div><div class="constr">| ERANGE</div><div class="constr">| EROFS</div><div class="constr">| ESPIPE</div><div class="constr">| ESRCH</div><div class="constr">| EXDEV</div><div class="constr">| EWOULDBLOCK</div><div class="constr">| EINPROGRESS</div><div class="constr">| EALREADY</div><div class="constr">| ENOTSOCK</div><div class="constr">| EDESTADDRREQ</div><div class="constr">| EMSGSIZE</div><div class="constr">| EPROTOTYPE</div><div class="constr">| ENOPROTOOPT</div><div class="constr">| EPROTONOSUPPORT</div><div class="constr">| ESOCKTNOSUPPORT</div><div class="constr">| EOPNOTSUPP</div><div class="constr">| EPFNOSUPPORT</div><div class="constr">| EAFNOSUPPORT</div><div class="constr">| EADDRINUSE</div><div class="constr">| EADDRNOTAVAIL</div><div class="constr">| ENETDOWN</div><div class="constr">| ENETUNREACH</div><div class="constr">| ENETRESET</div><div class="constr">| ECONNABORTED</div><div class="constr">| ECONNRESET</div><div class="constr">| ENOBUFS</div><div class="constr">| EISCONN</div><div class="constr">| ENOTCONN</div><div class="constr">| ESHUTDOWN</div><div class="constr">| ETOOMANYREFS</div><div class="constr">| ETIMEDOUT</div><div class="constr">| ECONNREFUSED</div><div class="constr">| EHOSTDOWN</div><div class="constr">| EHOSTUNREACH</div><div class="constr">| ELOOP</div><div class="constr">| EOVERFLOW</div><div class="constr">| EUNKNOWNERR <span class="keyword">of</span> int</div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Unix_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Unix_error <span class="keyword">of</span> error * string * string
+    
+  </div>
+  </div>
+  
+  <div id="val:error_message">
+  <div class="val">
+    <span class="keyword">val</span> error_message : error -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:handle_unix_error">
+  <div class="val">
+    <span class="keyword">val</span> handle_unix_error : 'a -&gt; 'b -&gt; 'a -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:environment">
+  <div class="val">
+    <span class="keyword">val</span> environment : unit -&gt; string array
+    
+  </div>
+  </div>
+  
+  <div id="val:getenv">
+  <div class="val">
+    <span class="keyword">val</span> getenv : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:putenv">
+  <div class="val">
+    <span class="keyword">val</span> putenv : string -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:process_status">
+  <div class="type">
+    <span class="keyword">type</span> process_status = <div class="constr">| WEXITED <span class="keyword">of</span> int</div><div class="constr">| WSIGNALED <span class="keyword">of</span> int</div><div class="constr">| WSTOPPED <span class="keyword">of</span> int</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:wait_flag">
+  <div class="type">
+    <span class="keyword">type</span> wait_flag = <div class="constr">| WNOHANG</div><div class="constr">| WUNTRACED</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:execv">
+  <div class="val">
+    <span class="keyword">val</span> execv : string -&gt; string array -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:execve">
+  <div class="val">
+    <span class="keyword">val</span> execve : string -&gt; string array -&gt; string array -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:execvp">
+  <div class="val">
+    <span class="keyword">val</span> execvp : string -&gt; string array -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:execvpe">
+  <div class="val">
+    <span class="keyword">val</span> execvpe : string -&gt; string array -&gt; string array -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:fork">
+  <div class="val">
+    <span class="keyword">val</span> fork : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:wait">
+  <div class="val">
+    <span class="keyword">val</span> wait : unit -&gt; (int * process_status)
+    
+  </div>
+  </div>
+  
+  <div id="val:waitpid">
+  <div class="val">
+    <span class="keyword">val</span> waitpid : wait_flag list -&gt; int -&gt; (int * process_status)
+    
+  </div>
+  </div>
+  
+  <div id="val:system">
+  <div class="val">
+    <span class="keyword">val</span> system : string -&gt; process_status
+    
+  </div>
+  </div>
+  
+  <div id="val:getpid">
+  <div class="val">
+    <span class="keyword">val</span> getpid : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:getppid">
+  <div class="val">
+    <span class="keyword">val</span> getppid : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:nice">
+  <div class="val">
+    <span class="keyword">val</span> nice : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="type:file_descr">
+  <div class="type">
+    <span class="keyword">type</span> file_descr
+    
+  </div>
+  </div>
+  
+  <div id="val:stdin">
+  <div class="val">
+    <span class="keyword">val</span> stdin : file_descr
+    
+  </div>
+  </div>
+  
+  <div id="val:stdout">
+  <div class="val">
+    <span class="keyword">val</span> stdout : file_descr
+    
+  </div>
+  </div>
+  
+  <div id="val:stderr">
+  <div class="val">
+    <span class="keyword">val</span> stderr : file_descr
+    
+  </div>
+  </div>
+  
+  <div id="type:open_flag">
+  <div class="type">
+    <span class="keyword">type</span> open_flag = <div class="constr">| O_RDONLY</div><div class="constr">| O_WRONLY</div><div class="constr">| O_RDWR</div><div class="constr">| O_NONBLOCK</div><div class="constr">| O_APPEND</div><div class="constr">| O_CREAT</div><div class="constr">| O_TRUNC</div><div class="constr">| O_EXCL</div><div class="constr">| O_NOCTTY</div><div class="constr">| O_DSYNC</div><div class="constr">| O_SYNC</div><div class="constr">| O_RSYNC</div><div class="constr">| O_SHARE_DELETE</div><div class="constr">| O_CLOEXEC</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:file_perm">
+  <div class="type">
+    <span class="keyword">type</span> file_perm = int
+    
+  </div>
+  </div>
+  
+  <div id="val:openfile">
+  <div class="val">
+    <span class="keyword">val</span> openfile : string -&gt; open_flag list -&gt; file_perm -&gt; file_descr
+    
+  </div>
+  </div>
+  
+  <div id="val:close">
+  <div class="val">
+    <span class="keyword">val</span> close : file_descr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : file_descr -&gt; bytes -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : file_descr -&gt; bytes -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:single_write">
+  <div class="val">
+    <span class="keyword">val</span> single_write : file_descr -&gt; bytes -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:write_substring">
+  <div class="val">
+    <span class="keyword">val</span> write_substring : file_descr -&gt; string -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:single_write_substring">
+  <div class="val">
+    <span class="keyword">val</span> single_write_substring : file_descr -&gt; string -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:in_channel_of_descr">
+  <div class="val">
+    <span class="keyword">val</span> in_channel_of_descr : file_descr -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:out_channel_of_descr">
+  <div class="val">
+    <span class="keyword">val</span> out_channel_of_descr : file_descr -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:descr_of_in_channel">
+  <div class="val">
+    <span class="keyword">val</span> descr_of_in_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; file_descr
+    
+  </div>
+  </div>
+  
+  <div id="val:descr_of_out_channel">
+  <div class="val">
+    <span class="keyword">val</span> descr_of_out_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; file_descr
+    
+  </div>
+  </div>
+  
+  <div id="type:seek_command">
+  <div class="type">
+    <span class="keyword">type</span> seek_command = <div class="constr">| SEEK_SET</div><div class="constr">| SEEK_CUR</div><div class="constr">| SEEK_END</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lseek">
+  <div class="val">
+    <span class="keyword">val</span> lseek : file_descr -&gt; int -&gt; seek_command -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:truncate">
+  <div class="val">
+    <span class="keyword">val</span> truncate : string -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:ftruncate">
+  <div class="val">
+    <span class="keyword">val</span> ftruncate : file_descr -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:file_kind">
+  <div class="type">
+    <span class="keyword">type</span> file_kind = <div class="constr">| S_REG</div><div class="constr">| S_DIR</div><div class="constr">| S_CHR</div><div class="constr">| S_BLK</div><div class="constr">| S_LNK</div><div class="constr">| S_FIFO</div><div class="constr">| S_SOCK</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:stats">
+  <div class="type">
+    <span class="keyword">type</span> stats = {<div class="field">st_dev : int;</div><div class="field">st_ino : int;</div><div class="field">st_kind : file_kind;</div><div class="field">st_perm : file_perm;</div><div class="field">st_nlink : int;</div><div class="field">st_uid : int;</div><div class="field">st_gid : int;</div><div class="field">st_rdev : int;</div><div class="field">st_size : int;</div><div class="field">st_atime : float;</div><div class="field">st_mtime : float;</div><div class="field">st_ctime : float;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:stat">
+  <div class="val">
+    <span class="keyword">val</span> stat : string -&gt; stats
+    
+  </div>
+  </div>
+  
+  <div id="val:lstat">
+  <div class="val">
+    <span class="keyword">val</span> lstat : string -&gt; stats
+    
+  </div>
+  </div>
+  
+  <div id="val:fstat">
+  <div class="val">
+    <span class="keyword">val</span> fstat : file_descr -&gt; stats
+    
+  </div>
+  </div>
+  
+  <div id="val:isatty">
+  <div class="val">
+    <span class="keyword">val</span> isatty : file_descr -&gt; bool
+    
+  </div>
+  </div>
+  
+    <div id="module:LargeFile">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> LargeFile : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:LargeFile#val:lseek">
+  <div class="val">
+    <span class="keyword">val</span> lseek : file_descr -&gt; int64 -&gt; seek_command -&gt; int64
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:truncate">
+  <div class="val">
+    <span class="keyword">val</span> truncate : string -&gt; int64 -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:ftruncate">
+  <div class="val">
+    <span class="keyword">val</span> ftruncate : file_descr -&gt; int64 -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#type:stats">
+  <div class="type">
+    <span class="keyword">type</span> stats = {<div class="field">st_dev : int;</div><div class="field">st_ino : int;</div><div class="field">st_kind : file_kind;</div><div class="field">st_perm : file_perm;</div><div class="field">st_nlink : int;</div><div class="field">st_uid : int;</div><div class="field">st_gid : int;</div><div class="field">st_rdev : int;</div><div class="field">st_size : int64;</div><div class="field">st_atime : float;</div><div class="field">st_mtime : float;</div><div class="field">st_ctime : float;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:stat">
+  <div class="val">
+    <span class="keyword">val</span> stat : string -&gt; stats
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:lstat">
+  <div class="val">
+    <span class="keyword">val</span> lstat : string -&gt; stats
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:fstat">
+  <div class="val">
+    <span class="keyword">val</span> fstat : file_descr -&gt; stats
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:unlink">
+  <div class="val">
+    <span class="keyword">val</span> unlink : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:rename">
+  <div class="val">
+    <span class="keyword">val</span> rename : string -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:link">
+  <div class="val">
+    <span class="keyword">val</span> link : string -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:access_permission">
+  <div class="type">
+    <span class="keyword">type</span> access_permission = <div class="constr">| R_OK</div><div class="constr">| W_OK</div><div class="constr">| X_OK</div><div class="constr">| F_OK</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:chmod">
+  <div class="val">
+    <span class="keyword">val</span> chmod : string -&gt; file_perm -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fchmod">
+  <div class="val">
+    <span class="keyword">val</span> fchmod : file_descr -&gt; file_perm -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:chown">
+  <div class="val">
+    <span class="keyword">val</span> chown : string -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fchown">
+  <div class="val">
+    <span class="keyword">val</span> fchown : file_descr -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:umask">
+  <div class="val">
+    <span class="keyword">val</span> umask : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:access">
+  <div class="val">
+    <span class="keyword">val</span> access : string -&gt; access_permission list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:dup">
+  <div class="val">
+    <span class="keyword">val</span> dup : file_descr -&gt; file_descr
+    
+  </div>
+  </div>
+  
+  <div id="val:dup2">
+  <div class="val">
+    <span class="keyword">val</span> dup2 : file_descr -&gt; file_descr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_nonblock">
+  <div class="val">
+    <span class="keyword">val</span> set_nonblock : file_descr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:clear_nonblock">
+  <div class="val">
+    <span class="keyword">val</span> clear_nonblock : file_descr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_close_on_exec">
+  <div class="val">
+    <span class="keyword">val</span> set_close_on_exec : file_descr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:clear_close_on_exec">
+  <div class="val">
+    <span class="keyword">val</span> clear_close_on_exec : file_descr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:mkdir">
+  <div class="val">
+    <span class="keyword">val</span> mkdir : string -&gt; file_perm -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:rmdir">
+  <div class="val">
+    <span class="keyword">val</span> rmdir : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:chdir">
+  <div class="val">
+    <span class="keyword">val</span> chdir : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:getcwd">
+  <div class="val">
+    <span class="keyword">val</span> getcwd : unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:chroot">
+  <div class="val">
+    <span class="keyword">val</span> chroot : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:dir_handle">
+  <div class="type">
+    <span class="keyword">type</span> dir_handle
+    
+  </div>
+  </div>
+  
+  <div id="val:opendir">
+  <div class="val">
+    <span class="keyword">val</span> opendir : string -&gt; dir_handle
+    
+  </div>
+  </div>
+  
+  <div id="val:readdir">
+  <div class="val">
+    <span class="keyword">val</span> readdir : dir_handle -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:rewinddir">
+  <div class="val">
+    <span class="keyword">val</span> rewinddir : dir_handle -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:closedir">
+  <div class="val">
+    <span class="keyword">val</span> closedir : dir_handle -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pipe">
+  <div class="val">
+    <span class="keyword">val</span> pipe : unit -&gt; (file_descr * file_descr)
+    
+  </div>
+  </div>
+  
+  <div id="val:mkfifo">
+  <div class="val">
+    <span class="keyword">val</span> mkfifo : string -&gt; file_perm -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:create_process">
+  <div class="val">
+    <span class="keyword">val</span> create_process : string -&gt; string array -&gt; file_descr -&gt; file_descr -&gt; file_descr -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:create_process_env">
+  <div class="val">
+    <span class="keyword">val</span> create_process_env : string -&gt; string array -&gt; string array -&gt; file_descr -&gt; file_descr -&gt; file_descr -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:open_process_in">
+  <div class="val">
+    <span class="keyword">val</span> open_process_in : string -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:open_process_out">
+  <div class="val">
+    <span class="keyword">val</span> open_process_out : string -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:open_process">
+  <div class="val">
+    <span class="keyword">val</span> open_process : string -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:open_process_full">
+  <div class="val">
+    <span class="keyword">val</span> open_process_full : string -&gt; string array -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:close_process_in">
+  <div class="val">
+    <span class="keyword">val</span> close_process_in : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; process_status
+    
+  </div>
+  </div>
+  
+  <div id="val:close_process_out">
+  <div class="val">
+    <span class="keyword">val</span> close_process_out : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; process_status
+    
+  </div>
+  </div>
+  
+  <div id="val:close_process">
+  <div class="val">
+    <span class="keyword">val</span> close_process : (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a>) -&gt; process_status
+    
+  </div>
+  </div>
+  
+  <div id="val:close_process_full">
+  <div class="val">
+    <span class="keyword">val</span> close_process_full : (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a>) -&gt; process_status
+    
+  </div>
+  </div>
+  
+  <div id="val:symlink">
+  <div class="val">
+    <span class="keyword">val</span> symlink : string -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:readlink">
+  <div class="val">
+    <span class="keyword">val</span> readlink : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:select">
+  <div class="val">
+    <span class="keyword">val</span> select : file_descr list -&gt; file_descr list -&gt; file_descr list -&gt; float -&gt; (file_descr list * file_descr list * file_descr list)
+    
+  </div>
+  </div>
+  
+  <div id="type:lock_command">
+  <div class="type">
+    <span class="keyword">type</span> lock_command = <div class="constr">| F_ULOCK</div><div class="constr">| F_LOCK</div><div class="constr">| F_TLOCK</div><div class="constr">| F_TEST</div><div class="constr">| F_RLOCK</div><div class="constr">| F_TRLOCK</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:lockf">
+  <div class="val">
+    <span class="keyword">val</span> lockf : file_descr -&gt; lock_command -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:kill">
+  <div class="val">
+    <span class="keyword">val</span> kill : int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:sigprocmask_command">
+  <div class="type">
+    <span class="keyword">type</span> sigprocmask_command = <div class="constr">| SIG_SETMASK</div><div class="constr">| SIG_BLOCK</div><div class="constr">| SIG_UNBLOCK</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:sigprocmask">
+  <div class="val">
+    <span class="keyword">val</span> sigprocmask : sigprocmask_command -&gt; int list -&gt; int list
+    
+  </div>
+  </div>
+  
+  <div id="val:sigpending">
+  <div class="val">
+    <span class="keyword">val</span> sigpending : unit -&gt; int list
+    
+  </div>
+  </div>
+  
+  <div id="val:sigsuspend">
+  <div class="val">
+    <span class="keyword">val</span> sigsuspend : int list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pause">
+  <div class="val">
+    <span class="keyword">val</span> pause : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:process_times">
+  <div class="type">
+    <span class="keyword">type</span> process_times = {<div class="field">tms_utime : float;</div><div class="field">tms_stime : float;</div><div class="field">tms_cutime : float;</div><div class="field">tms_cstime : float;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:tm">
+  <div class="type">
+    <span class="keyword">type</span> tm = {<div class="field">tm_sec : int;</div><div class="field">tm_min : int;</div><div class="field">tm_hour : int;</div><div class="field">tm_mday : int;</div><div class="field">tm_mon : int;</div><div class="field">tm_year : int;</div><div class="field">tm_wday : int;</div><div class="field">tm_yday : int;</div><div class="field">tm_isdst : bool;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:time">
+  <div class="val">
+    <span class="keyword">val</span> time : unit -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:gettimeofday">
+  <div class="val">
+    <span class="keyword">val</span> gettimeofday : unit -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:gmtime">
+  <div class="val">
+    <span class="keyword">val</span> gmtime : float -&gt; tm
+    
+  </div>
+  </div>
+  
+  <div id="val:localtime">
+  <div class="val">
+    <span class="keyword">val</span> localtime : float -&gt; tm
+    
+  </div>
+  </div>
+  
+  <div id="val:mktime">
+  <div class="val">
+    <span class="keyword">val</span> mktime : tm -&gt; (float * tm)
+    
+  </div>
+  </div>
+  
+  <div id="val:alarm">
+  <div class="val">
+    <span class="keyword">val</span> alarm : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:sleep">
+  <div class="val">
+    <span class="keyword">val</span> sleep : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:times">
+  <div class="val">
+    <span class="keyword">val</span> times : unit -&gt; process_times
+    
+  </div>
+  </div>
+  
+  <div id="val:utimes">
+  <div class="val">
+    <span class="keyword">val</span> utimes : string -&gt; float -&gt; float -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:interval_timer">
+  <div class="type">
+    <span class="keyword">type</span> interval_timer = <div class="constr">| ITIMER_REAL</div><div class="constr">| ITIMER_VIRTUAL</div><div class="constr">| ITIMER_PROF</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:interval_timer_status">
+  <div class="type">
+    <span class="keyword">type</span> interval_timer_status = {<div class="field">it_interval : float;</div><div class="field">it_value : float;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:getitimer">
+  <div class="val">
+    <span class="keyword">val</span> getitimer : interval_timer -&gt; interval_timer_status
+    
+  </div>
+  </div>
+  
+  <div id="val:setitimer">
+  <div class="val">
+    <span class="keyword">val</span> setitimer : interval_timer -&gt; interval_timer_status -&gt; interval_timer_status
+    
+  </div>
+  </div>
+  
+  <div id="val:getuid">
+  <div class="val">
+    <span class="keyword">val</span> getuid : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:geteuid">
+  <div class="val">
+    <span class="keyword">val</span> geteuid : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:setuid">
+  <div class="val">
+    <span class="keyword">val</span> setuid : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:getgid">
+  <div class="val">
+    <span class="keyword">val</span> getgid : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:getegid">
+  <div class="val">
+    <span class="keyword">val</span> getegid : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:setgid">
+  <div class="val">
+    <span class="keyword">val</span> setgid : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:getgroups">
+  <div class="val">
+    <span class="keyword">val</span> getgroups : unit -&gt; int array
+    
+  </div>
+  </div>
+  
+  <div id="val:setgroups">
+  <div class="val">
+    <span class="keyword">val</span> setgroups : int array -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:initgroups">
+  <div class="val">
+    <span class="keyword">val</span> initgroups : string -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:passwd_entry">
+  <div class="type">
+    <span class="keyword">type</span> passwd_entry = {<div class="field">pw_name : string;</div><div class="field">pw_passwd : string;</div><div class="field">pw_uid : int;</div><div class="field">pw_gid : int;</div><div class="field">pw_gecos : string;</div><div class="field">pw_dir : string;</div><div class="field">pw_shell : string;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:group_entry">
+  <div class="type">
+    <span class="keyword">type</span> group_entry = {<div class="field">gr_name : string;</div><div class="field">gr_passwd : string;</div><div class="field">gr_gid : int;</div><div class="field">gr_mem : string array;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:getlogin">
+  <div class="val">
+    <span class="keyword">val</span> getlogin : unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:getpwnam">
+  <div class="val">
+    <span class="keyword">val</span> getpwnam : string -&gt; passwd_entry
+    
+  </div>
+  </div>
+  
+  <div id="val:getgrnam">
+  <div class="val">
+    <span class="keyword">val</span> getgrnam : string -&gt; group_entry
+    
+  </div>
+  </div>
+  
+  <div id="val:getpwuid">
+  <div class="val">
+    <span class="keyword">val</span> getpwuid : int -&gt; passwd_entry
+    
+  </div>
+  </div>
+  
+  <div id="val:getgrgid">
+  <div class="val">
+    <span class="keyword">val</span> getgrgid : int -&gt; group_entry
+    
+  </div>
+  </div>
+  
+  <div id="type:inet_addr">
+  <div class="type">
+    <span class="keyword">type</span> inet_addr
+    
+  </div>
+  </div>
+  
+  <div id="val:inet_addr_of_string">
+  <div class="val">
+    <span class="keyword">val</span> inet_addr_of_string : string -&gt; inet_addr
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_inet_addr">
+  <div class="val">
+    <span class="keyword">val</span> string_of_inet_addr : inet_addr -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:inet_addr_any">
+  <div class="val">
+    <span class="keyword">val</span> inet_addr_any : inet_addr
+    
+  </div>
+  </div>
+  
+  <div id="val:inet_addr_loopback">
+  <div class="val">
+    <span class="keyword">val</span> inet_addr_loopback : inet_addr
+    
+  </div>
+  </div>
+  
+  <div id="val:inet6_addr_any">
+  <div class="val">
+    <span class="keyword">val</span> inet6_addr_any : inet_addr
+    
+  </div>
+  </div>
+  
+  <div id="val:inet6_addr_loopback">
+  <div class="val">
+    <span class="keyword">val</span> inet6_addr_loopback : inet_addr
+    
+  </div>
+  </div>
+  
+  <div id="type:socket_domain">
+  <div class="type">
+    <span class="keyword">type</span> socket_domain = <div class="constr">| PF_UNIX</div><div class="constr">| PF_INET</div><div class="constr">| PF_INET6</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:socket_type">
+  <div class="type">
+    <span class="keyword">type</span> socket_type = <div class="constr">| SOCK_STREAM</div><div class="constr">| SOCK_DGRAM</div><div class="constr">| SOCK_RAW</div><div class="constr">| SOCK_SEQPACKET</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:sockaddr">
+  <div class="type">
+    <span class="keyword">type</span> sockaddr = <div class="constr">| ADDR_UNIX <span class="keyword">of</span> string</div><div class="constr">| ADDR_INET <span class="keyword">of</span> inet_addr * int</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:socket">
+  <div class="val">
+    <span class="keyword">val</span> socket : socket_domain -&gt; socket_type -&gt; int -&gt; file_descr
+    
+  </div>
+  </div>
+  
+  <div id="val:domain_of_sockaddr">
+  <div class="val">
+    <span class="keyword">val</span> domain_of_sockaddr : sockaddr -&gt; socket_domain
+    
+  </div>
+  </div>
+  
+  <div id="val:socketpair">
+  <div class="val">
+    <span class="keyword">val</span> socketpair : socket_domain -&gt; socket_type -&gt; int -&gt; (file_descr * file_descr)
+    
+  </div>
+  </div>
+  
+  <div id="val:accept">
+  <div class="val">
+    <span class="keyword">val</span> accept : file_descr -&gt; (file_descr * sockaddr)
+    
+  </div>
+  </div>
+  
+  <div id="val:bind">
+  <div class="val">
+    <span class="keyword">val</span> bind : file_descr -&gt; sockaddr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:connect">
+  <div class="val">
+    <span class="keyword">val</span> connect : file_descr -&gt; sockaddr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:listen">
+  <div class="val">
+    <span class="keyword">val</span> listen : file_descr -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:shutdown_command">
+  <div class="type">
+    <span class="keyword">type</span> shutdown_command = <div class="constr">| SHUTDOWN_RECEIVE</div><div class="constr">| SHUTDOWN_SEND</div><div class="constr">| SHUTDOWN_ALL</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:shutdown">
+  <div class="val">
+    <span class="keyword">val</span> shutdown : file_descr -&gt; shutdown_command -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:getsockname">
+  <div class="val">
+    <span class="keyword">val</span> getsockname : file_descr -&gt; sockaddr
+    
+  </div>
+  </div>
+  
+  <div id="val:getpeername">
+  <div class="val">
+    <span class="keyword">val</span> getpeername : file_descr -&gt; sockaddr
+    
+  </div>
+  </div>
+  
+  <div id="type:msg_flag">
+  <div class="type">
+    <span class="keyword">type</span> msg_flag = <div class="constr">| MSG_OOB</div><div class="constr">| MSG_DONTROUTE</div><div class="constr">| MSG_PEEK</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:recv">
+  <div class="val">
+    <span class="keyword">val</span> recv : file_descr -&gt; bytes -&gt; int -&gt; int -&gt; msg_flag list -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:recvfrom">
+  <div class="val">
+    <span class="keyword">val</span> recvfrom : file_descr -&gt; bytes -&gt; int -&gt; int -&gt; msg_flag list -&gt; (int * sockaddr)
+    
+  </div>
+  </div>
+  
+  <div id="val:send">
+  <div class="val">
+    <span class="keyword">val</span> send : file_descr -&gt; bytes -&gt; int -&gt; int -&gt; msg_flag list -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:send_substring">
+  <div class="val">
+    <span class="keyword">val</span> send_substring : file_descr -&gt; string -&gt; int -&gt; int -&gt; msg_flag list -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:sendto">
+  <div class="val">
+    <span class="keyword">val</span> sendto : file_descr -&gt; bytes -&gt; int -&gt; int -&gt; msg_flag list -&gt; sockaddr -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:sendto_substring">
+  <div class="val">
+    <span class="keyword">val</span> sendto_substring : file_descr -&gt; string -&gt; int -&gt; int -&gt; msg_flag list -&gt; sockaddr -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="type:socket_bool_option">
+  <div class="type">
+    <span class="keyword">type</span> socket_bool_option = <div class="constr">| SO_DEBUG</div><div class="constr">| SO_BROADCAST</div><div class="constr">| SO_REUSEADDR</div><div class="constr">| SO_KEEPALIVE</div><div class="constr">| SO_DONTROUTE</div><div class="constr">| SO_OOBINLINE</div><div class="constr">| SO_ACCEPTCONN</div><div class="constr">| TCP_NODELAY</div><div class="constr">| IPV6_ONLY</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:socket_int_option">
+  <div class="type">
+    <span class="keyword">type</span> socket_int_option = <div class="constr">| SO_SNDBUF</div><div class="constr">| SO_RCVBUF</div><div class="constr">| SO_ERROR</div><div class="constr">| SO_TYPE</div><div class="constr">| SO_RCVLOWAT</div><div class="constr">| SO_SNDLOWAT</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:socket_optint_option">
+  <div class="type">
+    <span class="keyword">type</span> socket_optint_option = <div class="constr">| SO_LINGER</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:socket_float_option">
+  <div class="type">
+    <span class="keyword">type</span> socket_float_option = <div class="constr">| SO_RCVTIMEO</div><div class="constr">| SO_SNDTIMEO</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:getsockopt">
+  <div class="val">
+    <span class="keyword">val</span> getsockopt : file_descr -&gt; socket_bool_option -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:setsockopt">
+  <div class="val">
+    <span class="keyword">val</span> setsockopt : file_descr -&gt; socket_bool_option -&gt; bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:getsockopt_int">
+  <div class="val">
+    <span class="keyword">val</span> getsockopt_int : file_descr -&gt; socket_int_option -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:setsockopt_int">
+  <div class="val">
+    <span class="keyword">val</span> setsockopt_int : file_descr -&gt; socket_int_option -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:getsockopt_optint">
+  <div class="val">
+    <span class="keyword">val</span> getsockopt_optint : file_descr -&gt; socket_optint_option -&gt; int option
+    
+  </div>
+  </div>
+  
+  <div id="val:setsockopt_optint">
+  <div class="val">
+    <span class="keyword">val</span> setsockopt_optint : file_descr -&gt; socket_optint_option -&gt; int option -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:getsockopt_float">
+  <div class="val">
+    <span class="keyword">val</span> getsockopt_float : file_descr -&gt; socket_float_option -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:setsockopt_float">
+  <div class="val">
+    <span class="keyword">val</span> setsockopt_float : file_descr -&gt; socket_float_option -&gt; float -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:getsockopt_error">
+  <div class="val">
+    <span class="keyword">val</span> getsockopt_error : file_descr -&gt; error option
+    
+  </div>
+  </div>
+  
+  <div id="val:open_connection">
+  <div class="val">
+    <span class="keyword">val</span> open_connection : sockaddr -&gt; (<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a>)
+    
+  </div>
+  </div>
+  
+  <div id="val:shutdown_connection">
+  <div class="val">
+    <span class="keyword">val</span> shutdown_connection : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:establish_server">
+  <div class="val">
+    <span class="keyword">val</span> establish_server : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; unit -&gt; sockaddr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:host_entry">
+  <div class="type">
+    <span class="keyword">type</span> host_entry = {<div class="field">h_name : string;</div><div class="field">h_aliases : string array;</div><div class="field">h_addrtype : socket_domain;</div><div class="field">h_addr_list : inet_addr array;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:protocol_entry">
+  <div class="type">
+    <span class="keyword">type</span> protocol_entry = {<div class="field">p_name : string;</div><div class="field">p_aliases : string array;</div><div class="field">p_proto : int;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:service_entry">
+  <div class="type">
+    <span class="keyword">type</span> service_entry = {<div class="field">s_name : string;</div><div class="field">s_aliases : string array;</div><div class="field">s_port : int;</div><div class="field">s_proto : string;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:gethostname">
+  <div class="val">
+    <span class="keyword">val</span> gethostname : unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:gethostbyname">
+  <div class="val">
+    <span class="keyword">val</span> gethostbyname : string -&gt; host_entry
+    
+  </div>
+  </div>
+  
+  <div id="val:gethostbyaddr">
+  <div class="val">
+    <span class="keyword">val</span> gethostbyaddr : inet_addr -&gt; host_entry
+    
+  </div>
+  </div>
+  
+  <div id="val:getprotobyname">
+  <div class="val">
+    <span class="keyword">val</span> getprotobyname : string -&gt; protocol_entry
+    
+  </div>
+  </div>
+  
+  <div id="val:getprotobynumber">
+  <div class="val">
+    <span class="keyword">val</span> getprotobynumber : int -&gt; protocol_entry
+    
+  </div>
+  </div>
+  
+  <div id="val:getservbyname">
+  <div class="val">
+    <span class="keyword">val</span> getservbyname : string -&gt; string -&gt; service_entry
+    
+  </div>
+  </div>
+  
+  <div id="val:getservbyport">
+  <div class="val">
+    <span class="keyword">val</span> getservbyport : int -&gt; string -&gt; service_entry
+    
+  </div>
+  </div>
+  
+  <div id="type:addr_info">
+  <div class="type">
+    <span class="keyword">type</span> addr_info = {<div class="field">ai_family : socket_domain;</div><div class="field">ai_socktype : socket_type;</div><div class="field">ai_protocol : int;</div><div class="field">ai_addr : sockaddr;</div><div class="field">ai_canonname : string;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:getaddrinfo_option">
+  <div class="type">
+    <span class="keyword">type</span> getaddrinfo_option = <div class="constr">| AI_FAMILY <span class="keyword">of</span> socket_domain</div><div class="constr">| AI_SOCKTYPE <span class="keyword">of</span> socket_type</div><div class="constr">| AI_PROTOCOL <span class="keyword">of</span> int</div><div class="constr">| AI_NUMERICHOST</div><div class="constr">| AI_CANONNAME</div><div class="constr">| AI_PASSIVE</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:getaddrinfo">
+  <div class="val">
+    <span class="keyword">val</span> getaddrinfo : string -&gt; string -&gt; getaddrinfo_option list -&gt; addr_info list
+    
+  </div>
+  </div>
+  
+  <div id="type:name_info">
+  <div class="type">
+    <span class="keyword">type</span> name_info = {<div class="field">ni_hostname : string;</div><div class="field">ni_service : string;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:getnameinfo_option">
+  <div class="type">
+    <span class="keyword">type</span> getnameinfo_option = <div class="constr">| NI_NOFQDN</div><div class="constr">| NI_NUMERICHOST</div><div class="constr">| NI_NAMEREQD</div><div class="constr">| NI_NUMERICSERV</div><div class="constr">| NI_DGRAM</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:getnameinfo">
+  <div class="val">
+    <span class="keyword">val</span> getnameinfo : sockaddr -&gt; getnameinfo_option list -&gt; name_info
+    
+  </div>
+  </div>
+  
+  <div id="type:terminal_io">
+  <div class="type">
+    <span class="keyword">type</span> terminal_io = {<div class="field">c_ignbrk : bool;</div><div class="field">c_brkint : bool;</div><div class="field">c_ignpar : bool;</div><div class="field">c_parmrk : bool;</div><div class="field">c_inpck : bool;</div><div class="field">c_istrip : bool;</div><div class="field">c_inlcr : bool;</div><div class="field">c_igncr : bool;</div><div class="field">c_icrnl : bool;</div><div class="field">c_ixon : bool;</div><div class="field">c_ixoff : bool;</div><div class="field">c_opost : bool;</div><div class="field">c_obaud : int;</div><div class="field">c_ibaud : int;</div><div class="field">c_csize : int;</div><div class="field">c_cstopb : int;</div><div class="field">c_cread : bool;</div><div class="field">c_parenb : bool;</div><div class="field">c_parodd : bool;</div><div class="field">c_hupcl : bool;</div><div class="field">c_clocal : bool;</div><div class="field">c_isig : bool;</div><div class="field">c_icanon : bool;</div><div class="field">c_noflsh : bool;</div><div class="field">c_echo : bool;</div><div class="field">c_echoe : bool;</div><div class="field">c_echok : bool;</div><div class="field">c_echonl : bool;</div><div class="field">c_vintr : char;</div><div class="field">c_vquit : char;</div><div class="field">c_verase : char;</div><div class="field">c_vkill : char;</div><div class="field">c_veof : char;</div><div class="field">c_veol : char;</div><div class="field">c_vmin : int;</div><div class="field">c_vtime : int;</div><div class="field">c_vstart : char;</div><div class="field">c_vstop : char;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:tcgetattr">
+  <div class="val">
+    <span class="keyword">val</span> tcgetattr : file_descr -&gt; terminal_io
+    
+  </div>
+  </div>
+  
+  <div id="type:setattr_when">
+  <div class="type">
+    <span class="keyword">type</span> setattr_when = <div class="constr">| TCSANOW</div><div class="constr">| TCSADRAIN</div><div class="constr">| TCSAFLUSH</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:tcsetattr">
+  <div class="val">
+    <span class="keyword">val</span> tcsetattr : file_descr -&gt; setattr_when -&gt; terminal_io -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:tcsendbreak">
+  <div class="val">
+    <span class="keyword">val</span> tcsendbreak : file_descr -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:tcdrain">
+  <div class="val">
+    <span class="keyword">val</span> tcdrain : file_descr -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:flush_queue">
+  <div class="type">
+    <span class="keyword">type</span> flush_queue = <div class="constr">| TCIFLUSH</div><div class="constr">| TCOFLUSH</div><div class="constr">| TCIOFLUSH</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:tcflush">
+  <div class="val">
+    <span class="keyword">val</span> tcflush : file_descr -&gt; flush_queue -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:flow_action">
+  <div class="type">
+    <span class="keyword">type</span> flow_action = <div class="constr">| TCOOFF</div><div class="constr">| TCOON</div><div class="constr">| TCIOFF</div><div class="constr">| TCION</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:tcflow">
+  <div class="val">
+    <span class="keyword">val</span> tcflow : file_descr -&gt; flow_action -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:setsid">
+  <div class="val">
+    <span class="keyword">val</span> setsid : unit -&gt; int
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 unix Module 'Unix' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

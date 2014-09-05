@@ -1,0 +1,792 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ounit.2.0.0 oUnit Module 'OUnit' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnit/">OUnit</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="val:assert_failure">
+  <div class="val">
+    <span class="keyword">val</span> assert_failure : string -&gt; 'a
+    
+      <div class="doc">
+        Signals a failure. This will raise an exception with the specified
+string.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> signal a failure
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assert_bool">
+  <div class="val">
+    <span class="keyword">val</span> assert_bool : string -&gt; bool -&gt; unit
+    
+      <div class="doc">
+        Signals a failure when bool is false. The string identifies the
+failure.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> signal a failure
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:(@?)">
+  <div class="val">
+    <span class="keyword">val</span> (@?) : string -&gt; bool -&gt; unit
+    
+      <div class="doc">
+        Shorthand for assert_bool
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> to signal a failure
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assert_string">
+  <div class="val">
+    <span class="keyword">val</span> assert_string : string -&gt; unit
+    
+      <div class="doc">
+        Signals a failure when the string is non-empty. The string identifies the
+failure.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> signal a failure
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assert_command">
+  <div class="val">
+    <span class="keyword">val</span> assert_command : ?exit_code:<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/">Unix</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/#type:process_status">process_status</a> -&gt; ?sinput:char <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/">Stream</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/#type:t">t</a> -&gt; ?foutput:char <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/">Stream</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Stream/#type:t">t</a> -&gt; unit -&gt; ?use_stderr:bool -&gt; ?env:string array -&gt; ?verbose:bool -&gt; string -&gt; string list -&gt; unit
+    
+      <div class="doc">
+        <code>assert_command prg args</code> Run the command provided.
+        
+  <div class="tag param">
+    <span class="label">exit_code</span> expected exit code
+  </div>
+  
+  <div class="tag param">
+    <span class="label">sinput</span> provide this <code>char Stream.t</code> as input of the process
+  </div>
+  
+  <div class="tag param">
+    <span class="label">foutput</span> run this function on output, it can contains an
+<code>assert_equal</code> to check it
+  </div>
+  
+  <div class="tag param">
+    <span class="label">use_stderr</span> redirect <code>stderr</code> to <code>stdout</code>
+  </div>
+  
+  <div class="tag param">
+    <span class="label">env</span> Unix environment
+  </div>
+  
+  <div class="tag param">
+    <span class="label">verbose</span> if failed, dump stdout/stderr of the process to stderr
+  </div>
+  
+  <div class="tag since">
+    <span class="label">Since</span> 1.1.0
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assert_equal">
+  <div class="val">
+    <span class="keyword">val</span> assert_equal : ?cmp:'a -&gt; 'a -&gt; bool -&gt; ?printer:'a -&gt; string -&gt; ?pp_diff:<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; ('a * 'a) -&gt; unit -&gt; ?msg:string -&gt; 'a -&gt; 'a -&gt; unit
+    
+      <div class="doc">
+        <code>assert_equal expected real</code> Compares two values, when they are not equal a
+failure is signaled.
+        
+  <div class="tag param">
+    <span class="label">cmp</span> customize function to compare, default is <code>=</code>
+  </div>
+  
+  <div class="tag param">
+    <span class="label">printer</span> value printer, don't print value otherwise
+  </div>
+  
+  <div class="tag param">
+    <span class="label">pp_diff</span> if not equal, ask a custom display of the difference
+using <code>diff fmt exp real</code> where <code>fmt</code> is the formatter to use
+  </div>
+  
+  <div class="tag param">
+    <span class="label">msg</span> custom message to identify the failure
+  </div>
+  
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> signal a failure
+  </div>
+  
+  <div class="tag version">
+    <span class="label">Version</span> 1.1.0
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assert_raises">
+  <div class="val">
+    <span class="keyword">val</span> assert_raises : ?msg:string -&gt; exn -&gt; unit -&gt; 'a -&gt; unit
+    
+      <div class="doc">
+        Asserts if the expected exception was raised.
+        
+  <div class="tag param">
+    <span class="label">msg</span> identify the failure
+  </div>
+  
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> description
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:skip_if">
+  <div class="val">
+    <span class="keyword">val</span> skip_if : bool -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>skip cond msg</code> If <code>cond</code> is true, skip the test for the reason explain in
+<code>msg</code>. For example <code>skip_if (Sys.os_type = &quot;Win32&quot;) &quot;Test a doesn't run on
+    windows&quot;</code>.
+        
+  <div class="tag since">
+    <span class="label">Since</span> 1.0.3
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:todo">
+  <div class="val">
+    <span class="keyword">val</span> todo : string -&gt; unit
+    
+      <div class="doc">
+        The associated test is still to be done, for the reason given.
+        
+  <div class="tag since">
+    <span class="label">Since</span> 1.0.3
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:cmp_float">
+  <div class="val">
+    <span class="keyword">val</span> cmp_float : ?epsilon:float -&gt; float -&gt; float -&gt; bool
+    
+      <div class="doc">
+        Compare floats up to a given relative error.
+        
+  <div class="tag param">
+    <span class="label">epsilon</span> if the difference is smaller <code>epsilon</code> values are equal
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:bracket">
+  <div class="val">
+    <span class="keyword">val</span> bracket : unit -&gt; 'a -&gt; 'a -&gt; unit -&gt; 'a -&gt; unit -&gt; unit -&gt; unit
+    
+      <div class="doc">
+        <code>bracket set_up test tear_down</code> The <code>set_up</code> function runs first, then
+the <code>test</code> function runs and at the end <code>tear_down</code> runs. The
+<code>tear_down</code> function runs even if the <code>test</code> failed and help to clean
+the environment.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:bracket_tmpfile">
+  <div class="val">
+    <span class="keyword">val</span> bracket_tmpfile : ?prefix:string -&gt; ?suffix:string -&gt; ?mode:<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:open_flag">open_flag</a> list -&gt; (string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a>) -&gt; unit -&gt; unit -&gt; unit
+    
+      <div class="doc">
+        <code>bracket_tmpfile test</code> The <code>test</code> function takes a temporary filename
+and matching output channel as arguments. The temporary file is created
+before the test and removed after the test.
+        
+  <div class="tag param">
+    <span class="label">prefix</span> see <code>Filename.open_temp_file</code>
+  </div>
+  
+  <div class="tag param">
+    <span class="label">suffix</span> see <code>Filename.open_temp_file</code>
+  </div>
+  
+  <div class="tag param">
+    <span class="label">mode</span> see <code>Filename.open_temp_file</code>
+  </div>
+  
+  <div class="tag since">
+    <span class="label">Since</span> 1.1.0
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:test_fun">
+  <div class="type">
+    <span class="keyword">type</span> test_fun = unit -&gt; unit
+    
+      <div class="doc">
+        The type of test function
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:test">
+  <div class="type">
+    <span class="keyword">type</span> test = <div class="constr">| TestCase <span class="keyword">of</span> test_fun</div><div class="constr">| TestList <span class="keyword">of</span> test list</div><div class="constr">| TestLabel <span class="keyword">of</span> string * test</div>
+    
+      <div class="doc">
+        The type of tests
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;:)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;:) : string -&gt; test -&gt; test
+    
+      <div class="doc">
+        Create a TestLabel for a test
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;::)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;::) : string -&gt; test_fun -&gt; test
+    
+      <div class="doc">
+        Create a TestLabel for a TestCase
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;:::)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;:::) : string -&gt; test list -&gt; test
+    
+      <div class="doc">
+        Create a TestLabel for a TestList
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:test_decorate">
+  <div class="val">
+    <span class="keyword">val</span> test_decorate : test_fun -&gt; test_fun -&gt; test -&gt; test
+    
+      <div class="doc">
+        <code>test_decorate g tst</code> Apply <code>g</code> to test function contains in <code>tst</code> tree.
+        
+  <div class="tag since">
+    <span class="label">Since</span> 1.0.3
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:test_filter">
+  <div class="val">
+    <span class="keyword">val</span> test_filter : ?skip:bool -&gt; string list -&gt; test -&gt; test option
+    
+      <div class="doc">
+        <code>test_filter paths tst</code> Filter test based on their path string
+representation.
+        
+  <div class="tag param">
+    <span class="label">skip</span> if set, just use <code>skip_if</code> for the matching tests.
+  </div>
+  
+  <div class="tag since">
+    <span class="label">Since</span> 1.0.3
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:test_case_count">
+  <div class="val">
+    <span class="keyword">val</span> test_case_count : test -&gt; int
+    
+      <div class="doc">
+        Returns the number of available test cases
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:node">
+  <div class="type">
+    <span class="keyword">type</span> node = <div class="constr">| ListItem <span class="keyword">of</span> int</div><div class="constr">| Label <span class="keyword">of</span> string</div>
+    
+      <div class="doc">
+        Types which represent the path of a test
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:path">
+  <div class="type">
+    <span class="keyword">type</span> path = node list
+    
+      <div class="doc">
+        The path to the test (in reverse order).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_node">
+  <div class="val">
+    <span class="keyword">val</span> string_of_node : node -&gt; string
+    
+      <div class="doc">
+        Make a string from a node
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_path">
+  <div class="val">
+    <span class="keyword">val</span> string_of_path : path -&gt; string
+    
+      <div class="doc">
+        Make a string from a path. The path will be reversed before it is
+tranlated into a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:test_case_paths">
+  <div class="val">
+    <span class="keyword">val</span> test_case_paths : test -&gt; path list
+    
+      <div class="doc">
+        Returns a list with paths of the test
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:test_result">
+  <div class="type">
+    <span class="keyword">type</span> test_result = <div class="constr">| RSuccess <span class="keyword">of</span> path</div><div class="constr">| RFailure <span class="keyword">of</span> path * string</div><div class="constr">| RError <span class="keyword">of</span> path * string</div><div class="constr">| RSkip <span class="keyword">of</span> path * string</div><div class="constr">| RTodo <span class="keyword">of</span> path * string</div>
+    
+      <div class="doc">
+        The possible results of a test
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:test_event">
+  <div class="type">
+    <span class="keyword">type</span> test_event = <div class="constr">| EStart <span class="keyword">of</span> path <span class="doc">(* A test start. *)</span></div><div class="constr">| EEnd <span class="keyword">of</span> path <span class="doc">(* A test end. *)</span></div><div class="constr">| EResult <span class="keyword">of</span> test_result <span class="doc">(* Result of a test. *)</span></div>
+    
+      <div class="doc">
+        Events which occur during a test run.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:test_results">
+  <div class="type">
+    <span class="keyword">type</span> test_results = test_result list
+    
+      <div class="doc">
+        Results of a test run.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:perform_test">
+  <div class="val">
+    <span class="keyword">val</span> perform_test : test_event -&gt; unit -&gt; test -&gt; test_results
+    
+      <div class="doc">
+        Perform the test, allows you to build your own test runner
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:run_test_tt">
+  <div class="val">
+    <span class="keyword">val</span> run_test_tt : ?verbose:bool -&gt; test -&gt; test_results
+    
+      <div class="doc">
+        A simple text based test runner.
+        
+  <div class="tag param">
+    <span class="label">verbose</span> print verbose message
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:run_test_tt_main">
+  <div class="val">
+    <span class="keyword">val</span> run_test_tt_main : ?arg_specs:(<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Arg/">Arg</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Arg/#type:key">key</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Arg/">Arg</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Arg/#type:spec">spec</a> * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Arg/">Arg</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Arg/#type:doc">doc</a>) list -&gt; ?set_verbose:bool -&gt; unit -&gt; test -&gt; test_results
+    
+      <div class="doc">
+        Main version of the text based test runner. It reads the supplied command
+line arguments to set the verbose level and limit the number of test to
+run.
+        
+  <div class="tag param">
+    <span class="label">arg_specs</span> add extra command line arguments
+  </div>
+  
+  <div class="tag param">
+    <span class="label">set_verbose</span> call a function to set verbosity
+  </div>
+  
+  <div class="tag param">
+    <span class="label">fexit</span> call a final function after test, by default exit 1.
+  </div>
+  
+  <div class="tag version">
+    <span class="label">Version</span> 1.1.0
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ounit2_of_ounit1">
+  <div class="val">
+    <span class="keyword">val</span> ounit2_of_ounit1 : test -&gt; <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnit2/">OUnit2</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnit2/#type:test">test</a>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ounit.2.0.0 oUnit Module 'OUnit' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

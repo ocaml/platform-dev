@@ -1,0 +1,2144 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 ocamlbuild Module 'Ocamlbuild_plugin' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_plugin/">Ocamlbuild_plugin</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="module:Pathname">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Pathname : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Pathname#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:concat">
+  <div class="val">
+    <span class="keyword">val</span> concat : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : string -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:define_context">
+  <div class="val">
+    <span class="keyword">val</span> define_context : string -&gt; string list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:include_dirs_of">
+  <div class="val">
+    <span class="keyword">val</span> include_dirs_of : string -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : t -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:print">
+  <div class="val">
+    <span class="keyword">val</span> print : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:current_dir_name">
+  <div class="val">
+    <span class="keyword">val</span> current_dir_name : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:parent_dir_name">
+  <div class="val">
+    <span class="keyword">val</span> parent_dir_name : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:same_contents">
+  <div class="val">
+    <span class="keyword">val</span> same_contents : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:basename">
+  <div class="val">
+    <span class="keyword">val</span> basename : t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:dirname">
+  <div class="val">
+    <span class="keyword">val</span> dirname : t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:is_relative">
+  <div class="val">
+    <span class="keyword">val</span> is_relative : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:readlink">
+  <div class="val">
+    <span class="keyword">val</span> readlink : t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:readdir">
+  <div class="val">
+    <span class="keyword">val</span> readdir : t -&gt; t array
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:is_link">
+  <div class="val">
+    <span class="keyword">val</span> is_link : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:is_directory">
+  <div class="val">
+    <span class="keyword">val</span> is_directory : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:add_extension">
+  <div class="val">
+    <span class="keyword">val</span> add_extension : string -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:check_extension">
+  <div class="val">
+    <span class="keyword">val</span> check_extension : t -&gt; string -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:get_extension">
+  <div class="val">
+    <span class="keyword">val</span> get_extension : t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:remove_extension">
+  <div class="val">
+    <span class="keyword">val</span> remove_extension : t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:update_extension">
+  <div class="val">
+    <span class="keyword">val</span> update_extension : string -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:get_extensions">
+  <div class="val">
+    <span class="keyword">val</span> get_extensions : t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:remove_extensions">
+  <div class="val">
+    <span class="keyword">val</span> remove_extensions : t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:update_extensions">
+  <div class="val">
+    <span class="keyword">val</span> update_extensions : string -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:print_path_list">
+  <div class="val">
+    <span class="keyword">val</span> print_path_list : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; t list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:pwd">
+  <div class="val">
+    <span class="keyword">val</span> pwd : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:parent">
+  <div class="val">
+    <span class="keyword">val</span> parent : t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:is_prefix">
+  <div class="val">
+    <span class="keyword">val</span> is_prefix : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:is_implicit">
+  <div class="val">
+    <span class="keyword">val</span> is_implicit : t -&gt; bool
+    
+  </div>
+  </div>
+  
+    <div id="module:Pathname#module:Operators">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Operators : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Pathname#module:Operators#val:(/)">
+  <div class="val">
+    <span class="keyword">val</span> (/) : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#module:Operators#val:(-.-)">
+  <div class="val">
+    <span class="keyword">val</span> (-.-) : t -&gt; string -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Pathname#val:link_to_dir">
+  <div class="val">
+    <span class="keyword">val</span> link_to_dir : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Pathname#val:normalize">
+  <div class="val">
+    <span class="keyword">val</span> normalize : t -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Tags">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Tags : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Tags#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : string list -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:print">
+  <div class="val">
+    <span class="keyword">val</span> print : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#val:does_match">
+  <div class="val">
+    <span class="keyword">val</span> does_match : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+    <div id="module:Tags#module:Operators">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Operators : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Tags#module:Operators#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#module:Operators#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#module:Operators#val:(+++)">
+  <div class="val">
+    <span class="keyword">val</span> (+++) : t -&gt; elt option -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Tags#module:Operators#val:(---)">
+  <div class="val">
+    <span class="keyword">val</span> (---) : t -&gt; elt option -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Command">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Command : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Command#type:tags">
+  <div class="type">
+    <span class="keyword">type</span> tags = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#type:pathname">
+  <div class="type">
+    <span class="keyword">type</span> pathname = string
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Command">Command</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Command%23type:t">t</a> = <div class="constr">| Seq <span class="keyword">of</span> t list</div><div class="constr">| Cmd <span class="keyword">of</span> spec</div><div class="constr">| Echo <span class="keyword">of</span> string list * pathname</div><div class="constr">| Nop</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#type:spec">
+  <div class="type">
+    <span class="keyword">type</span> spec = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Command">Command</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Command%23type:spec">spec</a> = <div class="constr">| N</div><div class="constr">| S <span class="keyword">of</span> spec list</div><div class="constr">| A <span class="keyword">of</span> string</div><div class="constr">| P <span class="keyword">of</span> pathname</div><div class="constr">| Px <span class="keyword">of</span> pathname</div><div class="constr">| Sh <span class="keyword">of</span> string</div><div class="constr">| T <span class="keyword">of</span> tags</div><div class="constr">| V <span class="keyword">of</span> string</div><div class="constr">| Quote <span class="keyword">of</span> spec</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:atomize">
+  <div class="val">
+    <span class="keyword">val</span> atomize : string list -&gt; spec
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:atomize_paths">
+  <div class="val">
+    <span class="keyword">val</span> atomize_paths : string list -&gt; spec
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:execute">
+  <div class="val">
+    <span class="keyword">val</span> execute : ?quiet:bool -&gt; ?pretend:bool -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:execute_many">
+  <div class="val">
+    <span class="keyword">val</span> execute_many : ?quiet:bool -&gt; ?pretend:bool -&gt; t list -&gt; (bool list * exn) option
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:setup_virtual_command_solver">
+  <div class="val">
+    <span class="keyword">val</span> setup_virtual_command_solver : string -&gt; unit -&gt; spec -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:search_in_path">
+  <div class="val">
+    <span class="keyword">val</span> search_in_path : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:reduce">
+  <div class="val">
+    <span class="keyword">val</span> reduce : spec -&gt; spec
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:print">
+  <div class="val">
+    <span class="keyword">val</span> print : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:string_of_command_spec">
+  <div class="val">
+    <span class="keyword">val</span> string_of_command_spec : spec -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:string_target_and_tags_of_command_spec">
+  <div class="val">
+    <span class="keyword">val</span> string_target_and_tags_of_command_spec : spec -&gt; (string * string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:t">t</a>)
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:iter_tags">
+  <div class="val">
+    <span class="keyword">val</span> iter_tags : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:t">t</a> -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:fold_pathnames">
+  <div class="val">
+    <span class="keyword">val</span> fold_pathnames : pathname -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:digest">
+  <div class="val">
+    <span class="keyword">val</span> digest : t -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Digest/">Digest</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Digest/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:jobs">
+  <div class="val">
+    <span class="keyword">val</span> jobs : int <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:tag_handler">
+  <div class="val">
+    <span class="keyword">val</span> tag_handler : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:t">t</a> -&gt; spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:dump_parallel_stats">
+  <div class="val">
+    <span class="keyword">val</span> dump_parallel_stats : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:deps_of_tags">
+  <div class="val">
+    <span class="keyword">val</span> deps_of_tags : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:t">t</a> -&gt; pathname list
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:dep">
+  <div class="val">
+    <span class="keyword">val</span> dep : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:elt">elt</a> list -&gt; pathname list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:pdep">
+  <div class="val">
+    <span class="keyword">val</span> pdep : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:elt">elt</a> list -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags">Tags</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Tags%23type:elt">elt</a> -&gt; string -&gt; pathname list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Command#val:file_or_exe_exists">
+  <div class="val">
+    <span class="keyword">val</span> file_or_exe_exists : string -&gt; bool
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Outcome">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Outcome : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Outcome#type:t">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) t = ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:My_std">My_std</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:My_std%23module:Outcome">Outcome</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:My_std%23module:Outcome%23type:t">t</a> = <div class="constr">| Good <span class="keyword">of</span> 'a</div><div class="constr">| Bad <span class="keyword">of</span> 'b</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Outcome#val:wrap">
+  <div class="val">
+    <span class="keyword">val</span> wrap : 'a -&gt; 'b -&gt; 'a -&gt; ('b, exn) t
+    
+  </div>
+  </div>
+  
+  <div id="module:Outcome#val:ignore_good">
+  <div class="val">
+    <span class="keyword">val</span> ignore_good : ('a, exn) t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Outcome#val:good">
+  <div class="val">
+    <span class="keyword">val</span> good : ('a, exn) t -&gt; 'a
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> String : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Signatures">Signatures</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Signatures%23modtype:STRING">STRING</a>
+      </div>
+      
+    </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> List : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Signatures">Signatures</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Signatures%23modtype:LIST">LIST</a>
+      </div>
+      
+    </div>
+  
+    <div id="module:StringSet">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> StringSet : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:StringSet#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = String.t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:StringSet#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Options">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Options : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Options#type:command_spec">
+  <div class="type">
+    <span class="keyword">type</span> command_spec = Command.spec
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:build_dir">
+  <div class="val">
+    <span class="keyword">val</span> build_dir : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:include_dirs">
+  <div class="val">
+    <span class="keyword">val</span> include_dirs : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:exclude_dirs">
+  <div class="val">
+    <span class="keyword">val</span> exclude_dirs : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:nothing_should_be_rebuilt">
+  <div class="val">
+    <span class="keyword">val</span> nothing_should_be_rebuilt : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamlc">
+  <div class="val">
+    <span class="keyword">val</span> ocamlc : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamlopt">
+  <div class="val">
+    <span class="keyword">val</span> ocamlopt : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamldep">
+  <div class="val">
+    <span class="keyword">val</span> ocamldep : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamldoc">
+  <div class="val">
+    <span class="keyword">val</span> ocamldoc : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamlyacc">
+  <div class="val">
+    <span class="keyword">val</span> ocamlyacc : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamllex">
+  <div class="val">
+    <span class="keyword">val</span> ocamllex : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamlrun">
+  <div class="val">
+    <span class="keyword">val</span> ocamlrun : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamlmklib">
+  <div class="val">
+    <span class="keyword">val</span> ocamlmklib : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocamlmktop">
+  <div class="val">
+    <span class="keyword">val</span> ocamlmktop : command_spec <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:hygiene">
+  <div class="val">
+    <span class="keyword">val</span> hygiene : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:sanitize">
+  <div class="val">
+    <span class="keyword">val</span> sanitize : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:sanitization_script">
+  <div class="val">
+    <span class="keyword">val</span> sanitization_script : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ignore_auto">
+  <div class="val">
+    <span class="keyword">val</span> ignore_auto : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:plugin">
+  <div class="val">
+    <span class="keyword">val</span> plugin : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:just_plugin">
+  <div class="val">
+    <span class="keyword">val</span> just_plugin : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:native_plugin">
+  <div class="val">
+    <span class="keyword">val</span> native_plugin : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:make_links">
+  <div class="val">
+    <span class="keyword">val</span> make_links : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:nostdlib">
+  <div class="val">
+    <span class="keyword">val</span> nostdlib : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:program_to_execute">
+  <div class="val">
+    <span class="keyword">val</span> program_to_execute : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:must_clean">
+  <div class="val">
+    <span class="keyword">val</span> must_clean : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:catch_errors">
+  <div class="val">
+    <span class="keyword">val</span> catch_errors : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:use_menhir">
+  <div class="val">
+    <span class="keyword">val</span> use_menhir : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:show_documentation">
+  <div class="val">
+    <span class="keyword">val</span> show_documentation : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:recursive">
+  <div class="val">
+    <span class="keyword">val</span> recursive : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:use_ocamlfind">
+  <div class="val">
+    <span class="keyword">val</span> use_ocamlfind : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:targets">
+  <div class="val">
+    <span class="keyword">val</span> targets : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_libs">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_libs : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_mods">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_mods : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_pkgs">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_pkgs : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_syntax">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_syntax : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_cflags">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_cflags : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_lflags">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_lflags : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_ppflags">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_ppflags : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_docflags">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_docflags : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_yaccflags">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_yaccflags : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ocaml_lexflags">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_lexflags : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:program_args">
+  <div class="val">
+    <span class="keyword">val</span> program_args : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ignore_list">
+  <div class="val">
+    <span class="keyword">val</span> ignore_list : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:tags">
+  <div class="val">
+    <span class="keyword">val</span> tags : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:tag_lines">
+  <div class="val">
+    <span class="keyword">val</span> tag_lines : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:show_tags">
+  <div class="val">
+    <span class="keyword">val</span> show_tags : string list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ext_obj">
+  <div class="val">
+    <span class="keyword">val</span> ext_obj : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ext_lib">
+  <div class="val">
+    <span class="keyword">val</span> ext_lib : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:ext_dll">
+  <div class="val">
+    <span class="keyword">val</span> ext_dll : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:exe">
+  <div class="val">
+    <span class="keyword">val</span> exe : string <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Options#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : (string * <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Arg/">Arg</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Arg/#type:spec">spec</a> * string) -&gt; unit
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Arch : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/">Ocamlbuild_pack</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Signatures">Signatures</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/ocamlbuild/Ocamlbuild_pack/#module:Signatures%23modtype:ARCH">ARCH</a>
+      </div>
+      
+    </div>
+  
+    <div id="module:Findlib">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Findlib : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Findlib#type:command_spec">
+  <div class="type">
+    <span class="keyword">type</span> command_spec = Command.spec
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#type:error">
+  <div class="type">
+    <span class="keyword">type</span> error = <div class="constr">| Cannot_run_ocamlfind</div><div class="constr">| Dependency_not_found <span class="keyword">of</span> string * string</div><div class="constr">| Package_not_found <span class="keyword">of</span> string</div><div class="constr">| Cannot_parse_query <span class="keyword">of</span> string * string</div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#exception:Findlib_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Findlib_error <span class="keyword">of</span> error
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:string_of_error">
+  <div class="val">
+    <span class="keyword">val</span> string_of_error : error -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:report_error">
+  <div class="val">
+    <span class="keyword">val</span> report_error : error -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#type:package">
+  <div class="type">
+    <span class="keyword">type</span> package = {<div class="field">name : string;</div><div class="field">description : string;</div><div class="field">version : string;</div><div class="field">archives_byte : string;</div><div class="field">archives_native : string;</div><div class="field">link_options : string;</div><div class="field">location : string;</div><div class="field">dependencies : package list;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:query">
+  <div class="val">
+    <span class="keyword">val</span> query : string -&gt; package
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:list">
+  <div class="val">
+    <span class="keyword">val</span> list : unit -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:topological_closure">
+  <div class="val">
+    <span class="keyword">val</span> topological_closure : package list -&gt; package list
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:compile_flags_byte">
+  <div class="val">
+    <span class="keyword">val</span> compile_flags_byte : package list -&gt; command_spec
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:compile_flags_native">
+  <div class="val">
+    <span class="keyword">val</span> compile_flags_native : package list -&gt; command_spec
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:link_flags_byte">
+  <div class="val">
+    <span class="keyword">val</span> link_flags_byte : package list -&gt; command_spec
+    
+  </div>
+  </div>
+  
+  <div id="module:Findlib#val:link_flags_native">
+  <div class="val">
+    <span class="keyword">val</span> link_flags_native : package list -&gt; command_spec
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:opt_print">
+  <div class="val">
+    <span class="keyword">val</span> opt_print : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; 'a -&gt; unit -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; 'a option -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:the">
+  <div class="val">
+    <span class="keyword">val</span> the : 'a option -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:getenv">
+  <div class="val">
+    <span class="keyword">val</span> getenv : ?default:string -&gt; string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:with_input_file">
+  <div class="val">
+    <span class="keyword">val</span> with_input_file : ?bin:bool -&gt; string -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:with_output_file">
+  <div class="val">
+    <span class="keyword">val</span> with_output_file : ?bin:bool -&gt; string -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:with_temp_file">
+  <div class="val">
+    <span class="keyword">val</span> with_temp_file : string -&gt; string -&gt; string -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:read_file">
+  <div class="val">
+    <span class="keyword">val</span> read_file : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:copy_chan">
+  <div class="val">
+    <span class="keyword">val</span> copy_chan : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:copy_file">
+  <div class="val">
+    <span class="keyword">val</span> copy_file : string -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_string_list">
+  <div class="val">
+    <span class="keyword">val</span> print_string_list : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; string list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(!*)">
+  <div class="val">
+    <span class="keyword">val</span> (!*) : 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/">Lazy</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/#type:t">t</a> -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:(&amp;)">
+  <div class="val">
+    <span class="keyword">val</span> (&amp;) : 'a -&gt; 'b -&gt; 'a -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:(|&gt;)">
+  <div class="val">
+    <span class="keyword">val</span> (|&gt;) : 'a -&gt; 'a -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:(@:=)">
+  <div class="val">
+    <span class="keyword">val</span> (@:=) : 'a list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'a list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:memo">
+  <div class="val">
+    <span class="keyword">val</span> memo : 'a -&gt; 'b -&gt; 'a -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:memo2">
+  <div class="val">
+    <span class="keyword">val</span> memo2 : 'a -&gt; 'b -&gt; 'c -&gt; 'a -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="val:memo3">
+  <div class="val">
+    <span class="keyword">val</span> memo3 : 'a -&gt; 'b -&gt; 'c -&gt; 'd -&gt; 'a -&gt; 'b -&gt; 'c -&gt; 'd
+    
+  </div>
+  </div>
+  
+  <div id="type:command">
+  <div class="type">
+    <span class="keyword">type</span> command = Command.t = <div class="constr">| Seq <span class="keyword">of</span> command list</div><div class="constr">| Cmd <span class="keyword">of</span> spec</div><div class="constr">| Echo <span class="keyword">of</span> string list * Pathname.t</div><div class="constr">| Nop</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:spec">
+  <div class="type">
+    <span class="keyword">type</span> spec = Command.spec = <div class="constr">| N</div><div class="constr">| S <span class="keyword">of</span> spec list</div><div class="constr">| A <span class="keyword">of</span> string</div><div class="constr">| P <span class="keyword">of</span> string</div><div class="constr">| Px <span class="keyword">of</span> string</div><div class="constr">| Sh <span class="keyword">of</span> string</div><div class="constr">| T <span class="keyword">of</span> Tags.t</div><div class="constr">| V <span class="keyword">of</span> string</div><div class="constr">| Quote <span class="keyword">of</span> spec</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:(/)">
+  <div class="val">
+    <span class="keyword">val</span> (/) : Pathname.t -&gt; Pathname.t -&gt; Pathname.t
+    
+  </div>
+  </div>
+  
+  <div id="val:(-.-)">
+  <div class="val">
+    <span class="keyword">val</span> (-.-) : Pathname.t -&gt; string -&gt; Pathname.t
+    
+  </div>
+  </div>
+  
+  <div id="val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : Tags.t -&gt; Tags.elt -&gt; Tags.t
+    
+  </div>
+  </div>
+  
+  <div id="val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : Tags.t -&gt; Tags.elt -&gt; Tags.t
+    
+  </div>
+  </div>
+  
+  <div id="val:(+++)">
+  <div class="val">
+    <span class="keyword">val</span> (+++) : Tags.t -&gt; Tags.elt option -&gt; Tags.t
+    
+  </div>
+  </div>
+  
+  <div id="val:(---)">
+  <div class="val">
+    <span class="keyword">val</span> (---) : Tags.t -&gt; Tags.elt option -&gt; Tags.t
+    
+  </div>
+  </div>
+  
+  <div id="type:env">
+  <div class="type">
+    <span class="keyword">type</span> env = Pathname.t -&gt; Pathname.t
+    
+  </div>
+  </div>
+  
+  <div id="type:builder">
+  <div class="type">
+    <span class="keyword">type</span> builder = Pathname.t list list -&gt; (Pathname.t, exn) Outcome.t list
+    
+  </div>
+  </div>
+  
+  <div id="type:action">
+  <div class="type">
+    <span class="keyword">type</span> action = env -&gt; builder -&gt; Command.t
+    
+  </div>
+  </div>
+  
+  <div id="val:rule">
+  <div class="val">
+    <span class="keyword">val</span> rule : string -&gt; ?tags:string list -&gt; ?prods:string list -&gt; ?deps:string list -&gt; ?prod:string -&gt; ?dep:string -&gt; ?stamp:string -&gt; ?insert:<span style="color:red">TODO: a</span> -&gt; ?doc:string -&gt; action -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:copy_rule">
+  <div class="val">
+    <span class="keyword">val</span> copy_rule : string -&gt; ?insert:<span style="color:red">TODO: a</span> -&gt; string -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:clear_rules">
+  <div class="val">
+    <span class="keyword">val</span> clear_rules : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:dep">
+  <div class="val">
+    <span class="keyword">val</span> dep : Tags.elt list -&gt; Pathname.t list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pdep">
+  <div class="val">
+    <span class="keyword">val</span> pdep : Tags.elt list -&gt; Tags.elt -&gt; string -&gt; Pathname.t list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:flag">
+  <div class="val">
+    <span class="keyword">val</span> flag : Tags.elt list -&gt; Command.spec -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pflag">
+  <div class="val">
+    <span class="keyword">val</span> pflag : Tags.elt list -&gt; Tags.elt -&gt; string -&gt; Command.spec -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:flag_and_dep">
+  <div class="val">
+    <span class="keyword">val</span> flag_and_dep : Tags.elt list -&gt; Command.spec -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pflag_and_dep">
+  <div class="val">
+    <span class="keyword">val</span> pflag_and_dep : Tags.elt list -&gt; Tags.elt -&gt; string -&gt; Command.spec -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:mark_tag_used">
+  <div class="val">
+    <span class="keyword">val</span> mark_tag_used : Tags.elt -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:non_dependency">
+  <div class="val">
+    <span class="keyword">val</span> non_dependency : Pathname.t -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:use_lib">
+  <div class="val">
+    <span class="keyword">val</span> use_lib : Pathname.t -&gt; Pathname.t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:ocaml_lib">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_lib : ?extern:bool -&gt; ?byte:bool -&gt; ?native:bool -&gt; ?dir:Pathname.t -&gt; ?tag_name:string -&gt; Pathname.t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:expand_module">
+  <div class="val">
+    <span class="keyword">val</span> expand_module : Pathname.t list -&gt; Pathname.t -&gt; string list -&gt; Pathname.t list
+    
+  </div>
+  </div>
+  
+  <div id="val:string_list_of_file">
+  <div class="val">
+    <span class="keyword">val</span> string_list_of_file : Pathname.t -&gt; string list
+    
+  </div>
+  </div>
+  
+  <div id="val:module_name_of_pathname">
+  <div class="val">
+    <span class="keyword">val</span> module_name_of_pathname : Pathname.t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:mv">
+  <div class="val">
+    <span class="keyword">val</span> mv : Pathname.t -&gt; Pathname.t -&gt; Command.t
+    
+  </div>
+  </div>
+  
+  <div id="val:cp">
+  <div class="val">
+    <span class="keyword">val</span> cp : Pathname.t -&gt; Pathname.t -&gt; Command.t
+    
+  </div>
+  </div>
+  
+  <div id="val:ln_f">
+  <div class="val">
+    <span class="keyword">val</span> ln_f : Pathname.t -&gt; Pathname.t -&gt; Command.t
+    
+  </div>
+  </div>
+  
+  <div id="val:ln_s">
+  <div class="val">
+    <span class="keyword">val</span> ln_s : Pathname.t -&gt; Pathname.t -&gt; Command.t
+    
+  </div>
+  </div>
+  
+  <div id="val:rm_f">
+  <div class="val">
+    <span class="keyword">val</span> rm_f : Pathname.t -&gt; Command.t
+    
+  </div>
+  </div>
+  
+  <div id="val:chmod">
+  <div class="val">
+    <span class="keyword">val</span> chmod : Command.spec -&gt; Pathname.t -&gt; Command.t
+    
+  </div>
+  </div>
+  
+  <div id="val:cmp">
+  <div class="val">
+    <span class="keyword">val</span> cmp : Pathname.t -&gt; Pathname.t -&gt; Command.t
+    
+  </div>
+  </div>
+  
+  <div id="val:hide_package_contents">
+  <div class="val">
+    <span class="keyword">val</span> hide_package_contents : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:tag_file">
+  <div class="val">
+    <span class="keyword">val</span> tag_file : Pathname.t -&gt; Tags.elt list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:tag_any">
+  <div class="val">
+    <span class="keyword">val</span> tag_any : Tags.elt list -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:tags_of_pathname">
+  <div class="val">
+    <span class="keyword">val</span> tags_of_pathname : Pathname.t -&gt; Tags.t
+    
+  </div>
+  </div>
+  
+  <div id="val:run_and_read">
+  <div class="val">
+    <span class="keyword">val</span> run_and_read : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="type:hook">
+  <div class="type">
+    <span class="keyword">type</span> hook = <div class="constr">| Before_hygiene</div><div class="constr">| After_hygiene</div><div class="constr">| Before_options</div><div class="constr">| After_options</div><div class="constr">| Before_rules</div><div class="constr">| After_rules</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:dispatch">
+  <div class="val">
+    <span class="keyword">val</span> dispatch : hook -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 ocamlbuild Module 'Ocamlbuild_plugin' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,910 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  type_conv.111.13.00 type_conv Module 'Pa_type_conv' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../type_conv/type_conv.111.13.00/doc/type_conv/Pa_type_conv/">Pa_type_conv</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="val:set_conv_path_if_not_set">
+  <div class="val">
+    <span class="keyword">val</span> set_conv_path_if_not_set : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; unit
+    
+      <div class="doc">
+        <code>set_conv_path_if_not_set loc</code> sets the path to the file/module being
+converted for improved error messages.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_conv_path">
+  <div class="val">
+    <span class="keyword">val</span> get_conv_path : unit -&gt; string
+    
+      <div class="doc">
+        <code>get_conv_path ()</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> the name to module containing a type
+as required for error messages.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_generator">
+  <div class="val">
+    <span class="keyword">val</span> add_generator : ?is_exn:bool -&gt; string -&gt; bool -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:str_item">str_item</a> -&gt; unit
+    
+      <div class="doc">
+        <code>add_generator ?is_exn name gen</code> adds the code generator <code>gen</code>,
+which maps type or exception declarations to structure items, where
+<code>is_exn</code> specifies whether the declaration is an exception. Note that
+the original type/exception declarations get added automatically in
+any case.
+        
+  <div class="tag param">
+    <span class="label">is_exn</span> = <code>false</code>
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_generator_with_arg">
+  <div class="val">
+    <span class="keyword">val</span> add_generator_with_arg : ?is_exn:bool -&gt; string -&gt; 'a <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram">Gram</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram%23module:Entry">Entry</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram%23module:Entry%23type:t">t</a> -&gt; 'a option -&gt; bool -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:str_item">str_item</a> -&gt; unit
+    
+      <div class="doc">
+        <code>add_generator_with_arg ?is_exn name entry generator</code> same as
+<code>add_generator</code>, but the generator may accept an argument, which is
+parsed with <code>entry</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:rm_generator">
+  <div class="val">
+    <span class="keyword">val</span> rm_generator : ?is_exn:bool -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>rm_generator ?is_exn name</code> removes the code generator named <code>name</code>
+for types if <code>is_exn</code> is <code>false</code>, or exceptions otherwise.
+        
+  <div class="tag param">
+    <span class="label">is_exn</span> = <code>false</code>
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_sig_generator">
+  <div class="val">
+    <span class="keyword">val</span> add_sig_generator : ?delayed:bool -&gt; ?is_exn:bool -&gt; string -&gt; bool -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:sig_item">sig_item</a> -&gt; unit
+    
+      <div class="doc">
+        <code>add_sig_generator ?delayed ?is_exn name gen</code> adds the code generator <code>gen</code>,
+which maps type or exception declarations to signature items, where
+<code>is_exn</code> specifies whether the declaration is an exception. Note that the
+original type/exception declarations get added automatically in any case. If
+<code>delayed</code> is set to true, the output of this generator is appended to the
+signature in which it's defined
+        
+  <div class="tag param">
+    <span class="label">delayed</span> = <code>false</code>
+  </div>
+  
+  <div class="tag param">
+    <span class="label">is_exn</span> = <code>false</code>
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_sig_generator_with_arg">
+  <div class="val">
+    <span class="keyword">val</span> add_sig_generator_with_arg : ?delayed:bool -&gt; ?is_exn:bool -&gt; string -&gt; 'a <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram">Gram</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram%23module:Entry">Entry</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram%23module:Entry%23type:t">t</a> -&gt; 'a option -&gt; bool -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:sig_item">sig_item</a> -&gt; unit
+    
+      <div class="doc">
+        <code>add_sig_generator_with_arg ?delayed ?is_exn name entry generator</code> same as
+<code>add_sig_generator</code>, but the generator may accept an argument,
+which is parsed with <code>entry</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:rm_sig_generator">
+  <div class="val">
+    <span class="keyword">val</span> rm_sig_generator : ?is_exn:bool -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>rm_sig_generator ?is_exn name</code> removes the signature code generator named
+<code>name</code> for types if <code>is_exn</code> is <code>false</code>, or exceptions otherwise.
+        
+  <div class="tag param">
+    <span class="label">is_exn</span> = <code>false</code>
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:record_field_generator">
+  <div class="type">
+    <span class="keyword">type</span> record_field_generator = <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; unit
+    
+      <div class="doc">
+        Type of record field code generators
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_record_field_generator">
+  <div class="val">
+    <span class="keyword">val</span> add_record_field_generator : string -&gt; record_field_generator -&gt; unit
+    
+      <div class="doc">
+        <code>add_record_field_generator gen_name gen</code> adds the record field code
+generator <code>gen</code> with name <code>gen_name</code>, which acts on the location
+identifying the record field.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_record_field_generator_with_arg">
+  <div class="val">
+    <span class="keyword">val</span> add_record_field_generator_with_arg : string -&gt; 'a <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram">Gram</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram%23module:Entry">Entry</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Gram%23module:Entry%23type:t">t</a> -&gt; 'a option -&gt; record_field_generator -&gt; unit
+    
+      <div class="doc">
+        <code>add_record_field_generator_with_arg name entry generator</code> same as
+<code>add_record_field_generator</code>, but the <code>generator</code> takes an argument,
+which is parsed with <code>entry</code>. If <code>None</code> is passed to the generator,
+parsing of the argument failed, otherwise <code>Some arg</code> will be passed,
+where <code>arg</code> is the successfully parsed argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:rm_record_field_generator">
+  <div class="val">
+    <span class="keyword">val</span> rm_record_field_generator : string -&gt; unit
+    
+      <div class="doc">
+        <code>rm_record_field_generator name</code> removes the record field code generator
+named <code>name</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_sig_set">
+  <div class="val">
+    <span class="keyword">val</span> add_sig_set : ?is_exn:bool -&gt; string -&gt; set:string list -&gt; unit
+    
+      <div class="doc">
+        <code>add_sig_set ?is_exn id ~set</code> adds the generator <code>id</code> to the list
+of generators for signatures.
+This generator will behave as if is all the generators from <code>set</code>
+had been given instead. Any duplicate arising from repeatedly
+expanding such generators are removed.
+If <code>is_exn</code>, then it is a generator for exception declaration, or
+else it is a generator for type declaration.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_str_set">
+  <div class="val">
+    <span class="keyword">val</span> add_str_set : ?is_exn:bool -&gt; string -&gt; set:string list -&gt; unit
+    
+      <div class="doc">
+        <code>add_str_set ?is_exn id ~set</code> behaves exactly like
+<code>add_sig_set ?is_exn id ~set</code> but for structure items instead of
+signatures items.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_set">
+  <div class="val">
+    <span class="keyword">val</span> add_set : kind:<span style="color:red">TODO: a</span> -&gt; is_exn:<span style="color:red">TODO: b</span> -&gt; string -&gt; set:string list -&gt; unit
+    
+      <div class="doc">
+        <code>add_set ~kind ~is_exn id ~set</code> is a shorthand for doing multiple
+calls to <code>add_str_set</code> and <code>add_sig_set</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_loc_err">
+  <div class="val">
+    <span class="keyword">val</span> get_loc_err : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; string -&gt; string
+    
+      <div class="doc">
+        <code>get_loc_err loc msg</code> generates a compile-time error message.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:hash_variant">
+  <div class="val">
+    <span class="keyword">val</span> hash_variant : string -&gt; int
+    
+      <div class="doc">
+        <code>hash_variant str</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> the integer encoding a variant tag with
+name <code>str</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Gen">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Gen : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Gen#val:regular_constr_of_revised_constr">
+  <div class="val">
+    <span class="keyword">val</span> regular_constr_of_revised_constr : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:exApp_of_list">
+  <div class="val">
+    <span class="keyword">val</span> exApp_of_list : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a> list -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a>
+    
+      <div class="doc">
+        <code>expr_app_of_list l</code> takes list <code>l</code> of expressions <code>e1; e2; e3; ...</code>
+and returns the expression <code>e1 e2 e3</code>. C.f.: <code>Ast.exSem_of_list</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:tyArr_of_list">
+  <div class="val">
+    <span class="keyword">val</span> tyArr_of_list : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> list -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a>
+    
+      <div class="doc">
+        <code>tyArr_of_list l</code> takes list <code>l</code> of types <code>e1; e2; e3; ...</code> and
+returns the type <code>e1 -&gt; e2 -&gt; e3</code>. C.f.: <code>Ast.exSem_of_list</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:paOr_of_list">
+  <div class="val">
+    <span class="keyword">val</span> paOr_of_list : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:patt">patt</a> list -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:patt">patt</a>
+    
+      <div class="doc">
+        <code>paOr_of_list l</code> takes list <code>l</code> of patterns <code>p1; p2; p3; ...</code> and returns
+the pattern <code>p1 | p2 | p3 | ...</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:gensym">
+  <div class="val">
+    <span class="keyword">val</span> gensym : ?prefix:string -&gt; unit -&gt; string
+    
+      <div class="doc">
+        <code>gensym ?prefix ()</code> generates a fresh variable name with <code>prefix</code>.
+When used with the default parameters, it will return: <code>_x__001</code>,
+<code>_x__002</code>, <code>_x__003</code>, ...
+        
+  <div class="tag param">
+    <span class="label">prefix</span> default = &quot;_x&quot;
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:error">
+  <div class="val">
+    <span class="keyword">val</span> error : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; fn:string -&gt; msg:string -&gt; 'a
+    
+      <div class="doc">
+        <code>error tp ~fn ~msg</code> raises an error with <code>msg</code> on type <code>tp</code> occuring
+in function <code>fn</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:unknown_type">
+  <div class="val">
+    <span class="keyword">val</span> unknown_type : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; string -&gt; 'a
+    
+      <div class="doc">
+        <code>unknown_type tp fn</code> type <code>tp</code> cannot be handled by function <code>fn</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:ty_var_list_of_ctyp">
+  <div class="val">
+    <span class="keyword">val</span> ty_var_list_of_ctyp : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; string list -&gt; string list
+    
+      <div class="doc">
+        <code>ty_var_list_of_ctyp tp acc</code> accumulates a list of type parameters
+contained in <code>tp</code> into <code>acc</code> as strings.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:get_rev_id_path">
+  <div class="val">
+    <span class="keyword">val</span> get_rev_id_path : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ident">ident</a> -&gt; string list -&gt; string list
+    
+      <div class="doc">
+        <code>get_rev_id_path id acc</code> takes an identifier.
+        
+  <div class="tag return">
+    <span class="label">Returns</span> a reversed
+module path (list of strings) denoting this identifier, appending
+it to <code>acc</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:ident_of_rev_path">
+  <div class="val">
+    <span class="keyword">val</span> ident_of_rev_path : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; string list -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ident">ident</a>
+    
+      <div class="doc">
+        <code>ident_of_rev_path loc path</code> takes a location <code>loc</code> and a reversed path
+<code>rev_path</code> to an identifier.
+        
+  <div class="tag return">
+    <span class="label">Returns</span> identifier denoting the
+bound value.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:get_appl_path">
+  <div class="val">
+    <span class="keyword">val</span> get_appl_path : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ident">ident</a>
+    
+      <div class="doc">
+        <code>get_appl_path loc tp</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> the identifier path associated with
+a polymorphic type.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:abstract">
+  <div class="val">
+    <span class="keyword">val</span> abstract : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:patt">patt</a> list -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a>
+    
+      <div class="doc">
+        <code>abstract loc patts body</code> takes a location <code>loc</code>, a pattern list
+<code>patts</code>, and an expression <code>body</code>.
+        
+  <div class="tag return">
+    <span class="label">Returns</span> a function expression
+that takes the patterns as arguments, and binds them in <code>body</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:apply">
+  <div class="val">
+    <span class="keyword">val</span> apply : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a> list -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a>
+    
+      <div class="doc">
+        <code>apply loc f_expr arg_exprs</code> takes a location <code>loc</code>, an expression
+<code>f_expr</code> representing a function, and a list of argument expressions
+<code>arg_exprs</code>.
+        
+  <div class="tag return">
+    <span class="label">Returns</span> an expression in which the function is
+applied to its arguments.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:switch_tp_def">
+  <div class="val">
+    <span class="keyword">val</span> switch_tp_def : alias:<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; 'a -&gt; sum:<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; 'a -&gt; record:<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; 'a -&gt; variants:<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; 'a -&gt; mani:<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; 'a -&gt; nil:<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; 'a -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; 'a
+    
+      <div class="doc">
+        <code>switch_tp_def ~alias ~sum ~record ~variants ~mani tp_def</code>
+takes a handler function for each kind of type definition and
+applies the appropriate handler when <code>tp_def</code> matches.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:mk_expr_lst">
+  <div class="val">
+    <span class="keyword">val</span> mk_expr_lst : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a> list -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a>
+    
+      <div class="doc">
+        <code>mk_expr_lst loc expr_list</code> takes a list of expressions.
+        
+  <div class="tag return">
+    <span class="label">Returns</span> an expression representing a list of expressions.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:mk_patt_lst">
+  <div class="val">
+    <span class="keyword">val</span> mk_patt_lst : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:patt">patt</a> list -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:patt">patt</a>
+    
+      <div class="doc">
+        <code>mk_patt_lst _loc patt_list</code> takes a list of patterns.
+        
+  <div class="tag return">
+    <span class="label">Returns</span> a pattern representing a list of patterns.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:get_tparam_id">
+  <div class="val">
+    <span class="keyword">val</span> get_tparam_id : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; string
+    
+      <div class="doc">
+        <code>get_tparam_id tp</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> the string identifier associated with
+<code>tp</code> if it is a type parameter.
+  </div>
+  
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> otherwise.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:type_is_recursive">
+  <div class="val">
+    <span class="keyword">val</span> type_is_recursive : ?stop_on_functions:bool -&gt; ?short_circuit:<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; bool option -&gt; string -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; bool
+    
+      <div class="doc">
+        <code>type_is_recursive ?short_circuit id tp</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> whether the type <code>tp</code> with name <code>id</code>
+refers to itself, assuming that it is not mutually recursive with
+another type.
+  </div>
+  
+  <div class="tag param">
+    <span class="label">short_circuit</span> allows you to override the search for certain
+type expressions.
+  </div>
+  
+  <div class="tag param">
+    <span class="label">stop_on_functions</span> allows to disregard the recursive occurences appearing in
+arrow types. The default is to disregard them.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:drop_variance_annotations">
+  <div class="val">
+    <span class="keyword">val</span> drop_variance_annotations : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a>
+    
+      <div class="doc">
+        <code>drop_variance_annotations tp</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> the type resulting from dropping
+all variance annotations in <code>tp</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:find_record_default">
+  <div class="val">
+    <span class="keyword">val</span> find_record_default : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:expr">expr</a> option
+    
+      <div class="doc">
+        <code>find_record_default loc</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> the optional default expression
+associated with the record field at source location <code>loc</code> if defined.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Gen#val:delay_sig_item">
+  <div class="val">
+    <span class="keyword">val</span> delay_sig_item : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:sig_item">sig_item</a> -&gt; unit
+    
+      <div class="doc">
+        <code>delay_sig_item item</code> places <code>item</code> at the end of the current signature
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Rewrite_tds">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Rewrite_tds : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Rewrite_tds#val:sig_">
+  <div class="val">
+    <span class="keyword">val</span> sig_ : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; bool -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:sig_item">sig_item</a>
+    
+      <div class="doc">
+        <code>sig_ loc rec_ typedefs</code> rewrites the given type definition to make it either
+recursive or non recursive.
+For instance, the parser calls <code>sig_ loc false (TyDcl (_, t, [], t, []))</code> when it
+encouters <code>type t = t</code> and calls <code>sig_ loc true (TyDcl (_, t, [], t, []))</code> when it
+encouters <code>type nonrec t = t</code> in signatures.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Rewrite_tds#val:str_">
+  <div class="val">
+    <span class="keyword">val</span> str_ : <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc">Loc</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23module:Loc%23type:t">t</a> -&gt; bool -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:ctyp">ctyp</a> -&gt; <a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/">Camlp4</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast">PreCast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast">Ast</a>.<a href="../../../../../camlp4/camlp4.4.02.0/doc/camlp4/Camlp4/#module:PreCast%23module:Ast%23type:str_item">str_item</a>
+    
+      <div class="doc">
+        <code>str_ loc rec_ typedefs</code> does the same thing as <code>sig_ loc rec_ typedefs</code>, except
+that it returns a structure item instead of a signature item.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  type_conv.111.13.00 type_conv Module 'Pa_type_conv' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,1150 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  opam-lib.42 opam-lib Module 'OpamFormat' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFormat/">OpamFormat</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : OpamTypes.file
+    
+      <div class="doc">
+        The empty file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : string -&gt; OpamTypes.value -&gt; (string * OpamTypes.value) option -&gt; OpamTypes.file -&gt; OpamTypes.file
+    
+      <div class="doc">
+        map a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:variables">
+  <div class="val">
+    <span class="keyword">val</span> variables : OpamTypes.file_item list -&gt; (string * OpamTypes.value) list
+    
+      <div class="doc">
+        Get all the variable definitions from a list of items
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:sections">
+  <div class="val">
+    <span class="keyword">val</span> sections : OpamTypes.file_item list -&gt; (string * OpamTypes.file_section) list
+    
+      <div class="doc">
+        Get all the sections from a list of items
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:is_valid">
+  <div class="val">
+    <span class="keyword">val</span> is_valid : OpamTypes.file_item list -&gt; string list -&gt; bool
+    
+      <div class="doc">
+        Check whether a list of items contains only valid variable definitions
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:invalid_fields">
+  <div class="val">
+    <span class="keyword">val</span> invalid_fields : OpamTypes.file_item list -&gt; string list -&gt; string list
+    
+      <div class="doc">
+        Find all the invalid fields
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Bad_format">
+  <div class="exception">
+    <span class="keyword">exception</span> Bad_format <span class="keyword">of</span> OpamTypes.pos option * string list * string
+    
+      <div class="doc">
+        All the following parsing function raise <code>Bad_format</code> in case the
+input does not have the right format.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:bad_format">
+  <div class="val">
+    <span class="keyword">val</span> bad_format : ?pos:OpamTypes.pos -&gt; ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+      <div class="doc">
+        Raise <code>Bad_format</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_pos">
+  <div class="val">
+    <span class="keyword">val</span> add_pos : OpamTypes.pos -&gt; exn -&gt; exn
+    
+      <div class="doc">
+        Adds a position to a Bad_format exception if it doesn't have one yet
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:value_pos">
+  <div class="val">
+    <span class="keyword">val</span> value_pos : OpamTypes.value -&gt; OpamTypes.pos
+    
+      <div class="doc">
+        Get the position out of a value
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:values_pos">
+  <div class="val">
+    <span class="keyword">val</span> values_pos : OpamTypes.value list -&gt; OpamTypes.pos option
+    
+      <div class="doc">
+        Get the position of the first element out of a value list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_bool">
+  <div class="val">
+    <span class="keyword">val</span> parse_bool : OpamTypes.value -&gt; bool
+    
+      <div class="doc">
+        Parse a boolean
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_int">
+  <div class="val">
+    <span class="keyword">val</span> parse_int : OpamTypes.value -&gt; int
+    
+      <div class="doc">
+        Parse an integer
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_ident">
+  <div class="val">
+    <span class="keyword">val</span> parse_ident : OpamTypes.value -&gt; string
+    
+      <div class="doc">
+        Parse an ident
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_string">
+  <div class="val">
+    <span class="keyword">val</span> parse_string : OpamTypes.value -&gt; string
+    
+      <div class="doc">
+        Parse a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_list">
+  <div class="val">
+    <span class="keyword">val</span> parse_list : OpamTypes.value -&gt; 'a -&gt; OpamTypes.value -&gt; 'a list
+    
+      <div class="doc">
+        Parse a list of 'things'
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_list_list">
+  <div class="val">
+    <span class="keyword">val</span> parse_list_list : OpamTypes.value -&gt; 'a -&gt; OpamTypes.value -&gt; 'a list
+    
+      <div class="doc">
+        Parse a list of list of 'things'
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_group">
+  <div class="val">
+    <span class="keyword">val</span> parse_group : OpamTypes.value -&gt; 'a -&gt; OpamTypes.value -&gt; 'a list
+    
+      <div class="doc">
+        Parse a group of 'things'
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_option">
+  <div class="val">
+    <span class="keyword">val</span> parse_option : OpamTypes.value -&gt; 'a -&gt; OpamTypes.value list -&gt; 'b -&gt; OpamTypes.value -&gt; ('a * 'b option)
+    
+      <div class="doc">
+        Parse a value and its option of 'things'
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_single_option">
+  <div class="val">
+    <span class="keyword">val</span> parse_single_option : OpamTypes.value -&gt; 'a -&gt; OpamTypes.value -&gt; 'b -&gt; OpamTypes.value -&gt; ('a * 'b option)
+    
+      <div class="doc">
+        Parse a value and a single optional value
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_string_option">
+  <div class="val">
+    <span class="keyword">val</span> parse_string_option : OpamTypes.value list -&gt; 'a -&gt; OpamTypes.value -&gt; (string * 'a option)
+    
+      <div class="doc">
+        Parse a string with an optional argument
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_string_list">
+  <div class="val">
+    <span class="keyword">val</span> parse_string_list : OpamTypes.value -&gt; string list
+    
+      <div class="doc">
+        Parse a list of strings
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_single_string">
+  <div class="val">
+    <span class="keyword">val</span> parse_single_string : OpamTypes.value list -&gt; string
+    
+      <div class="doc">
+        Parse a single string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_pair">
+  <div class="val">
+    <span class="keyword">val</span> parse_pair : OpamTypes.value -&gt; 'a -&gt; OpamTypes.value -&gt; 'b -&gt; OpamTypes.value -&gt; ('a * 'b)
+    
+      <div class="doc">
+        Parse a pair of strings
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_or">
+  <div class="val">
+    <span class="keyword">val</span> parse_or : (string * OpamTypes.value -&gt; 'a) list -&gt; OpamTypes.value -&gt; 'a
+    
+      <div class="doc">
+        Try to parse the value using function from the list. All the
+parsing functions are tried until one succeeds. The first argument
+is a debug message.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_bool">
+  <div class="val">
+    <span class="keyword">val</span> make_bool : bool -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a boolean
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_int">
+  <div class="val">
+    <span class="keyword">val</span> make_int : int -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create an integer
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_ident">
+  <div class="val">
+    <span class="keyword">val</span> make_ident : string -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create an ident
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_string">
+  <div class="val">
+    <span class="keyword">val</span> make_string : string -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_list">
+  <div class="val">
+    <span class="keyword">val</span> make_list : 'a -&gt; OpamTypes.value -&gt; 'a list -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a list of 'things'
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_string_list">
+  <div class="val">
+    <span class="keyword">val</span> make_string_list : string list -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a list of strings
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_group">
+  <div class="val">
+    <span class="keyword">val</span> make_group : 'a -&gt; OpamTypes.value -&gt; 'a list -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a group of 'things'
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_option">
+  <div class="val">
+    <span class="keyword">val</span> make_option : 'a -&gt; OpamTypes.value -&gt; 'b -&gt; OpamTypes.value list -&gt; ('a * 'b option) -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a value and its optional arguments
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_pair">
+  <div class="val">
+    <span class="keyword">val</span> make_pair : 'a -&gt; OpamTypes.value -&gt; 'b -&gt; OpamTypes.value -&gt; ('a * 'b) -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a pair
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_string_pair">
+  <div class="val">
+    <span class="keyword">val</span> make_string_pair : (string * string) -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a pair of strings
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_section">
+  <div class="val">
+    <span class="keyword">val</span> make_section : OpamTypes.file_section -&gt; OpamTypes.file_item
+    
+      <div class="doc">
+        Create a file section
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_variable">
+  <div class="val">
+    <span class="keyword">val</span> make_variable : (string * OpamTypes.value) -&gt; OpamTypes.file_item
+    
+      <div class="doc">
+        Create a variable
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_value">
+  <div class="val">
+    <span class="keyword">val</span> string_of_value : OpamTypes.value -&gt; string
+    
+      <div class="doc">
+        Print a value
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_values">
+  <div class="val">
+    <span class="keyword">val</span> string_of_values : OpamTypes.value list -&gt; string
+    
+      <div class="doc">
+        Print a list of values
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_file">
+  <div class="val">
+    <span class="keyword">val</span> string_of_file : simplify:bool -&gt; indent:bool -&gt; ?ignore:string list -&gt; OpamTypes.file -&gt; string
+    
+      <div class="doc">
+        Print a file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assoc">
+  <div class="val">
+    <span class="keyword">val</span> assoc : OpamTypes.file_item list -&gt; string -&gt; OpamTypes.value -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Get the value of a field
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assoc_option">
+  <div class="val">
+    <span class="keyword">val</span> assoc_option : OpamTypes.file_item list -&gt; string -&gt; OpamTypes.value -&gt; 'a -&gt; 'a option
+    
+      <div class="doc">
+        Get the value of a field. If the field does not exist, return
+None
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assoc_default">
+  <div class="val">
+    <span class="keyword">val</span> assoc_default : 'a -&gt; OpamTypes.file_item list -&gt; string -&gt; OpamTypes.value -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Get the value of a field. If the variable does not exist, return a
+default value
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assoc_list">
+  <div class="val">
+    <span class="keyword">val</span> assoc_list : OpamTypes.file_item list -&gt; string -&gt; OpamTypes.value -&gt; 'a list -&gt; 'a list
+    
+      <div class="doc">
+        Get the value associated to a variable. If the variable does not
+exists, return <code></code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assoc_string_list">
+  <div class="val">
+    <span class="keyword">val</span> assoc_string_list : OpamTypes.file_item list -&gt; string -&gt; string list
+    
+      <div class="doc">
+        Get the string list associated to a variable. If the variable does
+not exist, return <code></code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_section_by_kind">
+  <div class="val">
+    <span class="keyword">val</span> get_section_by_kind : OpamTypes.file_item list -&gt; string -&gt; OpamTypes.file_section
+    
+      <div class="doc">
+        Get one section of a certain kind
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_all_section_by_kind">
+  <div class="val">
+    <span class="keyword">val</span> get_all_section_by_kind : OpamTypes.file_item list -&gt; string -&gt; OpamTypes.file_section list
+    
+      <div class="doc">
+        Get all the sections of a certain kind
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:assoc_sections">
+  <div class="val">
+    <span class="keyword">val</span> assoc_sections : OpamTypes.file_item list -&gt; string -&gt; OpamTypes.file_section -&gt; 'a -&gt; 'a list
+    
+      <div class="doc">
+        Get sections
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_package_name">
+  <div class="val">
+    <span class="keyword">val</span> parse_package_name : OpamTypes.value -&gt; OpamTypes.name
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_formula">
+  <div class="val">
+    <span class="keyword">val</span> parse_formula : OpamTypes.value -&gt; OpamTypes.formula
+    
+      <div class="doc">
+        Parse package formula where AND are implicit: <code>x y -&gt; x &amp; y</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_formula">
+  <div class="val">
+    <span class="keyword">val</span> make_formula : OpamTypes.formula -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Build a formula where AND are implicit.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_ext_formula">
+  <div class="val">
+    <span class="keyword">val</span> parse_ext_formula : OpamTypes.value -&gt; OpamTypes.ext_formula
+    
+      <div class="doc">
+        Parse an AND formula where constraints are extended with leading keywords
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_ext_formula">
+  <div class="val">
+    <span class="keyword">val</span> make_ext_formula : OpamTypes.ext_formula -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Make an AND formula where constraints are extended with leading keywords
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_opt_formula">
+  <div class="val">
+    <span class="keyword">val</span> parse_opt_formula : OpamTypes.value -&gt; OpamTypes.ext_formula
+    
+      <div class="doc">
+        Parse optional package formula where OR are implicit: <code>x y -&gt; x | y</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_opt_formula">
+  <div class="val">
+    <span class="keyword">val</span> make_opt_formula : OpamTypes.ext_formula -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Build a formula where OR are implicit.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_compiler_constraint">
+  <div class="val">
+    <span class="keyword">val</span> parse_compiler_constraint : OpamTypes.value -&gt; OpamTypes.compiler_constraint
+    
+      <div class="doc">
+        Parse compiler constraints
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_compiler_constraint">
+  <div class="val">
+    <span class="keyword">val</span> make_compiler_constraint : OpamTypes.compiler_constraint -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Build a compiler constraint
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_os_constraint">
+  <div class="val">
+    <span class="keyword">val</span> parse_os_constraint : OpamTypes.value -&gt; (bool * string) OpamTypes.generic_formula
+    
+      <div class="doc">
+        Parse an OS constraint
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_os_constraint">
+  <div class="val">
+    <span class="keyword">val</span> make_os_constraint : (bool * string) OpamTypes.generic_formula -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Build an OS constraint
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_env_variable">
+  <div class="val">
+    <span class="keyword">val</span> parse_env_variable : OpamTypes.value -&gt; (string * string * string)
+    
+      <div class="doc">
+        Parsing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_env_variable">
+  <div class="val">
+    <span class="keyword">val</span> make_env_variable : (string * string * string) -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Making
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_filter">
+  <div class="val">
+    <span class="keyword">val</span> parse_filter : OpamTypes.value list -&gt; OpamTypes.filter
+    
+      <div class="doc">
+        Parsing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_filter">
+  <div class="val">
+    <span class="keyword">val</span> make_filter : OpamTypes.filter -&gt; OpamTypes.value list
+    
+      <div class="doc">
+        Creation
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_command">
+  <div class="val">
+    <span class="keyword">val</span> parse_command : OpamTypes.value -&gt; OpamTypes.command
+    
+      <div class="doc">
+        Parse a command
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_command">
+  <div class="val">
+    <span class="keyword">val</span> make_command : OpamTypes.command -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a command
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_commands">
+  <div class="val">
+    <span class="keyword">val</span> parse_commands : OpamTypes.value -&gt; OpamTypes.command list
+    
+      <div class="doc">
+        Parse a list of commands
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_commands">
+  <div class="val">
+    <span class="keyword">val</span> make_commands : OpamTypes.command list -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a list of commands
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_messages">
+  <div class="val">
+    <span class="keyword">val</span> parse_messages : OpamTypes.value -&gt; (string * OpamTypes.filter option) list
+    
+      <div class="doc">
+        Parse a list of commands
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_libraries">
+  <div class="val">
+    <span class="keyword">val</span> make_libraries : (string * OpamTypes.filter option) list -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a list of libraries/syntax
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_libraries">
+  <div class="val">
+    <span class="keyword">val</span> parse_libraries : OpamTypes.value -&gt; (string * OpamTypes.filter option) list
+    
+      <div class="doc">
+        Parse a list of libraries/syntax
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_flag">
+  <div class="val">
+    <span class="keyword">val</span> make_flag : OpamTypes.package_flag -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Create a package flag
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_flag">
+  <div class="val">
+    <span class="keyword">val</span> parse_flag : OpamTypes.value -&gt; OpamTypes.package_flag option
+    
+      <div class="doc">
+        Parse a package flag
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:parse_tags">
+  <div class="val">
+    <span class="keyword">val</span> parse_tags : OpamTypes.value -&gt; OpamTypes.tags
+    
+      <div class="doc">
+        Parse tags
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_tags">
+  <div class="val">
+    <span class="keyword">val</span> make_tags : OpamTypes.tags -&gt; OpamTypes.value
+    
+      <div class="doc">
+        Make tags
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  opam-lib.42 opam-lib Module 'OpamFormat' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

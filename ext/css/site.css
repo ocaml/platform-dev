@@ -103,3 +103,17 @@ h2 {
 h2, h3, h4 {
   margin-top: 1ex;
 }
+
+.ocamlary-doc :target {
+  padding-top: 60px;
+  margin-top: -60px;
+}
+/*
+css
+link targets
+bug reports
+package static
+report
+email
+sleep
+*/

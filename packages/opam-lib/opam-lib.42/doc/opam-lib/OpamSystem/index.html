@@ -1,0 +1,855 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  opam-lib.42 opam-lib Module 'OpamSystem' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamSystem/">OpamSystem</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="exception:Process_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Process_error <span class="keyword">of</span> <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamProcess/">OpamProcess</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamProcess/#type:result">result</a>
+    
+      <div class="doc">
+        Exception raised when subprocess fails
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:process_error">
+  <div class="val">
+    <span class="keyword">val</span> process_error : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamProcess/">OpamProcess</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamProcess/#type:result">result</a> -&gt; 'a
+    
+      <div class="doc">
+        raise <code>Process_error</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Internal_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Internal_error <span class="keyword">of</span> string
+    
+      <div class="doc">
+        Exception raised when a computation in the current process
+fails.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:internal_error">
+  <div class="val">
+    <span class="keyword">val</span> internal_error : ('a, unit, string, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:format4">format4</a> -&gt; 'a
+    
+      <div class="doc">
+        Raise <code>Internal_error</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_tmp_dir">
+  <div class="val">
+    <span class="keyword">val</span> with_tmp_dir : string -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        <code>with_tmp_dir fn</code> executes <code>fn</code> in a tempory directory
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : string -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>copy src dst</code> copies <code>src</code> to <code>dst</code>. Remove <code>dst</code> before the copy
+if it is a link.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:install">
+  <div class="val">
+    <span class="keyword">val</span> install : ?exec:bool -&gt; string -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>install ?exec src dst</code> copies file <code>src</code> as file <code>dst</code> using <code>install</code>.
+If <code>exec</code>, make the resulting file executable (otherwise, look at the
+permissions of the original file to decide).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:is_exec">
+  <div class="val">
+    <span class="keyword">val</span> is_exec : string -&gt; bool
+    
+      <div class="doc">
+        Checks if a file is an executable (regular file with execution
+permission)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:link">
+  <div class="val">
+    <span class="keyword">val</span> link : string -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>link src dst</code> links <code>src</code> to <code>dst</code>. Remove <code>dst</code> if it is a file,
+not a directory.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:real_path">
+  <div class="val">
+    <span class="keyword">val</span> real_path : string -&gt; string
+    
+      <div class="doc">
+        <code>real_path p</code> returns the real path associated to <code>p</code>: <code>..</code> are
+expanded and relative paths become absolute.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_channel">
+  <div class="val">
+    <span class="keyword">val</span> string_of_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; string
+    
+      <div class="doc">
+        Return the contents of a channel.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : string -&gt; string
+    
+      <div class="doc">
+        <code>read filename</code> returns the contents of <code>filename</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : string -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>write filename contents</code> write <code>contents</code> to <code>filename</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : string -&gt; unit
+    
+      <div class="doc">
+        <code>remove filename</code> removes <code>filename</code>. Works whether <code>filename</code> is
+a file or a directory
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_file">
+  <div class="val">
+    <span class="keyword">val</span> remove_file : string -&gt; unit
+    
+      <div class="doc">
+        <code>remove_file filename</code> removes <code>filename</code>. Works only for normal
+files (or also at least for symlinks)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_dir">
+  <div class="val">
+    <span class="keyword">val</span> remove_dir : string -&gt; unit
+    
+      <div class="doc">
+        <code>remove_dir filename</code> removes <code>filename</code>. Works only for
+directory (not for symlinks or other files).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:chdir">
+  <div class="val">
+    <span class="keyword">val</span> chdir : string -&gt; unit
+    
+      <div class="doc">
+        Change the current working directory
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:in_dir">
+  <div class="val">
+    <span class="keyword">val</span> in_dir : string -&gt; unit -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        <code>in_dir dir fn</code> evaluates <code>fn</code> in the directory <code>dir</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:files_with_links">
+  <div class="val">
+    <span class="keyword">val</span> files_with_links : string -&gt; string list
+    
+      <div class="doc">
+        <code>files_with_links dir</code> returns the files in the directory <code>dir</code>.
+Links simulating directory are ignored, others links are returned.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:rec_files">
+  <div class="val">
+    <span class="keyword">val</span> rec_files : string -&gt; string list
+    
+      <div class="doc">
+        <code>rec_files dir</code> returns the list of all files in <code>dir</code>,
+recursively.
+Links behaving like directory are crossed.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:files">
+  <div class="val">
+    <span class="keyword">val</span> files : string -&gt; string list
+    
+      <div class="doc">
+        Return the list of files in the current directory.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:rec_dirs">
+  <div class="val">
+    <span class="keyword">val</span> rec_dirs : string -&gt; string list
+    
+      <div class="doc">
+        <code>rec_dirs dir</code> return the list list of all directories recursively
+(going through symbolink links).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:dirs">
+  <div class="val">
+    <span class="keyword">val</span> dirs : string -&gt; string list
+    
+      <div class="doc">
+        Return the list of directories in the current directory.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:dir_is_empty">
+  <div class="val">
+    <span class="keyword">val</span> dir_is_empty : string -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:ocaml_version">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_version : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/">Lazy</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/#type:t">t</a>
+    
+      <div class="doc">
+        Return the version of the current OCaml compiler. If no OCaml
+compiler is present in the path, then it returns <code>None</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ocaml_native_available">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_native_available : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/">Lazy</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/#type:t">t</a>
+    
+      <div class="doc">
+        Returns true if the &quot;ocamlopt&quot; is available in the current switch
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ocaml_opt_available">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_opt_available : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/">Lazy</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/#type:t">t</a>
+    
+      <div class="doc">
+        Returns true if the &quot;.opt&quot; version of the current OCaml compiler is
+available
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:ocaml_natdynlink_available">
+  <div class="val">
+    <span class="keyword">val</span> ocaml_natdynlink_available : string -&gt; bool
+    
+      <div class="doc">
+        Checks if native dynlink is available in a given ocaml lib prefix
+(looks for libdir/ocaml/dynlink.cmxa)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:system_ocamlc_where">
+  <div class="val">
+    <span class="keyword">val</span> system_ocamlc_where : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/">Lazy</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/#type:t">t</a>
+    
+      <div class="doc">
+        Return the path where the system ocamlc library is installed
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:system_ocamlc_version">
+  <div class="val">
+    <span class="keyword">val</span> system_ocamlc_version : string option <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/">Lazy</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Lazy/#type:t">t</a>
+    
+      <div class="doc">
+        Return the version of the system compiler
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:directories_with_links">
+  <div class="val">
+    <span class="keyword">val</span> directories_with_links : string -&gt; string list
+    
+      <div class="doc">
+        <code>directories_with_links dir</code> returns the directories in the directory <code>dir</code>.
+Links pointing to directory are also returned.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:command">
+  <div class="type">
+    <span class="keyword">type</span> command = string list
+    
+      <div class="doc">
+        a command is a list of words
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:command_exists">
+  <div class="val">
+    <span class="keyword">val</span> command_exists : ?env:string array -&gt; string -&gt; bool
+    
+      <div class="doc">
+        Test whether a command exists in the environment.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:command">
+  <div class="val">
+    <span class="keyword">val</span> command : ?verbose:bool -&gt; ?env:string array -&gt; ?name:string -&gt; ?metadata:(string * string) list -&gt; ?allow_stdin:bool -&gt; command -&gt; unit
+    
+      <div class="doc">
+        <code>command cmd</code> executes the command <code>cmd</code> in the correct OPAM
+environment.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:commands">
+  <div class="val">
+    <span class="keyword">val</span> commands : ?verbose:bool -&gt; ?env:string array -&gt; ?name:string -&gt; ?metadata:(string * string) list -&gt; ?keep_going:bool -&gt; command list -&gt; unit
+    
+      <div class="doc">
+        <code>commands cmds</code> executes the commands <code>cmds</code> in the correct OPAM
+environment. It stops whenever one command fails unless <code>keep_going</code> is set
+to <code>true</code>. In this case, the first error is re-raised at the end.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:read_command_output">
+  <div class="val">
+    <span class="keyword">val</span> read_command_output : ?verbose:bool -&gt; ?env:string array -&gt; ?metadata:(string * string) list -&gt; command -&gt; string list
+    
+      <div class="doc">
+        <code>read_command_output cmd</code> executes the command <code>cmd</code> in the
+correct OPAM environment and return the lines from stdout if the command
+exists normally. If the command does not exist or if the command exited
+with a non-empty exit-code, throw an error.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:is_tar_archive">
+  <div class="val">
+    <span class="keyword">val</span> is_tar_archive : string -&gt; bool
+    
+      <div class="doc">
+        Test whether the file is an archive, by looking as its extension
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:extract">
+  <div class="val">
+    <span class="keyword">val</span> extract : string -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>extract filename dirname</code> extracts the archive <code>filename</code> into
+<code>dirname</code>. <code>dirname</code> should not exists and <code>filename</code> should
+contain only one top-level directory.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:extract_in">
+  <div class="val">
+    <span class="keyword">val</span> extract_in : string -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>extract_in filename dirname</code> extracts the archive <code>filename</code> into
+<code>dirname</code>. <code>dirname</code> should already exists.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:mkdir">
+  <div class="val">
+    <span class="keyword">val</span> mkdir : string -&gt; unit
+    
+      <div class="doc">
+        Create a directory. Do not fail if the directory already
+exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:lock">
+  <div class="type">
+    <span class="keyword">type</span> lock
+    
+  </div>
+  </div>
+  
+  <div id="val:flock">
+  <div class="val">
+    <span class="keyword">val</span> flock : ?read:bool -&gt; string -&gt; lock
+    
+      <div class="doc">
+        Acquires a lock on the given file. Retries 5 times max.
+By default, this is a write lock.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:funlock">
+  <div class="val">
+    <span class="keyword">val</span> funlock : lock -&gt; unit
+    
+      <div class="doc">
+        Releases an acquired locl
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:download">
+  <div class="val">
+    <span class="keyword">val</span> download : overwrite:bool -&gt; ?compress:bool -&gt; filename:string -&gt; dst:string -&gt; string
+    
+      <div class="doc">
+        download compiler sources
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:patch">
+  <div class="val">
+    <span class="keyword">val</span> patch : string -&gt; unit
+    
+      <div class="doc">
+        Apply a patch file in the current directory.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:temp_file">
+  <div class="val">
+    <span class="keyword">val</span> temp_file : ?dir:string -&gt; string -&gt; string
+    
+      <div class="doc">
+        Create a tempory file in <i>~/.opam/logs/&lt;name&gt;XXX</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:print_stats">
+  <div class="val">
+    <span class="keyword">val</span> print_stats : unit -&gt; unit
+    
+      <div class="doc">
+        Print stats
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:path_sep">
+  <div class="val">
+    <span class="keyword">val</span> path_sep : char
+    
+      <div class="doc">
+        The separator character for the PATH variable
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  opam-lib.42 opam-lib Module 'OpamSystem' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,4592 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  bin_prot.111.03.00 bin_prot Module 'Bin_prot' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../bin_prot/bin_prot.111.03.00/doc/bin_prot/Bin_prot/">Bin_prot</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="module:Common">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Common : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Common#type:pos">
+  <div class="type">
+    <span class="keyword">type</span> pos = int
+    
+      <div class="doc">
+        Position within buffers
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#type:pos_ref">
+  <div class="type">
+    <span class="keyword">type</span> pos_ref = pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+      <div class="doc">
+        Reference to a position within buffers
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#type:buf">
+  <div class="type">
+    <span class="keyword">type</span> buf = (char, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:int8_unsigned_elt">int8_unsigned_elt</a>, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:c_layout">c_layout</a>) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array1">Array1</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array1%23type:t">t</a>
+    
+      <div class="doc">
+        Buffers
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:create_buf">
+  <div class="val">
+    <span class="keyword">val</span> create_buf : int -&gt; buf
+    
+      <div class="doc">
+        <code>create_buf n</code> creates a buffer of size <code>n</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:assert_pos">
+  <div class="val">
+    <span class="keyword">val</span> assert_pos : pos -&gt; unit
+    
+      <div class="doc">
+        <code>assert_pos pos</code>
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if position <code>pos</code> is negative.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:check_pos">
+  <div class="val">
+    <span class="keyword">val</span> check_pos : buf -&gt; pos -&gt; unit
+    
+      <div class="doc">
+        <code>check_pos buf pos</code>
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Buffer_short</code> if position <code>pos</code> exceeds
+the length of buffer <code>buf</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:check_next">
+  <div class="val">
+    <span class="keyword">val</span> check_next : buf -&gt; pos -&gt; unit
+    
+      <div class="doc">
+        <code>check_next buf pos</code>
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Buffer_short</code> if the next position after
+<code>pos</code> exceeds the length of buffer <code>buf</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:safe_get_pos">
+  <div class="val">
+    <span class="keyword">val</span> safe_get_pos : buf -&gt; pos_ref -&gt; pos
+    
+      <div class="doc">
+        <code>safe_get_pos buf pos_ref</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> the position referenced by
+<code>pos_ref</code> within buffer <code>buf</code>.
+  </div>
+  
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Buffer_short</code> if the position
+exceeds the length of the buffer.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:blit_string_buf">
+  <div class="val">
+    <span class="keyword">val</span> blit_string_buf : ?src_pos:int -&gt; string -&gt; ?dst_pos:int -&gt; buf -&gt; len:int -&gt; unit
+    
+      <div class="doc">
+        <code>blit_string_buf ?src_pos src ?dst_pos dst ~len</code> blits <code>len</code>
+bytes of the source string <code>src</code> starting at position <code>src_pos</code>
+to buffer <code>dst</code> starting at position <code>dst_pos</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if the designated ranges are invalid.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:blit_buf_string">
+  <div class="val">
+    <span class="keyword">val</span> blit_buf_string : ?src_pos:int -&gt; buf -&gt; ?dst_pos:int -&gt; string -&gt; len:int -&gt; unit
+    
+      <div class="doc">
+        <code>blit_buf_string ?src_pos src ?dst_pos dst ~len</code> blits <code>len</code>
+bytes of the source buffer <code>src</code> starting at position <code>src_pos</code>
+to string <code>dst</code> starting at position <code>dst_pos</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if the designated ranges are invalid.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:blit_buf">
+  <div class="val">
+    <span class="keyword">val</span> blit_buf : ?src_pos:int -&gt; src:buf -&gt; ?dst_pos:int -&gt; dst:buf -&gt; int -&gt; unit
+    
+      <div class="doc">
+        <code>blit_buf ?src_pos ~src ?dst_pos ~dst len</code> blits <code>len</code> bytes of the
+source buffer <code>src</code> starting at position <code>src_pos</code> to destination
+buffer <code>dst</code> starting at position <code>dst_pos</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if the designated ranges are invalid.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#exception:Buffer_short">
+  <div class="exception">
+    <span class="keyword">exception</span> Buffer_short
+    
+      <div class="doc">
+        Buffer too short for read/write operation
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#exception:No_variant_match">
+  <div class="exception">
+    <span class="keyword">exception</span> No_variant_match
+    
+      <div class="doc">
+        Used internally for backtracking
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Common#module:ReadError">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> ReadError : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Common#module:ReadError#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <div class="constr">| Neg_int8 <span class="doc">(* Negative integer was positive or zero *)</span></div><div class="constr">| Int_code <span class="doc">(* Unknown integer code while reading integer *)</span></div><div class="constr">| Int_overflow <span class="doc">(* Overflow reading integer *)</span></div><div class="constr">| Nat0_code <span class="doc">(* Unknown integer code while reading natural number *)</span></div><div class="constr">| Nat0_overflow <span class="doc">(* Overflow reading natural number *)</span></div><div class="constr">| Int32_code <span class="doc">(* Unknown integer code while reading 32bit integer *)</span></div><div class="constr">| Int64_code <span class="doc">(* Unknown integer code while reading 64bit integer *)</span></div><div class="constr">| Nativeint_code <span class="doc">(* Unknown integer code while reading native integer *)</span></div><div class="constr">| Unit_code <span class="doc">(* Illegal unit value *)</span></div><div class="constr">| Bool_code <span class="doc">(* Illegal boolean value *)</span></div><div class="constr">| Option_code <span class="doc">(* Illegal option code *)</span></div><div class="constr">| String_too_long <span class="doc">(* String too long *)</span></div><div class="constr">| Variant_tag <span class="doc">(* Untagged integer encoding for variant tag *)</span></div><div class="constr">| Array_too_long <span class="doc">(* Array too long *)</span></div><div class="constr">| Hashtbl_too_long <span class="doc">(* Hashtable too long *)</span></div><div class="constr">| Sum_tag <span class="keyword">of</span> string <span class="doc">(* Illegal sum tag for given type *)</span></div><div class="constr">| Variant <span class="keyword">of</span> string <span class="doc">(* Illegal variant for given type *)</span></div><div class="constr">| Poly_rec_bound <span class="keyword">of</span> string <span class="doc">(* Attempt to read data bound through polymorphic record fields *)</span></div><div class="constr">| Variant_wrong_type <span class="keyword">of</span> string <span class="doc">(* Unexpected attempt to read variant with given non-variant type *)</span></div><div class="constr">| Silly_type <span class="keyword">of</span> string <span class="doc">(* <code>Silly_type type_name</code> indicates unhandled but silly case
+where a type of the sort <code>type 'a type_name = 'a</code> is used
+with a polymorphic variant as type parameter and included
+in another polymorphic variant type. *)</span></div><div class="constr">| Empty_type <span class="keyword">of</span> string <span class="doc">(* Attempt to read data that corresponds to an empty type. *)</span></div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#module:ReadError#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        <code>to_string err</code>
+        
+  <div class="tag return">
+    <span class="label">Returns</span> string representation of read error <code>err</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Common#exception:Read_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Read_error <span class="keyword">of</span> ReadError.t * pos
+    
+      <div class="doc">
+        <code>ReadError (err, err_pos)</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#exception:Poly_rec_write">
+  <div class="exception">
+    <span class="keyword">exception</span> Poly_rec_write <span class="keyword">of</span> string
+    
+      <div class="doc">
+        <code>PolyRecWrite type</code> gets raised when the user attempts to write or
+estimate the size of a value of a type that is bound through a
+polymorphic record field in type definition <code>type</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#exception:Empty_type">
+  <div class="exception">
+    <span class="keyword">exception</span> Empty_type <span class="keyword">of</span> string
+    
+      <div class="doc">
+        <code>EmptyType</code> gets raised when the user attempts to write or estimate
+the size of a value of an empty type, which would not make sense.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:raise_read_error">
+  <div class="val">
+    <span class="keyword">val</span> raise_read_error : ReadError.t -&gt; pos -&gt; 'a
+    
+      <div class="doc">
+        <code>raise_read_error err pos</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:raise_variant_wrong_type">
+  <div class="val">
+    <span class="keyword">val</span> raise_variant_wrong_type : string -&gt; pos -&gt; 'a
+    
+      <div class="doc">
+        <code>raise_variant_wrong_type name pos</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:raise_concurrent_modification">
+  <div class="val">
+    <span class="keyword">val</span> raise_concurrent_modification : string -&gt; 'a
+    
+      <div class="doc">
+        <code>raise_concurrent_modification loc</code>
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> if a binary writer
+detects a concurrent change to the underlying data structure.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:array_bound_error">
+  <div class="val">
+    <span class="keyword">val</span> array_bound_error : unit -&gt; 'a
+    
+      <div class="doc">
+        <code>array_bound_error ()</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#type:vec32">
+  <div class="type">
+    <span class="keyword">type</span> vec32 = (float, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:float32_elt">float32_elt</a>, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:fortran_layout">fortran_layout</a>) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array1">Array1</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array1%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#type:vec64">
+  <div class="type">
+    <span class="keyword">type</span> vec64 = (float, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:float64_elt">float64_elt</a>, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:fortran_layout">fortran_layout</a>) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array1">Array1</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array1%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#type:vec">
+  <div class="type">
+    <span class="keyword">type</span> vec = vec64
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#type:mat32">
+  <div class="type">
+    <span class="keyword">type</span> mat32 = (float, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:float32_elt">float32_elt</a>, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:fortran_layout">fortran_layout</a>) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array2">Array2</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array2%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#type:mat64">
+  <div class="type">
+    <span class="keyword">type</span> mat64 = (float, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:float64_elt">float64_elt</a>, <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#type:fortran_layout">fortran_layout</a>) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/">Bigarray</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array2">Array2</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/bigarray/Bigarray/#module:Array2%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#type:mat">
+  <div class="type">
+    <span class="keyword">type</span> mat = mat64
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:copy_htbl_list">
+  <div class="val">
+    <span class="keyword">val</span> copy_htbl_list : ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a> -&gt; ('a * 'b) list -&gt; ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>
+    
+      <div class="doc">
+        <code>copy_htbl_list htbl lst</code> adds all <code>(key, value)</code> pairs in <code>lst</code>
+to hash table <code>htbl</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:variant_of_int">
+  <div class="val">
+    <span class="keyword">val</span> variant_of_int : int -&gt; <span style="color:red">TODO: a</span>
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:unsafe_blit_buf">
+  <div class="val">
+    <span class="keyword">val</span> unsafe_blit_buf : src_pos:int -&gt; src:buf -&gt; dst_pos:int -&gt; dst:buf -&gt; len:int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:unsafe_blit_string_buf">
+  <div class="val">
+    <span class="keyword">val</span> unsafe_blit_string_buf : src_pos:int -&gt; string -&gt; dst_pos:int -&gt; buf -&gt; len:int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:unsafe_blit_buf_string">
+  <div class="val">
+    <span class="keyword">val</span> unsafe_blit_buf_string : src_pos:int -&gt; buf -&gt; dst_pos:int -&gt; string -&gt; len:int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:unsafe_blit_float_array_buf">
+  <div class="val">
+    <span class="keyword">val</span> unsafe_blit_float_array_buf : src_pos:int -&gt; float array -&gt; dst_pos:int -&gt; buf -&gt; len:int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Common#val:unsafe_blit_buf_float_array">
+  <div class="val">
+    <span class="keyword">val</span> unsafe_blit_buf_float_array : src_pos:int -&gt; buf -&gt; dst_pos:int -&gt; float array -&gt; len:int -&gt; unit
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Nat0">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Nat0 : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Nat0#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = int
+    
+  </div>
+  </div>
+  
+  <div id="module:Nat0#val:of_int">
+  <div class="val">
+    <span class="keyword">val</span> of_int : int -&gt; t
+    
+      <div class="doc">
+        <code>of_int n</code> converts integer <code>n</code> to a natural number.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> if <code>n</code> is negative.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Nat0#val:unsafe_of_int">
+  <div class="val">
+    <span class="keyword">val</span> unsafe_of_int : int -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Read">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Read : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Read#type:reader">
+  <div class="type">
+    <span class="keyword">type</span> 'a reader = Common.buf -&gt; pos_ref:Common.pos_ref -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#type:reader1">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) reader1 = 'a reader -&gt; 'b reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#type:reader2">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c) reader2 = 'a reader -&gt; ('b, 'c) reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#type:reader3">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd) reader3 = 'a reader -&gt; ('b, 'c, 'd) reader2
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_unit : unit reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_bool : bool reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_string : string reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_char : char reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_nat0">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_nat0 : Nat0.t reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float : float reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int32 : int32 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int64 : int64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_nativeint : nativeint reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_lazy : ('a, 'a lazy_t) reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_option : ('a, 'a option) reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_pair">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_pair : ('a, 'b, ('a * 'b)) reader2
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_triple">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_triple : ('a, 'b, 'c, ('a * 'b * 'c)) reader3
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_list : ('a, 'a list) reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_array : ('a, 'a array) reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) reader2
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float32_vec : Common.vec32 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float64_vec : Common.vec64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_vec : Common.vec reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float32_mat : Common.mat32 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float64_mat : Common.mat64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_mat : Common.mat reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_bigstring : Common.buf reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_float_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float_array : float array reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_variant_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_variant_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_variant_tag">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_variant_tag : <span style="color:red">TODO: a</span> reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_int_8bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int_8bit : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_int_16bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int_16bit : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_int_32bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int_32bit : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_int_64bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int_64bit : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_int64_bits">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int64_bits : int64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_network16_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_network16_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_network32_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_network32_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_network32_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_network32_int32 : int32 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_network64_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_network64_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Read#val:bin_read_network64_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_network64_int64 : int64 reader
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Size">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Size : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Size#type:sizer">
+  <div class="type">
+    <span class="keyword">type</span> 'a sizer = 'a -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#type:sizer1">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) sizer1 = 'a sizer -&gt; 'b sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#type:sizer2">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c) sizer2 = 'a sizer -&gt; ('b, 'c) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#type:sizer3">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd) sizer3 = 'a sizer -&gt; ('b, 'c, 'd) sizer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_unit : unit sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_bool : bool sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_string : string sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_char : char sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float : float sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int32 : int32 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int64 : int64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_nativeint : nativeint sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_nat0">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_nat0 : Nat0.t sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_lazy_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_lazy_t : ('a, 'a lazy_t) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_lazy : ('a, 'a lazy_t) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_option : ('a, 'a option) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_pair">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_pair : ('a, 'b, ('a * 'b)) sizer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_triple">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_triple : ('a, 'b, 'c, ('a * 'b * 'c)) sizer3
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_list : ('a, 'a list) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_array : ('a, 'a array) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) sizer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float32_vec : Common.vec32 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float64_vec : Common.vec64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_vec : Common.vec sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float32_mat : Common.mat32 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float64_mat : Common.mat64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_mat : Common.mat sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_bigstring : Common.buf sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_float_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float_array : float array sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_variant_tag">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_variant_tag : <span style="color:red">TODO: a</span> sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_int_8bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int_8bit : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_int_16bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int_16bit : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_int_32bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int_32bit : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_int_64bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int_64bit : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_int64_bits">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int64_bits : int64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_network16_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network16_int : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_network32_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network32_int : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_network32_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network32_int32 : int32 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_network64_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network64_int : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_network64_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network64_int64 : int64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Size#val:bin_size_array_no_length">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_array_no_length : ('a, 'a array) sizer1
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Write">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Write : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Write#type:writer">
+  <div class="type">
+    <span class="keyword">type</span> 'a writer = Common.buf -&gt; pos:Common.pos -&gt; 'a -&gt; Common.pos
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#type:writer1">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) writer1 = 'a writer -&gt; 'b writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#type:writer2">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c) writer2 = 'a writer -&gt; ('b, 'c) writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#type:writer3">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd) writer3 = 'a writer -&gt; ('b, 'c, 'd) writer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_unit : unit writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_bool : bool writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_string : string writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_char : char writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_nat0">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_nat0 : Nat0.t writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float : float writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int32 : int32 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int64 : int64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_nativeint : nativeint writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_lazy : ('a, 'a lazy_t) writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_option : ('a, 'a option) writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_pair">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_pair : ('a, 'b, ('a * 'b)) writer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_triple">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_triple : ('a, 'b, 'c, ('a * 'b * 'c)) writer3
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_list : ('a, 'a list) writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_array : ('a, 'a array) writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) writer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float32_vec : Common.vec32 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float64_vec : Common.vec64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_vec : Common.vec writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float32_mat : Common.mat32 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float64_mat : Common.mat64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_mat : Common.mat writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_bigstring : Common.buf writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_float_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float_array : float array writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_variant_tag">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_variant_tag : <span style="color:red">TODO: a</span> writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_int_8bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int_8bit : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_int_16bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int_16bit : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_int_32bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int_32bit : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_int_64bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int_64bit : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_int64_bits">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int64_bits : int64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_network16_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_network16_int : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_network32_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_network32_int : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_network32_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_network32_int32 : int32 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_network64_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_network64_int : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_network64_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_network64_int64 : int64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Write#val:bin_write_array_no_length">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_array_no_length : ('a, 'a array) writer1
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Type_class">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Type_class : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Type_class#type:writer">
+  <div class="type">
+    <span class="keyword">type</span> 'a writer = {<div class="field">size : 'a Size.sizer;</div><div class="field">write : 'a Write.writer;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#type:reader">
+  <div class="type">
+    <span class="keyword">type</span> 'a reader = {<div class="field">read : 'a Read.reader;</div><div class="field">vtag_read : int -&gt; 'a Read.reader;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t = {<div class="field">writer : 'a writer;</div><div class="field">reader : 'a reader;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#type:writer0">
+  <div class="type">
+    <span class="keyword">type</span> 'a writer0 = 'a writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#type:reader0">
+  <div class="type">
+    <span class="keyword">type</span> 'a reader0 = 'a reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#type:t0">
+  <div class="type">
+    <span class="keyword">type</span> 'a t0 = 'a t
+    
+  </div>
+  </div>
+  
+    <div id="module:Type_class#module:S1">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> S1 : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Type_class#module:S1#type:writer">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) writer = 'a writer0 -&gt; 'b writer0
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#module:S1#type:reader">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) reader = 'a reader0 -&gt; 'b reader0
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#module:S1#type:t">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) t = 'a t0 -&gt; 'b t0
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Type_class#module:S2">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> S2 : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Type_class#module:S2#type:writer">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c) writer = 'a writer0 -&gt; ('b, 'c) S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#module:S2#type:reader">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c) reader = 'a reader0 -&gt; ('b, 'c) S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#module:S2#type:t">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c) t = 'a t0 -&gt; ('b, 'c) S1.t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Type_class#module:S3">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> S3 : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Type_class#module:S3#type:writer">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd) writer = 'a writer0 -&gt; ('b, 'c, 'd) S2.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#module:S3#type:reader">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd) reader = 'a reader0 -&gt; ('b, 'c, 'd) S2.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#module:S3#type:t">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd) t = 'a t0 -&gt; ('b, 'c, 'd) S2.t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Type_class#val:bin_writer_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_unit : unit writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_unit : unit reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_unit : unit t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_bool : bool writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_bool : bool reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_bool : bool t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_string : string writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_string : string reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_string : string t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_char : char writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_char : char reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_char : char t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_int : int t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float : float writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float : float reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_float : float t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int32 : int32 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int32 : int32 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_int32 : int32 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int64 : int64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int64 : int64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_int64 : int64 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_nativeint : nativeint writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_nativeint : nativeint reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_nativeint : nativeint t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_nat0">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_nat0 : Nat0.t writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_nat0">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_nat0 : Nat0.t reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_nat0">
+  <div class="val">
+    <span class="keyword">val</span> bin_nat0 : Nat0.t t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_lazy : ('a, 'a lazy_t) S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_lazy : ('a, 'a lazy_t) S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_lazy : ('a, 'a lazy_t) S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_option : ('a, 'a option) S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_option : ('a, 'a option) S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_option : ('a, 'a option) S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_pair">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_pair : ('a, 'b, ('a * 'b)) S2.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_pair">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_pair : ('a, 'b, ('a * 'b)) S2.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_pair">
+  <div class="val">
+    <span class="keyword">val</span> bin_pair : ('a, 'b, ('a * 'b)) S2.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_triple">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_triple : ('a, 'b, 'c, ('a * 'b * 'c)) S3.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_triple">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_triple : ('a, 'b, 'c, ('a * 'b * 'c)) S3.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_triple">
+  <div class="val">
+    <span class="keyword">val</span> bin_triple : ('a, 'b, 'c, ('a * 'b * 'c)) S3.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_list : ('a, 'a list) S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_list : ('a, 'a list) S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_list : ('a, 'a list) S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_array : ('a, 'a array) S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_array : ('a, 'a array) S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_array : ('a, 'a array) S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) S2.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) S2.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) S2.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float32_vec : Common.vec32 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float32_vec : Common.vec32 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_float32_vec : Common.vec32 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float64_vec : Common.vec64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float64_vec : Common.vec64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_float64_vec : Common.vec64 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_vec : Common.vec writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_vec : Common.vec reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_vec : Common.vec t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float32_mat : Common.mat32 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float32_mat : Common.mat32 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_float32_mat : Common.mat32 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float64_mat : Common.mat64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float64_mat : Common.mat64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_float64_mat : Common.mat64 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_mat : Common.mat writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_mat : Common.mat reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_mat : Common.mat t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_bigstring : Common.buf writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_bigstring : Common.buf reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_bigstring : Common.buf t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_float_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float_array : float array writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_float_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float_array : float array reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_float_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_float_array : float array t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_variant_tag">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_variant_tag : <span style="color:red">TODO: a</span> writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_variant_tag">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_variant_tag : <span style="color:red">TODO: a</span> reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_variant_tag">
+  <div class="val">
+    <span class="keyword">val</span> bin_variant_tag : <span style="color:red">TODO: a</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_int_8bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int_8bit : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_int_8bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int_8bit : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_int_8bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_int_8bit : int t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_int_16bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int_16bit : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_int_16bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int_16bit : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_int_16bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_int_16bit : int t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_int_32bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int_32bit : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_int_32bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int_32bit : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_int_32bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_int_32bit : int t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_int_64bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int_64bit : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_int_64bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int_64bit : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_int_64bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_int_64bit : int t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_int64_bits">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int64_bits : int64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_int64_bits">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int64_bits : int64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_int64_bits">
+  <div class="val">
+    <span class="keyword">val</span> bin_int64_bits : int64 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_network16_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_network16_int : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_network16_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_network16_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_network16_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_network16_int : int t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_network32_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_network32_int : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_network32_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_network32_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_network32_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_network32_int : int t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_network32_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_network32_int32 : int32 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_network32_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_network32_int32 : int32 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_network32_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_network32_int32 : int32 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_network64_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_network64_int : int writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_network64_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_network64_int : int reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_network64_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_network64_int : int t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_network64_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_network64_int64 : int64 writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_reader_network64_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_network64_int64 : int64 reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_network64_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_network64_int64 : int64 t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:bin_writer_array_no_length">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_array_no_length : ('a, 'a array) S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:cnv_writer">
+  <div class="val">
+    <span class="keyword">val</span> cnv_writer : 'a -&gt; 'b -&gt; 'b writer -&gt; 'a writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:cnv_reader">
+  <div class="val">
+    <span class="keyword">val</span> cnv_reader : 'b -&gt; 'a -&gt; 'b reader -&gt; 'a reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Type_class#val:cnv">
+  <div class="val">
+    <span class="keyword">val</span> cnv : 'a -&gt; 'b -&gt; 'b -&gt; 'a -&gt; 'b t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Binable">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Binable : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div id="module:Binable#modtype:S">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> S = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="module:Binable#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_size_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_t : t Size.sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_write_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_t : t Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_read_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_t : t Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:__bin_read_t__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_t__ : int -&gt; t Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_writer_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_t : t Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_reader_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_t : t Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_t : t Type_class.t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Binable#modtype:S1">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> S1 = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="module:Binable#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_size_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_t : ('a, 'a t) Size.sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_write_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_t : ('a, 'a t) Write.writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_read_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_t : ('a, 'a t) Read.reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:__bin_read_t__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_t__ : ('a, int -&gt; 'a t) Read.reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_writer_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_t : ('a, 'a t) Type_class.S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_reader_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_t : ('a, 'a t) Type_class.S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_t : ('a, 'a t) Type_class.S1.t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Binable#modtype:S2">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> S2 = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="module:Binable#type:t">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) t
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_size_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_t : ('a, 'b, ('a, 'b) t) Size.sizer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_write_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_t : ('a, 'b, ('a, 'b) t) Write.writer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_read_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_t : ('a, 'b, ('a, 'b) t) Read.reader2
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:__bin_read_t__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_t__ : ('a, 'b, int -&gt; ('a, 'b) t) Read.reader2
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_writer_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_t : ('a, 'b, ('a, 'b) t) Type_class.S2.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_reader_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_t : ('a, 'b, ('a, 'b) t) Type_class.S2.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Binable#val:bin_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_t : ('a, 'b, ('a, 'b) t) Type_class.S2.t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Std">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Std : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Std#type:sizer">
+  <div class="type">
+    <span class="keyword">type</span> 'a sizer = 'a -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#type:sizer1">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) sizer1 = 'a sizer -&gt; 'b sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#type:sizer2">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c) sizer2 = 'a sizer -&gt; ('b, 'c) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#type:sizer3">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd) sizer3 = 'a sizer -&gt; ('b, 'c, 'd) sizer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_unit : unit sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_bool : bool sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_string : string sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_char : char sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float : float sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int32 : int32 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int64 : int64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_nativeint : nativeint sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_nat0">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_nat0 : Nat0.t sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_lazy_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_lazy_t : ('a, 'a lazy_t) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_lazy : ('a, 'a lazy_t) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_option : ('a, 'a option) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_pair">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_pair : ('a, 'b, ('a * 'b)) sizer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_triple">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_triple : ('a, 'b, 'c, ('a * 'b * 'c)) sizer3
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_list : ('a, 'a list) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_array : ('a, 'a array) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) sizer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float32_vec : Common.vec32 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float64_vec : Common.vec64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_vec : Common.vec sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float32_mat : Common.mat32 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float64_mat : Common.mat64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_mat : Common.mat sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_bigstring : Common.buf sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_float_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_float_array : float array sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_variant_tag">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_variant_tag : <span style="color:red">TODO: a</span> sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_int_8bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int_8bit : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_int_16bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int_16bit : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_int_32bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int_32bit : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_int_64bit">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int_64bit : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_int64_bits">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_int64_bits : int64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_network16_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network16_int : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_network32_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network32_int : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_network32_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network32_int32 : int32 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_network64_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network64_int : int sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_network64_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_network64_int64 : int64 sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_size_array_no_length">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_array_no_length : ('a, 'a array) sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_unit : unit Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_unit : unit Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_unit : unit Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_unit : unit Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_unit">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_unit : unit Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_unit__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_unit__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_bool : bool Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_bool : bool Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_bool : bool Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_bool : bool Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_bool">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_bool : bool Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_bool__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_bool__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_string : string Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_string : string Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_string : string Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_string : string Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_string">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_string : string Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_string__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_string__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_char : char Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_char : char Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_char : char Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_char : char Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_char">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_char : char Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_char__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_char__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_int : int Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int : int Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int : int Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int : int Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_int">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int : int Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_int__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_int__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_float : float Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float : float Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float : float Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float : float Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_float">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float : float Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_float__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_float__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_int32 : int32 Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int32 : int32 Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int32 : int32 Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int32 : int32 Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_int32">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int32 : int32 Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_int32__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_int32__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_int64 : int64 Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_int64 : int64 Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_int64 : int64 Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_int64 : int64 Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_int64">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_int64 : int64 Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_int64__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_int64__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_nativeint : nativeint Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_nativeint : nativeint Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_nativeint : nativeint Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_nativeint : nativeint Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_nativeint">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_nativeint : nativeint Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_nativeint__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_nativeint__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) Type_class.S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) Type_class.S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) Write.writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) Type_class.S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_ref">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_ref : ('a, 'a <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>) Read.reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_ref__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_ref__ : 'a -&gt; 'b -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'c -&gt; 'd
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_lazy_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_lazy_t : ('a, 'a lazy_t) Type_class.S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_lazy_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_lazy_t : ('a, 'a lazy_t) Type_class.S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_lazy_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_lazy_t : ('a, 'a lazy_t) Write.writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_lazy_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_lazy_t : ('a, 'a lazy_t) Type_class.S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_lazy_t">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_lazy_t : ('a, 'a lazy_t) Read.reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_lazy_t__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_lazy_t__ : 'a -&gt; 'b -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'c -&gt; 'd
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_lazy : ('a, 'a lazy_t) Type_class.S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_lazy : ('a, 'a lazy_t) Type_class.S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_lazy : ('a, 'a lazy_t) Write.writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_lazy : ('a, 'a lazy_t) Type_class.S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_lazy">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_lazy : ('a, 'a lazy_t) Read.reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_lazy__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_lazy__ : 'a -&gt; 'b -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'c -&gt; 'd
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_option : ('a, 'a option) Type_class.S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_option : ('a, 'a option) Type_class.S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_option : ('a, 'a option) Write.writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_option : ('a, 'a option) Type_class.S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_option">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_option : ('a, 'a option) Read.reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_option__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_option__ : 'a -&gt; 'b -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'c -&gt; 'd
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_list : ('a, 'a list) Type_class.S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_list : ('a, 'a list) Type_class.S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_list : ('a, 'a list) Write.writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_list : ('a, 'a list) Type_class.S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_list">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_list : ('a, 'a list) Read.reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_list__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_list__ : 'a -&gt; 'b -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'c -&gt; 'd
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_array : ('a, 'a array) Type_class.S1.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_array : ('a, 'a array) Type_class.S1.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_array : ('a, 'a array) Write.writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_array : ('a, 'a array) Type_class.S1.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_array">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_array : ('a, 'a array) Read.reader1
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_array__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_array__ : 'a -&gt; 'b -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'c -&gt; 'd
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) Type_class.S2.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) Type_class.S2.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) Write.writer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) Type_class.S2.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_hashtbl">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_hashtbl : ('a, 'b, ('a, 'b) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a>) Read.reader2
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_hashtbl__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_hashtbl__ : 'a -&gt; 'b -&gt; 'c -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'd -&gt; 'e
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_bigstring : Common.buf Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_bigstring : Common.buf Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_bigstring : Common.buf Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_bigstring : Common.buf Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_bigstring">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_bigstring : Common.buf Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_bigstring__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_bigstring__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_mat : Common.mat Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_mat : Common.mat Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_mat : Common.mat Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_mat : Common.mat Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_mat : Common.mat Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_mat__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_mat__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_float32_mat : Common.mat32 Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float32_mat : Common.mat32 Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float32_mat : Common.mat32 Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float32_mat : Common.mat32 Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_float32_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float32_mat : Common.mat32 Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_float32_mat__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_float32_mat__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_float64_mat : Common.mat64 Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float64_mat : Common.mat64 Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float64_mat : Common.mat64 Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float64_mat : Common.mat64 Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_float64_mat">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float64_mat : Common.mat64 Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_float64_mat__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_float64_mat__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_vec : Common.vec Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_vec : Common.vec Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_vec : Common.vec Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_vec : Common.vec Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_vec : Common.vec Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_vec__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_vec__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_float32_vec : Common.vec32 Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float32_vec : Common.vec32 Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float32_vec : Common.vec32 Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float32_vec : Common.vec32 Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_float32_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float32_vec : Common.vec32 Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_float32_vec__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_float32_vec__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_float64_vec : Common.vec64 Type_class.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_writer_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_writer_float64_vec : Common.vec64 Type_class.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_write_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_float64_vec : Common.vec64 Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_reader_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_reader_float64_vec : Common.vec64 Type_class.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:bin_read_float64_vec">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_float64_vec : Common.vec64 Read.reader
+    
+  </div>
+  </div>
+  
+  <div id="module:Std#val:__bin_read_float64_vec__">
+  <div class="val">
+    <span class="keyword">val</span> __bin_read_float64_vec__ : 'a -&gt; pos_ref:Common.pos <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; 'b -&gt; 'c
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Utils">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Utils : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Utils#val:bin_dump">
+  <div class="val">
+    <span class="keyword">val</span> bin_dump : ?header:bool -&gt; 'a Type_class.writer -&gt; 'a -&gt; Common.buf
+    
+      <div class="doc">
+        <code>bin_dump ?header writer v</code> uses <code>writer</code> to first compute the size of
+<code>v</code> in the binary protocol, then allocates a buffer of exactly this
+size, and then writes out the value. If <code>header</code> is <code>true</code>, the
+size of the resulting binary string will be prefixed as a signed
+64bit integer.
+        
+  <div class="tag return">
+    <span class="label">Returns</span> the buffer containing the written out value.
+  </div>
+  
+  <div class="tag param">
+    <span class="label">header</span> default = <code>false</code>
+  </div>
+  
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> if the size of the value changes during writing,
+and any other exceptions that the binary writer in <code>writer</code> can raise.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_read_stream">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_stream : ?max_size:int -&gt; read:Common.buf -&gt; pos:int -&gt; len:int -&gt; unit -&gt; 'a Type_class.reader -&gt; 'a
+    
+      <div class="doc">
+        <code>bin_read_stream ?max_size ~read reader</code> reads binary protocol data
+from a stream as generated by the <code>read</code> function, which places
+data of a given length into a given buffer. Requires a header.
+The <code>reader</code> type class will be used for conversion to OCaml-values.
+        
+  <div class="tag param">
+    <span class="label">max_size</span> = nothing
+  </div>
+  
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> if the size of the value disagrees with the one
+specified in the header, and any other exceptions that the binary
+reader associated with <code>reader</code> can raise.
+  </div>
+  
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> if the size reported in the data header is longer than
+<code>max_size</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Utils#modtype:Make_binable_spec">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> Make_binable_spec = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Binable : Binable.S
+      </div>
+      
+    </div>
+  
+  <div id="module:Utils#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:to_binable">
+  <div class="val">
+    <span class="keyword">val</span> to_binable : t -&gt; Binable.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:of_binable">
+  <div class="val">
+    <span class="keyword">val</span> of_binable : Binable.t -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:bin_prot.111.03.00/bin_prot/Bin_prot.Utils.Make_binable</span>
+    <div id="module:Utils#modtype:Make_binable1_spec">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> Make_binable1_spec = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Binable : Binable.S1
+      </div>
+      
+    </div>
+  
+  <div id="module:Utils#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:to_binable">
+  <div class="val">
+    <span class="keyword">val</span> to_binable : 'a t -&gt; 'a Binable.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:of_binable">
+  <div class="val">
+    <span class="keyword">val</span> of_binable : 'a Binable.t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:bin_prot.111.03.00/bin_prot/Bin_prot.Utils.Make_binable1</span>
+    <div id="module:Utils#modtype:Make_binable2_spec">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> Make_binable2_spec = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Binable : Binable.S2
+      </div>
+      
+    </div>
+  
+  <div id="module:Utils#type:t">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:to_binable">
+  <div class="val">
+    <span class="keyword">val</span> to_binable : ('a, 'b) t -&gt; ('a, 'b) Binable.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:of_binable">
+  <div class="val">
+    <span class="keyword">val</span> of_binable : ('a, 'b) Binable.t -&gt; ('a, 'b) t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:bin_prot.111.03.00/bin_prot/Bin_prot.Utils.Make_binable2</span>
+    <div id="module:Utils#modtype:Make_iterable_binable_spec">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> Make_iterable_binable_spec = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="module:Utils#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#type:el">
+  <div class="type">
+    <span class="keyword">type</span> el
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#type:acc">
+  <div class="type">
+    <span class="keyword">type</span> acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:module_name">
+  <div class="val">
+    <span class="keyword">val</span> module_name : string option
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:length">
+  <div class="val">
+    <span class="keyword">val</span> length : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : t -&gt; f:el -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:init">
+  <div class="val">
+    <span class="keyword">val</span> init : int -&gt; acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:insert">
+  <div class="val">
+    <span class="keyword">val</span> insert : acc -&gt; el -&gt; int -&gt; acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:finish">
+  <div class="val">
+    <span class="keyword">val</span> finish : acc -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_size_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_el : el Size.sizer
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_write_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_el : el Write.writer
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_read_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_el : el Read.reader
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:bin_prot.111.03.00/bin_prot/Bin_prot.Utils.Make_iterable_binable</span>
+    <div id="module:Utils#modtype:Make_iterable_binable1_spec">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> Make_iterable_binable1_spec = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="module:Utils#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#type:el">
+  <div class="type">
+    <span class="keyword">type</span> 'a el
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#type:acc">
+  <div class="type">
+    <span class="keyword">type</span> 'a acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:module_name">
+  <div class="val">
+    <span class="keyword">val</span> module_name : string option
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:length">
+  <div class="val">
+    <span class="keyword">val</span> length : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : 'a t -&gt; f:'a el -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:init">
+  <div class="val">
+    <span class="keyword">val</span> init : int -&gt; 'a acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:insert">
+  <div class="val">
+    <span class="keyword">val</span> insert : 'a acc -&gt; 'a el -&gt; int -&gt; 'a acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:finish">
+  <div class="val">
+    <span class="keyword">val</span> finish : 'a acc -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_size_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_el : ('a, 'a el) Size.sizer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_write_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_el : ('a, 'a el) Write.writer1
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_read_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_el : ('a, 'a el) Read.reader1
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:bin_prot.111.03.00/bin_prot/Bin_prot.Utils.Make_iterable_binable1</span>
+    <div id="module:Utils#modtype:Make_iterable_binable2_spec">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> Make_iterable_binable2_spec = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="module:Utils#type:t">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#type:el">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) el
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#type:acc">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:module_name">
+  <div class="val">
+    <span class="keyword">val</span> module_name : string option
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:length">
+  <div class="val">
+    <span class="keyword">val</span> length : ('a, 'b) t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : ('a, 'b) t -&gt; f:('a, 'b) el -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:init">
+  <div class="val">
+    <span class="keyword">val</span> init : int -&gt; ('a, 'b) acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:insert">
+  <div class="val">
+    <span class="keyword">val</span> insert : ('a, 'b) acc -&gt; ('a, 'b) el -&gt; int -&gt; ('a, 'b) acc
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:finish">
+  <div class="val">
+    <span class="keyword">val</span> finish : ('a, 'b) acc -&gt; ('a, 'b) t
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_size_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_size_el : ('a, 'b, ('a, 'b) el) Size.sizer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_write_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_write_el : ('a, 'b, ('a, 'b) el) Write.writer2
+    
+  </div>
+  </div>
+  
+  <div id="module:Utils#val:bin_read_el">
+  <div class="val">
+    <span class="keyword">val</span> bin_read_el : ('a, 'b, ('a, 'b) el) Read.reader2
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:bin_prot.111.03.00/bin_prot/Bin_prot.Utils.Make_iterable_binable2</span>
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  bin_prot.111.03.00 bin_prot Module 'Bin_prot' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

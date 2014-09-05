@@ -1,0 +1,1745 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 compiler-libs Module 'Ast_helper' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Ast_helper/">Ast_helper</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:lid">
+  <div class="type">
+    <span class="keyword">type</span> lid = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/">Longident</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Longident/#type:t">t</a> Asttypes.loc
+    
+  </div>
+  </div>
+  
+  <div id="type:str">
+  <div class="type">
+    <span class="keyword">type</span> str = string Asttypes.loc
+    
+  </div>
+  </div>
+  
+  <div id="type:loc">
+  <div class="type">
+    <span class="keyword">type</span> loc = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/">Location</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Location/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="type:attrs">
+  <div class="type">
+    <span class="keyword">type</span> attrs = Parsetree.attribute list
+    
+  </div>
+  </div>
+  
+  <div id="val:default_loc">
+  <div class="val">
+    <span class="keyword">val</span> default_loc : loc <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:with_default_loc">
+  <div class="val">
+    <span class="keyword">val</span> with_default_loc : loc -&gt; unit -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+    <div id="module:Typ">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Typ : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Typ#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.core_type_desc -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.core_type -&gt; Parsetree.attribute -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:any">
+  <div class="val">
+    <span class="keyword">val</span> any : ?loc:loc -&gt; ?attrs:attrs -&gt; unit -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:var">
+  <div class="val">
+    <span class="keyword">val</span> var : ?loc:loc -&gt; ?attrs:attrs -&gt; string -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:arrow">
+  <div class="val">
+    <span class="keyword">val</span> arrow : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.label -&gt; Parsetree.core_type -&gt; Parsetree.core_type -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:tuple">
+  <div class="val">
+    <span class="keyword">val</span> tuple : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.core_type list -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:constr">
+  <div class="val">
+    <span class="keyword">val</span> constr : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.core_type list -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:object_">
+  <div class="val">
+    <span class="keyword">val</span> object_ : ?loc:loc -&gt; ?attrs:attrs -&gt; (string * Parsetree.attributes * Parsetree.core_type) list -&gt; Asttypes.closed_flag -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:class_">
+  <div class="val">
+    <span class="keyword">val</span> class_ : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.core_type list -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:alias">
+  <div class="val">
+    <span class="keyword">val</span> alias : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.core_type -&gt; string -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:variant">
+  <div class="val">
+    <span class="keyword">val</span> variant : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.row_field list -&gt; Asttypes.closed_flag -&gt; Asttypes.label list option -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:poly">
+  <div class="val">
+    <span class="keyword">val</span> poly : ?loc:loc -&gt; ?attrs:attrs -&gt; string list -&gt; Parsetree.core_type -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:package">
+  <div class="val">
+    <span class="keyword">val</span> package : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; (lid * Parsetree.core_type) list -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Typ#val:force_poly">
+  <div class="val">
+    <span class="keyword">val</span> force_poly : Parsetree.core_type -&gt; Parsetree.core_type
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Pat">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Pat : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Pat#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern_desc -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.pattern -&gt; Parsetree.attribute -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:any">
+  <div class="val">
+    <span class="keyword">val</span> any : ?loc:loc -&gt; ?attrs:attrs -&gt; unit -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:var">
+  <div class="val">
+    <span class="keyword">val</span> var : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:alias">
+  <div class="val">
+    <span class="keyword">val</span> alias : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern -&gt; str -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:constant">
+  <div class="val">
+    <span class="keyword">val</span> constant : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.constant -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:interval">
+  <div class="val">
+    <span class="keyword">val</span> interval : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.constant -&gt; Asttypes.constant -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:tuple">
+  <div class="val">
+    <span class="keyword">val</span> tuple : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern list -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:construct">
+  <div class="val">
+    <span class="keyword">val</span> construct : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.pattern option -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:variant">
+  <div class="val">
+    <span class="keyword">val</span> variant : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.label -&gt; Parsetree.pattern option -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:record">
+  <div class="val">
+    <span class="keyword">val</span> record : ?loc:loc -&gt; ?attrs:attrs -&gt; (lid * Parsetree.pattern) list -&gt; Asttypes.closed_flag -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:array">
+  <div class="val">
+    <span class="keyword">val</span> array : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern list -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:or_">
+  <div class="val">
+    <span class="keyword">val</span> or_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern -&gt; Parsetree.pattern -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:constraint_">
+  <div class="val">
+    <span class="keyword">val</span> constraint_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern -&gt; Parsetree.core_type -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:type_">
+  <div class="val">
+    <span class="keyword">val</span> type_ : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:lazy_">
+  <div class="val">
+    <span class="keyword">val</span> lazy_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:unpack">
+  <div class="val">
+    <span class="keyword">val</span> unpack : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:exception_">
+  <div class="val">
+    <span class="keyword">val</span> exception_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+  <div id="module:Pat#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.pattern
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Exp">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Exp : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Exp#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression_desc -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.expression -&gt; Parsetree.attribute -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:ident">
+  <div class="val">
+    <span class="keyword">val</span> ident : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:constant">
+  <div class="val">
+    <span class="keyword">val</span> constant : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.constant -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:let_">
+  <div class="val">
+    <span class="keyword">val</span> let_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.rec_flag -&gt; Parsetree.value_binding list -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:fun_">
+  <div class="val">
+    <span class="keyword">val</span> fun_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.label -&gt; Parsetree.expression option -&gt; Parsetree.pattern -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:function_">
+  <div class="val">
+    <span class="keyword">val</span> function_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.case list -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:apply">
+  <div class="val">
+    <span class="keyword">val</span> apply : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; (Asttypes.label * Parsetree.expression) list -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:match_">
+  <div class="val">
+    <span class="keyword">val</span> match_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.case list -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:try_">
+  <div class="val">
+    <span class="keyword">val</span> try_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.case list -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:tuple">
+  <div class="val">
+    <span class="keyword">val</span> tuple : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression list -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:construct">
+  <div class="val">
+    <span class="keyword">val</span> construct : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.expression option -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:variant">
+  <div class="val">
+    <span class="keyword">val</span> variant : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.label -&gt; Parsetree.expression option -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:record">
+  <div class="val">
+    <span class="keyword">val</span> record : ?loc:loc -&gt; ?attrs:attrs -&gt; (lid * Parsetree.expression) list -&gt; Parsetree.expression option -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:field">
+  <div class="val">
+    <span class="keyword">val</span> field : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; lid -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:setfield">
+  <div class="val">
+    <span class="keyword">val</span> setfield : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; lid -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:array">
+  <div class="val">
+    <span class="keyword">val</span> array : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression list -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:ifthenelse">
+  <div class="val">
+    <span class="keyword">val</span> ifthenelse : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.expression -&gt; Parsetree.expression option -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:sequence">
+  <div class="val">
+    <span class="keyword">val</span> sequence : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:while_">
+  <div class="val">
+    <span class="keyword">val</span> while_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:for_">
+  <div class="val">
+    <span class="keyword">val</span> for_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern -&gt; Parsetree.expression -&gt; Parsetree.expression -&gt; Asttypes.direction_flag -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:coerce">
+  <div class="val">
+    <span class="keyword">val</span> coerce : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.core_type option -&gt; Parsetree.core_type -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:constraint_">
+  <div class="val">
+    <span class="keyword">val</span> constraint_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.core_type -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:send">
+  <div class="val">
+    <span class="keyword">val</span> send : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; string -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:new_">
+  <div class="val">
+    <span class="keyword">val</span> new_ : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:setinstvar">
+  <div class="val">
+    <span class="keyword">val</span> setinstvar : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:override">
+  <div class="val">
+    <span class="keyword">val</span> override : ?loc:loc -&gt; ?attrs:attrs -&gt; (str * Parsetree.expression) list -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:letmodule">
+  <div class="val">
+    <span class="keyword">val</span> letmodule : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.module_expr -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:assert_">
+  <div class="val">
+    <span class="keyword">val</span> assert_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:lazy_">
+  <div class="val">
+    <span class="keyword">val</span> lazy_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:poly">
+  <div class="val">
+    <span class="keyword">val</span> poly : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.core_type option -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:object_">
+  <div class="val">
+    <span class="keyword">val</span> object_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_structure -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:newtype">
+  <div class="val">
+    <span class="keyword">val</span> newtype : ?loc:loc -&gt; ?attrs:attrs -&gt; string -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:pack">
+  <div class="val">
+    <span class="keyword">val</span> pack : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.module_expr -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:open_">
+  <div class="val">
+    <span class="keyword">val</span> open_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.override_flag -&gt; lid -&gt; Parsetree.expression -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.expression
+    
+  </div>
+  </div>
+  
+  <div id="module:Exp#val:case">
+  <div class="val">
+    <span class="keyword">val</span> case : Parsetree.pattern -&gt; ?guard:Parsetree.expression -&gt; Parsetree.expression -&gt; Parsetree.case
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Val">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Val : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Val#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; ?prim:string list -&gt; str -&gt; Parsetree.core_type -&gt; Parsetree.value_description
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Type">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Type : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Type#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; ?params:(Parsetree.core_type * Asttypes.variance) list -&gt; ?cstrs:(Parsetree.core_type * Parsetree.core_type * loc) list -&gt; ?kind:Parsetree.type_kind -&gt; ?priv:Asttypes.private_flag -&gt; ?manifest:Parsetree.core_type -&gt; str -&gt; Parsetree.type_declaration
+    
+  </div>
+  </div>
+  
+  <div id="module:Type#val:constructor">
+  <div class="val">
+    <span class="keyword">val</span> constructor : ?loc:loc -&gt; ?attrs:attrs -&gt; ?args:Parsetree.core_type list -&gt; ?res:Parsetree.core_type -&gt; str -&gt; Parsetree.constructor_declaration
+    
+  </div>
+  </div>
+  
+  <div id="module:Type#val:field">
+  <div class="val">
+    <span class="keyword">val</span> field : ?loc:loc -&gt; ?attrs:attrs -&gt; ?mut:Asttypes.mutable_flag -&gt; str -&gt; Parsetree.core_type -&gt; Parsetree.label_declaration
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Te">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Te : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Te#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?attrs:attrs -&gt; ?params:(Parsetree.core_type * Asttypes.variance) list -&gt; ?priv:Asttypes.private_flag -&gt; lid -&gt; Parsetree.extension_constructor list -&gt; Parsetree.type_extension
+    
+  </div>
+  </div>
+  
+  <div id="module:Te#val:constructor">
+  <div class="val">
+    <span class="keyword">val</span> constructor : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.extension_constructor_kind -&gt; Parsetree.extension_constructor
+    
+  </div>
+  </div>
+  
+  <div id="module:Te#val:decl">
+  <div class="val">
+    <span class="keyword">val</span> decl : ?loc:loc -&gt; ?attrs:attrs -&gt; ?args:Parsetree.core_type list -&gt; ?res:Parsetree.core_type -&gt; str -&gt; Parsetree.extension_constructor
+    
+  </div>
+  </div>
+  
+  <div id="module:Te#val:rebind">
+  <div class="val">
+    <span class="keyword">val</span> rebind : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; lid -&gt; Parsetree.extension_constructor
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Mty">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Mty : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Mty#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.module_type_desc -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Mty#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.module_type -&gt; Parsetree.attribute -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Mty#val:ident">
+  <div class="val">
+    <span class="keyword">val</span> ident : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Mty#val:alias">
+  <div class="val">
+    <span class="keyword">val</span> alias : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Mty#val:signature">
+  <div class="val">
+    <span class="keyword">val</span> signature : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.signature -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Mty#val:functor_">
+  <div class="val">
+    <span class="keyword">val</span> functor_ : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.module_type option -&gt; Parsetree.module_type -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Mty#val:with_">
+  <div class="val">
+    <span class="keyword">val</span> with_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.module_type -&gt; Parsetree.with_constraint list -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Mty#val:typeof_">
+  <div class="val">
+    <span class="keyword">val</span> typeof_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.module_expr -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Mty#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.module_type
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Mod">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Mod : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Mod#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.module_expr_desc -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Mod#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.module_expr -&gt; Parsetree.attribute -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Mod#val:ident">
+  <div class="val">
+    <span class="keyword">val</span> ident : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Mod#val:structure">
+  <div class="val">
+    <span class="keyword">val</span> structure : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.structure -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Mod#val:functor_">
+  <div class="val">
+    <span class="keyword">val</span> functor_ : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.module_type option -&gt; Parsetree.module_expr -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Mod#val:apply">
+  <div class="val">
+    <span class="keyword">val</span> apply : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.module_expr -&gt; Parsetree.module_expr -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Mod#val:constraint_">
+  <div class="val">
+    <span class="keyword">val</span> constraint_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.module_expr -&gt; Parsetree.module_type -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Mod#val:unpack">
+  <div class="val">
+    <span class="keyword">val</span> unpack : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Mod#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.module_expr
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Sig">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Sig : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Sig#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; Parsetree.signature_item_desc -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:value">
+  <div class="val">
+    <span class="keyword">val</span> value : ?loc:loc -&gt; Parsetree.value_description -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:type_">
+  <div class="val">
+    <span class="keyword">val</span> type_ : ?loc:loc -&gt; Parsetree.type_declaration list -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:type_extension">
+  <div class="val">
+    <span class="keyword">val</span> type_extension : ?loc:loc -&gt; Parsetree.type_extension -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:exception_">
+  <div class="val">
+    <span class="keyword">val</span> exception_ : ?loc:loc -&gt; Parsetree.extension_constructor -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:module_">
+  <div class="val">
+    <span class="keyword">val</span> module_ : ?loc:loc -&gt; Parsetree.module_declaration -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:rec_module">
+  <div class="val">
+    <span class="keyword">val</span> rec_module : ?loc:loc -&gt; Parsetree.module_declaration list -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:modtype">
+  <div class="val">
+    <span class="keyword">val</span> modtype : ?loc:loc -&gt; Parsetree.module_type_declaration -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:open_">
+  <div class="val">
+    <span class="keyword">val</span> open_ : ?loc:loc -&gt; Parsetree.open_description -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:include_">
+  <div class="val">
+    <span class="keyword">val</span> include_ : ?loc:loc -&gt; Parsetree.include_description -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:class_">
+  <div class="val">
+    <span class="keyword">val</span> class_ : ?loc:loc -&gt; Parsetree.class_description list -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:class_type">
+  <div class="val">
+    <span class="keyword">val</span> class_type : ?loc:loc -&gt; Parsetree.class_type_declaration list -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Sig#val:attribute">
+  <div class="val">
+    <span class="keyword">val</span> attribute : ?loc:loc -&gt; Parsetree.attribute -&gt; Parsetree.signature_item
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Str">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Str : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Str#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; Parsetree.structure_item_desc -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:eval">
+  <div class="val">
+    <span class="keyword">val</span> eval : ?loc:loc -&gt; ?attrs:Parsetree.attributes -&gt; Parsetree.expression -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:value">
+  <div class="val">
+    <span class="keyword">val</span> value : ?loc:loc -&gt; Asttypes.rec_flag -&gt; Parsetree.value_binding list -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:primitive">
+  <div class="val">
+    <span class="keyword">val</span> primitive : ?loc:loc -&gt; Parsetree.value_description -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:type_">
+  <div class="val">
+    <span class="keyword">val</span> type_ : ?loc:loc -&gt; Parsetree.type_declaration list -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:type_extension">
+  <div class="val">
+    <span class="keyword">val</span> type_extension : ?loc:loc -&gt; Parsetree.type_extension -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:exception_">
+  <div class="val">
+    <span class="keyword">val</span> exception_ : ?loc:loc -&gt; Parsetree.extension_constructor -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:module_">
+  <div class="val">
+    <span class="keyword">val</span> module_ : ?loc:loc -&gt; Parsetree.module_binding -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:rec_module">
+  <div class="val">
+    <span class="keyword">val</span> rec_module : ?loc:loc -&gt; Parsetree.module_binding list -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:modtype">
+  <div class="val">
+    <span class="keyword">val</span> modtype : ?loc:loc -&gt; Parsetree.module_type_declaration -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:open_">
+  <div class="val">
+    <span class="keyword">val</span> open_ : ?loc:loc -&gt; Parsetree.open_description -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:class_">
+  <div class="val">
+    <span class="keyword">val</span> class_ : ?loc:loc -&gt; Parsetree.class_declaration list -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:class_type">
+  <div class="val">
+    <span class="keyword">val</span> class_type : ?loc:loc -&gt; Parsetree.class_type_declaration list -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:include_">
+  <div class="val">
+    <span class="keyword">val</span> include_ : ?loc:loc -&gt; Parsetree.include_declaration -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+  <div id="module:Str#val:attribute">
+  <div class="val">
+    <span class="keyword">val</span> attribute : ?loc:loc -&gt; Parsetree.attribute -&gt; Parsetree.structure_item
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Md">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Md : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Md#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.module_type -&gt; Parsetree.module_declaration
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Mtd">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Mtd : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Mtd#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; ?typ:Parsetree.module_type -&gt; str -&gt; Parsetree.module_type_declaration
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Mb">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Mb : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Mb#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Parsetree.module_expr -&gt; Parsetree.module_binding
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Opn">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Opn : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Opn#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; ?override:Asttypes.override_flag -&gt; lid -&gt; Parsetree.open_description
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Incl">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Incl : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Incl#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; 'a -&gt; 'a Parsetree.include_infos
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Vb">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Vb : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Vb#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.pattern -&gt; Parsetree.expression -&gt; Parsetree.value_binding
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Cty">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Cty : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Cty#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_type_desc -&gt; Parsetree.class_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Cty#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.class_type -&gt; Parsetree.attribute -&gt; Parsetree.class_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Cty#val:constr">
+  <div class="val">
+    <span class="keyword">val</span> constr : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.core_type list -&gt; Parsetree.class_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Cty#val:signature">
+  <div class="val">
+    <span class="keyword">val</span> signature : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_signature -&gt; Parsetree.class_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Cty#val:arrow">
+  <div class="val">
+    <span class="keyword">val</span> arrow : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.label -&gt; Parsetree.core_type -&gt; Parsetree.class_type -&gt; Parsetree.class_type
+    
+  </div>
+  </div>
+  
+  <div id="module:Cty#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.class_type
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Ctf">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Ctf : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Ctf#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_type_field_desc -&gt; Parsetree.class_type_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Ctf#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.class_type_field -&gt; Parsetree.attribute -&gt; Parsetree.class_type_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Ctf#val:inherit_">
+  <div class="val">
+    <span class="keyword">val</span> inherit_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_type -&gt; Parsetree.class_type_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Ctf#val:val_">
+  <div class="val">
+    <span class="keyword">val</span> val_ : ?loc:loc -&gt; ?attrs:attrs -&gt; string -&gt; Asttypes.mutable_flag -&gt; Asttypes.virtual_flag -&gt; Parsetree.core_type -&gt; Parsetree.class_type_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Ctf#val:method_">
+  <div class="val">
+    <span class="keyword">val</span> method_ : ?loc:loc -&gt; ?attrs:attrs -&gt; string -&gt; Asttypes.private_flag -&gt; Asttypes.virtual_flag -&gt; Parsetree.core_type -&gt; Parsetree.class_type_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Ctf#val:constraint_">
+  <div class="val">
+    <span class="keyword">val</span> constraint_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.core_type -&gt; Parsetree.core_type -&gt; Parsetree.class_type_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Ctf#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.class_type_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Ctf#val:attribute">
+  <div class="val">
+    <span class="keyword">val</span> attribute : ?loc:loc -&gt; Parsetree.attribute -&gt; Parsetree.class_type_field
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Cl">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Cl : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Cl#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_expr_desc -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Cl#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.class_expr -&gt; Parsetree.attribute -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Cl#val:constr">
+  <div class="val">
+    <span class="keyword">val</span> constr : ?loc:loc -&gt; ?attrs:attrs -&gt; lid -&gt; Parsetree.core_type list -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Cl#val:structure">
+  <div class="val">
+    <span class="keyword">val</span> structure : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_structure -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Cl#val:fun_">
+  <div class="val">
+    <span class="keyword">val</span> fun_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.label -&gt; Parsetree.expression option -&gt; Parsetree.pattern -&gt; Parsetree.class_expr -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Cl#val:apply">
+  <div class="val">
+    <span class="keyword">val</span> apply : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_expr -&gt; (Asttypes.label * Parsetree.expression) list -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Cl#val:let_">
+  <div class="val">
+    <span class="keyword">val</span> let_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.rec_flag -&gt; Parsetree.value_binding list -&gt; Parsetree.class_expr -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Cl#val:constraint_">
+  <div class="val">
+    <span class="keyword">val</span> constraint_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_expr -&gt; Parsetree.class_type -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+  <div id="module:Cl#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.class_expr
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Cf">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Cf : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Cf#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.class_field_desc -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:attr">
+  <div class="val">
+    <span class="keyword">val</span> attr : Parsetree.class_field -&gt; Parsetree.attribute -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:inherit_">
+  <div class="val">
+    <span class="keyword">val</span> inherit_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Asttypes.override_flag -&gt; Parsetree.class_expr -&gt; string option -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:val_">
+  <div class="val">
+    <span class="keyword">val</span> val_ : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Asttypes.mutable_flag -&gt; Parsetree.class_field_kind -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:method_">
+  <div class="val">
+    <span class="keyword">val</span> method_ : ?loc:loc -&gt; ?attrs:attrs -&gt; str -&gt; Asttypes.private_flag -&gt; Parsetree.class_field_kind -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:constraint_">
+  <div class="val">
+    <span class="keyword">val</span> constraint_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.core_type -&gt; Parsetree.core_type -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:initializer_">
+  <div class="val">
+    <span class="keyword">val</span> initializer_ : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.expression -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:extension">
+  <div class="val">
+    <span class="keyword">val</span> extension : ?loc:loc -&gt; ?attrs:attrs -&gt; Parsetree.extension -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:attribute">
+  <div class="val">
+    <span class="keyword">val</span> attribute : ?loc:loc -&gt; Parsetree.attribute -&gt; Parsetree.class_field
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:virtual_">
+  <div class="val">
+    <span class="keyword">val</span> virtual_ : Parsetree.core_type -&gt; Parsetree.class_field_kind
+    
+  </div>
+  </div>
+  
+  <div id="module:Cf#val:concrete">
+  <div class="val">
+    <span class="keyword">val</span> concrete : Asttypes.override_flag -&gt; Parsetree.expression -&gt; Parsetree.class_field_kind
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Ci">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Ci : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Ci#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : ?loc:loc -&gt; ?attrs:attrs -&gt; ?virt:Asttypes.virtual_flag -&gt; ?params:(Parsetree.core_type * Asttypes.variance) list -&gt; str -&gt; 'a -&gt; 'a Parsetree.class_infos
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Csig">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Csig : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Csig#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : Parsetree.core_type -&gt; Parsetree.class_type_field list -&gt; Parsetree.class_signature
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Cstr">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Cstr : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Cstr#val:mk">
+  <div class="val">
+    <span class="keyword">val</span> mk : Parsetree.pattern -&gt; Parsetree.class_field list -&gt; Parsetree.class_structure
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 compiler-libs Module 'Ast_helper' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

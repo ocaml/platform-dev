@@ -1,0 +1,936 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ounit.2.0.0 oUnit Module 'OUnitTest' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitTest/">OUnitTest</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="exception:Skip">
+  <div class="exception">
+    <span class="keyword">exception</span> Skip <span class="keyword">of</span> string
+    
+  </div>
+  </div>
+  
+  <div id="exception:Todo">
+  <div class="exception">
+    <span class="keyword">exception</span> Todo <span class="keyword">of</span> string
+    
+  </div>
+  </div>
+  
+  <div id="exception:OUnit_failure">
+  <div class="exception">
+    <span class="keyword">exception</span> OUnit_failure <span class="keyword">of</span> string
+    
+  </div>
+  </div>
+  
+  <div id="type:node">
+  <div class="type">
+    <span class="keyword">type</span> node = <div class="constr">| ListItem <span class="keyword">of</span> int</div><div class="constr">| Label <span class="keyword">of</span> string</div>
+    
+      <div class="doc">
+        See OUnit.mli.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:path">
+  <div class="type">
+    <span class="keyword">type</span> path = node list
+    
+      <div class="doc">
+        See OUnit.mli.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:backtrace">
+  <div class="type">
+    <span class="keyword">type</span> backtrace = string option
+    
+      <div class="doc">
+        See OUnit2.mli.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:test_length">
+  <div class="type">
+    <span class="keyword">type</span> test_length = <div class="constr">| Immediate</div><div class="constr">| Short</div><div class="constr">| Long</div><div class="constr">| Huge</div><div class="constr">| Custom_length <span class="keyword">of</span> float</div>
+    
+  </div>
+  </div>
+  
+  <div id="type:result">
+  <div class="type">
+    <span class="keyword">type</span> result = <div class="constr">| RSuccess</div><div class="constr">| RFailure <span class="keyword">of</span> string * <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/">OUnitLogger</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#type:position">position</a> option * backtrace</div><div class="constr">| RError <span class="keyword">of</span> string * backtrace</div><div class="constr">| RSkip <span class="keyword">of</span> string</div><div class="constr">| RTodo <span class="keyword">of</span> string</div><div class="constr">| RTimeout <span class="keyword">of</span> test_length</div>
+    
+      <div class="doc">
+        See OUnit.mli.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:result_full">
+  <div class="type">
+    <span class="keyword">type</span> result_full = (path * result * <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/">OUnitLogger</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#type:position">position</a> option)
+    
+  </div>
+  </div>
+  
+  <div id="type:result_list">
+  <div class="type">
+    <span class="keyword">type</span> result_list = result_full list
+    
+  </div>
+  </div>
+  
+  <div id="type:ctxt">
+  <div class="type">
+    <span class="keyword">type</span> ctxt = {<div class="field">conf : <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitConf/">OUnitConf</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitConf/#type:conf">conf</a>;</div><div class="field">logger : (path, result) <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/">OUnitLogger</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#type:logger">logger</a>;</div><div class="field">shared : <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/">OUnitShared</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/#type:shared">shared</a>;</div><div class="field">path : path;</div><div class="field">test_logger : result <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/">OUnitLogger</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#module:Test">Test</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#module:Test%23type:t">t</a>;</div><div class="field">tear_down : ctxt -&gt; unit list;</div><div class="field">tear_down_mutex : <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/">OUnitShared</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/#module:Mutex">Mutex</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/#module:Mutex%23type:t">t</a>;</div><div class="field">non_fatal : result_full list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>;</div><div class="field">non_fatal_mutex : <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/">OUnitShared</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/#module:Mutex">Mutex</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/#module:Mutex%23type:t">t</a>;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:log_event_t">
+  <div class="type">
+    <span class="keyword">type</span> log_event_t = (path, result) <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/">OUnitLogger</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#type:log_event_t">log_event_t</a>
+    
+  </div>
+  </div>
+  
+  <div id="type:logger">
+  <div class="type">
+    <span class="keyword">type</span> logger = (path, result) <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/">OUnitLogger</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#type:logger">logger</a>
+    
+  </div>
+  </div>
+  
+  <div id="type:test_fun">
+  <div class="type">
+    <span class="keyword">type</span> test_fun = ctxt -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:test">
+  <div class="type">
+    <span class="keyword">type</span> test = <div class="constr">| TestCase <span class="keyword">of</span> test_length * test_fun</div><div class="constr">| TestList <span class="keyword">of</span> test list</div><div class="constr">| TestLabel <span class="keyword">of</span> string * test</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:delay_of_length">
+  <div class="val">
+    <span class="keyword">val</span> delay_of_length : test_length -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:get_shard_id">
+  <div class="val">
+    <span class="keyword">val</span> get_shard_id : ctxt -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:section_ctxt">
+  <div class="val">
+    <span class="keyword">val</span> section_ctxt : ctxt -&gt; ctxt -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:with_ctxt">
+  <div class="val">
+    <span class="keyword">val</span> with_ctxt : <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitConf/">OUnitConf</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitConf/#type:conf">conf</a> -&gt; (path, result) <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/">OUnitLogger</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#type:logger">logger</a> -&gt; <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/">OUnitShared</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitShared/#type:shared">shared</a> -&gt; result_full list <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a> -&gt; path -&gt; ctxt -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:standard_modules">
+  <div class="val">
+    <span class="keyword">val</span> standard_modules : string list
+    
+  </div>
+  </div>
+  
+  <div id="val:result_full_of_exception">
+  <div class="val">
+    <span class="keyword">val</span> result_full_of_exception : ctxt -&gt; exn -&gt; (path * result * <a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/">OUnitLogger</a>.<a href="../../../../../ounit/ounit.2.0.0/doc/oUnit/OUnitLogger/#type:position">position</a> option)
+    
+  </div>
+  </div>
+  
+  <div id="val:report_result_full">
+  <div class="val">
+    <span class="keyword">val</span> report_result_full : ctxt -&gt; (path * result * 'a) -&gt; (path * result * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="val:non_fatal">
+  <div class="val">
+    <span class="keyword">val</span> non_fatal : ctxt -&gt; ctxt -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;:)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;:) : string -&gt; test -&gt; test
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;::)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;::) : string -&gt; test_fun -&gt; test
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;:::)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;:::) : string -&gt; test list -&gt; test
+    
+  </div>
+  </div>
+  
+  <div id="val:test_decorate">
+  <div class="val">
+    <span class="keyword">val</span> test_decorate : test_fun -&gt; test_fun -&gt; test -&gt; test
+    
+  </div>
+  </div>
+  
+  <div id="val:test_case_count">
+  <div class="val">
+    <span class="keyword">val</span> test_case_count : test -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_node">
+  <div class="val">
+    <span class="keyword">val</span> string_of_node : node -&gt; string
+    
+  </div>
+  </div>
+  
+    <div id="module:Path">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Path : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Path#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = path
+    
+  </div>
+  </div>
+  
+  <div id="module:Path#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Path#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : node list -&gt; string
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:MapPath">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> MapPath : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:MapPath#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = Path.t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t = 'a Map.Make(Path).t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:MapPath#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:string_of_path">
+  <div class="val">
+    <span class="keyword">val</span> string_of_path : node list -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:test_case_paths">
+  <div class="val">
+    <span class="keyword">val</span> test_case_paths : test -&gt; node list list
+    
+  </div>
+  </div>
+  
+    <div id="module:SetTestPath">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> SetTestPath : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:SetTestPath#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/String/">String</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/String/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = Set.Make(String).t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:SetTestPath#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="val:test_filter">
+  <div class="val">
+    <span class="keyword">val</span> test_filter : ?skip:bool -&gt; SetTestPath.elt list -&gt; test -&gt; test option
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ounit.2.0.0 oUnit Module 'OUnitTest' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

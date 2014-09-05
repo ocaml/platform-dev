@@ -1,0 +1,5101 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  opam-doc-base.0.1.2 opam-doc-base Module 'OpamDocPath' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../opam-doc-base/opam-doc-base.0.1.2/doc/opam-doc-base/OpamDocPath/">OpamDocPath</a></h1>
+    
+    
+    
+      <div class="doc">
+        Documentation paths
+        
+      </div>
+    
+    <div class="sig">
+      
+    <div id="module:Package">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Package : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Packages
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div id="module:Package#module:Version">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Version : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Versions
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Package#module:Version#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Version">Version</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Version%23type:t">t</a>
+    
+      <div class="doc">
+        ABSTRACT type
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+      <div class="doc">
+        Create an abstract value from a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Convert an abstract value to a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Convert an abstract value to a JSON object
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Version#module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Version#module:Set#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Version">Version</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Version%23module:Set">Set</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Version%23module:Set%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Version#module:Set#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Version#module:Set#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Set#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Package#module:Version#module:Map">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Map : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Version#module:Map#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t = 'a <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Version">Version</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Version%23module:Map">Map</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Version%23module:Map%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Version#module:Map#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Package#module:Version#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+      <div class="doc">
+        Compare two versions using the Debian version scheme
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Package#module:Name">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Name : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Names
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Package#module:Name#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name">Name</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23type:t">t</a>
+    
+      <div class="doc">
+        ABSTRACT type
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+      <div class="doc">
+        Create an abstract value from a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Convert an abstract value to a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Convert an abstract value to a JSON object
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Name#module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Name#module:Set#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name">Name</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Set">Set</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Set%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Name#module:Set#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Name#module:Set#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Set#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Package#module:Name#module:Map">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Map : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Name#module:Map#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t = 'a <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name">Name</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Map">Map</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Map%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#module:Map#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Package#module:Name#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+      <div class="doc">
+        Compare two package names
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Name#val:global_config">
+  <div class="val">
+    <span class="keyword">val</span> global_config : t
+    
+      <div class="doc">
+        global configuration package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Package#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#type:t">t</a>
+    
+      <div class="doc">
+        ABSTRACT type
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+      <div class="doc">
+        Create an abstract value from a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Convert an abstract value to a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Convert an abstract value to a JSON object
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Set#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Set">Set</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Set%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Set#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Set#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Set#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Package#module:Map">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Map : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Map#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t = 'a <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Map">Map</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Map%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Map#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Package#val:name">
+  <div class="val">
+    <span class="keyword">val</span> name : t -&gt; Name.t
+    
+      <div class="doc">
+        Return the package name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:of_string_opt">
+  <div class="val">
+    <span class="keyword">val</span> of_string_opt : string -&gt; t option
+    
+      <div class="doc">
+        Return None if <code>nv</code> is not a valid package name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:version">
+  <div class="val">
+    <span class="keyword">val</span> version : t -&gt; Version.t
+    
+      <div class="doc">
+        Return the version name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : Name.t -&gt; Version.t -&gt; t
+    
+      <div class="doc">
+        Create a new pair (name x version)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:name_to_string">
+  <div class="val">
+    <span class="keyword">val</span> name_to_string : t -&gt; string
+    
+      <div class="doc">
+        To fit in the GenericPackage type, for generic display functions
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:version_to_string">
+  <div class="val">
+    <span class="keyword">val</span> version_to_string : t -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:of_filename">
+  <div class="val">
+    <span class="keyword">val</span> of_filename : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/">OpamFilename</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/#type:t">t</a> -&gt; t option
+    
+      <div class="doc">
+        Guess the package name from a filename. This function extracts
+<code>name</code> and <code>version</code> from <i>/path/to/$name.$version/opam</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:of_dirname">
+  <div class="val">
+    <span class="keyword">val</span> of_dirname : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/">OpamFilename</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/#module:Dir">Dir</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/#module:Dir%23type:t">t</a> -&gt; t option
+    
+      <div class="doc">
+        Guess the package name from a directory name. This function extracts <i>$name</i> and <i>$version</i> from <i>/path/to/$name.$version/</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:of_archive">
+  <div class="val">
+    <span class="keyword">val</span> of_archive : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/">OpamFilename</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/#type:t">t</a> -&gt; t option
+    
+      <div class="doc">
+        Guess the package name from an archive file. This function extract
+<i>$name</i> and <i>$version</i> from <i>/path/to/$name.$version+opam.tar.gz</i>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:to_map">
+  <div class="val">
+    <span class="keyword">val</span> to_map : Set.t -&gt; Version.Set.t Name.Map.t
+    
+      <div class="doc">
+        Convert a set of pairs to a map <code>name -&gt; versions</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a Map.t -&gt; Set.t
+    
+      <div class="doc">
+        Returns the keys in a package map as a package set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:versions_of_packages">
+  <div class="val">
+    <span class="keyword">val</span> versions_of_packages : Set.t -&gt; Version.Set.t
+    
+      <div class="doc">
+        Extract the versions from a collection of packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:versions_of_name">
+  <div class="val">
+    <span class="keyword">val</span> versions_of_name : Set.t -&gt; Name.t -&gt; Version.Set.t
+    
+      <div class="doc">
+        Return the list of versions for a given package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:names_of_packages">
+  <div class="val">
+    <span class="keyword">val</span> names_of_packages : Set.t -&gt; Name.Set.t
+    
+      <div class="doc">
+        Extract the naes from a collection of packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:has_name">
+  <div class="val">
+    <span class="keyword">val</span> has_name : Set.t -&gt; Name.t -&gt; bool
+    
+      <div class="doc">
+        Returns true if the set contains a package with the given name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:packages_of_name">
+  <div class="val">
+    <span class="keyword">val</span> packages_of_name : Set.t -&gt; Name.t -&gt; Set.t
+    
+      <div class="doc">
+        Return all the packages with the given name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:packages_of_names">
+  <div class="val">
+    <span class="keyword">val</span> packages_of_names : Set.t -&gt; Name.Set.t -&gt; Set.t
+    
+      <div class="doc">
+        Return all the packages with one of the given names
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:max_version">
+  <div class="val">
+    <span class="keyword">val</span> max_version : Set.t -&gt; Name.t -&gt; t
+    
+      <div class="doc">
+        Return the maximal available version of a package name from a set.
+Raises <code>Not_found</code> if no such package available.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+      <div class="doc">
+        Compare two packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+      <div class="doc">
+        Are two packages equal ?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:hash">
+  <div class="val">
+    <span class="keyword">val</span> hash : t -&gt; int
+    
+      <div class="doc">
+        Hash a package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:list">
+  <div class="val">
+    <span class="keyword">val</span> list : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/">OpamFilename</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/#module:Dir">Dir</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/#module:Dir%23type:t">t</a> -&gt; Set.t
+    
+      <div class="doc">
+        Return all the package descriptions in a given directory
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:prefixes">
+  <div class="val">
+    <span class="keyword">val</span> prefixes : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/">OpamFilename</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/#module:Dir">Dir</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamFilename/#module:Dir%23type:t">t</a> -&gt; string option Map.t
+    
+      <div class="doc">
+        Return all the package descriptions in the current directory (and
+their eventual prefixes).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#val:unknown">
+  <div class="val">
+    <span class="keyword">val</span> unknown : Name.t -&gt; Version.t option -&gt; 'a
+    
+      <div class="doc">
+        Unknown package: either the name is unknown, or the version does
+not exist.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Parallel">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Parallel : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Parallel executions.
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div id="module:Package#module:Parallel#module:G">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> G : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Package#module:Parallel#module:G#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel">Parallel</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G">G</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G%23type:t">t</a>
+    
+      <div class="doc">
+        Abstract type of graphs
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Parallel#module:G#module:V">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> V : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Vertices have type <code>V.t</code> and are labeled with type <code>V.label</code>
+(note that an implementation may identify the vertex with its
+label)
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Package#module:Parallel#module:G#module:V#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:V#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:V#val:hash">
+  <div class="val">
+    <span class="keyword">val</span> hash : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:V#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:V#type:label">
+  <div class="type">
+    <span class="keyword">type</span> label = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel">Parallel</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G">G</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G%23module:V">V</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G%23module:V%23type:label">label</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:V#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : label -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:V#val:label">
+  <div class="val">
+    <span class="keyword">val</span> label : t -&gt; label
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Package#module:Parallel#module:G#type:vertex">
+  <div class="type">
+    <span class="keyword">type</span> vertex = V.t
+    
+  </div>
+  </div>
+  
+    <div id="module:Package#module:Parallel#module:G#module:E">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> E : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Edges have type <code>E.t</code> and are labeled with type <code>E.label</code>.
+<code>src</code> (resp. <code>dst</code>) returns the origin (resp. the destination) of a
+given edge.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Package#module:Parallel#module:G#module:E#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel">Parallel</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G">G</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G%23module:E">E</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G%23module:E%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:E#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:E#type:vertex">
+  <div class="type">
+    <span class="keyword">type</span> vertex = vertex
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:E#val:src">
+  <div class="val">
+    <span class="keyword">val</span> src : t -&gt; vertex
+    
+      <div class="doc">
+        Edge origin.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:E#val:dst">
+  <div class="val">
+    <span class="keyword">val</span> dst : t -&gt; vertex
+    
+      <div class="doc">
+        Edge destination.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:E#type:label">
+  <div class="type">
+    <span class="keyword">type</span> label = <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel">Parallel</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G">G</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G%23module:E">E</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Parallel%23module:G%23module:E%23type:label">label</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:E#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : vertex -&gt; label -&gt; vertex -&gt; t
+    
+      <div class="doc">
+        <code>create v1 l v2</code> creates an edge from <code>v1</code> to <code>v2</code> with label <code>l</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#module:E#val:label">
+  <div class="val">
+    <span class="keyword">val</span> label : t -&gt; label
+    
+      <div class="doc">
+        Get the label of an edge.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Package#module:Parallel#module:G#type:edge">
+  <div class="type">
+    <span class="keyword">type</span> edge = E.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:is_directed">
+  <div class="val">
+    <span class="keyword">val</span> is_directed : bool
+    
+      <div class="doc">
+        Is this an implementation of directed graphs?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:nb_vertex">
+  <div class="val">
+    <span class="keyword">val</span> nb_vertex : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:nb_edges">
+  <div class="val">
+    <span class="keyword">val</span> nb_edges : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:out_degree">
+  <div class="val">
+    <span class="keyword">val</span> out_degree : t -&gt; vertex -&gt; int
+    
+      <div class="doc">
+        <code>out_degree g v</code> returns the out-degree of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:in_degree">
+  <div class="val">
+    <span class="keyword">val</span> in_degree : t -&gt; vertex -&gt; int
+    
+      <div class="doc">
+        <code>in_degree g v</code> returns the in-degree of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:mem_vertex">
+  <div class="val">
+    <span class="keyword">val</span> mem_vertex : t -&gt; vertex -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:mem_edge">
+  <div class="val">
+    <span class="keyword">val</span> mem_edge : t -&gt; vertex -&gt; vertex -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:mem_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> mem_edge_e : t -&gt; edge -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:find_edge">
+  <div class="val">
+    <span class="keyword">val</span> find_edge : t -&gt; vertex -&gt; vertex -&gt; edge
+    
+      <div class="doc">
+        <code>find_edge g v1 v2</code> returns the edge from <code>v1</code> to <code>v2</code> if it exists.
+Unspecified behaviour if <code>g</code> has several edges from <code>v1</code> to <code>v2</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Not_found</code> if no such edge exists.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:find_all_edges">
+  <div class="val">
+    <span class="keyword">val</span> find_all_edges : t -&gt; vertex -&gt; vertex -&gt; edge list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:succ">
+  <div class="val">
+    <span class="keyword">val</span> succ : t -&gt; vertex -&gt; vertex list
+    
+      <div class="doc">
+        <code>succ g v</code> returns the successors of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:pred">
+  <div class="val">
+    <span class="keyword">val</span> pred : t -&gt; vertex -&gt; vertex list
+    
+      <div class="doc">
+        <code>pred g v</code> returns the predecessors of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:succ_e">
+  <div class="val">
+    <span class="keyword">val</span> succ_e : t -&gt; vertex -&gt; edge list
+    
+      <div class="doc">
+        <code>succ_e g v</code> returns the edges going from <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:pred_e">
+  <div class="val">
+    <span class="keyword">val</span> pred_e : t -&gt; vertex -&gt; edge list
+    
+      <div class="doc">
+        <code>pred_e g v</code> returns the edges going to <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:fold_vertex">
+  <div class="val">
+    <span class="keyword">val</span> fold_vertex : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:iter_edges">
+  <div class="val">
+    <span class="keyword">val</span> iter_edges : vertex -&gt; vertex -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all edges of a graph. Edge label is ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:fold_edges">
+  <div class="val">
+    <span class="keyword">val</span> fold_edges : vertex -&gt; vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all edges of a graph. Edge label is ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:iter_edges_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_edges_e : edge -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all edges of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:fold_edges_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_edges_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all edges of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:map_vertex">
+  <div class="val">
+    <span class="keyword">val</span> map_vertex : vertex -&gt; vertex -&gt; t -&gt; t
+    
+      <div class="doc">
+        Map on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:iter_pred">
+  <div class="val">
+    <span class="keyword">val</span> iter_pred : vertex -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:fold_succ">
+  <div class="val">
+    <span class="keyword">val</span> fold_succ : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:fold_pred">
+  <div class="val">
+    <span class="keyword">val</span> fold_pred : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:iter_succ_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_succ_e : edge -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:fold_succ_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_succ_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:iter_pred_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_pred_e : edge -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:fold_pred_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_pred_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : ?size:int -&gt; unit -&gt; t
+    
+      <div class="doc">
+        <code>create ()</code> returns an empty graph. Optionally, a size can be
+given, which should be on the order of the expected number of
+vertices that will be in the graph (for hash tables-based
+implementations). The graph grows as needed, so <code>size</code> is
+just an initial guess.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : t -&gt; t
+    
+      <div class="doc">
+        <code>copy g</code> returns a copy of <code>g</code>. Vertices and edges (and eventually
+marks, see module <code>Mark</code>) are duplicated.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:add_vertex">
+  <div class="val">
+    <span class="keyword">val</span> add_vertex : t -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>add_vertex g v</code> adds the vertex <code>v</code> to the graph <code>g</code>.
+Do nothing if <code>v</code> is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:remove_vertex">
+  <div class="val">
+    <span class="keyword">val</span> remove_vertex : t -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>remove g v</code> removes the vertex <code>v</code> from the graph <code>g</code>
+(and all the edges going from <code>v</code> in <code>g</code>).
+Do nothing if <code>v</code> is not in <code>g</code>.<br/><b>Time complexity for ocamlgraph implementations:</b>
+O(|V|*ln(D)) for unlabeled graphs and O(|V|*D) for
+labeled graphs. D is the maximal degree of the graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:add_edge">
+  <div class="val">
+    <span class="keyword">val</span> add_edge : t -&gt; vertex -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>add_edge g v1 v2</code> adds an edge from the vertex <code>v1</code> to the vertex <code>v2</code>
+in the graph <code>g</code>.
+Add also <code>v1</code> (resp. <code>v2</code>) in <code>g</code> if <code>v1</code> (resp. <code>v2</code>) is not in <code>g</code>.
+Do nothing if this edge is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:add_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> add_edge_e : t -&gt; edge -&gt; unit
+    
+      <div class="doc">
+        <code>add_edge_e g e</code> adds the edge <code>e</code> in the graph <code>g</code>.
+Add also <code>E.src e</code> (resp. <code>E.dst e</code>) in <code>g</code> if <code>E.src e</code> (resp. <code>E.dst
+	e</code>) is not in <code>g</code>.
+Do nothing if <code>e</code> is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:remove_edge">
+  <div class="val">
+    <span class="keyword">val</span> remove_edge : t -&gt; vertex -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>remove_edge g v1 v2</code> removes the edge going from <code>v1</code> to <code>v2</code> from the
+graph <code>g</code>. If the graph is labelled, all the edges going from <code>v1</code> to
+<code>v2</code> are removed from <code>g</code>.
+Do nothing if this edge is not in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v1</code> or <code>v2</code> are not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:remove_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> remove_edge_e : t -&gt; edge -&gt; unit
+    
+      <div class="doc">
+        <code>remove_edge_e g e</code> removes the edge <code>e</code> from the graph <code>g</code>.
+Do nothing if <code>e</code> is not in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>E.src e</code> or <code>E.dst e</code> are not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:iter_vertex">
+  <div class="val">
+    <span class="keyword">val</span> iter_vertex : V.t -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:iter_succ">
+  <div class="val">
+    <span class="keyword">val</span> iter_succ : V.t -&gt; unit -&gt; t -&gt; V.t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:has_cycle">
+  <div class="val">
+    <span class="keyword">val</span> has_cycle : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:scc_list">
+  <div class="val">
+    <span class="keyword">val</span> scc_list : t -&gt; V.t list list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#module:G#val:string_of_vertex">
+  <div class="val">
+    <span class="keyword">val</span> string_of_vertex : V.t -&gt; string
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Package#module:Parallel#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : int -&gt; G.t -&gt; pre:G.V.t -&gt; unit -&gt; child:G.V.t -&gt; unit -&gt; post:G.V.t -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#val:iter_l">
+  <div class="val">
+    <span class="keyword">val</span> iter_l : int -&gt; G.vertex list -&gt; pre:G.V.t -&gt; unit -&gt; child:G.V.t -&gt; unit -&gt; post:G.V.t -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#val:map_reduce">
+  <div class="val">
+    <span class="keyword">val</span> map_reduce : int -&gt; G.t -&gt; map:G.V.t -&gt; 'a -&gt; merge:'a -&gt; 'a -&gt; 'a -&gt; init:'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#val:map_reduce_l">
+  <div class="val">
+    <span class="keyword">val</span> map_reduce_l : int -&gt; G.vertex list -&gt; map:G.V.t -&gt; 'a -&gt; merge:'a -&gt; 'a -&gt; 'a -&gt; init:'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : G.V.t list -&gt; G.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#exception:Errors">
+  <div class="exception">
+    <span class="keyword">exception</span> Errors <span class="keyword">of</span> (G.V.t * <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamParallel/">OpamParallel</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamParallel/#type:error">error</a>) list * G.V.t list
+    
+  </div>
+  </div>
+  
+  <div id="module:Package#module:Parallel#exception:Cyclic">
+  <div class="exception">
+    <span class="keyword">exception</span> Cyclic <span class="keyword">of</span> G.V.t list list
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Library">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Library : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Libraries
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div id="module:Library#module:Name">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Name : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Names
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Library#module:Name#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Name">Name</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Name%23type:t">t</a>
+    
+      <div class="doc">
+        ABSTRACT type
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+      <div class="doc">
+        Create an abstract value from a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Convert an abstract value to a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Convert an abstract value to a JSON object
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Library#module:Name#module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Library#module:Name#module:Set#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Name">Name</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Name%23module:Set">Set</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Name%23module:Set%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Library#module:Name#module:Set#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Library#module:Name#module:Set#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Set#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Library#module:Name#module:Map">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Map : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Library#module:Name#module:Map#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t = 'a <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Name">Name</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Name%23module:Map">Map</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Name%23module:Map%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Name#module:Map#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Library#module:Name#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+      <div class="doc">
+        Compare two library names
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Library#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#type:t">t</a>
+    
+      <div class="doc">
+        ABSTRACT type
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#val:of_string">
+  <div class="val">
+    <span class="keyword">val</span> of_string : string -&gt; t
+    
+      <div class="doc">
+        Create an abstract value from a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Convert an abstract value to a string
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Convert an abstract value to a JSON object
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Library#module:Set">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Set : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Library#module:Set#type:elt">
+  <div class="type">
+    <span class="keyword">type</span> elt = <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Set">Set</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Set%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : elt -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : elt -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : elt -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:inter">
+  <div class="val">
+    <span class="keyword">val</span> inter : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:diff">
+  <div class="val">
+    <span class="keyword">val</span> diff : t -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:subset">
+  <div class="val">
+    <span class="keyword">val</span> subset : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : elt -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : elt -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : elt -&gt; bool -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : elt -&gt; bool -&gt; t -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : elt -&gt; bool -&gt; t -&gt; (t * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:elements">
+  <div class="val">
+    <span class="keyword">val</span> elements : t -&gt; elt list
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:min_elt">
+  <div class="val">
+    <span class="keyword">val</span> min_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:max_elt">
+  <div class="val">
+    <span class="keyword">val</span> max_elt : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : t -&gt; elt
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : elt -&gt; t -&gt; (t * bool * t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : elt -&gt; elt -&gt; t -&gt; t
+    
+      <div class="doc">
+        auto-map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:choose_one">
+  <div class="val">
+    <span class="keyword">val</span> choose_one : t -&gt; elt
+    
+      <div class="doc">
+        Return one element. Fail if the set is not a singleton.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : elt list -&gt; t
+    
+      <div class="doc">
+        Make a set from a list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+      <div class="doc">
+        Pretty-print a set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given set
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : elt -&gt; bool -&gt; t -&gt; elt
+    
+      <div class="doc">
+        Find an element in the list
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Library#module:Set#module:Op">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Op : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Library#module:Set#module:Op#val:(++)">
+  <div class="val">
+    <span class="keyword">val</span> (++) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set union
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#module:Op#val:(--)">
+  <div class="val">
+    <span class="keyword">val</span> (--) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set difference
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Set#module:Op#val:(%%)">
+  <div class="val">
+    <span class="keyword">val</span> (%%) : t -&gt; t -&gt; t
+    
+      <div class="doc">
+        Infix set intersection
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Library#module:Map">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Map : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Library#module:Map#type:key">
+  <div class="type">
+    <span class="keyword">type</span> key = <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#type:t">
+  <div class="type">
+    <span class="keyword">type</span> 'a t = 'a <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Map">Map</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#module:Map%23type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:empty">
+  <div class="val">
+    <span class="keyword">val</span> empty : 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:mem">
+  <div class="val">
+    <span class="keyword">val</span> mem : key -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:add">
+  <div class="val">
+    <span class="keyword">val</span> add : key -&gt; 'a -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:singleton">
+  <div class="val">
+    <span class="keyword">val</span> singleton : key -&gt; 'a -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:remove">
+  <div class="val">
+    <span class="keyword">val</span> remove : key -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:merge">
+  <div class="val">
+    <span class="keyword">val</span> merge : key -&gt; 'a option -&gt; 'b option -&gt; 'c option -&gt; 'a t -&gt; 'b t -&gt; 'c t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int -&gt; 'a t -&gt; 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : 'a -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : key -&gt; 'a -&gt; unit -&gt; 'a t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : key -&gt; 'a -&gt; 'b -&gt; 'b -&gt; 'a t -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:for_all">
+  <div class="val">
+    <span class="keyword">val</span> for_all : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:exists">
+  <div class="val">
+    <span class="keyword">val</span> exists : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:filter">
+  <div class="val">
+    <span class="keyword">val</span> filter : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; 'a t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:partition">
+  <div class="val">
+    <span class="keyword">val</span> partition : key -&gt; 'a -&gt; bool -&gt; 'a t -&gt; ('a t * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:cardinal">
+  <div class="val">
+    <span class="keyword">val</span> cardinal : 'a t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:bindings">
+  <div class="val">
+    <span class="keyword">val</span> bindings : 'a t -&gt; (key * 'a) list
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:min_binding">
+  <div class="val">
+    <span class="keyword">val</span> min_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:max_binding">
+  <div class="val">
+    <span class="keyword">val</span> max_binding : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:choose">
+  <div class="val">
+    <span class="keyword">val</span> choose : 'a t -&gt; (key * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:split">
+  <div class="val">
+    <span class="keyword">val</span> split : key -&gt; 'a t -&gt; ('a t * 'a option * 'a t)
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:find">
+  <div class="val">
+    <span class="keyword">val</span> find : key -&gt; 'a t -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:map">
+  <div class="val">
+    <span class="keyword">val</span> map : 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:mapi">
+  <div class="val">
+    <span class="keyword">val</span> mapi : key -&gt; 'a -&gt; 'b -&gt; 'a t -&gt; 'b t
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : 'a -&gt; string -&gt; 'a t -&gt; string
+    
+      <div class="doc">
+        Pretty-printing
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:to_json">
+  <div class="val">
+    <span class="keyword">val</span> to_json : 'a -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a> -&gt; 'a t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/">OpamJson</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamJson/#type:t">t</a>
+    
+      <div class="doc">
+        Return a JSON representation of the given map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:values">
+  <div class="val">
+    <span class="keyword">val</span> values : 'a t -&gt; 'a list
+    
+      <div class="doc">
+        Return the values in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:keys">
+  <div class="val">
+    <span class="keyword">val</span> keys : 'a t -&gt; key list
+    
+      <div class="doc">
+        Return the keys in the map.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : 'a -&gt; 'a -&gt; 'a -&gt; 'a t -&gt; 'a t -&gt; 'a t
+    
+      <div class="doc">
+        A key will be in the union of <code>m1</code> and <code>m2</code> if it is appears
+either <code>m1</code> or <code>m2</code>, with the corresponding value. If a key
+appears in both <code>m1</code> and <code>m2</code>, then the resulting value is built
+using the function given as argument.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#module:Map#val:of_list">
+  <div class="val">
+    <span class="keyword">val</span> of_list : (key * 'a) list -&gt; 'a t
+    
+      <div class="doc">
+        Convert an assoc list to a map
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Library#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#type:t">t</a> -&gt; Name.t -&gt; t
+    
+      <div class="doc">
+        Create a new library
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#val:package">
+  <div class="val">
+    <span class="keyword">val</span> package : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#type:t">t</a>
+    
+      <div class="doc">
+        Return the library's package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#val:name">
+  <div class="val">
+    <span class="keyword">val</span> name : t -&gt; Name.t
+    
+      <div class="doc">
+        Return the library's name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+      <div class="doc">
+        Compare two libraries
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+      <div class="doc">
+        Are two libraries equal ?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Library#val:hash">
+  <div class="val">
+    <span class="keyword">val</span> hash : t -&gt; int
+    
+      <div class="doc">
+        Hash a library
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Module">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Module : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Modules
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Name : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/">OpamMisc</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/#modtype:ABSTRACT">ABSTRACT</a>
+      </div>
+      
+      <div class="doc">
+        Module names
+        
+      </div>
+    
+    </div>
+  <span style="color:red">TODO: opam-doc-base.0.1.2/opam-doc-base/OpamDocPath.Module</span>
+  <div id="module:Module#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#type:t">t</a> -&gt; Name.t -&gt; t
+    
+      <div class="doc">
+        Create a new module path
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Module#val:create_submodule">
+  <div class="val">
+    <span class="keyword">val</span> create_submodule : t -&gt; Name.t -&gt; t
+    
+      <div class="doc">
+        Create a new submodule path
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Module#val:parent">
+  <div class="val">
+    <span class="keyword">val</span> parent : t -&gt; t option
+    
+      <div class="doc">
+        Return the module's parent module
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Module#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : 'a -&gt; t -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a
+    
+      <div class="doc">
+        Fold over module path
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Module#val:name">
+  <div class="val">
+    <span class="keyword">val</span> name : t -&gt; Name.t
+    
+      <div class="doc">
+        Return the module's name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Module#val:library">
+  <div class="val">
+    <span class="keyword">val</span> library : t -&gt; <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#type:t">t</a>
+    
+      <div class="doc">
+        Return the module's library
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Module#val:package">
+  <div class="val">
+    <span class="keyword">val</span> package : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#type:t">t</a>
+    
+      <div class="doc">
+        Return the module's package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:ModuleType">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> ModuleType : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Module types
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Name : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/">OpamMisc</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/#modtype:ABSTRACT">ABSTRACT</a>
+      </div>
+      
+      <div class="doc">
+        Module type names
+        
+      </div>
+    
+    </div>
+  <span style="color:red">TODO: opam-doc-base.0.1.2/opam-doc-base/OpamDocPath.ModuleType</span>
+  <div id="module:ModuleType#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : Module.t -&gt; Name.t -&gt; t
+    
+      <div class="doc">
+        Create a new module type path
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:ModuleType#val:parent">
+  <div class="val">
+    <span class="keyword">val</span> parent : t -&gt; Module.t
+    
+      <div class="doc">
+        Return the module type's parent module
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:ModuleType#val:name">
+  <div class="val">
+    <span class="keyword">val</span> name : t -&gt; Name.t
+    
+      <div class="doc">
+        Return the module type's name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:ModuleType#val:library">
+  <div class="val">
+    <span class="keyword">val</span> library : t -&gt; <a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/">OpamLibrary</a>.<a href="../../../../../opam-units/opam-units.0.1.1/doc/opam-units/OpamLibrary/#type:t">t</a>
+    
+      <div class="doc">
+        Return the module type's library
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:ModuleType#val:package">
+  <div class="val">
+    <span class="keyword">val</span> package : t -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#type:t">t</a>
+    
+      <div class="doc">
+        Return the module type's package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Type">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Type : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Types
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Name : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/">OpamMisc</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/#modtype:ABSTRACT">ABSTRACT</a>
+      </div>
+      
+      <div class="doc">
+        Type names
+        
+      </div>
+    
+    </div>
+  
+  <div id="module:Type#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Type#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : Module.t -&gt; Name.t -&gt; t
+    
+      <div class="doc">
+        Create a new type path
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Type#val:parent">
+  <div class="val">
+    <span class="keyword">val</span> parent : t -&gt; Module.t
+    
+      <div class="doc">
+        Return the type's parent module
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Type#val:name">
+  <div class="val">
+    <span class="keyword">val</span> name : t -&gt; Name.t
+    
+      <div class="doc">
+        Return the type's name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Value">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Value : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Values
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Name : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/">OpamMisc</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/#modtype:ABSTRACT">ABSTRACT</a>
+      </div>
+      
+      <div class="doc">
+        Value names
+        
+      </div>
+    
+    </div>
+  
+  <div id="module:Value#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Value#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : Module.t -&gt; Name.t -&gt; t
+    
+      <div class="doc">
+        Create a new value path
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Value#val:parent">
+  <div class="val">
+    <span class="keyword">val</span> parent : t -&gt; Module.t
+    
+      <div class="doc">
+        Return the module's parent module
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Value#val:name">
+  <div class="val">
+    <span class="keyword">val</span> name : t -&gt; Name.t
+    
+      <div class="doc">
+        Return the value's name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Constructor">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Constructor : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Constructors
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Name : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/">OpamMisc</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/#modtype:ABSTRACT">ABSTRACT</a>
+      </div>
+      
+      <div class="doc">
+        Constructor names
+        
+      </div>
+    
+    </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Exn">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Exn : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Exceptions
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Name : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/">OpamMisc</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/#modtype:ABSTRACT">ABSTRACT</a>
+      </div>
+      
+    </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Field">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Field : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Fields
+        
+      </div>
+    
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> Name : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/">OpamMisc</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamMisc/#modtype:ABSTRACT">ABSTRACT</a>
+      </div>
+      
+      <div class="doc">
+        Field names
+        
+      </div>
+    
+    </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="type:resolver">
+  <div class="type">
+    <span class="keyword">type</span> resolver = Module.Name.t -&gt; Module.t option
+    
+  </div>
+  </div>
+  
+  <div id="val:find_module">
+  <div class="val">
+    <span class="keyword">val</span> find_module : resolver -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; Module.t option
+    
+  </div>
+  </div>
+  
+  <div id="val:find_module_type">
+  <div class="val">
+    <span class="keyword">val</span> find_module_type : resolver -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; ModuleType.t option
+    
+  </div>
+  </div>
+  
+  <div id="val:find_type">
+  <div class="val">
+    <span class="keyword">val</span> find_type : resolver -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; Type.t option
+    
+  </div>
+  </div>
+  
+  <div id="val:find_value">
+  <div class="val">
+    <span class="keyword">val</span> find_value : resolver -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/">Path</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Path/#type:t">t</a> -&gt; Value.t option
+    
+  </div>
+  </div>
+  
+  <div id="val:lookup_module">
+  <div class="val">
+    <span class="keyword">val</span> lookup_module : resolver -&gt; string -&gt; Module.t option
+    
+  </div>
+  </div>
+  
+  <div id="val:lookup_module_type">
+  <div class="val">
+    <span class="keyword">val</span> lookup_module_type : resolver -&gt; string -&gt; ModuleType.t option
+    
+  </div>
+  </div>
+  
+  <div id="val:lookup_type">
+  <div class="val">
+    <span class="keyword">val</span> lookup_type : resolver -&gt; string -&gt; Type.t option
+    
+  </div>
+  </div>
+  
+  <div id="val:lookup_value">
+  <div class="val">
+    <span class="keyword">val</span> lookup_value : resolver -&gt; string -&gt; Value.t option
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  opam-doc-base.0.1.2 opam-doc-base Module 'OpamDocPath' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

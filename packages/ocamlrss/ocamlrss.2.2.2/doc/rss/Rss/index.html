@@ -1,0 +1,706 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlrss.2.2.2 rss Module 'Rss' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlrss/ocamlrss.2.2.2/doc/rss/Rss/">Rss</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:date">
+  <div class="type">
+    <span class="keyword">type</span> date = <a href="../../../../../ocamlnet/ocamlnet.3.7.4-1/doc/netstring/Netdate/">Netdate</a>.<a href="../../../../../ocamlnet/ocamlnet.3.7.4-1/doc/netstring/Netdate/#type:t">t</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_date">
+  <div class="val">
+    <span class="keyword">val</span> string_of_date : ?fmt:string -&gt; date -&gt; string
+    
+      <div class="doc">
+        Format a date/time record as a string according to the format
+string <code>fmt</code>.
+        
+  <div class="tag param">
+    <span class="label">fmt</span> The format string. It consists of zero or more
+conversion specifications and ordinary characters. All ordinary
+characters are kept as such in the final string. A conversion
+specification consists of the '%' character and one other
+character. See <code>Netdate.format_to</code> for more details.
+Default: <code>&quot;%d %b %Y&quot;</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:email">
+  <div class="type">
+    <span class="keyword">type</span> email = string
+    
+      <div class="doc">
+        can be, for example: foo@bar.com (Mr Foo Bar)
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:pics_rating">
+  <div class="type">
+    <span class="keyword">type</span> pics_rating = string
+    
+  </div>
+  </div>
+  
+  <div id="type:skip_hours">
+  <div class="type">
+    <span class="keyword">type</span> skip_hours = int list
+    
+      <div class="doc">
+        0 .. 23
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:skip_days">
+  <div class="type">
+    <span class="keyword">type</span> skip_days = int list
+    
+      <div class="doc">
+        0 is Sunday, 1 is Monday, ...
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:url">
+  <div class="type">
+    <span class="keyword">type</span> url = <a href="../../../../../ocamlnet/ocamlnet.3.7.4-1/doc/netstring/Neturl/">Neturl</a>.<a href="../../../../../ocamlnet/ocamlnet.3.7.4-1/doc/netstring/Neturl/#type:url">url</a>
+    
+  </div>
+  </div>
+  
+  <div id="type:category">
+  <div class="type">
+    <span class="keyword">type</span> category = {<div class="field">cat_name : string; <span class="doc">(* A forward-slash-separated string that identifies a hierarchic
+location in the indicated taxonomy. *)</span></div><div class="field">cat_domain : url option; <span class="doc">(* Identifies a categorization taxonomy. *)</span></div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:image">
+  <div class="type">
+    <span class="keyword">type</span> image = {<div class="field">image_url : url; <span class="doc">(* The URL of a GIF, JPEG or PNG image that represents the channel. *)</span></div><div class="field">image_title : string; <span class="doc">(* Description of the image, it's used in the ALT attribute of
+the HTML &lt;img&gt; tag when the channel is rendered in HTML. *)</span></div><div class="field">image_link : url; <span class="doc">(* The URL of the site, when the channel is rendered, the image
+is a link to the site. (Note, in practice the <code>image_title</code>
+and <code>image_link</code> should have the same value as the channel's
+<code>ch_title</code> and <code>ch_link</code>.) *)</span></div><div class="field">image_height : int option; <span class="doc">(* Height of the image, in pixels. *)</span></div><div class="field">image_width : int option; <span class="doc">(* Width of the image, in pixels. *)</span></div><div class="field">image_desc : string option; <span class="doc">(* Text to be included in the &quot;title&quot; attribute of the link formed
+around the image in the HTML rendering. *)</span></div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:text_input">
+  <div class="type">
+    <span class="keyword">type</span> text_input = {<div class="field">ti_title : string; <span class="doc">(* The label of the Submit button in the text input area. *)</span></div><div class="field">ti_desc : string; <span class="doc">(* Explains the text input area. *)</span></div><div class="field">ti_name : string; <span class="doc">(* The name of the text object in the text input area. *)</span></div><div class="field">ti_link : url; <span class="doc">(* The URL of the CGI script that processes text input requests. *)</span></div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:enclosure">
+  <div class="type">
+    <span class="keyword">type</span> enclosure = {<div class="field">encl_url : url; <span class="doc">(* URL of the enclosure *)</span></div><div class="field">encl_length : int; <span class="doc">(* size in bytes *)</span></div><div class="field">encl_type : string; <span class="doc">(* MIME type *)</span></div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:guid">
+  <div class="type">
+    <span class="keyword">type</span> guid = <div class="constr">| Guid_permalink <span class="keyword">of</span> url <span class="doc">(* A permanent URL pointing to the story. *)</span></div><div class="constr">| Guid_name <span class="keyword">of</span> string <span class="doc">(* A string that uniquely identifies the item. *)</span></div>
+    
+  </div>
+  </div>
+  
+  <div id="type:source">
+  <div class="type">
+    <span class="keyword">type</span> source = {<div class="field">src_name : string;</div><div class="field">src_url : url;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:cloud">
+  <div class="type">
+    <span class="keyword">type</span> cloud = {<div class="field">cloud_domain : string;</div><div class="field">cloud_port : int;</div><div class="field">cloud_path : string;</div><div class="field">cloud_register_procedure : string;</div><div class="field">cloud_protocol : string;</div>}
+    
+      <div class="doc">
+        See <a href="http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface">specification</a>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:item_t">
+  <div class="type">
+    <span class="keyword">type</span> 'a item_t = {<div class="field">item_title : string option; <span class="doc">(* Optional title *)</span></div><div class="field">item_link : url option; <span class="doc">(* Optional link *)</span></div><div class="field">item_desc : string option; <span class="doc">(* Optional description *)</span></div><div class="field">item_pubdate : date option; <span class="doc">(* Date of publication *)</span></div><div class="field">item_author : email option; <span class="doc">(* The email address of the author of the item. *)</span></div><div class="field">item_categories : category list; <span class="doc">(* Categories for the item. See the field category. *)</span></div><div class="field">item_comments : url option; <span class="doc">(* Url of comments about this item *)</span></div><div class="field">item_enclosure : enclosure option;</div><div class="field">item_guid : guid option; <span class="doc">(* A globally unique identifier for the item. *)</span></div><div class="field">item_source : source option;</div><div class="field">item_data : 'a option; <span class="doc">(* Additional data, since RSS can be extended with namespace-prefixed nodes. *)</span></div>}
+    
+      <div class="doc">
+        An item may represent a &quot;story&quot;. Its description is a synopsis of
+the story (or sometimes the full story), and the link points to
+the full story.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:namespace">
+  <div class="type">
+    <span class="keyword">type</span> namespace = (string * string)
+    
+      <div class="doc">
+        A namespace is a pair (name, url).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:channel_t">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) channel_t = {<div class="field">ch_title : string; <span class="doc">(* Mandatory. The name of the channel, for example the title of
+your web site. *)</span></div><div class="field">ch_link : url; <span class="doc">(* Mandatory. The URL to the HTML website corresponding to the channel. *)</span></div><div class="field">ch_desc : string; <span class="doc">(* Mandatory. A sentence describing the channel. *)</span></div><div class="field">ch_language : string option; <span class="doc">(* Language of the news, e.g. &quot;en&quot;. See the W3C
+<a href="http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes">language codes</a>. *)</span></div><div class="field">ch_copyright : string option; <span class="doc">(* Copyright notice. *)</span></div><div class="field">ch_managing_editor : email option; <span class="doc">(* Managing editor of the news. *)</span></div><div class="field">ch_webmaster : email option; <span class="doc">(* The address of the webmasterof the site. *)</span></div><div class="field">ch_pubdate : date option; <span class="doc">(* Publication date of the channel. *)</span></div><div class="field">ch_last_build_date : date option; <span class="doc">(* When the channel content changed for the last time. *)</span></div><div class="field">ch_categories : category list; <span class="doc">(* Categories for the channel. See the field category. *)</span></div><div class="field">ch_generator : string option; <span class="doc">(* The tool used to generate this channel. *)</span></div><div class="field">ch_cloud : cloud option; <span class="doc">(* Allows processes to register with a cloud to be notified of updates to the channel. *)</span></div><div class="field">ch_docs : url option; <span class="doc">(* An url to a RSS format reference. *)</span></div><div class="field">ch_ttl : int option; <span class="doc">(* Time to live, in minutes. It indicates how long a channel can
+be cached before refreshing from the source. *)</span></div><div class="field">ch_image : image option;</div><div class="field">ch_rating : pics_rating option; <span class="doc">(* The PICS rating for the channel. *)</span></div><div class="field">ch_text_input : text_input option;</div><div class="field">ch_skip_hours : skip_hours option; <span class="doc">(* A hint for aggregators telling them which hours they can skip. *)</span></div><div class="field">ch_skip_days : skip_days option; <span class="doc">(* A hint for aggregators telling them which days they can skip. *)</span></div><div class="field">ch_items : 'b item_t list;</div><div class="field">ch_data : 'a option; <span class="doc">(* Additional data, since RSS can be extended with namespace-prefixed nodes. *)</span></div><div class="field">ch_namespaces : namespace list;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="type:item">
+  <div class="type">
+    <span class="keyword">type</span> item = unit item_t
+    
+  </div>
+  </div>
+  
+  <div id="type:channel">
+  <div class="type">
+    <span class="keyword">type</span> channel = (unit, unit) channel_t
+    
+  </div>
+  </div>
+  
+  <div id="val:item">
+  <div class="val">
+    <span class="keyword">val</span> item : ?title:string -&gt; ?link:url -&gt; ?desc:string -&gt; ?pubdate:date -&gt; ?author:email -&gt; ?cats:category list -&gt; ?comments:url -&gt; ?encl:enclosure -&gt; ?guid:guid -&gt; ?source:source -&gt; ?data:'a -&gt; unit -&gt; 'a item_t
+    
+      <div class="doc">
+        <code>item()</code> creates a new item with all fields set to <code>None</code>. Use the
+optional parameters to set fields.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:channel">
+  <div class="val">
+    <span class="keyword">val</span> channel : title:string -&gt; link:url -&gt; desc:string -&gt; ?language:string -&gt; ?copyright:string -&gt; ?managing_editor:email -&gt; ?webmaster:email -&gt; ?pubdate:date -&gt; ?last_build_date:date -&gt; ?cats:category list -&gt; ?generator:string -&gt; ?cloud:cloud -&gt; ?docs:url -&gt; ?ttl:int -&gt; ?image:image -&gt; ?rating:pics_rating -&gt; ?text_input:text_input -&gt; ?skip_hours:skip_hours -&gt; ?skip_days:skip_days -&gt; ?data:'a -&gt; ?namespaces:namespace list -&gt; 'b item_t list -&gt; ('a, 'b) channel_t
+    
+      <div class="doc">
+        <code>channel items</code> creates a new channel containing <code>items</code>. Other
+fields are set to <code>None</code> unless the corresponding optional
+parameter is used.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:compare_item">
+  <div class="val">
+    <span class="keyword">val</span> compare_item : ?comp_data:'a -&gt; 'a -&gt; int -&gt; 'a item_t -&gt; 'a item_t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:copy_item">
+  <div class="val">
+    <span class="keyword">val</span> copy_item : 'a item_t -&gt; 'a item_t
+    
+  </div>
+  </div>
+  
+  <div id="val:copy_channel">
+  <div class="val">
+    <span class="keyword">val</span> copy_channel : ('a, 'b) channel_t -&gt; ('a, 'b) channel_t
+    
+  </div>
+  </div>
+  
+  <div id="val:keep_n_items">
+  <div class="val">
+    <span class="keyword">val</span> keep_n_items : int -&gt; ('a, 'b) channel_t -&gt; ('a, 'b) channel_t
+    
+      <div class="doc">
+        <code>keep_n_items n ch</code> returns a copy of the channel, keeping only
+<code>n</code> items maximum.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:sort_items_by_date">
+  <div class="val">
+    <span class="keyword">val</span> sort_items_by_date : 'a item_t list -&gt; 'a item_t list
+    
+      <div class="doc">
+        Sort items by date, older last.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:merge_channels">
+  <div class="val">
+    <span class="keyword">val</span> merge_channels : ('a, 'b) channel_t -&gt; ('a, 'b) channel_t -&gt; ('a, 'b) channel_t
+    
+      <div class="doc">
+        <code>merge_channels c1 c2</code> merges the given channels in a new channel,
+sorting items using sort_items_by_date. Channel information are
+copied from the first channel <code>c1</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:xmltree">
+  <div class="type">
+    <span class="keyword">type</span> xmltree = <div class="constr">| E <span class="keyword">of</span> <a href="../../../../../xmlm/xmlm.1.2.0/doc/xmlm/Xmlm/">Xmlm</a>.<a href="../../../../../xmlm/xmlm.1.2.0/doc/xmlm/Xmlm/#type:tag">tag</a> * xmltree list</div><div class="constr">| D <span class="keyword">of</span> string</div>
+    
+      <div class="doc">
+        This represents XML trees. Such XML trees are given to
+functions provided to read additional data from RSS channels and items.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:xml_of_source">
+  <div class="val">
+    <span class="keyword">val</span> xml_of_source : <a href="../../../../../xmlm/xmlm.1.2.0/doc/xmlm/Xmlm/">Xmlm</a>.<a href="../../../../../xmlm/xmlm.1.2.0/doc/xmlm/Xmlm/#type:source">source</a> -&gt; xmltree
+    
+      <div class="doc">
+        Read an XML tree from a source.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> in case of error.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Error">
+  <div class="exception">
+    <span class="keyword">exception</span> Error <span class="keyword">of</span> string
+    
+      <div class="doc">
+        Use this exception to indicate an error is functions given to <code>make_opts</code> used
+to read additional data from prefixed XML nodes.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:opts">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b) opts
+    
+      <div class="doc">
+        Options used when reading source.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:make_opts">
+  <div class="val">
+    <span class="keyword">val</span> make_opts : ?schemes:(string, <a href="../../../../../ocamlnet/ocamlnet.3.7.4-1/doc/netstring/Neturl/">Neturl</a>.<a href="../../../../../ocamlnet/ocamlnet.3.7.4-1/doc/netstring/Neturl/#type:url_syntax">url_syntax</a>) <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/">Hashtbl</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Hashtbl/#type:t">t</a> -&gt; ?base_syntax:<a href="../../../../../ocamlnet/ocamlnet.3.7.4-1/doc/netstring/Neturl/">Neturl</a>.<a href="../../../../../ocamlnet/ocamlnet.3.7.4-1/doc/netstring/Neturl/#type:url_syntax">url_syntax</a> -&gt; ?read_channel_data:xmltree list -&gt; 'a option -&gt; ?read_item_data:xmltree list -&gt; 'b option -&gt; unit -&gt; ('a, 'b) opts
+    
+      <div class="doc">
+        See Neturl documentation for <code>schemes</code> and <code>base_syntax</code> options.
+They are used to parse URLs.
+        
+  <div class="tag param">
+    <span class="label">read_channel_data</span> provides a way to read additional information from the
+subnodes of the channels. All these subnodes are prefixed by an expanded namespace.
+  </div>
+  
+  <div class="tag param">
+    <span class="label">read_item_data</span> is the equivalent of <code>read_channel_data</code> parameter but
+is called of each item with its prefixed subnodes.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:default_opts">
+  <div class="val">
+    <span class="keyword">val</span> default_opts : (unit, unit) opts
+    
+  </div>
+  </div>
+  
+  <div id="val:channel_t_of_file">
+  <div class="val">
+    <span class="keyword">val</span> channel_t_of_file : ('a, 'b) opts -&gt; string -&gt; (('a, 'b) channel_t * string list)
+    
+      <div class="doc">
+        <code>channel_[t_]of_X</code> returns the parsed channel and a list of encountered errors.
+Note that only namespaces declared in the root not of the XML tree are added to <code>ch_namespaces</code> field.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Failure</code> if the channel could not be parsed.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:channel_t_of_string">
+  <div class="val">
+    <span class="keyword">val</span> channel_t_of_string : ('a, 'b) opts -&gt; string -&gt; (('a, 'b) channel_t * string list)
+    
+  </div>
+  </div>
+  
+  <div id="val:channel_t_of_channel">
+  <div class="val">
+    <span class="keyword">val</span> channel_t_of_channel : ('a, 'b) opts -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; (('a, 'b) channel_t * string list)
+    
+  </div>
+  </div>
+  
+  <div id="val:channel_t_of_xmls">
+  <div class="val">
+    <span class="keyword">val</span> channel_t_of_xmls : ('a, 'b) opts -&gt; xmltree list -&gt; (('a, 'b) channel_t * string list)
+    
+      <div class="doc">
+        Read a channel from XML trees. These trees correspond to nodes under the <code>&quot;channel&quot;</code> XML node
+of a reguler RSS document.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:channel_of_file">
+  <div class="val">
+    <span class="keyword">val</span> channel_of_file : string -&gt; (channel * string list)
+    
+  </div>
+  </div>
+  
+  <div id="val:channel_of_string">
+  <div class="val">
+    <span class="keyword">val</span> channel_of_string : string -&gt; (channel * string list)
+    
+  </div>
+  </div>
+  
+  <div id="val:channel_of_channel">
+  <div class="val">
+    <span class="keyword">val</span> channel_of_channel : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:in_channel">in_channel</a> -&gt; (channel * string list)
+    
+  </div>
+  </div>
+  
+  <div id="type:data_printer">
+  <div class="type">
+    <span class="keyword">type</span> 'a data_printer = 'a -&gt; xmltree list
+    
+  </div>
+  </div>
+  
+  <div id="val:print_channel">
+  <div class="val">
+    <span class="keyword">val</span> print_channel : ?channel_data_printer:'a data_printer -&gt; ?item_data_printer:'b data_printer -&gt; ?indent:int -&gt; ?date_fmt:string -&gt; ?encoding:string -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/">Format</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Format/#type:formatter">formatter</a> -&gt; ('a, 'b) channel_t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_file">
+  <div class="val">
+    <span class="keyword">val</span> print_file : ?channel_data_printer:'a data_printer -&gt; ?item_data_printer:'b data_printer -&gt; ?indent:int -&gt; ?date_fmt:string -&gt; ?encoding:string -&gt; string -&gt; ('a, 'b) channel_t -&gt; unit
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlrss.2.2.2 rss Module 'Rss' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

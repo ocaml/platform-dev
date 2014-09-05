@@ -1,0 +1,2462 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  opam-lib.42 opam-lib Module 'OpamParallel' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamParallel/">OpamParallel</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="modtype:G">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> G = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        Abstract type of graphs
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> V : <a href="../../../../../ocamlgraph/ocamlgraph.1.8.5/doc/ocamlgraph/Graph/">Graph</a>.<a href="../../../../../ocamlgraph/ocamlgraph.1.8.5/doc/ocamlgraph/Graph/#module:Sig">Sig</a>.<a href="../../../../../ocamlgraph/ocamlgraph.1.8.5/doc/ocamlgraph/Graph/#module:Sig%23modtype:VERTEX">VERTEX</a>
+      </div>
+      
+      <div class="doc">
+        Vertices have type <code>V.t</code> and are labeled with type <code>V.label</code>
+(note that an implementation may identify the vertex with its
+label)
+        
+      </div>
+    
+    </div>
+  
+  <div id="type:vertex">
+  <div class="type">
+    <span class="keyword">type</span> vertex = V.t
+    
+  </div>
+  </div>
+  
+    <div id="module:E">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> E : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Edges have type <code>E.t</code> and are labeled with type <code>E.label</code>.
+<code>src</code> (resp. <code>dst</code>) returns the origin (resp. the destination) of a
+given edge.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:E#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:E#type:vertex">
+  <div class="type">
+    <span class="keyword">type</span> vertex = vertex
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:src">
+  <div class="val">
+    <span class="keyword">val</span> src : t -&gt; vertex
+    
+      <div class="doc">
+        Edge origin.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:dst">
+  <div class="val">
+    <span class="keyword">val</span> dst : t -&gt; vertex
+    
+      <div class="doc">
+        Edge destination.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:E#type:label">
+  <div class="type">
+    <span class="keyword">type</span> label
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : vertex -&gt; label -&gt; vertex -&gt; t
+    
+      <div class="doc">
+        <code>create v1 l v2</code> creates an edge from <code>v1</code> to <code>v2</code> with label <code>l</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:label">
+  <div class="val">
+    <span class="keyword">val</span> label : t -&gt; label
+    
+      <div class="doc">
+        Get the label of an edge.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="type:edge">
+  <div class="type">
+    <span class="keyword">type</span> edge = E.t
+    
+  </div>
+  </div>
+  
+  <div id="val:is_directed">
+  <div class="val">
+    <span class="keyword">val</span> is_directed : bool
+    
+      <div class="doc">
+        Is this an implementation of directed graphs?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:nb_vertex">
+  <div class="val">
+    <span class="keyword">val</span> nb_vertex : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:nb_edges">
+  <div class="val">
+    <span class="keyword">val</span> nb_edges : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:out_degree">
+  <div class="val">
+    <span class="keyword">val</span> out_degree : t -&gt; vertex -&gt; int
+    
+      <div class="doc">
+        <code>out_degree g v</code> returns the out-degree of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:in_degree">
+  <div class="val">
+    <span class="keyword">val</span> in_degree : t -&gt; vertex -&gt; int
+    
+      <div class="doc">
+        <code>in_degree g v</code> returns the in-degree of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:mem_vertex">
+  <div class="val">
+    <span class="keyword">val</span> mem_vertex : t -&gt; vertex -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:mem_edge">
+  <div class="val">
+    <span class="keyword">val</span> mem_edge : t -&gt; vertex -&gt; vertex -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:mem_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> mem_edge_e : t -&gt; edge -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:find_edge">
+  <div class="val">
+    <span class="keyword">val</span> find_edge : t -&gt; vertex -&gt; vertex -&gt; edge
+    
+      <div class="doc">
+        <code>find_edge g v1 v2</code> returns the edge from <code>v1</code> to <code>v2</code> if it exists.
+Unspecified behaviour if <code>g</code> has several edges from <code>v1</code> to <code>v2</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Not_found</code> if no such edge exists.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:find_all_edges">
+  <div class="val">
+    <span class="keyword">val</span> find_all_edges : t -&gt; vertex -&gt; vertex -&gt; edge list
+    
+  </div>
+  </div>
+  
+  <div id="val:succ">
+  <div class="val">
+    <span class="keyword">val</span> succ : t -&gt; vertex -&gt; vertex list
+    
+      <div class="doc">
+        <code>succ g v</code> returns the successors of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:pred">
+  <div class="val">
+    <span class="keyword">val</span> pred : t -&gt; vertex -&gt; vertex list
+    
+      <div class="doc">
+        <code>pred g v</code> returns the predecessors of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:succ_e">
+  <div class="val">
+    <span class="keyword">val</span> succ_e : t -&gt; vertex -&gt; edge list
+    
+      <div class="doc">
+        <code>succ_e g v</code> returns the edges going from <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:pred_e">
+  <div class="val">
+    <span class="keyword">val</span> pred_e : t -&gt; vertex -&gt; edge list
+    
+      <div class="doc">
+        <code>pred_e g v</code> returns the edges going to <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_vertex">
+  <div class="val">
+    <span class="keyword">val</span> fold_vertex : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_edges">
+  <div class="val">
+    <span class="keyword">val</span> iter_edges : vertex -&gt; vertex -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all edges of a graph. Edge label is ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_edges">
+  <div class="val">
+    <span class="keyword">val</span> fold_edges : vertex -&gt; vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all edges of a graph. Edge label is ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_edges_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_edges_e : edge -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all edges of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_edges_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_edges_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all edges of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:map_vertex">
+  <div class="val">
+    <span class="keyword">val</span> map_vertex : vertex -&gt; vertex -&gt; t -&gt; t
+    
+      <div class="doc">
+        Map on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_pred">
+  <div class="val">
+    <span class="keyword">val</span> iter_pred : vertex -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_succ">
+  <div class="val">
+    <span class="keyword">val</span> fold_succ : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_pred">
+  <div class="val">
+    <span class="keyword">val</span> fold_pred : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_succ_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_succ_e : edge -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_succ_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_succ_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_pred_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_pred_e : edge -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_pred_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_pred_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : ?size:int -&gt; unit -&gt; t
+    
+      <div class="doc">
+        <code>create ()</code> returns an empty graph. Optionally, a size can be
+given, which should be on the order of the expected number of
+vertices that will be in the graph (for hash tables-based
+implementations). The graph grows as needed, so <code>size</code> is
+just an initial guess.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : t -&gt; t
+    
+      <div class="doc">
+        <code>copy g</code> returns a copy of <code>g</code>. Vertices and edges (and eventually
+marks, see module <code>Mark</code>) are duplicated.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_vertex">
+  <div class="val">
+    <span class="keyword">val</span> add_vertex : t -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>add_vertex g v</code> adds the vertex <code>v</code> to the graph <code>g</code>.
+Do nothing if <code>v</code> is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_vertex">
+  <div class="val">
+    <span class="keyword">val</span> remove_vertex : t -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>remove g v</code> removes the vertex <code>v</code> from the graph <code>g</code>
+(and all the edges going from <code>v</code> in <code>g</code>).
+Do nothing if <code>v</code> is not in <code>g</code>.<br/><b>Time complexity for ocamlgraph implementations:</b>
+O(|V|*ln(D)) for unlabeled graphs and O(|V|*D) for
+labeled graphs. D is the maximal degree of the graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_edge">
+  <div class="val">
+    <span class="keyword">val</span> add_edge : t -&gt; vertex -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>add_edge g v1 v2</code> adds an edge from the vertex <code>v1</code> to the vertex <code>v2</code>
+in the graph <code>g</code>.
+Add also <code>v1</code> (resp. <code>v2</code>) in <code>g</code> if <code>v1</code> (resp. <code>v2</code>) is not in <code>g</code>.
+Do nothing if this edge is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> add_edge_e : t -&gt; edge -&gt; unit
+    
+      <div class="doc">
+        <code>add_edge_e g e</code> adds the edge <code>e</code> in the graph <code>g</code>.
+Add also <code>E.src e</code> (resp. <code>E.dst e</code>) in <code>g</code> if <code>E.src e</code> (resp. <code>E.dst
+	e</code>) is not in <code>g</code>.
+Do nothing if <code>e</code> is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_edge">
+  <div class="val">
+    <span class="keyword">val</span> remove_edge : t -&gt; vertex -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>remove_edge g v1 v2</code> removes the edge going from <code>v1</code> to <code>v2</code> from the
+graph <code>g</code>. If the graph is labelled, all the edges going from <code>v1</code> to
+<code>v2</code> are removed from <code>g</code>.
+Do nothing if this edge is not in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v1</code> or <code>v2</code> are not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> remove_edge_e : t -&gt; edge -&gt; unit
+    
+      <div class="doc">
+        <code>remove_edge_e g e</code> removes the edge <code>e</code> from the graph <code>g</code>.
+Do nothing if <code>e</code> is not in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>E.src e</code> or <code>E.dst e</code> are not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_vertex">
+  <div class="val">
+    <span class="keyword">val</span> iter_vertex : V.t -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_succ">
+  <div class="val">
+    <span class="keyword">val</span> iter_succ : V.t -&gt; unit -&gt; t -&gt; V.t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:has_cycle">
+  <div class="val">
+    <span class="keyword">val</span> has_cycle : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:scc_list">
+  <div class="val">
+    <span class="keyword">val</span> scc_list : t -&gt; V.t list list
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_vertex">
+  <div class="val">
+    <span class="keyword">val</span> string_of_vertex : V.t -&gt; string
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="type:error">
+  <div class="type">
+    <span class="keyword">type</span> error = <div class="constr">| Process_error <span class="keyword">of</span> <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamProcess/">OpamProcess</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamProcess/#type:result">result</a></div><div class="constr">| Internal_error <span class="keyword">of</span> string</div><div class="constr">| Package_error <span class="keyword">of</span> string</div>
+    
+  </div>
+  </div>
+  
+    <div id="modtype:SIG">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> SIG = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> G : G
+      </div>
+      
+    </div>
+  
+  <div id="val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : int -&gt; G.t -&gt; pre:G.V.t -&gt; unit -&gt; child:G.V.t -&gt; unit -&gt; post:G.V.t -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_l">
+  <div class="val">
+    <span class="keyword">val</span> iter_l : int -&gt; G.vertex list -&gt; pre:G.V.t -&gt; unit -&gt; child:G.V.t -&gt; unit -&gt; post:G.V.t -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:map_reduce">
+  <div class="val">
+    <span class="keyword">val</span> map_reduce : int -&gt; G.t -&gt; map:G.V.t -&gt; 'a -&gt; merge:'a -&gt; 'a -&gt; 'a -&gt; init:'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:map_reduce_l">
+  <div class="val">
+    <span class="keyword">val</span> map_reduce_l : int -&gt; G.vertex list -&gt; map:G.V.t -&gt; 'a -&gt; merge:'a -&gt; 'a -&gt; 'a -&gt; init:'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : G.V.t list -&gt; G.t
+    
+  </div>
+  </div>
+  
+  <div id="exception:Errors">
+  <div class="exception">
+    <span class="keyword">exception</span> Errors <span class="keyword">of</span> (G.V.t * error) list * G.V.t list
+    
+  </div>
+  </div>
+  
+  <div id="exception:Cyclic">
+  <div class="exception">
+    <span class="keyword">exception</span> Cyclic <span class="keyword">of</span> G.V.t list list
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:opam-lib.42/opam-lib/OpamParallel.Make</span>
+    <div id="modtype:VERTEX">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> VERTEX = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:hash">
+  <div class="val">
+    <span class="keyword">val</span> hash : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:to_string">
+  <div class="val">
+    <span class="keyword">val</span> to_string : t -&gt; string
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="modtype:GRAPH">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> GRAPH = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+      <div class="doc">
+        Abstract type of graphs
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> V : <a href="../../../../../ocamlgraph/ocamlgraph.1.8.5/doc/ocamlgraph/Graph/">Graph</a>.<a href="../../../../../ocamlgraph/ocamlgraph.1.8.5/doc/ocamlgraph/Graph/#module:Sig">Sig</a>.<a href="../../../../../ocamlgraph/ocamlgraph.1.8.5/doc/ocamlgraph/Graph/#module:Sig%23modtype:VERTEX">VERTEX</a>
+      </div>
+      
+      <div class="doc">
+        Vertices have type <code>V.t</code> and are labeled with type <code>V.label</code>
+(note that an implementation may identify the vertex with its
+label)
+        
+      </div>
+    
+    </div>
+  
+  <div id="type:vertex">
+  <div class="type">
+    <span class="keyword">type</span> vertex = V.t
+    
+  </div>
+  </div>
+  
+    <div id="module:E">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> E : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Edges have type <code>E.t</code> and are labeled with type <code>E.label</code>.
+<code>src</code> (resp. <code>dst</code>) returns the origin (resp. the destination) of a
+given edge.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:E#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:E#type:vertex">
+  <div class="type">
+    <span class="keyword">type</span> vertex = vertex
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:src">
+  <div class="val">
+    <span class="keyword">val</span> src : t -&gt; vertex
+    
+      <div class="doc">
+        Edge origin.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:dst">
+  <div class="val">
+    <span class="keyword">val</span> dst : t -&gt; vertex
+    
+      <div class="doc">
+        Edge destination.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:E#type:label">
+  <div class="type">
+    <span class="keyword">type</span> label
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : vertex -&gt; label -&gt; vertex -&gt; t
+    
+      <div class="doc">
+        <code>create v1 l v2</code> creates an edge from <code>v1</code> to <code>v2</code> with label <code>l</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:E#val:label">
+  <div class="val">
+    <span class="keyword">val</span> label : t -&gt; label
+    
+      <div class="doc">
+        Get the label of an edge.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="type:edge">
+  <div class="type">
+    <span class="keyword">type</span> edge = E.t
+    
+  </div>
+  </div>
+  
+  <div id="val:is_directed">
+  <div class="val">
+    <span class="keyword">val</span> is_directed : bool
+    
+      <div class="doc">
+        Is this an implementation of directed graphs?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:nb_vertex">
+  <div class="val">
+    <span class="keyword">val</span> nb_vertex : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:nb_edges">
+  <div class="val">
+    <span class="keyword">val</span> nb_edges : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:out_degree">
+  <div class="val">
+    <span class="keyword">val</span> out_degree : t -&gt; vertex -&gt; int
+    
+      <div class="doc">
+        <code>out_degree g v</code> returns the out-degree of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:in_degree">
+  <div class="val">
+    <span class="keyword">val</span> in_degree : t -&gt; vertex -&gt; int
+    
+      <div class="doc">
+        <code>in_degree g v</code> returns the in-degree of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:mem_vertex">
+  <div class="val">
+    <span class="keyword">val</span> mem_vertex : t -&gt; vertex -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:mem_edge">
+  <div class="val">
+    <span class="keyword">val</span> mem_edge : t -&gt; vertex -&gt; vertex -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:mem_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> mem_edge_e : t -&gt; edge -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:find_edge">
+  <div class="val">
+    <span class="keyword">val</span> find_edge : t -&gt; vertex -&gt; vertex -&gt; edge
+    
+      <div class="doc">
+        <code>find_edge g v1 v2</code> returns the edge from <code>v1</code> to <code>v2</code> if it exists.
+Unspecified behaviour if <code>g</code> has several edges from <code>v1</code> to <code>v2</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Not_found</code> if no such edge exists.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:find_all_edges">
+  <div class="val">
+    <span class="keyword">val</span> find_all_edges : t -&gt; vertex -&gt; vertex -&gt; edge list
+    
+  </div>
+  </div>
+  
+  <div id="val:succ">
+  <div class="val">
+    <span class="keyword">val</span> succ : t -&gt; vertex -&gt; vertex list
+    
+      <div class="doc">
+        <code>succ g v</code> returns the successors of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:pred">
+  <div class="val">
+    <span class="keyword">val</span> pred : t -&gt; vertex -&gt; vertex list
+    
+      <div class="doc">
+        <code>pred g v</code> returns the predecessors of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:succ_e">
+  <div class="val">
+    <span class="keyword">val</span> succ_e : t -&gt; vertex -&gt; edge list
+    
+      <div class="doc">
+        <code>succ_e g v</code> returns the edges going from <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:pred_e">
+  <div class="val">
+    <span class="keyword">val</span> pred_e : t -&gt; vertex -&gt; edge list
+    
+      <div class="doc">
+        <code>pred_e g v</code> returns the edges going to <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_vertex">
+  <div class="val">
+    <span class="keyword">val</span> iter_vertex : vertex -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_vertex">
+  <div class="val">
+    <span class="keyword">val</span> fold_vertex : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_edges">
+  <div class="val">
+    <span class="keyword">val</span> iter_edges : vertex -&gt; vertex -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all edges of a graph. Edge label is ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_edges">
+  <div class="val">
+    <span class="keyword">val</span> fold_edges : vertex -&gt; vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all edges of a graph. Edge label is ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_edges_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_edges_e : edge -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all edges of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_edges_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_edges_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all edges of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:map_vertex">
+  <div class="val">
+    <span class="keyword">val</span> map_vertex : vertex -&gt; vertex -&gt; t -&gt; t
+    
+      <div class="doc">
+        Map on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_succ">
+  <div class="val">
+    <span class="keyword">val</span> iter_succ : vertex -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_pred">
+  <div class="val">
+    <span class="keyword">val</span> iter_pred : vertex -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_succ">
+  <div class="val">
+    <span class="keyword">val</span> fold_succ : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_pred">
+  <div class="val">
+    <span class="keyword">val</span> fold_pred : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_succ_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_succ_e : edge -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_succ_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_succ_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:iter_pred_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_pred_e : edge -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:fold_pred_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_pred_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : ?size:int -&gt; unit -&gt; t
+    
+      <div class="doc">
+        <code>create ()</code> returns an empty graph. Optionally, a size can be
+given, which should be on the order of the expected number of
+vertices that will be in the graph (for hash tables-based
+implementations). The graph grows as needed, so <code>size</code> is
+just an initial guess.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : t -&gt; t
+    
+      <div class="doc">
+        <code>copy g</code> returns a copy of <code>g</code>. Vertices and edges (and eventually
+marks, see module <code>Mark</code>) are duplicated.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_vertex">
+  <div class="val">
+    <span class="keyword">val</span> add_vertex : t -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>add_vertex g v</code> adds the vertex <code>v</code> to the graph <code>g</code>.
+Do nothing if <code>v</code> is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_vertex">
+  <div class="val">
+    <span class="keyword">val</span> remove_vertex : t -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>remove g v</code> removes the vertex <code>v</code> from the graph <code>g</code>
+(and all the edges going from <code>v</code> in <code>g</code>).
+Do nothing if <code>v</code> is not in <code>g</code>.<br/><b>Time complexity for ocamlgraph implementations:</b>
+O(|V|*ln(D)) for unlabeled graphs and O(|V|*D) for
+labeled graphs. D is the maximal degree of the graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_edge">
+  <div class="val">
+    <span class="keyword">val</span> add_edge : t -&gt; vertex -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>add_edge g v1 v2</code> adds an edge from the vertex <code>v1</code> to the vertex <code>v2</code>
+in the graph <code>g</code>.
+Add also <code>v1</code> (resp. <code>v2</code>) in <code>g</code> if <code>v1</code> (resp. <code>v2</code>) is not in <code>g</code>.
+Do nothing if this edge is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> add_edge_e : t -&gt; edge -&gt; unit
+    
+      <div class="doc">
+        <code>add_edge_e g e</code> adds the edge <code>e</code> in the graph <code>g</code>.
+Add also <code>E.src e</code> (resp. <code>E.dst e</code>) in <code>g</code> if <code>E.src e</code> (resp. <code>E.dst
+	e</code>) is not in <code>g</code>.
+Do nothing if <code>e</code> is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_edge">
+  <div class="val">
+    <span class="keyword">val</span> remove_edge : t -&gt; vertex -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>remove_edge g v1 v2</code> removes the edge going from <code>v1</code> to <code>v2</code> from the
+graph <code>g</code>. If the graph is labelled, all the edges going from <code>v1</code> to
+<code>v2</code> are removed from <code>g</code>.
+Do nothing if this edge is not in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v1</code> or <code>v2</code> are not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:remove_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> remove_edge_e : t -&gt; edge -&gt; unit
+    
+      <div class="doc">
+        <code>remove_edge_e g e</code> removes the edge <code>e</code> from the graph <code>g</code>.
+Do nothing if <code>e</code> is not in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>E.src e</code> or <code>E.dst e</code> are not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:g">
+  <div class="type">
+    <span class="keyword">type</span> g = t
+    
+  </div>
+  </div>
+  
+  <div id="val:transitive_closure">
+  <div class="val">
+    <span class="keyword">val</span> transitive_closure : ?reflexive:bool -&gt; g -&gt; g
+    
+      <div class="doc">
+        <code>transitive_closure ?reflexive g</code> returns the transitive closure
+of <code>g</code> (as a new graph). Loops (i.e. edges from a vertex to itself)
+are added only if <code>reflexive</code> is <code>true</code> (default is <code>false</code>).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:add_transitive_closure">
+  <div class="val">
+    <span class="keyword">val</span> add_transitive_closure : ?reflexive:bool -&gt; g -&gt; g
+    
+      <div class="doc">
+        <code>add_transitive_closure ?reflexive g</code> replaces <code>g</code> by its
+transitive closure. Meaningless for persistent implementations
+(then acts as <code>transitive_closure</code>).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:transitive_reduction">
+  <div class="val">
+    <span class="keyword">val</span> transitive_reduction : ?reflexive:bool -&gt; g -&gt; g
+    
+      <div class="doc">
+        <code>transitive_reduction ?reflexive g</code> returns the transitive reduction
+of <code>g</code> (as a new graph). Loops (i.e. edges from a vertex to itself)
+are removed only if <code>reflexive</code> is <code>true</code> (default is <code>false</code>).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:replace_by_transitive_reduction">
+  <div class="val">
+    <span class="keyword">val</span> replace_by_transitive_reduction : ?reflexive:bool -&gt; g -&gt; g
+    
+      <div class="doc">
+        <code>replace_by_transitive_reduction ?reflexive g</code> replaces <code>g</code> by its
+transitive reduction. Meaningless for persistent implementations
+(then acts as <code>transitive_reduction</code>).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:mirror">
+  <div class="val">
+    <span class="keyword">val</span> mirror : g -&gt; g
+    
+      <div class="doc">
+        <code>mirror g</code> returns a new graph which is the mirror image of <code>g</code>:
+each edge from <code>u</code> to <code>v</code> has been replaced by an edge from <code>v</code> to <code>u</code>.
+For undirected graphs, it simply returns <code>g</code>.
+Note: Vertices are shared between <code>g</code> and <code>mirror g</code>; you may need to
+make a copy of <code>g</code> before using <code>mirror</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:complement">
+  <div class="val">
+    <span class="keyword">val</span> complement : g -&gt; g
+    
+      <div class="doc">
+        <code>complement g</code> returns a new graph which is the complement of <code>g</code>:
+each edge present in <code>g</code> is not present in the resulting graph and
+vice-versa. Edges of the returned graph are unlabeled.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:intersect">
+  <div class="val">
+    <span class="keyword">val</span> intersect : g -&gt; g -&gt; g
+    
+      <div class="doc">
+        <code>intersect g1 g2</code> returns a new graph which is the intersection of <code>g1</code>
+and <code>g2</code>: each vertex and edge present in <code>g1</code> *and* <code>g2</code> is present
+in the resulting graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:union">
+  <div class="val">
+    <span class="keyword">val</span> union : g -&gt; g -&gt; g
+    
+      <div class="doc">
+        <code>union g1 g2</code> returns a new graph which is the union of <code>g1</code> and <code>g2</code>:
+each vertex and edge present in <code>g1</code> *or* <code>g2</code> is present in the
+resulting graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    <div id="module:Topological">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Topological : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Topological#val:fold">
+  <div class="val">
+    <span class="keyword">val</span> fold : V.t -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Topological#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : V.t -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Parallel">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Parallel : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+    <div id="module:Parallel#module:G">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> G : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Parallel#module:G#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = t
+    
+  </div>
+  </div>
+  
+    <div id="module:Parallel#module:G#module:V">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> V : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Vertices have type <code>V.t</code> and are labeled with type <code>V.label</code>
+(note that an implementation may identify the vertex with its
+label)
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Parallel#module:G#module:V#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t = vertex
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:V#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:V#val:hash">
+  <div class="val">
+    <span class="keyword">val</span> hash : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:V#val:equal">
+  <div class="val">
+    <span class="keyword">val</span> equal : t -&gt; t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:V#type:label">
+  <div class="type">
+    <span class="keyword">type</span> label
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:V#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : label -&gt; t
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:V#val:label">
+  <div class="val">
+    <span class="keyword">val</span> label : t -&gt; label
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Parallel#module:G#type:vertex">
+  <div class="type">
+    <span class="keyword">type</span> vertex = V.t
+    
+  </div>
+  </div>
+  
+    <div id="module:Parallel#module:G#module:E">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> E : <span class="keyword">sig</span></div>
+      
+      <div class="doc">
+        Edges have type <code>E.t</code> and are labeled with type <code>E.label</code>.
+<code>src</code> (resp. <code>dst</code>) returns the origin (resp. the destination) of a
+given edge.
+        
+      </div>
+    
+      <div class="sig">
+        
+  <div id="module:Parallel#module:G#module:E#type:t">
+  <div class="type">
+    <span class="keyword">type</span> t
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:E#val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : t -&gt; t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:E#type:vertex">
+  <div class="type">
+    <span class="keyword">type</span> vertex = vertex
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:E#val:src">
+  <div class="val">
+    <span class="keyword">val</span> src : t -&gt; vertex
+    
+      <div class="doc">
+        Edge origin.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:E#val:dst">
+  <div class="val">
+    <span class="keyword">val</span> dst : t -&gt; vertex
+    
+      <div class="doc">
+        Edge destination.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:E#type:label">
+  <div class="type">
+    <span class="keyword">type</span> label
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:E#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : vertex -&gt; label -&gt; vertex -&gt; t
+    
+      <div class="doc">
+        <code>create v1 l v2</code> creates an edge from <code>v1</code> to <code>v2</code> with label <code>l</code>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#module:E#val:label">
+  <div class="val">
+    <span class="keyword">val</span> label : t -&gt; label
+    
+      <div class="doc">
+        Get the label of an edge.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Parallel#module:G#type:edge">
+  <div class="type">
+    <span class="keyword">type</span> edge = E.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:is_directed">
+  <div class="val">
+    <span class="keyword">val</span> is_directed : bool
+    
+      <div class="doc">
+        Is this an implementation of directed graphs?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:is_empty">
+  <div class="val">
+    <span class="keyword">val</span> is_empty : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:nb_vertex">
+  <div class="val">
+    <span class="keyword">val</span> nb_vertex : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:nb_edges">
+  <div class="val">
+    <span class="keyword">val</span> nb_edges : t -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:out_degree">
+  <div class="val">
+    <span class="keyword">val</span> out_degree : t -&gt; vertex -&gt; int
+    
+      <div class="doc">
+        <code>out_degree g v</code> returns the out-degree of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:in_degree">
+  <div class="val">
+    <span class="keyword">val</span> in_degree : t -&gt; vertex -&gt; int
+    
+      <div class="doc">
+        <code>in_degree g v</code> returns the in-degree of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:mem_vertex">
+  <div class="val">
+    <span class="keyword">val</span> mem_vertex : t -&gt; vertex -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:mem_edge">
+  <div class="val">
+    <span class="keyword">val</span> mem_edge : t -&gt; vertex -&gt; vertex -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:mem_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> mem_edge_e : t -&gt; edge -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:find_edge">
+  <div class="val">
+    <span class="keyword">val</span> find_edge : t -&gt; vertex -&gt; vertex -&gt; edge
+    
+      <div class="doc">
+        <code>find_edge g v1 v2</code> returns the edge from <code>v1</code> to <code>v2</code> if it exists.
+Unspecified behaviour if <code>g</code> has several edges from <code>v1</code> to <code>v2</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Not_found</code> if no such edge exists.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:find_all_edges">
+  <div class="val">
+    <span class="keyword">val</span> find_all_edges : t -&gt; vertex -&gt; vertex -&gt; edge list
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:succ">
+  <div class="val">
+    <span class="keyword">val</span> succ : t -&gt; vertex -&gt; vertex list
+    
+      <div class="doc">
+        <code>succ g v</code> returns the successors of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:pred">
+  <div class="val">
+    <span class="keyword">val</span> pred : t -&gt; vertex -&gt; vertex list
+    
+      <div class="doc">
+        <code>pred g v</code> returns the predecessors of <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:succ_e">
+  <div class="val">
+    <span class="keyword">val</span> succ_e : t -&gt; vertex -&gt; edge list
+    
+      <div class="doc">
+        <code>succ_e g v</code> returns the edges going from <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:pred_e">
+  <div class="val">
+    <span class="keyword">val</span> pred_e : t -&gt; vertex -&gt; edge list
+    
+      <div class="doc">
+        <code>pred_e g v</code> returns the edges going to <code>v</code> in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v</code> is not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:fold_vertex">
+  <div class="val">
+    <span class="keyword">val</span> fold_vertex : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:iter_edges">
+  <div class="val">
+    <span class="keyword">val</span> iter_edges : vertex -&gt; vertex -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all edges of a graph. Edge label is ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:fold_edges">
+  <div class="val">
+    <span class="keyword">val</span> fold_edges : vertex -&gt; vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all edges of a graph. Edge label is ignored.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:iter_edges_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_edges_e : edge -&gt; unit -&gt; t -&gt; unit
+    
+      <div class="doc">
+        Iter on all edges of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:fold_edges_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_edges_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; 'a -&gt; 'a
+    
+      <div class="doc">
+        Fold on all edges of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:map_vertex">
+  <div class="val">
+    <span class="keyword">val</span> map_vertex : vertex -&gt; vertex -&gt; t -&gt; t
+    
+      <div class="doc">
+        Map on all vertices of a graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:iter_pred">
+  <div class="val">
+    <span class="keyword">val</span> iter_pred : vertex -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:fold_succ">
+  <div class="val">
+    <span class="keyword">val</span> fold_succ : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:fold_pred">
+  <div class="val">
+    <span class="keyword">val</span> fold_pred : vertex -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:iter_succ_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_succ_e : edge -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:fold_succ_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_succ_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:iter_pred_e">
+  <div class="val">
+    <span class="keyword">val</span> iter_pred_e : edge -&gt; unit -&gt; t -&gt; vertex -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:fold_pred_e">
+  <div class="val">
+    <span class="keyword">val</span> fold_pred_e : edge -&gt; 'a -&gt; 'a -&gt; t -&gt; vertex -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : ?size:int -&gt; unit -&gt; t
+    
+      <div class="doc">
+        <code>create ()</code> returns an empty graph. Optionally, a size can be
+given, which should be on the order of the expected number of
+vertices that will be in the graph (for hash tables-based
+implementations). The graph grows as needed, so <code>size</code> is
+just an initial guess.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:clear">
+  <div class="val">
+    <span class="keyword">val</span> clear : t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:copy">
+  <div class="val">
+    <span class="keyword">val</span> copy : t -&gt; t
+    
+      <div class="doc">
+        <code>copy g</code> returns a copy of <code>g</code>. Vertices and edges (and eventually
+marks, see module <code>Mark</code>) are duplicated.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:add_vertex">
+  <div class="val">
+    <span class="keyword">val</span> add_vertex : t -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>add_vertex g v</code> adds the vertex <code>v</code> to the graph <code>g</code>.
+Do nothing if <code>v</code> is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:remove_vertex">
+  <div class="val">
+    <span class="keyword">val</span> remove_vertex : t -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>remove g v</code> removes the vertex <code>v</code> from the graph <code>g</code>
+(and all the edges going from <code>v</code> in <code>g</code>).
+Do nothing if <code>v</code> is not in <code>g</code>.<br/><b>Time complexity for ocamlgraph implementations:</b>
+O(|V|*ln(D)) for unlabeled graphs and O(|V|*D) for
+labeled graphs. D is the maximal degree of the graph.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:add_edge">
+  <div class="val">
+    <span class="keyword">val</span> add_edge : t -&gt; vertex -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>add_edge g v1 v2</code> adds an edge from the vertex <code>v1</code> to the vertex <code>v2</code>
+in the graph <code>g</code>.
+Add also <code>v1</code> (resp. <code>v2</code>) in <code>g</code> if <code>v1</code> (resp. <code>v2</code>) is not in <code>g</code>.
+Do nothing if this edge is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:add_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> add_edge_e : t -&gt; edge -&gt; unit
+    
+      <div class="doc">
+        <code>add_edge_e g e</code> adds the edge <code>e</code> in the graph <code>g</code>.
+Add also <code>E.src e</code> (resp. <code>E.dst e</code>) in <code>g</code> if <code>E.src e</code> (resp. <code>E.dst
+	e</code>) is not in <code>g</code>.
+Do nothing if <code>e</code> is already in <code>g</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:remove_edge">
+  <div class="val">
+    <span class="keyword">val</span> remove_edge : t -&gt; vertex -&gt; vertex -&gt; unit
+    
+      <div class="doc">
+        <code>remove_edge g v1 v2</code> removes the edge going from <code>v1</code> to <code>v2</code> from the
+graph <code>g</code>. If the graph is labelled, all the edges going from <code>v1</code> to
+<code>v2</code> are removed from <code>g</code>.
+Do nothing if this edge is not in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>v1</code> or <code>v2</code> are not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:remove_edge_e">
+  <div class="val">
+    <span class="keyword">val</span> remove_edge_e : t -&gt; edge -&gt; unit
+    
+      <div class="doc">
+        <code>remove_edge_e g e</code> removes the edge <code>e</code> from the graph <code>g</code>.
+Do nothing if <code>e</code> is not in <code>g</code>.
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if <code>E.src e</code> or <code>E.dst e</code> are not in <code>g</code>.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:iter_vertex">
+  <div class="val">
+    <span class="keyword">val</span> iter_vertex : V.t -&gt; unit -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:iter_succ">
+  <div class="val">
+    <span class="keyword">val</span> iter_succ : V.t -&gt; unit -&gt; t -&gt; V.t -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:has_cycle">
+  <div class="val">
+    <span class="keyword">val</span> has_cycle : t -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:scc_list">
+  <div class="val">
+    <span class="keyword">val</span> scc_list : t -&gt; V.t list list
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#module:G#val:string_of_vertex">
+  <div class="val">
+    <span class="keyword">val</span> string_of_vertex : V.t -&gt; string
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="module:Parallel#val:iter">
+  <div class="val">
+    <span class="keyword">val</span> iter : int -&gt; G.t -&gt; pre:G.V.t -&gt; unit -&gt; child:G.V.t -&gt; unit -&gt; post:G.V.t -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#val:iter_l">
+  <div class="val">
+    <span class="keyword">val</span> iter_l : int -&gt; G.vertex list -&gt; pre:G.V.t -&gt; unit -&gt; child:G.V.t -&gt; unit -&gt; post:G.V.t -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#val:map_reduce">
+  <div class="val">
+    <span class="keyword">val</span> map_reduce : int -&gt; G.t -&gt; map:G.V.t -&gt; 'a -&gt; merge:'a -&gt; 'a -&gt; 'a -&gt; init:'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#val:map_reduce_l">
+  <div class="val">
+    <span class="keyword">val</span> map_reduce_l : int -&gt; G.vertex list -&gt; map:G.V.t -&gt; 'a -&gt; merge:'a -&gt; 'a -&gt; 'a -&gt; init:'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#val:create">
+  <div class="val">
+    <span class="keyword">val</span> create : G.V.t list -&gt; G.t
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#exception:Errors">
+  <div class="exception">
+    <span class="keyword">exception</span> Errors <span class="keyword">of</span> (G.V.t * error) list * G.V.t list
+    
+  </div>
+  </div>
+  
+  <div id="module:Parallel#exception:Cyclic">
+  <div class="exception">
+    <span class="keyword">exception</span> Cyclic <span class="keyword">of</span> G.V.t list list
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+    <div id="module:Dot">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> Dot : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:Dot#val:output_graph">
+  <div class="val">
+    <span class="keyword">val</span> output_graph : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:out_channel">out_channel</a> -&gt; t -&gt; unit
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:opam-lib.42/opam-lib/OpamParallel.MakeGraph</span>
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  opam-lib.42 opam-lib Module 'OpamParallel' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

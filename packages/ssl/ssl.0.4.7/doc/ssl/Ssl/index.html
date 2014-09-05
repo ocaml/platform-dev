@@ -1,0 +1,1083 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ssl.0.4.7 ssl Module 'Ssl' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ssl/ssl.0.4.7/doc/ssl/Ssl/">Ssl</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="type:ssl_error">
+  <div class="type">
+    <span class="keyword">type</span> ssl_error = <div class="constr">| Error_none <span class="doc">(* No error happened. This is never raised and should disappear in future
+versions. *)</span></div><div class="constr">| Error_ssl</div><div class="constr">| Error_want_read <span class="doc">(* The operation did not complete; the same TLS/SSL I/O function should be
+called again later. *)</span></div><div class="constr">| Error_want_write <span class="doc">(* The operation did not complete; the same TLS/SSL I/O function should be
+called again later. *)</span></div><div class="constr">| Error_want_x509_lookup <span class="doc">(* The operation did not complete because an application callback set by
+<code>set_client_cert_cb</code> has asked to be called again. The TLS/SSL I/O function
+should be called again later. Details depend on the application. *)</span></div><div class="constr">| Error_syscall <span class="doc">(* Some I/O error occurred. The OpenSSL error queue may contain more
+information on the error. *)</span></div><div class="constr">| Error_zero_return <span class="doc">(* The TLS/SSL connection has been closed. If the protocol version is SSL
+3.0 or TLS 1.0, this result code is returned only if a closure alert has
+occurred in the protocol, i.e. if the connection has been closed cleanly. Note
+that in this case <code>Error_zero_return</code> does not necessarily indicate that the
+underlying transport has been closed. *)</span></div><div class="constr">| Error_want_connect <span class="doc">(* The operation did not complete; the same TLS/SSL I/O function should be
+called again later. *)</span></div><div class="constr">| Error_want_accept <span class="doc">(* The operation did not complete; the same TLS/SSL I/O function should be
+called again later. *)</span></div>
+    
+      <div class="doc">
+        An ssl error has occured (see SSL_get_error(3ssl) for details).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Method_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Method_error
+    
+      <div class="doc">
+        The SSL method could not be initalized.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Context_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Context_error
+    
+  </div>
+  </div>
+  
+  <div id="exception:Certificate_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Certificate_error
+    
+      <div class="doc">
+        The SSL server certificate could not be initialized.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Private_key_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Private_key_error
+    
+      <div class="doc">
+        The SSL server private key could not be intialized.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Unmatching_keys">
+  <div class="exception">
+    <span class="keyword">exception</span> Unmatching_keys
+    
+      <div class="doc">
+        The SSL private key does not match the certificate public key.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Invalid_socket">
+  <div class="exception">
+    <span class="keyword">exception</span> Invalid_socket
+    
+      <div class="doc">
+        The given socket is invalid.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Handler_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Handler_error
+    
+      <div class="doc">
+        The SSL handler could not be initialized.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Connection_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Connection_error <span class="keyword">of</span> ssl_error
+    
+      <div class="doc">
+        The connection could not be made with the SSL service.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Accept_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Accept_error <span class="keyword">of</span> ssl_error
+    
+      <div class="doc">
+        Failed to accept an SSL connection.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Read_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Read_error <span class="keyword">of</span> ssl_error
+    
+      <div class="doc">
+        An error occured while reading data.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Write_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Write_error <span class="keyword">of</span> ssl_error
+    
+      <div class="doc">
+        An error occured while writing data.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:verify_error">
+  <div class="type">
+    <span class="keyword">type</span> verify_error = <div class="constr">| Error_v_unable_to_get_issuer_cert <span class="doc">(* The issuer certificate could not be found: this occurs if the issuer
+certificate of an untrusted certificate cannot be found. *)</span></div><div class="constr">| Error_v_unable_to_get_ctl <span class="doc">(* The CRL of a certificate could not be found. *)</span></div><div class="constr">| Error_v_unable_to_decrypt_cert_signature <span class="doc">(* The certificate signature could not be decrypted. This means that the
+actual signature value could not be determined rather than it not matching the
+expected value, this is only meaningful for RSA keys. *)</span></div><div class="constr">| Error_v_unable_to_decrypt_CRL_signature <span class="doc">(* The CRL signature could not be decrypted: this means that the actual
+signature value could not be determined rather than it not matching the
+expected value. Unused. *)</span></div><div class="constr">| Error_v_unable_to_decode_issuer_public_key <span class="doc">(* The public key in the certificate SubjectPublicKeyInfo could not be
+read. *)</span></div><div class="constr">| Error_v_cert_signature_failure <span class="doc">(* The signature of the certificate is invalid. *)</span></div><div class="constr">| Error_v_CRL_signature_failure <span class="doc">(* The signature of the certificate is invalid. *)</span></div><div class="constr">| Error_v_cert_not_yet_valid <span class="doc">(* The certificate is not yet valid: the notBefore date is after the current
+time. *)</span></div><div class="constr">| Error_v_cert_has_expired <span class="doc">(* The certificate has expired: that is the notAfter date is before the
+current time. *)</span></div><div class="constr">| Error_v_CRL_not_yet_valid <span class="doc">(* The CRL is not yet valid. *)</span></div><div class="constr">| Error_v_CRL_has_expired <span class="doc">(* The CRL has expired. *)</span></div><div class="constr">| Error_v_error_in_cert_not_before_field <span class="doc">(* The certificate notBefore field contains an invalid time. *)</span></div><div class="constr">| Error_v_error_in_cert_not_after_field <span class="doc">(* The certificate notAfter field contains an invalid time. *)</span></div><div class="constr">| Error_v_error_in_CRL_last_update_field <span class="doc">(* The CRL lastUpdate field contains an invalid time. *)</span></div><div class="constr">| Error_v_error_in_CRL_next_update_field <span class="doc">(* The CRL nextUpdate field contains an invalid time. *)</span></div><div class="constr">| Error_v_out_of_mem <span class="doc">(* An error occurred trying to allocate memory. This should never happen. *)</span></div><div class="constr">| Error_v_depth_zero_self_signed_cert <span class="doc">(* The passed certificate is self signed and the same certificate cannot be
+found in the list of trusted certificates. *)</span></div><div class="constr">| Error_v_self_signed_cert_in_chain <span class="doc">(* The certificate chain could be built up using the untrusted certificates
+but the root could not be found locally. *)</span></div><div class="constr">| Error_v_unable_to_get_issuer_cert_locally <span class="doc">(* The issuer certificate of a locally looked up certificate could not be
+found. This normally means the list of trusted certificates is not
+complete. *)</span></div><div class="constr">| Error_v_unable_to_verify_leaf_signature <span class="doc">(* No signatures could be verified because the chain contains only one
+certificate and it is not self signed. *)</span></div><div class="constr">| Error_v_cert_chain_too_long <span class="doc">(* The certificate chain length is greater than the supplied maximum
+depth. Unused. *)</span></div><div class="constr">| Error_v_cert_revoked <span class="doc">(* The certificate has been revoked. *)</span></div><div class="constr">| Error_v_invalid_CA <span class="doc">(* A CA certificate is invalid. Either it is not a CA or its extensions are
+not consistent with the supplied purpose. *)</span></div><div class="constr">| Error_v_path_length_exceeded <span class="doc">(* The basicConstraints pathlength parameter has been exceeded. *)</span></div><div class="constr">| Error_v_invalid_purpose <span class="doc">(* The supplied certificate cannot be used for the specified purpose. *)</span></div><div class="constr">| Error_v_cert_untrusted <span class="doc">(* The root CA is not marked as trusted for the specified purpose. *)</span></div><div class="constr">| Error_v_cert_rejected <span class="doc">(* The root CA is marked to reject the specified purpose. *)</span></div><div class="constr">| Error_v_subject_issuer_mismatch <span class="doc">(* The current candidate issuer certificate was rejected because its subject
+name did not match the issuer name of the current certificate. *)</span></div><div class="constr">| Error_v_akid_skid_mismatch <span class="doc">(* The current candidate issuer certificate was rejected because its subject
+key identifier was present and did not match the authority key identifier
+current certificate. *)</span></div><div class="constr">| Error_v_akid_issuer_serial_mismatch <span class="doc">(* The current candidate issuer certificate was rejected because its issuer
+name and serial number was present and did not match the authority key
+identifier of the current certificate. *)</span></div><div class="constr">| Error_v_keyusage_no_certsign <span class="doc">(* The current candidate issuer certificate was rejected because its keyUsage
+extension does not permit certificate signing. *)</span></div><div class="constr">| Error_v_application_verification <span class="doc">(* An application specific error. Unused. *)</span></div>
+    
+      <div class="doc">
+        Why did the certificate verification fail?
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="exception:Verify_error">
+  <div class="exception">
+    <span class="keyword">exception</span> Verify_error <span class="keyword">of</span> verify_error
+    
+      <div class="doc">
+        An error occured while verifying the certificate.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:init">
+  <div class="val">
+    <span class="keyword">val</span> init : ?thread_safe:bool -&gt; unit -&gt; unit
+    
+      <div class="doc">
+        Initialize SSL functions. Should be called before calling any other
+function. The parameter <code>thread_safe</code> should be set to true if you use
+threads in you application (the same effect can achived by calling
+<code>Ssl_threads.init</code> first.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_error_string">
+  <div class="val">
+    <span class="keyword">val</span> get_error_string : unit -&gt; string
+    
+      <div class="doc">
+        Retrieve a human-readable message that corresponds to the last error that
+occurred.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:protocol">
+  <div class="type">
+    <span class="keyword">type</span> protocol = <div class="constr">| SSLv23 <span class="doc">(* SSL v3 protocol but can rollback to v2 *)</span></div><div class="constr">| SSLv3 <span class="doc">(* SSL v3 protocol *)</span></div><div class="constr">| TLSv1 <span class="doc">(* TLS v1 protocol *)</span></div><div class="constr">| TLSv1_1 <span class="doc">(* TLS v1.1 protocol *)</span></div><div class="constr">| TLSv1_2 <span class="doc">(* TLS v1.2 protocol *)</span></div>
+    
+      <div class="doc">
+        Protocol used by SSL.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:socket">
+  <div class="type">
+    <span class="keyword">type</span> socket
+    
+      <div class="doc">
+        An SSL abstract socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:thread_safe">
+  <div class="val">
+    <span class="keyword">val</span> thread_safe : bool <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/#type:ref">ref</a>
+    
+  </div>
+  </div>
+  
+  <div id="type:context">
+  <div class="type">
+    <span class="keyword">type</span> context
+    
+      <div class="doc">
+        A context. A context should be created by a server or client once per
+program life-time and holds mainly default values for the SSL structures
+which are later created for the connections.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:context_type">
+  <div class="type">
+    <span class="keyword">type</span> context_type = <div class="constr">| Client_context <span class="doc">(* Client connections. *)</span></div><div class="constr">| Server_context <span class="doc">(* Server connections. *)</span></div><div class="constr">| Both_context <span class="doc">(* Client and server connections. *)</span></div>
+    
+      <div class="doc">
+        Type of the context to create.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:create_context">
+  <div class="val">
+    <span class="keyword">val</span> create_context : protocol -&gt; context_type -&gt; context
+    
+      <div class="doc">
+        Create a context.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:use_certificate">
+  <div class="val">
+    <span class="keyword">val</span> use_certificate : context -&gt; string -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>use_certificate ctx cert privkey</code> makes the context <code>ctx</code> use <code>cert</code> as
+certificate's file name (in PEM format) and <code>privkey</code> as private key file
+name.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_password_callback">
+  <div class="val">
+    <span class="keyword">val</span> set_password_callback : context -&gt; bool -&gt; string -&gt; unit
+    
+      <div class="doc">
+        Set the callback function called to get passwords for encrypted PEM files.
+The callback function takes a boolean argument which indicates if it's used
+for reading/decryption (<code>false</code>) or writing/encryption (<code>true</code>).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_client_CA_list_from_file">
+  <div class="val">
+    <span class="keyword">val</span> set_client_CA_list_from_file : context -&gt; string -&gt; unit
+    
+      <div class="doc">
+        Set the list of CAs sent to the client when requesting a client certificate.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:verify_mode">
+  <div class="type">
+    <span class="keyword">type</span> verify_mode = <div class="constr">| Verify_peer</div><div class="constr">| Verify_fail_if_no_peer_cert <span class="doc">(* Implies <code>Verify_peer</code>. *)</span></div><div class="constr">| Verify_client_once <span class="doc">(* Implies <code>Verify_peer</code>. *)</span></div>
+    
+      <div class="doc">
+        Verification modes (see SSL_CTX_set_verify(3)).
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:verify_callback">
+  <div class="type">
+    <span class="keyword">type</span> verify_callback
+    
+      <div class="doc">
+        A callback function for verification. Warning: this might change in the future.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:client_verify_callback">
+  <div class="val">
+    <span class="keyword">val</span> client_verify_callback : verify_callback
+    
+      <div class="doc">
+        Client's verification callback. Warning: this might change in the future.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_verify">
+  <div class="val">
+    <span class="keyword">val</span> set_verify : context -&gt; verify_mode list -&gt; verify_callback option -&gt; unit
+    
+      <div class="doc">
+        Set the verify mode and callback, see SSL_CTX_set_verify(3).
+Warning: this might change in the future.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_verify_depth">
+  <div class="val">
+    <span class="keyword">val</span> set_verify_depth : context -&gt; int -&gt; unit
+    
+      <div class="doc">
+        Set the maximum depth for the certificate chain verification that shall be allowed.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:cipher">
+  <div class="type">
+    <span class="keyword">type</span> cipher
+    
+      <div class="doc">
+        A cipher. It holds the algorithm information for a particular cipher which
+are a core part of the SSL/TLS protocol.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_cipher_list">
+  <div class="val">
+    <span class="keyword">val</span> set_cipher_list : context -&gt; string -&gt; unit
+    
+      <div class="doc">
+        Set the list of available ciphers for a context. See man ciphers(1) for the format of the string.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:init_dh_from_file">
+  <div class="val">
+    <span class="keyword">val</span> init_dh_from_file : context -&gt; string -&gt; unit
+    
+      <div class="doc">
+        Init DH parameters from file
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:init_ec_from_named_curve">
+  <div class="val">
+    <span class="keyword">val</span> init_ec_from_named_curve : context -&gt; string -&gt; unit
+    
+      <div class="doc">
+        Init EC curve from curve name
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_cipher">
+  <div class="val">
+    <span class="keyword">val</span> get_cipher : socket -&gt; cipher
+    
+      <div class="doc">
+        Get the cipher used by a socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_cipher_description">
+  <div class="val">
+    <span class="keyword">val</span> get_cipher_description : cipher -&gt; string
+    
+      <div class="doc">
+        Get a description of a cipher.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_cipher_name">
+  <div class="val">
+    <span class="keyword">val</span> get_cipher_name : cipher -&gt; string
+    
+      <div class="doc">
+        Get the name of a cipher.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_cipher_version">
+  <div class="val">
+    <span class="keyword">val</span> get_cipher_version : cipher -&gt; string
+    
+      <div class="doc">
+        Get the version of a cipher.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="type:certificate">
+  <div class="type">
+    <span class="keyword">type</span> certificate
+    
+      <div class="doc">
+        A certificate.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:read_certificate">
+  <div class="val">
+    <span class="keyword">val</span> read_certificate : string -&gt; certificate
+    
+      <div class="doc">
+        <code>read_certificate fname</code> reads the certificate in the file <code>fname</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:write_certificate">
+  <div class="val">
+    <span class="keyword">val</span> write_certificate : string -&gt; certificate -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:get_certificate">
+  <div class="val">
+    <span class="keyword">val</span> get_certificate : socket -&gt; certificate
+    
+      <div class="doc">
+        Get the certificate used by a socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_issuer">
+  <div class="val">
+    <span class="keyword">val</span> get_issuer : certificate -&gt; string
+    
+      <div class="doc">
+        Get the issuer of a certificate.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_subject">
+  <div class="val">
+    <span class="keyword">val</span> get_subject : certificate -&gt; string
+    
+      <div class="doc">
+        Get the subject of a certificate.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:load_verify_locations">
+  <div class="val">
+    <span class="keyword">val</span> load_verify_locations : context -&gt; string -&gt; string -&gt; unit
+    
+      <div class="doc">
+        <code>load_verify_locations ctxt cafile capath</code> specifies the locations for the
+context <code>ctx</code>, at which CA certificates for verification purposes are
+located. <code>cafile</code> should be the name of a CA certificates file in PEM format
+and <code>capath</code> should be the name of a directory which contains CA certificates
+in PEM format. Empty strings can be used in order not to specify on of the
+parameters (but not both).
+        
+  <div class="tag raises">
+    <span class="label">Raises</span> <code>Invalid_argument</code> if both strings are empty or if one of the files
+given in arguments could not be found.
+  </div>
+  
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:get_verify_result">
+  <div class="val">
+    <span class="keyword">val</span> get_verify_result : socket -&gt; int
+    
+      <div class="doc">
+        Get the verification result.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:embed_socket">
+  <div class="val">
+    <span class="keyword">val</span> embed_socket : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/">Unix</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/#type:file_descr">file_descr</a> -&gt; context -&gt; socket
+    
+      <div class="doc">
+        Embed a Unix socket into an SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:open_connection">
+  <div class="val">
+    <span class="keyword">val</span> open_connection : protocol -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/">Unix</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/#type:sockaddr">sockaddr</a> -&gt; socket
+    
+      <div class="doc">
+        Open an SSL connection.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:open_connection_with_context">
+  <div class="val">
+    <span class="keyword">val</span> open_connection_with_context : context -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/">Unix</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/#type:sockaddr">sockaddr</a> -&gt; socket
+    
+      <div class="doc">
+        Open an SSL connection with the specified context.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:shutdown_connection">
+  <div class="val">
+    <span class="keyword">val</span> shutdown_connection : socket -&gt; unit
+    
+      <div class="doc">
+        Close an SSL connection opened with <code>open_connection</code>.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:set_client_SNI_hostname">
+  <div class="val">
+    <span class="keyword">val</span> set_client_SNI_hostname : socket -&gt; string -&gt; unit
+    
+      <div class="doc">
+        Set the hostname the client is attempting to connect to using the Server
+Name Indication (SNI) TLS extension.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:connect">
+  <div class="val">
+    <span class="keyword">val</span> connect : socket -&gt; unit
+    
+      <div class="doc">
+        Connect an SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:accept">
+  <div class="val">
+    <span class="keyword">val</span> accept : socket -&gt; unit
+    
+      <div class="doc">
+        Accept an SSL connection.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:flush">
+  <div class="val">
+    <span class="keyword">val</span> flush : socket -&gt; unit
+    
+      <div class="doc">
+        Flush an SSL connection.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:shutdown">
+  <div class="val">
+    <span class="keyword">val</span> shutdown : socket -&gt; unit
+    
+      <div class="doc">
+        Close an SSL connection.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:verify">
+  <div class="val">
+    <span class="keyword">val</span> verify : socket -&gt; unit
+    
+      <div class="doc">
+        Check the result of the verification of the X509 certificate presented by
+the peer, if any. Raises a <code>verify_error</code> on failure.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:file_descr_of_socket">
+  <div class="val">
+    <span class="keyword">val</span> file_descr_of_socket : socket -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/">Unix</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/unix/Unix/#type:file_descr">file_descr</a>
+    
+      <div class="doc">
+        Get the file descriptor associated with a socket. It is primarly useful for
+<code>select</code>ing on it; you should not write or read on it.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:read">
+  <div class="val">
+    <span class="keyword">val</span> read : socket -&gt; string -&gt; int -&gt; int -&gt; int
+    
+      <div class="doc">
+        <code>read sock buf off len</code> receives data from a connected SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:write">
+  <div class="val">
+    <span class="keyword">val</span> write : socket -&gt; string -&gt; int -&gt; int -&gt; int
+    
+      <div class="doc">
+        <code>write sock buf off len</code> sends data over a connected SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:input_string">
+  <div class="val">
+    <span class="keyword">val</span> input_string : socket -&gt; string
+    
+      <div class="doc">
+        Input a string on an SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:output_string">
+  <div class="val">
+    <span class="keyword">val</span> output_string : socket -&gt; string -&gt; unit
+    
+      <div class="doc">
+        Write a string on an SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:input_char">
+  <div class="val">
+    <span class="keyword">val</span> input_char : socket -&gt; char
+    
+      <div class="doc">
+        Input a character on an SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:output_char">
+  <div class="val">
+    <span class="keyword">val</span> output_char : socket -&gt; char -&gt; unit
+    
+      <div class="doc">
+        Write a char on an SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:input_int">
+  <div class="val">
+    <span class="keyword">val</span> input_int : socket -&gt; int
+    
+      <div class="doc">
+        Input an integer on an SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:output_int">
+  <div class="val">
+    <span class="keyword">val</span> output_int : socket -&gt; int -&gt; unit
+    
+      <div class="doc">
+        Write an integer on an SSL socket.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ssl.0.4.7 ssl Module 'Ssl' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

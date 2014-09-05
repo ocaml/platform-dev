@@ -1,0 +1,630 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 compiler-libs Module 'TypedtreeMap' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/TypedtreeMap/">TypedtreeMap</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+    <div id="modtype:MapArgument">
+    <div class="module_type">
+      <div class="intro">
+        <span class="keyword">module type</span> MapArgument = <span class="keyword">sig</span>
+      </div>
+      
+      <div class="sig">
+        
+  <div id="val:enter_structure">
+  <div class="val">
+    <span class="keyword">val</span> enter_structure : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:structure">structure</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:structure">structure</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_value_description">
+  <div class="val">
+    <span class="keyword">val</span> enter_value_description : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:value_description">value_description</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:value_description">value_description</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_type_declaration">
+  <div class="val">
+    <span class="keyword">val</span> enter_type_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:type_declaration">type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:type_declaration">type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_type_extension">
+  <div class="val">
+    <span class="keyword">val</span> enter_type_extension : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:type_extension">type_extension</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:type_extension">type_extension</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_extension_constructor">
+  <div class="val">
+    <span class="keyword">val</span> enter_extension_constructor : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:extension_constructor">extension_constructor</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:extension_constructor">extension_constructor</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_pattern">
+  <div class="val">
+    <span class="keyword">val</span> enter_pattern : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:pattern">pattern</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:pattern">pattern</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_expression">
+  <div class="val">
+    <span class="keyword">val</span> enter_expression : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:expression">expression</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:expression">expression</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_package_type">
+  <div class="val">
+    <span class="keyword">val</span> enter_package_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:package_type">package_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:package_type">package_type</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_signature">
+  <div class="val">
+    <span class="keyword">val</span> enter_signature : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:signature">signature</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:signature">signature</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_signature_item">
+  <div class="val">
+    <span class="keyword">val</span> enter_signature_item : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:signature_item">signature_item</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:signature_item">signature_item</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_module_type_declaration">
+  <div class="val">
+    <span class="keyword">val</span> enter_module_type_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_type_declaration">module_type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_type_declaration">module_type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_module_type">
+  <div class="val">
+    <span class="keyword">val</span> enter_module_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_type">module_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_type">module_type</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_module_expr">
+  <div class="val">
+    <span class="keyword">val</span> enter_module_expr : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_expr">module_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_expr">module_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_with_constraint">
+  <div class="val">
+    <span class="keyword">val</span> enter_with_constraint : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:with_constraint">with_constraint</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:with_constraint">with_constraint</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_expr">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_expr : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_expr">class_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_expr">class_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_signature">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_signature : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_signature">class_signature</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_signature">class_signature</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_declaration">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_declaration">class_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_declaration">class_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_description">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_description : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_description">class_description</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_description">class_description</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_type_declaration">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_type_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type_declaration">class_type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type_declaration">class_type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_type">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type">class_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type">class_type</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_type_field">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_type_field : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type_field">class_type_field</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type_field">class_type_field</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_core_type">
+  <div class="val">
+    <span class="keyword">val</span> enter_core_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:core_type">core_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:core_type">core_type</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_structure">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_structure : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_structure">class_structure</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_structure">class_structure</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_class_field">
+  <div class="val">
+    <span class="keyword">val</span> enter_class_field : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_field">class_field</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_field">class_field</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:enter_structure_item">
+  <div class="val">
+    <span class="keyword">val</span> enter_structure_item : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:structure_item">structure_item</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:structure_item">structure_item</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_structure">
+  <div class="val">
+    <span class="keyword">val</span> leave_structure : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:structure">structure</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:structure">structure</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_value_description">
+  <div class="val">
+    <span class="keyword">val</span> leave_value_description : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:value_description">value_description</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:value_description">value_description</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_type_declaration">
+  <div class="val">
+    <span class="keyword">val</span> leave_type_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:type_declaration">type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:type_declaration">type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_type_extension">
+  <div class="val">
+    <span class="keyword">val</span> leave_type_extension : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:type_extension">type_extension</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:type_extension">type_extension</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_extension_constructor">
+  <div class="val">
+    <span class="keyword">val</span> leave_extension_constructor : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:extension_constructor">extension_constructor</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:extension_constructor">extension_constructor</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_pattern">
+  <div class="val">
+    <span class="keyword">val</span> leave_pattern : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:pattern">pattern</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:pattern">pattern</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_expression">
+  <div class="val">
+    <span class="keyword">val</span> leave_expression : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:expression">expression</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:expression">expression</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_package_type">
+  <div class="val">
+    <span class="keyword">val</span> leave_package_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:package_type">package_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:package_type">package_type</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_signature">
+  <div class="val">
+    <span class="keyword">val</span> leave_signature : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:signature">signature</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:signature">signature</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_signature_item">
+  <div class="val">
+    <span class="keyword">val</span> leave_signature_item : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:signature_item">signature_item</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:signature_item">signature_item</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_module_type_declaration">
+  <div class="val">
+    <span class="keyword">val</span> leave_module_type_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_type_declaration">module_type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_type_declaration">module_type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_module_type">
+  <div class="val">
+    <span class="keyword">val</span> leave_module_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_type">module_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_type">module_type</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_module_expr">
+  <div class="val">
+    <span class="keyword">val</span> leave_module_expr : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_expr">module_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:module_expr">module_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_with_constraint">
+  <div class="val">
+    <span class="keyword">val</span> leave_with_constraint : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:with_constraint">with_constraint</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:with_constraint">with_constraint</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_expr">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_expr : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_expr">class_expr</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_expr">class_expr</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_signature">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_signature : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_signature">class_signature</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_signature">class_signature</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_declaration">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_declaration">class_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_declaration">class_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_description">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_description : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_description">class_description</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_description">class_description</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_type_declaration">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_type_declaration : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type_declaration">class_type_declaration</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type_declaration">class_type_declaration</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_type">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type">class_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type">class_type</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_type_field">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_type_field : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type_field">class_type_field</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_type_field">class_type_field</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_core_type">
+  <div class="val">
+    <span class="keyword">val</span> leave_core_type : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:core_type">core_type</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:core_type">core_type</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_structure">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_structure : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_structure">class_structure</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_structure">class_structure</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_class_field">
+  <div class="val">
+    <span class="keyword">val</span> leave_class_field : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_field">class_field</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:class_field">class_field</a>
+    
+  </div>
+  </div>
+  
+  <div id="val:leave_structure_item">
+  <div class="val">
+    <span class="keyword">val</span> leave_structure_item : <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:structure_item">structure_item</a> -&gt; <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/">Typedtree</a>.<a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/compiler-libs/Typedtree/#type:structure_item">structure_item</a>
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    <span style="color:red">TODO: functor:ocamlfind.1.5.2/compiler-libs/TypedtreeMap.MakeMap</span>
+    <div class="module">
+      <div class="intro">
+        <span class="keyword">module</span> DefaultMapArgument : MapArgument
+      </div>
+      
+    </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 compiler-libs Module 'TypedtreeMap' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

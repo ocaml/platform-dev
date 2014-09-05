@@ -1,0 +1,1594 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  ocamlfind.1.5.2 stdlib Module 'Pervasives' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../ocamlfind/ocamlfind.1.5.2/doc/stdlib/Pervasives/">Pervasives</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="val:raise">
+  <div class="val">
+    <span class="keyword">val</span> raise : exn -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:raise_notrace">
+  <div class="val">
+    <span class="keyword">val</span> raise_notrace : exn -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:invalid_arg">
+  <div class="val">
+    <span class="keyword">val</span> invalid_arg : string -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:failwith">
+  <div class="val">
+    <span class="keyword">val</span> failwith : string -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="exception:Exit">
+  <div class="exception">
+    <span class="keyword">exception</span> Exit
+    
+  </div>
+  </div>
+  
+  <div id="val:(=)">
+  <div class="val">
+    <span class="keyword">val</span> (=) : 'a -&gt; 'a -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(&lt;&gt;)">
+  <div class="val">
+    <span class="keyword">val</span> (&lt;&gt;) : 'a -&gt; 'a -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(&lt;)">
+  <div class="val">
+    <span class="keyword">val</span> (&lt;) : 'a -&gt; 'a -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;) : 'a -&gt; 'a -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(&lt;=)">
+  <div class="val">
+    <span class="keyword">val</span> (&lt;=) : 'a -&gt; 'a -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(&gt;=)">
+  <div class="val">
+    <span class="keyword">val</span> (&gt;=) : 'a -&gt; 'a -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:compare">
+  <div class="val">
+    <span class="keyword">val</span> compare : 'a -&gt; 'a -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:min">
+  <div class="val">
+    <span class="keyword">val</span> min : 'a -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:max">
+  <div class="val">
+    <span class="keyword">val</span> max : 'a -&gt; 'a -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:(==)">
+  <div class="val">
+    <span class="keyword">val</span> (==) : 'a -&gt; 'a -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(!=)">
+  <div class="val">
+    <span class="keyword">val</span> (!=) : 'a -&gt; 'a -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:not">
+  <div class="val">
+    <span class="keyword">val</span> not : bool -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(&amp;&amp;)">
+  <div class="val">
+    <span class="keyword">val</span> (&amp;&amp;) : bool -&gt; bool -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(&amp;)">
+  <div class="val">
+    <span class="keyword">val</span> (&amp;) : bool -&gt; bool -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:(||)">
+  <div class="val">
+    <span class="keyword">val</span> (||) : bool -&gt; bool -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:or">
+  <div class="val">
+    <span class="keyword">val</span> or : bool -&gt; bool -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:__LOC__">
+  <div class="val">
+    <span class="keyword">val</span> __LOC__ : string
+    
+  </div>
+  </div>
+  
+  <div id="val:__FILE__">
+  <div class="val">
+    <span class="keyword">val</span> __FILE__ : string
+    
+  </div>
+  </div>
+  
+  <div id="val:__LINE__">
+  <div class="val">
+    <span class="keyword">val</span> __LINE__ : int
+    
+  </div>
+  </div>
+  
+  <div id="val:__MODULE__">
+  <div class="val">
+    <span class="keyword">val</span> __MODULE__ : string
+    
+  </div>
+  </div>
+  
+  <div id="val:__POS__">
+  <div class="val">
+    <span class="keyword">val</span> __POS__ : (string * int * int * int)
+    
+  </div>
+  </div>
+  
+  <div id="val:__LOC_OF__">
+  <div class="val">
+    <span class="keyword">val</span> __LOC_OF__ : 'a -&gt; (string * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="val:__LINE_OF__">
+  <div class="val">
+    <span class="keyword">val</span> __LINE_OF__ : 'a -&gt; (int * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="val:__POS_OF__">
+  <div class="val">
+    <span class="keyword">val</span> __POS_OF__ : 'a -&gt; ((string * int * int * int) * 'a)
+    
+  </div>
+  </div>
+  
+  <div id="val:(|&gt;)">
+  <div class="val">
+    <span class="keyword">val</span> (|&gt;) : 'a -&gt; 'a -&gt; 'b -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:(@@)">
+  <div class="val">
+    <span class="keyword">val</span> (@@) : 'a -&gt; 'b -&gt; 'a -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:(~-)">
+  <div class="val">
+    <span class="keyword">val</span> (~-) : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:(~+)">
+  <div class="val">
+    <span class="keyword">val</span> (~+) : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:succ">
+  <div class="val">
+    <span class="keyword">val</span> succ : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:pred">
+  <div class="val">
+    <span class="keyword">val</span> pred : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:(+)">
+  <div class="val">
+    <span class="keyword">val</span> (+) : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:(-)">
+  <div class="val">
+    <span class="keyword">val</span> (-) : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:(*)">
+  <div class="val">
+    <span class="keyword">val</span> (*) : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:(/)">
+  <div class="val">
+    <span class="keyword">val</span> (/) : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:mod">
+  <div class="val">
+    <span class="keyword">val</span> mod : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:abs">
+  <div class="val">
+    <span class="keyword">val</span> abs : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:max_int">
+  <div class="val">
+    <span class="keyword">val</span> max_int : int
+    
+  </div>
+  </div>
+  
+  <div id="val:min_int">
+  <div class="val">
+    <span class="keyword">val</span> min_int : int
+    
+  </div>
+  </div>
+  
+  <div id="val:land">
+  <div class="val">
+    <span class="keyword">val</span> land : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:lor">
+  <div class="val">
+    <span class="keyword">val</span> lor : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:lxor">
+  <div class="val">
+    <span class="keyword">val</span> lxor : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:lnot">
+  <div class="val">
+    <span class="keyword">val</span> lnot : int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:lsl">
+  <div class="val">
+    <span class="keyword">val</span> lsl : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:lsr">
+  <div class="val">
+    <span class="keyword">val</span> lsr : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:asr">
+  <div class="val">
+    <span class="keyword">val</span> asr : int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:(~-.)">
+  <div class="val">
+    <span class="keyword">val</span> (~-.) : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:(~+.)">
+  <div class="val">
+    <span class="keyword">val</span> (~+.) : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:(+.)">
+  <div class="val">
+    <span class="keyword">val</span> (+.) : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:(-.)">
+  <div class="val">
+    <span class="keyword">val</span> (-.) : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:(*.)">
+  <div class="val">
+    <span class="keyword">val</span> (*.) : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:(/.)">
+  <div class="val">
+    <span class="keyword">val</span> (/.) : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:(**)">
+  <div class="val">
+    <span class="keyword">val</span> (**) : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:sqrt">
+  <div class="val">
+    <span class="keyword">val</span> sqrt : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:exp">
+  <div class="val">
+    <span class="keyword">val</span> exp : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:log">
+  <div class="val">
+    <span class="keyword">val</span> log : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:log10">
+  <div class="val">
+    <span class="keyword">val</span> log10 : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:expm1">
+  <div class="val">
+    <span class="keyword">val</span> expm1 : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:log1p">
+  <div class="val">
+    <span class="keyword">val</span> log1p : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:cos">
+  <div class="val">
+    <span class="keyword">val</span> cos : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:sin">
+  <div class="val">
+    <span class="keyword">val</span> sin : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:tan">
+  <div class="val">
+    <span class="keyword">val</span> tan : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:acos">
+  <div class="val">
+    <span class="keyword">val</span> acos : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:asin">
+  <div class="val">
+    <span class="keyword">val</span> asin : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:atan">
+  <div class="val">
+    <span class="keyword">val</span> atan : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:atan2">
+  <div class="val">
+    <span class="keyword">val</span> atan2 : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:hypot">
+  <div class="val">
+    <span class="keyword">val</span> hypot : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:cosh">
+  <div class="val">
+    <span class="keyword">val</span> cosh : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:sinh">
+  <div class="val">
+    <span class="keyword">val</span> sinh : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:tanh">
+  <div class="val">
+    <span class="keyword">val</span> tanh : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:ceil">
+  <div class="val">
+    <span class="keyword">val</span> ceil : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:floor">
+  <div class="val">
+    <span class="keyword">val</span> floor : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:abs_float">
+  <div class="val">
+    <span class="keyword">val</span> abs_float : float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:copysign">
+  <div class="val">
+    <span class="keyword">val</span> copysign : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:mod_float">
+  <div class="val">
+    <span class="keyword">val</span> mod_float : float -&gt; float -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:frexp">
+  <div class="val">
+    <span class="keyword">val</span> frexp : float -&gt; (float * int)
+    
+  </div>
+  </div>
+  
+  <div id="val:ldexp">
+  <div class="val">
+    <span class="keyword">val</span> ldexp : float -&gt; int -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:modf">
+  <div class="val">
+    <span class="keyword">val</span> modf : float -&gt; (float * float)
+    
+  </div>
+  </div>
+  
+  <div id="val:float">
+  <div class="val">
+    <span class="keyword">val</span> float : int -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:float_of_int">
+  <div class="val">
+    <span class="keyword">val</span> float_of_int : int -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:truncate">
+  <div class="val">
+    <span class="keyword">val</span> truncate : float -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:int_of_float">
+  <div class="val">
+    <span class="keyword">val</span> int_of_float : float -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:infinity">
+  <div class="val">
+    <span class="keyword">val</span> infinity : float
+    
+  </div>
+  </div>
+  
+  <div id="val:neg_infinity">
+  <div class="val">
+    <span class="keyword">val</span> neg_infinity : float
+    
+  </div>
+  </div>
+  
+  <div id="val:nan">
+  <div class="val">
+    <span class="keyword">val</span> nan : float
+    
+  </div>
+  </div>
+  
+  <div id="val:max_float">
+  <div class="val">
+    <span class="keyword">val</span> max_float : float
+    
+  </div>
+  </div>
+  
+  <div id="val:min_float">
+  <div class="val">
+    <span class="keyword">val</span> min_float : float
+    
+  </div>
+  </div>
+  
+  <div id="val:epsilon_float">
+  <div class="val">
+    <span class="keyword">val</span> epsilon_float : float
+    
+  </div>
+  </div>
+  
+  <div id="type:fpclass">
+  <div class="type">
+    <span class="keyword">type</span> fpclass = <div class="constr">| FP_normal</div><div class="constr">| FP_subnormal</div><div class="constr">| FP_zero</div><div class="constr">| FP_infinite</div><div class="constr">| FP_nan</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:classify_float">
+  <div class="val">
+    <span class="keyword">val</span> classify_float : float -&gt; fpclass
+    
+  </div>
+  </div>
+  
+  <div id="val:(^)">
+  <div class="val">
+    <span class="keyword">val</span> (^) : string -&gt; string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:int_of_char">
+  <div class="val">
+    <span class="keyword">val</span> int_of_char : char -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:char_of_int">
+  <div class="val">
+    <span class="keyword">val</span> char_of_int : int -&gt; char
+    
+  </div>
+  </div>
+  
+  <div id="val:ignore">
+  <div class="val">
+    <span class="keyword">val</span> ignore : 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_bool">
+  <div class="val">
+    <span class="keyword">val</span> string_of_bool : bool -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:bool_of_string">
+  <div class="val">
+    <span class="keyword">val</span> bool_of_string : string -&gt; bool
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_int">
+  <div class="val">
+    <span class="keyword">val</span> string_of_int : int -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:int_of_string">
+  <div class="val">
+    <span class="keyword">val</span> int_of_string : string -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_float">
+  <div class="val">
+    <span class="keyword">val</span> string_of_float : float -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:float_of_string">
+  <div class="val">
+    <span class="keyword">val</span> float_of_string : string -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="val:fst">
+  <div class="val">
+    <span class="keyword">val</span> fst : ('a * 'b) -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:snd">
+  <div class="val">
+    <span class="keyword">val</span> snd : ('a * 'b) -&gt; 'b
+    
+  </div>
+  </div>
+  
+  <div id="val:(@)">
+  <div class="val">
+    <span class="keyword">val</span> (@) : 'a list -&gt; 'a list -&gt; 'a list
+    
+  </div>
+  </div>
+  
+  <div id="type:in_channel">
+  <div class="type">
+    <span class="keyword">type</span> in_channel
+    
+  </div>
+  </div>
+  
+  <div id="type:out_channel">
+  <div class="type">
+    <span class="keyword">type</span> out_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:stdin">
+  <div class="val">
+    <span class="keyword">val</span> stdin : in_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:stdout">
+  <div class="val">
+    <span class="keyword">val</span> stdout : out_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:stderr">
+  <div class="val">
+    <span class="keyword">val</span> stderr : out_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:print_char">
+  <div class="val">
+    <span class="keyword">val</span> print_char : char -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_string">
+  <div class="val">
+    <span class="keyword">val</span> print_string : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_bytes">
+  <div class="val">
+    <span class="keyword">val</span> print_bytes : bytes -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_int">
+  <div class="val">
+    <span class="keyword">val</span> print_int : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_float">
+  <div class="val">
+    <span class="keyword">val</span> print_float : float -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_endline">
+  <div class="val">
+    <span class="keyword">val</span> print_endline : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:print_newline">
+  <div class="val">
+    <span class="keyword">val</span> print_newline : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:prerr_char">
+  <div class="val">
+    <span class="keyword">val</span> prerr_char : char -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:prerr_string">
+  <div class="val">
+    <span class="keyword">val</span> prerr_string : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:prerr_bytes">
+  <div class="val">
+    <span class="keyword">val</span> prerr_bytes : bytes -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:prerr_int">
+  <div class="val">
+    <span class="keyword">val</span> prerr_int : int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:prerr_float">
+  <div class="val">
+    <span class="keyword">val</span> prerr_float : float -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:prerr_endline">
+  <div class="val">
+    <span class="keyword">val</span> prerr_endline : string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:prerr_newline">
+  <div class="val">
+    <span class="keyword">val</span> prerr_newline : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:read_line">
+  <div class="val">
+    <span class="keyword">val</span> read_line : unit -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:read_int">
+  <div class="val">
+    <span class="keyword">val</span> read_int : unit -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:read_float">
+  <div class="val">
+    <span class="keyword">val</span> read_float : unit -&gt; float
+    
+  </div>
+  </div>
+  
+  <div id="type:open_flag">
+  <div class="type">
+    <span class="keyword">type</span> open_flag = <div class="constr">| Open_rdonly</div><div class="constr">| Open_wronly</div><div class="constr">| Open_append</div><div class="constr">| Open_creat</div><div class="constr">| Open_trunc</div><div class="constr">| Open_excl</div><div class="constr">| Open_binary</div><div class="constr">| Open_text</div><div class="constr">| Open_nonblock</div>
+    
+  </div>
+  </div>
+  
+  <div id="val:open_out">
+  <div class="val">
+    <span class="keyword">val</span> open_out : string -&gt; out_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:open_out_bin">
+  <div class="val">
+    <span class="keyword">val</span> open_out_bin : string -&gt; out_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:open_out_gen">
+  <div class="val">
+    <span class="keyword">val</span> open_out_gen : open_flag list -&gt; int -&gt; string -&gt; out_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:flush">
+  <div class="val">
+    <span class="keyword">val</span> flush : out_channel -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:flush_all">
+  <div class="val">
+    <span class="keyword">val</span> flush_all : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:output_char">
+  <div class="val">
+    <span class="keyword">val</span> output_char : out_channel -&gt; char -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:output_string">
+  <div class="val">
+    <span class="keyword">val</span> output_string : out_channel -&gt; string -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:output_bytes">
+  <div class="val">
+    <span class="keyword">val</span> output_bytes : out_channel -&gt; bytes -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:output">
+  <div class="val">
+    <span class="keyword">val</span> output : out_channel -&gt; bytes -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:output_substring">
+  <div class="val">
+    <span class="keyword">val</span> output_substring : out_channel -&gt; string -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:output_byte">
+  <div class="val">
+    <span class="keyword">val</span> output_byte : out_channel -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:output_binary_int">
+  <div class="val">
+    <span class="keyword">val</span> output_binary_int : out_channel -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:output_value">
+  <div class="val">
+    <span class="keyword">val</span> output_value : out_channel -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:seek_out">
+  <div class="val">
+    <span class="keyword">val</span> seek_out : out_channel -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pos_out">
+  <div class="val">
+    <span class="keyword">val</span> pos_out : out_channel -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:out_channel_length">
+  <div class="val">
+    <span class="keyword">val</span> out_channel_length : out_channel -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:close_out">
+  <div class="val">
+    <span class="keyword">val</span> close_out : out_channel -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:close_out_noerr">
+  <div class="val">
+    <span class="keyword">val</span> close_out_noerr : out_channel -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_binary_mode_out">
+  <div class="val">
+    <span class="keyword">val</span> set_binary_mode_out : out_channel -&gt; bool -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:open_in">
+  <div class="val">
+    <span class="keyword">val</span> open_in : string -&gt; in_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:open_in_bin">
+  <div class="val">
+    <span class="keyword">val</span> open_in_bin : string -&gt; in_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:open_in_gen">
+  <div class="val">
+    <span class="keyword">val</span> open_in_gen : open_flag list -&gt; int -&gt; string -&gt; in_channel
+    
+  </div>
+  </div>
+  
+  <div id="val:input_char">
+  <div class="val">
+    <span class="keyword">val</span> input_char : in_channel -&gt; char
+    
+  </div>
+  </div>
+  
+  <div id="val:input_line">
+  <div class="val">
+    <span class="keyword">val</span> input_line : in_channel -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:input">
+  <div class="val">
+    <span class="keyword">val</span> input : in_channel -&gt; bytes -&gt; int -&gt; int -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:really_input">
+  <div class="val">
+    <span class="keyword">val</span> really_input : in_channel -&gt; bytes -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:really_input_string">
+  <div class="val">
+    <span class="keyword">val</span> really_input_string : in_channel -&gt; int -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:input_byte">
+  <div class="val">
+    <span class="keyword">val</span> input_byte : in_channel -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:input_binary_int">
+  <div class="val">
+    <span class="keyword">val</span> input_binary_int : in_channel -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:input_value">
+  <div class="val">
+    <span class="keyword">val</span> input_value : in_channel -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:seek_in">
+  <div class="val">
+    <span class="keyword">val</span> seek_in : in_channel -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:pos_in">
+  <div class="val">
+    <span class="keyword">val</span> pos_in : in_channel -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:in_channel_length">
+  <div class="val">
+    <span class="keyword">val</span> in_channel_length : in_channel -&gt; int
+    
+  </div>
+  </div>
+  
+  <div id="val:close_in">
+  <div class="val">
+    <span class="keyword">val</span> close_in : in_channel -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:close_in_noerr">
+  <div class="val">
+    <span class="keyword">val</span> close_in_noerr : in_channel -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:set_binary_mode_in">
+  <div class="val">
+    <span class="keyword">val</span> set_binary_mode_in : in_channel -&gt; bool -&gt; unit
+    
+  </div>
+  </div>
+  
+    <div id="module:LargeFile">
+    <div class="module">
+      <div class="intro"><span class="keyword">module</span> LargeFile : <span class="keyword">sig</span></div>
+      
+      <div class="sig">
+        
+  <div id="module:LargeFile#val:seek_out">
+  <div class="val">
+    <span class="keyword">val</span> seek_out : out_channel -&gt; int64 -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:pos_out">
+  <div class="val">
+    <span class="keyword">val</span> pos_out : out_channel -&gt; int64
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:out_channel_length">
+  <div class="val">
+    <span class="keyword">val</span> out_channel_length : out_channel -&gt; int64
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:seek_in">
+  <div class="val">
+    <span class="keyword">val</span> seek_in : in_channel -&gt; int64 -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:pos_in">
+  <div class="val">
+    <span class="keyword">val</span> pos_in : in_channel -&gt; int64
+    
+  </div>
+  </div>
+  
+  <div id="module:LargeFile#val:in_channel_length">
+  <div class="val">
+    <span class="keyword">val</span> in_channel_length : in_channel -&gt; int64
+    
+  </div>
+  </div>
+  
+      </div>
+      <div class="outro"><span class="keyword">end</span></div>
+    </div>
+    </div>
+    
+  <div id="type:ref">
+  <div class="type">
+    <span class="keyword">type</span> 'a ref = {<div class="field">contents : 'a;</div>}
+    
+  </div>
+  </div>
+  
+  <div id="val:ref">
+  <div class="val">
+    <span class="keyword">val</span> ref : 'a -&gt; 'a ref
+    
+  </div>
+  </div>
+  
+  <div id="val:(!)">
+  <div class="val">
+    <span class="keyword">val</span> (!) : 'a ref -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val::=">
+  <div class="val">
+    <span class="keyword">val</span> := : 'a ref -&gt; 'a -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:incr">
+  <div class="val">
+    <span class="keyword">val</span> incr : int ref -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:decr">
+  <div class="val">
+    <span class="keyword">val</span> decr : int ref -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="type:format6">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd, 'e, 'f) format6 = ('a, 'b, 'c, 'd, 'e, 'f) CamlinternalFormatBasics.format6
+    
+  </div>
+  </div>
+  
+  <div id="type:format4">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c, 'd) format4 = ('a, 'b, 'c, 'c, 'c, 'd) format6
+    
+  </div>
+  </div>
+  
+  <div id="type:format">
+  <div class="type">
+    <span class="keyword">type</span> ('a, 'b, 'c) format = ('a, 'b, 'c, 'c) format4
+    
+  </div>
+  </div>
+  
+  <div id="val:string_of_format">
+  <div class="val">
+    <span class="keyword">val</span> string_of_format : ('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:format_of_string">
+  <div class="val">
+    <span class="keyword">val</span> format_of_string : ('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; ('a, 'b, 'c, 'd, 'e, 'f) format6
+    
+  </div>
+  </div>
+  
+  <div id="val:(^^)">
+  <div class="val">
+    <span class="keyword">val</span> (^^) : ('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; ('f, 'b, 'c, 'e, 'g, 'h) format6 -&gt; ('a, 'b, 'c, 'd, 'g, 'h) format6
+    
+  </div>
+  </div>
+  
+  <div id="val:exit">
+  <div class="val">
+    <span class="keyword">val</span> exit : int -&gt; 'a
+    
+  </div>
+  </div>
+  
+  <div id="val:at_exit">
+  <div class="val">
+    <span class="keyword">val</span> at_exit : unit -&gt; unit -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:valid_float_lexem">
+  <div class="val">
+    <span class="keyword">val</span> valid_float_lexem : string -&gt; string
+    
+  </div>
+  </div>
+  
+  <div id="val:unsafe_really_input">
+  <div class="val">
+    <span class="keyword">val</span> unsafe_really_input : in_channel -&gt; bytes -&gt; int -&gt; int -&gt; unit
+    
+  </div>
+  </div>
+  
+  <div id="val:do_at_exit">
+  <div class="val">
+    <span class="keyword">val</span> do_at_exit : unit -&gt; unit
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  ocamlfind.1.5.2 stdlib Module 'Pervasives' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

@@ -1,0 +1,402 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    
+    <title>OPAM  opam-lib.42 opam-lib Module 'OpamSolution' Documentation  – OCaml</title>
+    <link href="//ocaml.org/img/favicon32x32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Droid%20Sans%20Mono" rel="stylesheet" type="text/css"/>
+    
+    <link href="//ocaml.org/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/bootstrap_mod.css" rel="stylesheet" media="screen"/>
+    <link href="//ocaml.org/css/ocamlorg.css" rel="stylesheet" media="screen"/>
+    <script src="//ocaml.org/js/collapsed-menu.js" type="text/javascript"></script>
+
+    <link href="/ext/css/ocamlary.css" rel="stylesheet"/>
+    <link href="/ext/css/opam.ocaml.org.css" rel="stylesheet"/>
+
+      <link href="../../../../../../ext/css/opam2web.css" type="text/css" rel="stylesheet"/>
+      <meta name="generator" content="opam2web 1.2.0-259-gd2a9e8c (dirty)"/>
+    
+
+    <script>
+      if (document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')) {
+      document.documentElement.className = 'svg';
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" onclick="toggleVisibilityMenu('menu-items')">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="//ocaml.org/" class="brand"><img src="//ocaml.org/img/colour-logo-white.svg" class="svg" alt="OCaml"/><img src="//ocaml.org/img/colour-logo-white.png" class="png" alt="OCaml"/></a>
+          <div id="menu-items" class="nav-collapse collapse">
+                        <ul class="nav">
+              <li><a href="//ocaml.org/learn/">Learn</a></li>
+              <li><a href="//ocaml.org/docs/">Documentation</a></li>
+              <li class="active"><a href="https://opam.ocaml.org/">Packages</a></li>
+              <li><a href="//ocaml.org/community/">Community</a></li>
+            </ul>
+
+            
+
+            
+            <form id="searchform" class="navbar-search pull-right" method="get" action="//www.google.com/search">
+  <input value="site:https://opam.ocaml.org/" name="q" type="hidden"/>
+  <input placeholder="Search" class="search-query" name="q" type="text"/>
+</form>
+
+            
+          </div>
+        </div>
+      </div>
+            <div class="navbar-inner subnavbar">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </a>
+          <a href="https://github.com/ocaml/opam" class="brand">OPAM on Github</a>
+          <div class="nav-collapse collapse">
+            
+    <ul class="nav">
+       <li class=""><a href="../../../../../../.">OPAM</a></li>  <li class="active"><a href="../../../../../../packages/">Repository</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Documentation <b class="caret"> </b>
+          </a>
+          <ul class="dropdown-menu">
+             <li class="nav-header">Primer</li>  <li class=""><a href="../../../../../../doc/Quick_Install.html">Quick Install</a></li>  <li class=""><a href="../../../../../../doc/Basic_Usage.html">Basic Usage</a></li>  <li class=""><a href="../../../../../../doc/Specifying_Solver_Preferences.html">Specifying Solver Preferences</a></li>  <li class=""><a href="../../../../../../doc/FAQ.html">FAQ</a></li>  <li class="divider"></li>  <li class="nav-header">Go Further</li>  <li class=""><a href="../../../../../../doc/Advanced_Install.html">Advanced Install</a></li>  <li class=""><a href="../../../../../../doc/Advanced_Usage.html">Advanced Usage</a></li>  <li class=""><a href="../../../../../../doc/Developing.html">Developing</a></li>  <li class="divider"></li>  <li class="nav-header">For Packagers</li>  <li class=""><a href="../../../../../../doc/Packaging.html">Packaging</a></li>  <li class="divider"></li>  <li class=""><a href="../../../../../../doc/1.2/">OPAM 1.2 BETA</a></li> 
+          </ul>
+        </li>
+       <li class=""><a href="../../../../../../about.html">About OPAM</a></li>  <li class=""><a href="../../../../../../blog/opam-1-2-pin/">Platform Blog</a></li>        
+    </ul>
+  
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+    
+    
+<div class="container">
+  <div class="row">
+    
+    
+    
+    
+    <div id="content-primary" class="span12">
+            <div id="tryocaml" class="content" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style="display:none;"></div>
+            <div id="menu-lessons" style="display:none">
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td></td></tr>
+              </table>
+            </div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+<div class="running-header">
+  
+  
+  <ul class="translations">
+    <li class="active">en</li>
+
+  </ul>
+</div>
+
+      <div id="main-contents" class="content">
+        
+  <div class="ocamlary-doc module">
+    <h1 class="title">Module <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamSolution/">OpamSolution</a></h1>
+    
+    
+    
+    <div class="sig">
+      
+  <div id="val:resolve">
+  <div class="val">
+    <span class="keyword">val</span> resolve : ?verbose:bool -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/">OpamState</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/#type:state">state</a> -&gt; OpamTypes.user_action -&gt; requested:OpamTypes.name_set -&gt; orphans:OpamTypes.package_set -&gt; OpamTypes.atom OpamTypes.request -&gt; (<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamSolver/">OpamSolver</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamSolver/#type:solution">solution</a>, <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamCudf/">OpamCudf</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamCudf/#type:conflict">conflict</a>) OpamTypes.result
+    
+      <div class="doc">
+        Resolve an user request
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:apply">
+  <div class="val">
+    <span class="keyword">val</span> apply : ?ask:bool -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/">OpamState</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/#type:state">state</a> -&gt; OpamTypes.user_action -&gt; requested:<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name">Name</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Set">Set</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Set%23type:t">t</a> -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamSolver/">OpamSolver</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamSolver/#type:solution">solution</a> -&gt; OpamTypes.solver_result
+    
+      <div class="doc">
+        Apply a solution returned by the solver. If <code>ask</code> is not
+specified, prompts the user whenever the solution isn't
+obvious from the request
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:resolve_and_apply">
+  <div class="val">
+    <span class="keyword">val</span> resolve_and_apply : ?ask:bool -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/">OpamState</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/#type:state">state</a> -&gt; OpamTypes.user_action -&gt; requested:<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name">Name</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Set">Set</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Name%23module:Set%23type:t">t</a> -&gt; orphans:OpamTypes.package_set -&gt; OpamTypes.atom OpamTypes.request -&gt; OpamTypes.solver_result
+    
+      <div class="doc">
+        Call the solver to get a solution and then call <code>apply</code>. If <code>ask</code> is not
+specified, prompts the user whenever the solution isn't obvious from the
+request
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:check_solution">
+  <div class="val">
+    <span class="keyword">val</span> check_solution : <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/">OpamState</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/#type:state">state</a> -&gt; OpamTypes.solver_result -&gt; unit
+    
+      <div class="doc">
+        Raise an error if no solution is found or in case of error.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:eq_atom">
+  <div class="val">
+    <span class="keyword">val</span> eq_atom : OpamTypes.name -&gt; OpamTypes.version -&gt; OpamTypes.atom
+    
+      <div class="doc">
+        Return an atom with a string version constraint
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:atom_of_package">
+  <div class="val">
+    <span class="keyword">val</span> atom_of_package : OpamTypes.package -&gt; OpamTypes.atom
+    
+      <div class="doc">
+        Return a simple atom, with no version constrain, from a package
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:atoms_of_packages">
+  <div class="val">
+    <span class="keyword">val</span> atoms_of_packages : OpamTypes.package_set -&gt; OpamTypes.atom list
+    
+      <div class="doc">
+        Return a list of simple atoms (ie. with no version constraints)
+from a set of packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:eq_atoms_of_packages">
+  <div class="val">
+    <span class="keyword">val</span> eq_atoms_of_packages : OpamTypes.package_set -&gt; OpamTypes.atom list
+    
+      <div class="doc">
+        Return a list of constrained atoms from a set of packages
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:check_availability">
+  <div class="val">
+    <span class="keyword">val</span> check_availability : ?permissive:bool -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/">OpamState</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/#type:state">state</a> -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/">OpamPackage</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Set">Set</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamPackage/#module:Set%23type:t">t</a> -&gt; OpamTypes.atom list -&gt; unit
+    
+      <div class="doc">
+        Checks that the atoms can possibly be verified (individually) in a package
+set. Displays an error and exits otherwise. <code>permissive</code> just changes the
+error message.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:sanitize_atom_list">
+  <div class="val">
+    <span class="keyword">val</span> sanitize_atom_list : ?permissive:bool -&gt; <a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/">OpamState</a>.<a href="../../../../../opam-lib/opam-lib.42/doc/opam-lib/OpamState/#type:state">state</a> -&gt; OpamTypes.atom list -&gt; OpamTypes.atom list
+    
+      <div class="doc">
+        Takes a &quot;raw&quot; list of atoms (from the user), and match it to existing
+packages. Match packages with the wrong capitalisation, and raises errors on
+non-existing packages, and unavailable ones unless <code>permissive</code> is set.
+Exits with a message on error.
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  <div id="val:sum">
+  <div class="val">
+    <span class="keyword">val</span> sum : OpamTypes.stats -&gt; int
+    
+      <div class="doc">
+        <h2 class="section">Stats</h2>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+    </div>
+  </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer id="footer" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/learn/">Learn</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/learn/taste.html">Code Examples</a></li>
+      <li><a href="//ocaml.org/learn/tutorials/">Tutorials</a></li>
+      <li><a href="//ocaml.org/learn/books.html">Books</a></li>
+      <li><a href="//ocaml.org/learn/success.html">Success Stories</a></li>
+      <li><a href="//ocaml.org/"></a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/docs/">Documentation</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/docs/install.html">Install</a></li>
+      <li><a href="http://caml.inria.fr/pub/docs/manual-ocaml/">Manual</a></li>
+      <li><a href="https://opam.ocaml.org/packages/">Packages</a></li>
+      <li><a href="https://github.com/ocaml/ocaml">Compiler Sources</a></li>
+      <li><a href="//ocaml.org/docs/logos.html">Logos</a></li>
+    </ul>
+  </div>
+</div>
+<div class="column">
+  <div class="entry">
+    <h1><a href="//ocaml.org/community/">Community</a></h1>
+    <ul>
+      <li><a href="//ocaml.org/community/mailing_lists.html">Mailing Lists</a></li>
+      <li><a href="//ocaml.org/meetings/">Meetings</a></li>
+      <li><a href="//ocaml.org/community/planet/">News</a></li>
+      <li><a href="//ocaml.org/community/support.html">Support</a></li>
+      <li><a href="http://caml.inria.fr/mantis/my_view_page.php" target="_blank">Bug Tracker</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="column">
+  <div class="entry">
+    <h1>Contact</h1>
+    <ul>
+      <li><a href="https://github.com/ocaml/ocaml.org/issues" target="_blank">Feedback</a></li>
+      <li><a href="//ocaml.org/about.html">About This Site</a></li>
+    <li><a href="https://github.com/ocaml/ocaml.org/" target="_blank">Find Us on GitHub</a></li>
+      <li><a href="//ocaml.org/contributors.html">Credits</a></li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </footer>
+     <script src="../../../../../../ext/js/jquery.js"> </script>  <script src="../../../../../../ext/js/site.js"> </script>  <script src="../../../../../../ext/js/search.js"> </script> 
+    <script type="text/javascript">
+      var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22552764-5']); _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+      </script>
+      
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37808023-1']);
+    _gaq.push(['_setDomainName', 'ocaml.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['setCookieDomain', '*.ocaml.org']);
+      _paq.push(['setDocumentTitle', 'OPAM  opam-lib.42 opam-lib Module 'OpamSolution' Documentation ']);
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['setCustomVariable', 1, 'Page language',
+         'English',
+         'page']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+
+      (function() {
+        var u=(('https:' == document.location.protocol) ? 'https' : 'http') + '://ocaml.org/piwik/';
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//ocaml.org/piwik/piwik.php?idsite=1" style="border:0;" alt=""/></p></noscript>
+     
+
+  </body>
+</html>

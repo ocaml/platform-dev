@@ -1,121 +1,16 @@
 
   <feed xmlns="http://www.w3.org/2005/Atom">
      
-     <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/</id><title>The OCaml Platform Blog</title><author><uri>/Users/thomas/.opam/test/build/ocaml-org.42/</uri><name>The OCaml Platform Team</name></author><updated>2014-08-20T23:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/feed.xml"/>
-     <contributor><uri>http://ocamlpro.com</uri><name>Thomas Gazagnaire</name></contributor><contributor><uri>https://opam.ocaml.org</uri><name>OCaml Platform Team</name></contributor><contributor><uri>http://ocamlpro.com</uri><name>Louis Gesbert</name></contributor><contributor><uri>https://github.com/def-lkb</uri><name>Frederic Bour and Thomas Refis</name></contributor>
+     <id>/home/dsheets/Code/opam2web/blog/</id><title>The OCaml Platform Blog</title><author><uri>/home/dsheets/Code/opam2web/</uri><name>The OCaml Platform Team</name></author><updated>2014-08-18T23:00:00Z</updated><link rel="self" href="/home/dsheets/Code/opam2web/blog/feed.xml"/>
+     <contributor><uri>http://ocamlpro.com</uri><name>Thomas Gazagnaire</name></contributor><contributor><uri>https://opam.ocaml.org</uri><name>OCaml Platform Team</name></contributor><contributor><uri>http://ocamlpro.com</uri><name>Louis Gesbert</name></contributor>
      
   <entry>
-    <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/turn-your-editor-into-an-ocaml-ide/</id><title>Turn your editor into a full fledged OCaml IDE</title><author><uri>https://github.com/def-lkb</uri><name>Frederic Bour and Thomas Refis</name></author><updated>2014-08-20T23:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/turn-your-editor-into-an-ocaml-ide/"/>
+    <id>/home/dsheets/Code/opam2web/blog/opam-1-2-pin/</id><title>OPAM 1.2: Repository Pinning</title><author><uri>http://ocamlpro.com</uri><name>Louis Gesbert</name></author><updated>2014-08-18T23:00:00Z</updated><link rel="self" href="/home/dsheets/Code/opam2web/blog/opam-1-2-pin/"/>
     
-    <content type="xhtml" xml:base="/Users/thomas/.opam/test/build/ocaml-org.42/blog/turn-your-editor-into-an-ocaml-ide/">
+    <content type="xhtml" xml:base="/home/dsheets/Code/opam2web/blog/opam-1-2-pin/">
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-<p>This post is a short presentation of a couple of tools you can use with your
-editor to have a smoother experience while developing in OCaml.  We are working
-towards making these tools work out-of-the-box with OPAM, and hence will be
-blogging about them here along with the OPAM tool itself.</p>
-<p>At the time of writing, interfaces to these tools are available for
-Emacs and Vim.  Efforts are underway to add support for other editors,
-including <a href="https://github.com/raphael-proust/merlin-acme">Acme</a> and
-<a href="https://github.com/def-lkb/sublime-text-merlin">Sublime Text 3</a>.</p>
-<h1 id="Overview">Overview</h1>
-<p>The first tool, <a href="http://www.typerex.org/ocp-indent.html">ocp-indent</a>,
-handles the task of indenting your OCaml files.  It is an OCaml executable that
-can be used from the command line or directly from your editor.</p>
-<p>The second tool, <a href="http://the-lambda-church.github.io/merlin/">merlin</a> performs
-&quot;static analysis&quot; of your source files.  The analysis is then used to provide error reporting, source
-browsing, auto-completion and more.</p>
-<h2 id="Ocpindentforindentation">Ocp-indent for indentation</h2>
-<p>Most editors provide some kind of indentation &quot;out of the box&quot;.
-However recently a good chunk of the OCaml community has moved to using
-ocp-indent for fine-tuned indentation:</p>
-<ul>
- <li>it follows language evolution closely, nicely handling recent features,</li>
- <li>it will indent the same even if your co-worker has a different editor,</li>
- <li>it is more flexible, for instance by supporting project-specific styles;</li>
-</ul>
-
-<p>Indeed the indentation behaviour of ocp-indent can be configured through several
-options, directing how it will behave when encountering different OCaml language constructs.
-These options can either be set in a configuration file (such as 
-<a href="https://github.com/OCamlPro/ocp-indent/blob/master/.ocp-indent">this example configuration</a>)
-or passed directly as parameters when ocp-indent is invoked from the command line.</p>
-<p>Finally, ocp-indent will also recognize a number of common syntax extensions of the
-OCaml ecosystem and indent them meaningfully, while your editor probably will not.</p>
-<h2 id="Merlinforanalysis">Merlin for analysis</h2>
-<p>Merlin enhances your experience editing OCaml code by providing interactive
-feedback about your code.</p>
-<p>Under the hood, it maintains a &quot;code model&quot; of the file you are editing.  For
-other files in your project, it will use the output produced by the compiler;
-rebuild regularly after editing to keep the model synchronized with your code.</p>
-<p>From this code model, it provides a lot of useful features:</p>
-<ul>
- <li>scope/context-aware completion, like IntelliSense;</li>
- <li>querying the type of any expression in the file;</li>
- <li>quick reporting of type and syntax errors, shortening the editing cycle;</li>
- <li>jumping to definitions;</li>
- <li>listing uses of identifiers in the current buffer.</li>
-</ul>
-
-<p><img src="turn-your-editor-into-an-ocaml-ide-merlin.png" alt=""/></p>
-<h1 id="Quickstart">Quick start</h1>
-<p>Assuming opam is already installed on your system, you just need to invoke</p>
-<pre><code>$ opam install ocp-indent merlin</code></pre>
-<p>to install these two tools.</p>
-<p><strong>Emacs.</strong> You will have to add <code>opam/share</code> to <code>'load-path</code> and then load the plugin-specific
-file.  This can be done by adding the following lines to your <code>.emacs</code>:</p>
-<pre class="lisp"><code class="lisp">(setq opam-share (substring (shell-command-to-string &quot;opam config var share 2&gt; /dev/null&quot;) 0 -1))
-(add-to-list 'load-path (concat opam-share &quot;/emacs/site-lisp&quot;))
-
-(require 'ocp-indent)
-(require 'merlin)</code></pre>
-<p>For more information about merlin setup, you can look at
-<a href="https://github.com/the-lambda-church/merlin/wiki">the dedicated merlin wiki</a>.</p>
-<p><strong>Vim &amp; ocp-indent.</strong>  We recommend using the
-<a href="https://github.com/def-lkb/ocp-indent-vim">ocp-indent-vim</a> plugin instead of
-the default one. It provides interactive indentation &quot;as you type&quot;, while the
-official mode only provides an indenting function to call manually but
-no passive indentation.</p>
-<p>This mode does require vim to be compiled with Python support, while the
-official one doesn't.</p>
-<p>Installing is as simple as cloning
-<a href="https://github.com/def-lkb/ocp-indent-vim">ocp-indent-vim</a> and adding the
-directory to your runtime-path.</p>
-<p>Assuming your clone is in <code>~/my-clone-of/ocp-indent-vim</code>, add this to <code>.vimrc</code>:</p>
-<pre class="viml"><code class="viml">set rtp+=~/my-clone-of/ocp-indent-vim</code></pre>
-<p><strong>Vim &amp; merlin.</strong>  A comprehensive guide to the installation procedure for
-merlin is available on <a href="https://github.com/the-lambda-church/merlin/wiki">the dedicated
-merlin wiki</a>.  Once again, if you
-just want to get started the following lines contain everything you need.</p>
-<p>Loading merlin in vim boils down to adding the plugin directory to the
-runtime path. However as merlin depends on your current opam switch, a more
-flexible way is to find the current switch and use it as the base directory.</p>
-<p>This code does exactly that: it finds the current opam share directory, then adds
-the merlin plugin subdirectory to the current runtime path. Add it to your <code>.vimrc</code>:</p>
-<pre class="viml"><code class="viml">let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute &quot;set rtp+=&quot; . g:opamshare . &quot;/merlin/vim&quot;</code></pre>
-<h2 id="Integratingwithyourproject">Integrating with your project</h2>
-<p>To maintain synchronization with the compiler, merlin needs some information
-about the structure of your project: build and source directories, package
-dependencies, syntax extensions.  This structure can be described in a <code>.merlin</code> file in the root directory of your project.
-The <a href="https://github.com/the-lambda-church/merlin/blob/master/.merlin"><code>.merlin</code> file for the merlin project</a> illustrates the syntax.</p>
-<p>The <code>.merlin</code> file will be loaded the next time you open an OCaml file in the editor.</p>
-<p>To benefit from code navigation across files you'll also need to turn on
-generation of &quot;cmt&quot; files by passing the <code>-bin-annot</code> flag to the OCaml
-compiler.  You can do this in <code>ocamlbuild</code> by adding the <code>bin_annot</code> tag
-into the <code>_tags</code> file with OCaml 4.01 and higher.</p>
-
-   </div>
-  </content>
-  </entry>
-
-  <entry>
-    <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-2-pin/</id><title>OPAM 1.2: Repository Pinning</title><author><uri>http://ocamlpro.com</uri><name>Louis Gesbert</name></author><updated>2014-08-18T23:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-2-pin/"/>
-    
-    <content type="xhtml" xml:base="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-2-pin/">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-<p><img style="float:left; padding: 5px" src="camel-pin.jpg" width="200px"/></p>
+<p><img width="200px" src="camel-pin.jpg" style="float:left; padding: 5px"/></p>
 <p>Most package managers support some <em>pin</em> functionality to ensure that a given
 package remains at a particular version without being upgraded.
 The stable OPAM 1.1 already supported this by allowing any existing package to be
@@ -269,9 +164,9 @@ experience and thoughts on the new workflow on the <a href="https://github.com/o
   </entry>
 
   <entry>
-    <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-2-0-beta4/</id><title>OPAM 1.2.0 public beta released</title><author><uri>https://opam.ocaml.org</uri><name>OCaml Platform Team</name></author><updated>2014-08-13T23:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-2-0-beta4/"/>
+    <id>/home/dsheets/Code/opam2web/blog/opam-1-2-0-beta4/</id><title>OPAM 1.2.0 public beta released</title><author><uri>https://opam.ocaml.org</uri><name>OCaml Platform Team</name></author><updated>2014-08-13T23:00:00Z</updated><link rel="self" href="/home/dsheets/Code/opam2web/blog/opam-1-2-0-beta4/"/>
     
-    <content type="xhtml" xml:base="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-2-0-beta4/">
+    <content type="xhtml" xml:base="/home/dsheets/Code/opam2web/blog/opam-1-2-0-beta4/">
     <div xmlns="http://www.w3.org/1999/xhtml">
       
 <p>It has only been 18 months since the first release of OPAM, but it is already
@@ -280,7 +175,7 @@ has helped bring together much of the open-source code in the OCaml community
 under a single umbrella, making it easier to discover, depend on, and maintain
 OCaml applications and libraries.  We have seen steady growth in the number
 of new packages, updates to existing code, and a diverse group of contributors.
-<a href="packages.png"><img style="float:right; padding: 5px" src="packages.png" width="350px"/></a></p>
+<a href="packages.png"><img width="350px" src="packages.png" style="float:right; padding: 5px"/></a></p>
 <p>OPAM has turned out to be more than just another package manager. It is also
 increasingly central to the demanding workflow of industrial OCaml development,
 since it supports multiple simultaneous (patched) compiler installations,
@@ -472,9 +367,9 @@ benefit from the new features.</p>
   </entry>
 
   <entry>
-    <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-1-released/</id><title>OPAM 1.1.1 released</title><author><uri>http://ocamlpro.com</uri><name>Louis Gesbert</name></author><updated>2014-01-29T00:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-1-released/"/>
+    <id>/home/dsheets/Code/opam2web/blog/opam-1-1-1-released/</id><title>OPAM 1.1.1 released</title><author><uri>http://ocamlpro.com</uri><name>Louis Gesbert</name></author><updated>2014-01-29T00:00:00Z</updated><link rel="self" href="/home/dsheets/Code/opam2web/blog/opam-1-1-1-released/"/>
     
-    <content type="xhtml" xml:base="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-1-released/">
+    <content type="xhtml" xml:base="/home/dsheets/Code/opam2web/blog/opam-1-1-1-released/">
     <div xmlns="http://www.w3.org/1999/xhtml">
       
 <p>We are proud to announce that <em>OPAM 1.1.1</em> has just been released.</p>
@@ -535,9 +430,9 @@ such a success.</p>
   </entry>
 
   <entry>
-    <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-released/</id><title>OPAM 1.1.0 released</title><author><uri>http://ocamlpro.com</uri><name>Thomas Gazagnaire</name></author><updated>2013-11-08T00:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-released/"/>
+    <id>/home/dsheets/Code/opam2web/blog/opam-1-1-0-released/</id><title>OPAM 1.1.0 released</title><author><uri>http://ocamlpro.com</uri><name>Thomas Gazagnaire</name></author><updated>2013-11-08T00:00:00Z</updated><link rel="self" href="/home/dsheets/Code/opam2web/blog/opam-1-1-0-released/"/>
     
-    <content type="xhtml" xml:base="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-released/">
+    <content type="xhtml" xml:base="/home/dsheets/Code/opam2web/blog/opam-1-1-0-released/">
     <div xmlns="http://www.w3.org/1999/xhtml">
       
 <p>After a while staged as RC, we are proud to announce the final release of
@@ -608,9 +503,9 @@ help us to improve the quality of contributions (see <a href="http://anil.recoil
   </entry>
 
   <entry>
-    <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-release-candidate/</id><title>OPAM 1.1.0 release candidate out</title><author><uri>http://ocamlpro.com</uri><name>Louis Gesbert</name></author><updated>2013-10-13T23:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-release-candidate/"/>
+    <id>/home/dsheets/Code/opam2web/blog/opam-1-1-0-release-candidate/</id><title>OPAM 1.1.0 release candidate out</title><author><uri>http://ocamlpro.com</uri><name>Louis Gesbert</name></author><updated>2013-10-13T23:00:00Z</updated><link rel="self" href="/home/dsheets/Code/opam2web/blog/opam-1-1-0-release-candidate/"/>
     
-    <content type="xhtml" xml:base="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-release-candidate/">
+    <content type="xhtml" xml:base="/home/dsheets/Code/opam2web/blog/opam-1-1-0-release-candidate/">
     <div xmlns="http://www.w3.org/1999/xhtml">
       
 <p><strong>OPAM 1.1.0 is ready</strong>, and we are shipping a release candidate for
@@ -667,9 +562,9 @@ resistant, but failures might happen. In case you have precious data in your
   </entry>
 
   <entry>
-    <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-beta/</id><title>OPAM 1.1.0 beta released</title><author><uri>http://ocamlpro.com</uri><name>Thomas Gazagnaire</name></author><updated>2013-09-19T23:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-beta/"/>
+    <id>/home/dsheets/Code/opam2web/blog/opam-1-1-0-beta/</id><title>OPAM 1.1.0 beta released</title><author><uri>http://ocamlpro.com</uri><name>Thomas Gazagnaire</name></author><updated>2013-09-19T23:00:00Z</updated><link rel="self" href="/home/dsheets/Code/opam2web/blog/opam-1-1-0-beta/"/>
     
-    <content type="xhtml" xml:base="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-1-0-beta/">
+    <content type="xhtml" xml:base="/home/dsheets/Code/opam2web/blog/opam-1-1-0-beta/">
     <div xmlns="http://www.w3.org/1999/xhtml">
       
 <p>We are very happy to announce the <strong>beta release</strong> of OPAM version 1.1.0!</p>
@@ -770,15 +665,14 @@ folder before you upgrade to 1.1</strong>.</p>
  <li>Fix the contents of <code>~/.opam/opam-init/variable.sh</code> after a switch</li>
 </ul>
 
-
    </div>
   </content>
   </entry>
 
   <entry>
-    <id>/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-0-0-released/</id><title>OPAM 1.0.0 released</title><author><uri>http://ocamlpro.com</uri><name>Thomas Gazagnaire</name></author><updated>2013-03-15T00:00:00Z</updated><link rel="self" href="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-0-0-released/"/>
+    <id>/home/dsheets/Code/opam2web/blog/opam-1-0-0-released/</id><title>OPAM 1.0.0 released</title><author><uri>http://ocamlpro.com</uri><name>Thomas Gazagnaire</name></author><updated>2013-03-15T00:00:00Z</updated><link rel="self" href="/home/dsheets/Code/opam2web/blog/opam-1-0-0-released/"/>
     
-    <content type="xhtml" xml:base="/Users/thomas/.opam/test/build/ocaml-org.42/blog/opam-1-0-0-released/">
+    <content type="xhtml" xml:base="/home/dsheets/Code/opam2web/blog/opam-1-0-0-released/">
     <div xmlns="http://www.w3.org/1999/xhtml">
       
 <p>I am <em>very</em> happy to announce the first official release of OPAM!</p>
