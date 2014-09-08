@@ -1,0 +1,16 @@
+opam-version: "1"
+maintainer: "sheets@alum.mit.edu"
+authors: [
+  "David Sheets <sheets@alum.mit.edu>"
+]
+license: "ISC"
+depends: [
+  "assemblage"
+  "ocamlfind"
+]
+build: [
+  ["assemblage" "setup" "--dumpast=false"]
+  [make]
+  [make "install"]
+]
+remove: ["ocamlfind" "remove" "ocamlfind-units"]
