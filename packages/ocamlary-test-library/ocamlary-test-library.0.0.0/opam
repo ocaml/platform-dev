@@ -1,0 +1,6 @@
+opam-version: "1"
+maintainer: "David Sheets <sheets@alum.mit.edu>"
+authors: "David Sheets <sheets@alum.mit.edu>"
+build: [
+  [make]
+]
