@@ -6,4 +6,4 @@ env:
   matrix:
     - OCAML_VERSION=4.02.0
     - OCAML_VERSION=4.01.0
-    - OCAML_VERSION=4.02.0+doc
+    - OCAML_VERSION=4.02.1+doc
