@@ -1,8 +1,8 @@
 # Install OCaml and OPAM PPAs
 case "$OCAML_VERSION" in
   4.01.0) ppa=avsm/ocaml41+opam12 ;;
-  4.02.0) ppa=avsm/ocaml41+opam12 ;;
-  4.02.0+doc) ppa=avsm/ocaml41+opam12 ;;
+  4.02.1) ppa=avsm/ocaml41+opam12 ;;
+  4.02.1+doc) ppa=avsm/ocaml41+opam12 ;;
   *) echo Unknown $OCAML_VERSION; exit 1 ;;
 esac
 
@@ -22,12 +22,12 @@ case "$OCAML_VERSION" in
   4.01.0)
     opam install opam-publish
     opam install ocaml-org ;;
-  4.02.0)
-    opam switch 4.02.0+rc1
+  4.02.1)
+    opam switch 4.02.1
     opam install opam-publish
     opam install ocaml-org ;;
-  4.02.0+doc)
-    opam switch 4.02.0+doc
+  4.02.1+doc)
+    opam switch 4.02.1+doc
     opam install opam-publish
     opam install opam-doc-base
     opam install ocaml-org ;;
