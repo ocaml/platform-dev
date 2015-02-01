@@ -13,10 +13,11 @@ depends: [
   "ocamlfind"
   "assemblage"
 ]
-ocaml-version: [= "4.02.0+doc"]
 build: [
   ["assemblage" "setup" "--dumpast=false"]
   [make]
   [make "install"]
 ]
 remove: ["ocamlfind" "remove" "opam-doc-base"]
+available: [ compiler = "4.02.1+doc" ]
+
