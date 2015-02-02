@@ -1,0 +1,3 @@
+opam-version: "1"
+maintainer: "contact@ocamlpro.com"
+available: [ compiler < "4.02.0" | compiler = "4.02.1+doc" ]
