@@ -1,0 +1,16 @@
+opam-version: "1"
+build: [
+  ["./configure-share.sh" "%{share}%/codoc"]
+  [make]
+  [make "install"]
+]
+depends: [
+  "ocamlfind"
+  "stringext"
+  "xmlm"
+  "cow" {>= "1.2.0"}
+  "doc-ock-lib" {>= "0.2.0"}
+  "doc-ock-xml" {>= "0.2.0"}
+  "cmdliner"
+]
+available: [ compiler = "4.02.1+doc" ]
