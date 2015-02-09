@@ -1,0 +1,12 @@
+opam-version: "1"
+maintainer: "lpw25@cl.cam.ac.uk"
+authors: [
+  "Leo White <lpw25@cl.cam.ac.uk>"
+]
+license: "ISC"
+build: [
+  [make]
+  [make "install"]
+]
+remove: ["ocamlfind" "remove" "doc-ock"]
+available: [ compiler = "4.02.1+doc" ]
