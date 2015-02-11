@@ -8,5 +8,8 @@ build: [
   [make]
   [make "install"]
 ]
+depends: [
+  "ocamlfind"
+]
 remove: ["ocamlfind" "remove" "doc-ock"]
 available: [ compiler = "4.02.1+doc" ]
