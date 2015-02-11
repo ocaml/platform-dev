@@ -6,6 +6,7 @@ build: [
 ]
 depends: [
   "ocamlfind"
+  "dumpast"
   "stringext"
   "xmlm"
   "cow" {>= "1.2.0"}
